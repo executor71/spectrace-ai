@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Requirements from './Requirements'
 
 type ServiceState = 'checking' | 'online' | 'offline'
 
@@ -59,6 +60,8 @@ export default function App() {
         <h1>변경 요청을<br /><em>근거와 함께.</em></h1>
         <p className="lede">업무 규칙과 API 명세를 찾아 요구사항을 분석하고, 검토할 테스트 초안을 준비합니다.</p>
       </section>
+
+      <Requirements />
 
       <section className="workspace" aria-labelledby="workspace-title">
         <div className="section-heading">

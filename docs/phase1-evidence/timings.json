@@ -1,0 +1,48 @@
+[
+  {
+    "step": "apply",
+    "return_s": 5.774,
+    "output": "Baseline source snapshot saved without .env; changed files:\r\ncompose.test.yaml\r\nfrontend\\src\\Requirements.tsx\r\nbackend\\src\\test\\java\\com\\example\\legacyassistant\\requirement\\RequirementIntegrationTest.java\r\nbackend\\src\\test\\java\\com\\example\\legacyassistant\\requirement\\RequirementServiceTest.java\r\nbackend\\src\\main\\resources\\db\\migration\\V3__validate_requirement_content.sql\r\nbackend\\src\\main\\java\\com\\example\\legacyassistant\\requirement\\ApiExceptionHandler.java\r\nbackend\\src\\main\\java\\com\\example\\legacyassistant\\requirement\\CreateRequirementRequest.java\r\nbackend\\src\\main\\java\\com\\example\\legacyassistant\\requirement\\Requirement.java\r\nbackend\\src\\main\\java\\com\\example\\legacyassistant\\requirement\\RequirementController.java\r\nbackend\\src\\main\\java\\com\\example\\legacyassistant\\requirement\\RequirementNotFoundException.java\r\nbackend\\src\\main\\java\\com\\example\\legacyassistant\\requirement\\RequirementRepository.java\r\nbackend\\src\\main\\java\\com\\example\\legacyassistant\\requirement\\RequirementService.java\r\nbackend/pom.xml\r\nfrontend/src/App.tsx\r\nfrontend/src/App.tsx\r\nfrontend/vite.config.ts\r\nfrontend/src/style.css\r\nfrontend/Dockerfile\r\nCOMMAND_ELAPSED_MS=318\r\n"
+  },
+  {
+    "step": "backend-tests",
+    "return_s": 13.524,
+    "output": "",
+    "session": 81698
+  },
+  {
+    "step": "backend-tests-poll",
+    "return_s": 0.001,
+    "output": "COMMAND_ELAPSED_MS=30846\r\npostgres-test-1  | 2026-09-29 12:35:25.514 UTC [97] STATEMENT:  INSERT INTO app.requirement(id,title,description) VALUE\r\nS ($1, $2, $3)\r\nbackend-test-1   | [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.841 s -- in com.example.legacyassistant.requirement.RequirementIntegrationTest\r\nbackend-test-1   | [INFO] Running com.example.legacyassistant.requirement.RequirementServiceTest\r\nbackend-test-1   | [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.279 s -- in com.example.legacyassistant.requirement.RequirementServiceTest\r\nbackend-test-1   | [INFO] \r\nbackend-test-1   | [INFO] Results:\r\nbackend-test-1   | [INFO] \r\nbackend-test-1   | [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0\r\nbackend-test-1   | [INFO] \r\nbackend-test-1   | [INFO] ------------------------------------------------------------------------\r\nbackend-test-1   | [INFO] BUILD SUCCESS\r\nbackend-test-1   | [INFO] ------------------------------------------------------------------------\r\nbackend-test-1   | [INFO] Total time:  5.479 s\r\nbackend-test-1   | [INFO] Finished at: 2026-09-29T12:35:26Z\r\nbackend-test-1   | [INFO] ------------------------------------------------------------------------\r\n\r\n\u001b[Kbackend-test-1 exited with code 0\r\n Compose Stopping Aborting on container exit...\r\n Container master-phase1-test-backend-test-1 Stopping \r\n Container master-phase1-test-backend-test-1 Stopped \r\n Container master-phase1-test-postgres-test-1 Stopping \r\npostgres-test-1  | 2026-09-29 12:35:26.292 UTC [1] LOG:  received fast shutdown request\r\npostgres-test-1  | 2026-09-29 12:35:26.292 UTC [1] LOG:  aborting any active transactions\r\npostgres-test-1  | 2026-09-29 12:35:26.294 UTC [1] LOG:  background worker \"logical replication launcher\" (PID 70) exit\r\ned with exit code 1\r\npostgres-test-1  | 2026-09-29 12:35:26.294 UTC [65] LOG:  shutting down\r\npostgres-test-1  | 2026-09-29 12:35:26.294 UTC [65] LOG:  checkpoint starting: shutdown immediate\r\npostgres-test-1  | 2026-09-29 12:35:26.295 UTC [65] LOG:  checkpoint complete: wrote 128 buffers (0.8%); 0 WAL file(s) \r\nadded, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=65, longest=0.001 s, average=0.000\r\n s; distance=295 kB, estimate=295 kB; lsn=0/19BEB40, redo lsn=0/19BEB40\r\npostgres-test-1  | 2026-09-29 12:35:26.299 UTC [1] LOG:  database system is shut down\r\n Container master-phase1-test-postgres-test-1 Stopped \r\n\r\n\u001b[Kpostgres-test-1 exited with code 0\r\n"
+  },
+  {
+    "step": "compose-build",
+    "return_s": 11.18,
+    "output": "COMMAND_ELAPSED_MS=7952\r\n#42 exporting attestation manifest sha256:d33fc689ee2c49eb9a054269e390898f00d4e9a5edc9bf89f080e1038bff7ab6 0.0s done\r\n#42 exporting manifest list sha256:6cf1f7a0abfd9addaeb8e54312ce2c182fd5ebbea9f7b7c4fba1372916f702ab 0.0s done\r\n#42 naming to docker.io/library/master-frontend:latest done\r\n#42 unpacking to docker.io/library/master-frontend:latest 0.1s done\r\n#42 DONE 0.5s\r\n\r\n#43 [frontend] resolving provenance for metadata file\r\n#43 DONE 0.0s\r\n Image master-frontend Built \r\n Image master-ai-service Built \r\n Image master-backend Built \r\n Container master-postgres-1 Running \r\n Container master-ai-service-1 Running \r\n Container master-backend-1 Recreate \r\n Container master-backend-1 Recreated \r\n Container master-frontend-1 Recreate \r\n Container master-frontend-1 Recreated \r\n Container master-postgres-1 Waiting \r\n Container master-postgres-1 Waiting \r\n Container master-postgres-1 Healthy \r\n Container master-postgres-1 Healthy \r\n Container master-backend-1 Starting \r\n Container master-backend-1 Started \r\n Container master-frontend-1 Starting \r\n Container master-frontend-1 Started \r\n"
+  },
+  {
+    "step": "api-browser",
+    "return_s": 7.224,
+    "output": "{\r\n  \"result\": \"PASS\",\r\n  \"api_checks\": 7,\r\n  \"ui_checks\": [\r\n    \"blank validation\",\r\n    \"create 201\",\r\n    \"reload and GET 200\",\r\n    \"invalid UUID 400\",\r\n    \"missing UUID 404\",\r\n    \"no stale result on failure\",\r\n    \"mobile layout\",\r\n    \"two service health states\"\r\n  ],\r\n  \"created_sample_ids\": [\r\n    \"9fe79a4c-54ce-4810-8a99-2d5c9b3f1203\",\r\n    \"6f1fd8bb-b9c2-4be9-a095-879a30447376\"\r\n  ],\r\n  \"elapsed_seconds\": 3.182\r\n}\r\nCOMMAND_ELAPSED_MS=3439\r\n"
+  },
+  {
+    "step": "migration",
+    "return_s": 2.855,
+    "output": " version |         description          | success \n---------+------------------------------+---------\n 1       | create initial tables        | t\n 2       | protect flyway history       | t\n 3       | validate requirement content | t\n(3 rows)\n\n            conname             \n--------------------------------\n requirement_description_length\n requirement_pkey\n requirement_status_check\n requirement_title_not_blank\n(4 rows)\n\nCOMMAND_ELAPSED_MS=190\r\n"
+  },
+  {
+    "step": "phase0-boundaries",
+    "return_s": 3.81,
+    "output": "BEGIN\nSET\nCREATE TABLE\nRESET\n  nspname   |      owner      \n------------+-----------------\n app        | migration_owner\n rag        | migration_owner\n evaluation | migration_owner\n(3 rows)\n\n      rolname      | rolsuper | rolcreatedb | rolcreaterole | rolbypassrls \n-------------------+----------+-------------+---------------+--------------\n migration_owner   | f        | f           | f             | f\n app_user          | f        | f           | f             | f\n rag_reader        | f        | f           | f             | f\n evaluation_reader | f        | f           | f             | f\n(4 rows)\n\nDO\nNOTICE:  PASS: 36 permission checks, 3 actual allowed reads, Flyway protection\nROLLBACK\n probe_removed \n---------------\n t\n(1 row)\n\nCOMMAND_ELAPSED_MS=224\r\n"
+  },
+  {
+    "step": "docs-baseline-audit",
+    "return_s": 4.434,
+    "output": "PASS: Phase 0 Compose, DB roles, V1/V2, application config and AI files unchanged\r\nDocumentation and baseline diff saved\r\nCOMMAND_ELAPSED_MS=186\r\n"
+  },
+  {
+    "step": "test-cleanup",
+    "return_s": 3.915,
+    "output": " Container master-phase1-test-backend-test-1 Stopping \n Container master-phase1-test-backend-test-1 Stopped \n Container master-phase1-test-backend-test-1 Removing \n Container master-phase1-test-backend-test-1 Removed \n Container master-phase1-test-postgres-test-1 Stopping \n Container master-phase1-test-postgres-test-1 Stopped \n Container master-phase1-test-postgres-test-1 Removing \n Container master-phase1-test-postgres-test-1 Removed \n Network master-phase1-test_default Removing \n Network master-phase1-test_default Removed \nCOMMAND_ELAPSED_MS=428\r\n"
+  }
+]

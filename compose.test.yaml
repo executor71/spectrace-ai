@@ -1,0 +1,38 @@
+services:
+  postgres-test:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: legacy_assistant_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test_postgres_only
+      DB_MIGRATION_PASSWORD: test_migration_only
+      DB_APP_PASSWORD: test_app_only
+      RAG_DB_PASSWORD: test_rag_only
+      EVALUATION_DB_PASSWORD: test_evaluation_only
+    volumes:
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d legacy_assistant_test"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+
+  backend-test:
+    build:
+      context: ./backend
+      target: build
+    command: ["mvn", "-B", "-ntp", "test"]
+    environment:
+      DB_HOST: postgres-test
+      DB_NAME: legacy_assistant_test
+      DB_APP_USER: app_user
+      DB_APP_PASSWORD: test_app_only
+      DB_MIGRATION_USER: migration_owner
+      DB_MIGRATION_PASSWORD: test_migration_only
+    volumes:
+      - ./docs/phase1-evidence/test-results:/workspace/target/surefire-reports
+    depends_on:
+      postgres-test:
+        condition: service_healthy

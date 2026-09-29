@@ -1,0 +1,22 @@
+[
+  "README.md",
+  "backend/pom.xml",
+  "backend/src/main/java/com/example/legacyassistant/requirement/ApiExceptionHandler.java",
+  "backend/src/main/java/com/example/legacyassistant/requirement/CreateRequirementRequest.java",
+  "backend/src/main/java/com/example/legacyassistant/requirement/Requirement.java",
+  "backend/src/main/java/com/example/legacyassistant/requirement/RequirementController.java",
+  "backend/src/main/java/com/example/legacyassistant/requirement/RequirementNotFoundException.java",
+  "backend/src/main/java/com/example/legacyassistant/requirement/RequirementRepository.java",
+  "backend/src/main/java/com/example/legacyassistant/requirement/RequirementService.java",
+  "backend/src/main/resources/db/migration/V3__validate_requirement_content.sql",
+  "backend/src/test/java/com/example/legacyassistant/requirement/RequirementIntegrationTest.java",
+  "backend/src/test/java/com/example/legacyassistant/requirement/RequirementServiceTest.java",
+  "compose.test.yaml",
+  "docs/api.md",
+  "docs/data-model.md",
+  "frontend/Dockerfile",
+  "frontend/src/App.tsx",
+  "frontend/src/Requirements.tsx",
+  "frontend/src/style.css",
+  "frontend/vite.config.ts"
+]

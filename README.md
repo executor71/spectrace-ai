@@ -1,36 +1,37 @@
 # Legacy Change Assistant PoC
 
-레거시 업무시스템 변경 요구사항을 대상으로 RAG 근거 검색, 분석, 테스트 케이스 초안을 제공하기 위한 PoC입니다. 이 단계는 실행 가능한 서비스 뼈대와 DB 경계만 포함하며, Requirement 등록을 포함한 제품 기능은 다음 단계에서 구현합니다.
+현재 완료 범위는 Phase 0 기동/권한 경계와 Phase 1 Requirement 등록·조회입니다.
 
 ## 실행
 
-Docker Desktop을 실행한 뒤 저장소 루트에서 다음 명령을 실행합니다.
+Docker Desktop을 실행하고 프로젝트 루트에서:
 
 ```powershell
-Copy-Item .env.example .env
-docker compose up --build
+if (!(Test-Path .env)) { Copy-Item .env.example .env }
+docker compose up --build -d
 ```
 
-`.env`의 값은 로컬 개발 전용입니다. 운영 환경에서는 반드시 별도 비밀 값과 관리 방식을 사용해야 합니다. 첫 DB 초기화 시 PostgreSQL volume이 새로 만들어지고 Flyway가 스키마와 초기 테이블을 생성합니다.
+React: http://localhost:5173 에서 제목과 내용을 저장하고 반환된 ID로 조회합니다. Spring health는 http://localhost:8080/actuator/health, AI health는 http://localhost:8000/health 입니다.
 
-- React: http://localhost:5173
-- Spring Boot health: http://localhost:8080/actuator/health
-- Python AI Service health: http://localhost:8000/health
+PostgreSQL/pgvector, JDK/Maven, Python, Node는 컨테이너 이미지에서 제공합니다. 호스트에 별도 런타임을 설치할 필요가 없습니다. .env는 로컬 개발용이며 commit하지 않습니다.
 
-Compose 로그에서 `Successfully applied 2 migrations`을 확인하고, health 응답에서 Spring의 `db` 상태 및 AI Service의 PostgreSQL 연결 상태가 정상인지 확인합니다.
+## Backend 테스트
 
-초기화 SQL은 빈 PostgreSQL volume에서만 실행됩니다. 기존 volume이 있는 경우 기존 데이터를 제거하지 말고 별도 검토 후 마이그레이션하십시오. 이 PoC는 샘플 데이터만 사용하며 실제 회사 데이터를 넣지 않습니다.
+```powershell
+docker compose -f compose.test.yaml -p master-phase1-test up --build --abort-on-container-exit --exit-code-from backend-test
+docker compose -f compose.test.yaml -p master-phase1-test down
+```
 
-## 현재 범위
+별도 PostgreSQL tmpfs DB에서 실제 V1~V3 migration을 적용하고 app_user로 단위/통합 테스트를 실행합니다. 테스트 DB는 호스트 포트를 열지 않고 앱 DB volume과 분리됩니다. JDK/Python/PostgreSQL의 호스트 설치나 Docker socket 마운트가 필요 없습니다. 테스트 컨테이너는 유한 작업이며 종료코드가 테스트 결과입니다. 결과는 docs/phase1-evidence/test-results에 저장됩니다.
 
-현재 구현: 서비스 health, PostgreSQL 연결, schema/role 초기화, Flyway 초기 migration.
+## 경계와 기준점
 
-다음 단계: Requirement 등록부터 시작합니다. 이후 RAG 검색, 요구사항 분석, 테스트 케이스 생성, Review, Ground Truth Evaluation, Dummy Execution 순으로 확장합니다. Review, Evaluation, Dummy Execution은 아직 구현하지 않습니다.
+- app: Spring 업무 계정 app_user. migration_owner는 migration 전용.
+- rag: AI의 rag_reader만 읽기. evaluation은 별도 evaluation_reader.
+- Phase 0 원본은 docs/phase0-baseline/source.zip과 sha256.json에 보존했습니다(.env 제외).
+- V1/V2와 기존 Compose/DB bootstrap/AI Service는 그대로 유지합니다. V3는 Requirement 입력 제약만 추가합니다.
+- 기존 DB volume은 삭제하지 않습니다. 새 volume은 bootstrap 후 V1~V3, 기존 Phase 0 volume은 V3를 적용합니다.
 
-## 데이터 접근 경계
+RAG/Embedding/LangGraph 분석/테스트케이스 생성/Evaluation/Dummy 실행/GraphRAG/MCP는 미구현입니다.
 
-- `app`: Spring Boot가 소유하는 업무 데이터. `app_user`는 이 schema의 업무 테이블만 읽고 씁니다.
-- `rag`: 지식 문서, chunk, embedding. Spring Boot의 migration role이 schema를 준비하고 `rag_reader`는 읽기 전용입니다. AI Service는 이 계정만 사용합니다.
-- `evaluation`: 향후 Ground Truth와 평가 데이터를 위한 별도 schema. `evaluation_reader` 전용이며 AI Service 환경에는 해당 자격 증명을 전달하지 않습니다.
-
-일반 LangGraph workflow에는 Evaluation repository/service 또는 evaluation 자격 증명을 연결하지 않습니다. 사용자 승인, 업무 상태 변경, Dummy API 실행 권한 검증은 향후에도 Spring Boot가 최종 책임을 가집니다.
+[API 계약](docs/api.md) · [Phase 1 결과](docs/phase1-result.md) · [Phase 0 결과](docs/phase0-recheck.md)

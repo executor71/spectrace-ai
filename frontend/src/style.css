@@ -26,7 +26,24 @@ body {
   background-color: #f4f2ec;
 }
 
-button, a { font: inherit; }
+button, a, input, textarea { font: inherit; }
+.requirements { margin-bottom: 44px; }
+.requirements form { display: grid; gap: 12px; margin-bottom: 24px; }
+.requirements label { font-size: 14px; font-weight: 700; }
+.requirements label span { font-size: 12px; color: var(--muted); font-weight: 400; }
+.requirements input, .requirements textarea { width: 100%; border: 1px solid var(--line); padding: 12px; background: var(--paper); color: var(--ink); border-radius: 4px; }
+.requirements textarea { resize: vertical; }
+.requirements button { justify-self: start; padding: 12px 20px; background: var(--green); color: white; border: 0; border-radius: 4px; cursor: pointer; }
+.requirements button:disabled { opacity: .55; cursor: wait; }
+.requirements :focus-visible { outline: 3px solid #c78842; outline-offset: 3px; }
+.lookup-controls { display: flex; gap: 12px; }
+.lookup-controls button { flex-shrink: 0; }
+.form-error { color: #a6453c; }
+.form-notice { color: var(--green); }
+.requirement-result { background: var(--paper); border: 1px solid var(--line); padding: 20px; overflow-wrap: anywhere; }
+.requirement-result dl { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 8px; font-size: 13px; }
+.requirement-result dd { margin: 0; }
+.requirement-description { white-space: pre-wrap; line-height: 1.8; }
 
 .shell {
   width: min(100% - 64px, 1080px);

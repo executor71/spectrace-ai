@@ -22,3 +22,9 @@
 - `evaluation_reader`: 향후 Evaluation Service 전용 읽기 계정. AI Service에는 전달하지 않음.
 
 Ground Truth는 `evaluation` schema에만 저장하고 `rag` 문서/chunk 테이블에 넣지 않습니다. Evaluation용 Repository/Service와 일반 생성 workflow의 Repository/Service를 코드 및 credential 수준에서 분리합니다.
+
+## Phase 1 적용
+
+V1/V2는 변경하지 않았다. V3는 기존 app.requirement에 제목 공백 방지와 내용 공백/10,000자 길이 제약을 추가한다. 기존 UUID PK, VARCHAR(200), DRAFT 기본값, 생성시각 및 상태 제약을 유지한다. 소유자/권한 및 rag/evaluation은 변경하지 않는다.
+
+Spring의 Requirement record는 id/title/description/status/createdAt을 반환한다. JdbcClient 기반 Repository는 app.requirement에만 접근하며 Service에서 등록/조회 트랜잭션을 관리한다.

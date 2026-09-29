@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+      '/api': 'http://backend:8080',
       '/actuator': 'http://backend:8080',
       '/ai-health': {
         target: 'http://ai-service:8000',

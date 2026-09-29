@@ -1,0 +1,120 @@
+{
+  "result": "PASS",
+  "api_checks": [
+    {
+      "path": "/api/requirements",
+      "http_status": 201,
+      "body": {
+        "id": "9fe79a4c-54ce-4810-8a99-2d5c9b3f1203",
+        "title": "Phase 1 API 검증 샘플",
+        "description": "합성 데이터: 미배송 주문의 취소 조건을 등록합니다.",
+        "status": "DRAFT",
+        "createdAt": "2026-09-29T12:37:00.053440Z"
+      }
+    },
+    {
+      "path": "/api/requirements/9fe79a4c-54ce-4810-8a99-2d5c9b3f1203",
+      "http_status": 200,
+      "body": {
+        "id": "9fe79a4c-54ce-4810-8a99-2d5c9b3f1203",
+        "title": "Phase 1 API 검증 샘플",
+        "description": "합성 데이터: 미배송 주문의 취소 조건을 등록합니다.",
+        "status": "DRAFT",
+        "createdAt": "2026-09-29T12:37:00.053440Z"
+      }
+    },
+    {
+      "path": "/api/requirements",
+      "http_status": 400,
+      "body": {
+        "code": "VALIDATION_ERROR",
+        "message": "입력값을 확인해 주세요.",
+        "fieldErrors": {
+          "description": "내용을 입력해 주세요.",
+          "title": "제목을 입력해 주세요."
+        }
+      }
+    },
+    {
+      "path": "/api/requirements",
+      "http_status": 400,
+      "body": {
+        "code": "VALIDATION_ERROR",
+        "message": "입력값을 확인해 주세요.",
+        "fieldErrors": {
+          "title": "제목은 200자 이하로 입력해 주세요."
+        }
+      }
+    },
+    {
+      "path": "/api/requirements/not-a-uuid",
+      "http_status": 400,
+      "body": {
+        "code": "INVALID_ID",
+        "message": "올바른 UUID를 입력해 주세요.",
+        "fieldErrors": {}
+      }
+    },
+    {
+      "path": "/api/requirements/22043c7d-383f-44c3-b1a4-ae5172f9b9c4",
+      "http_status": 404,
+      "body": {
+        "code": "REQUIREMENT_NOT_FOUND",
+        "message": "요구사항을 찾을 수 없습니다.",
+        "fieldErrors": {}
+      }
+    },
+    {
+      "path": "/actuator/health",
+      "http_status": 200,
+      "body": {
+        "status": "UP",
+        "components": {
+          "db": {
+            "status": "UP",
+            "details": {
+              "database": "PostgreSQL",
+              "validationQuery": "isValid()"
+            }
+          },
+          "diskSpace": {
+            "status": "UP",
+            "details": {
+              "total": 1081101176832,
+              "free": 1020880171008,
+              "threshold": 10485760,
+              "path": "/app/.",
+              "exists": true
+            }
+          },
+          "ping": {
+            "status": "UP"
+          },
+          "ssl": {
+            "status": "UP",
+            "details": {
+              "validChains": [],
+              "invalidChains": []
+            }
+          }
+        }
+      }
+    }
+  ],
+  "created_sample_ids": [
+    "9fe79a4c-54ce-4810-8a99-2d5c9b3f1203",
+    "6f1fd8bb-b9c2-4be9-a095-879a30447376"
+  ],
+  "ui_checks": [
+    "blank validation",
+    "create 201",
+    "reload and GET 200",
+    "invalid UUID 400",
+    "missing UUID 404",
+    "no stale result on failure",
+    "mobile layout",
+    "two service health states"
+  ],
+  "page_errors": [],
+  "elapsed_seconds": 3.182
+}

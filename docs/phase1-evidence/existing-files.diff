@@ -1,0 +1,955 @@
+--- phase0/README.md
++++ phase1/README.md
+@@ -1,36 +1,37 @@
+-# Legacy Change Assistant PoC
+-
+-레거시 업무시스템 변경 요구사항을 대상으로 RAG 근거 검색, 분석, 테스트 케이스 초안을 제공하기 위한 PoC입니다. 이 단계는 실행 가능한 서비스 뼈대와 DB 경계만 포함하며, Requirement 등록을 포함한 제품 기능은 다음 단계에서 구현합니다.
+-
+-## 실행
+-
+-Docker Desktop을 실행한 뒤 저장소 루트에서 다음 명령을 실행합니다.
+-
+-```powershell
+-Copy-Item .env.example .env
+-docker compose up --build
+-```
+-
+-`.env`의 값은 로컬 개발 전용입니다. 운영 환경에서는 반드시 별도 비밀 값과 관리 방식을 사용해야 합니다. 첫 DB 초기화 시 PostgreSQL volume이 새로 만들어지고 Flyway가 스키마와 초기 테이블을 생성합니다.
+-
+-- React: http://localhost:5173
+-- Spring Boot health: http://localhost:8080/actuator/health
+-- Python AI Service health: http://localhost:8000/health
+-
+-Compose 로그에서 `Successfully applied 2 migrations`을 확인하고, health 응답에서 Spring의 `db` 상태 및 AI Service의 PostgreSQL 연결 상태가 정상인지 확인합니다.
+-
+-초기화 SQL은 빈 PostgreSQL volume에서만 실행됩니다. 기존 volume이 있는 경우 기존 데이터를 제거하지 말고 별도 검토 후 마이그레이션하십시오. 이 PoC는 샘플 데이터만 사용하며 실제 회사 데이터를 넣지 않습니다.
+-
+-## 현재 범위
+-
+-현재 구현: 서비스 health, PostgreSQL 연결, schema/role 초기화, Flyway 초기 migration.
+-
+-다음 단계: Requirement 등록부터 시작합니다. 이후 RAG 검색, 요구사항 분석, 테스트 케이스 생성, Review, Ground Truth Evaluation, Dummy Execution 순으로 확장합니다. Review, Evaluation, Dummy Execution은 아직 구현하지 않습니다.
+-
+-## 데이터 접근 경계
+-
+-- `app`: Spring Boot가 소유하는 업무 데이터. `app_user`는 이 schema의 업무 테이블만 읽고 씁니다.
+-- `rag`: 지식 문서, chunk, embedding. Spring Boot의 migration role이 schema를 준비하고 `rag_reader`는 읽기 전용입니다. AI Service는 이 계정만 사용합니다.
+-- `evaluation`: 향후 Ground Truth와 평가 데이터를 위한 별도 schema. `evaluation_reader` 전용이며 AI Service 환경에는 해당 자격 증명을 전달하지 않습니다.
+-
+-일반 LangGraph workflow에는 Evaluation repository/service 또는 evaluation 자격 증명을 연결하지 않습니다. 사용자 승인, 업무 상태 변경, Dummy API 실행 권한 검증은 향후에도 Spring Boot가 최종 책임을 가집니다.
++# Legacy Change Assistant PoC
++
++현재 완료 범위는 Phase 0 기동/권한 경계와 Phase 1 Requirement 등록·조회입니다.
++
++## 실행
++
++Docker Desktop을 실행하고 프로젝트 루트에서:
++
++```powershell
++if (!(Test-Path .env)) { Copy-Item .env.example .env }
++docker compose up --build -d
++```
++
++React: http://localhost:5173 에서 제목과 내용을 저장하고 반환된 ID로 조회합니다. Spring health는 http://localhost:8080/actuator/health, AI health는 http://localhost:8000/health 입니다.
++
++PostgreSQL/pgvector, JDK/Maven, Python, Node는 컨테이너 이미지에서 제공합니다. 호스트에 별도 런타임을 설치할 필요가 없습니다. .env는 로컬 개발용이며 commit하지 않습니다.
++
++## Backend 테스트
++
++```powershell
++docker compose -f compose.test.yaml -p master-phase1-test up --build --abort-on-container-exit --exit-code-from backend-test
++docker compose -f compose.test.yaml -p master-phase1-test down
++```
++
++별도 PostgreSQL tmpfs DB에서 실제 V1~V3 migration을 적용하고 app_user로 단위/통합 테스트를 실행합니다. 테스트 DB는 호스트 포트를 열지 않고 앱 DB volume과 분리됩니다. JDK/Python/PostgreSQL의 호스트 설치나 Docker socket 마운트가 필요 없습니다. 테스트 컨테이너는 유한 작업이며 종료코드가 테스트 결과입니다. 결과는 docs/phase1-evidence/test-results에 저장됩니다.
++
++## 경계와 기준점
++
++- app: Spring 업무 계정 app_user. migration_owner는 migration 전용.
++- rag: AI의 rag_reader만 읽기. evaluation은 별도 evaluation_reader.
++- Phase 0 원본은 docs/phase0-baseline/source.zip과 sha256.json에 보존했습니다(.env 제외).
++- V1/V2와 기존 Compose/DB bootstrap/AI Service는 그대로 유지합니다. V3는 Requirement 입력 제약만 추가합니다.
++- 기존 DB volume은 삭제하지 않습니다. 새 volume은 bootstrap 후 V1~V3, 기존 Phase 0 volume은 V3를 적용합니다.
++
++RAG/Embedding/LangGraph 분석/테스트케이스 생성/Evaluation/Dummy 실행/GraphRAG/MCP는 미구현입니다.
++
++[API 계약](docs/api.md) · [Phase 1 결과](docs/phase1-result.md) · [Phase 0 결과](docs/phase0-recheck.md)
+--- phase0/backend/pom.xml
++++ phase1/backend/pom.xml
+@@ -1,54 +1,63 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
+-    <parent>
+-        <groupId>org.springframework.boot</groupId>
+-        <artifactId>spring-boot-starter-parent</artifactId>
+-        <version>3.5.6</version>
+-        <relativePath/>
+-    </parent>
+-    <groupId>com.example</groupId>
+-    <artifactId>legacy-change-assistant</artifactId>
+-    <version>0.1.0-SNAPSHOT</version>
+-    <name>legacy-change-assistant</name>
+-    <properties>
+-        <java.version>21</java.version>
+-    </properties>
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++    <parent>
++        <groupId>org.springframework.boot</groupId>
++        <artifactId>spring-boot-starter-parent</artifactId>
++        <version>3.5.6</version>
++        <relativePath/>
++    </parent>
++    <groupId>com.example</groupId>
++    <artifactId>legacy-change-assistant</artifactId>
++    <version>0.1.0-SNAPSHOT</version>
++    <name>legacy-change-assistant</name>
++    <properties>
++        <java.version>21</java.version>
++    </properties>
+     <dependencies>
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-validation</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-test</artifactId>
++            <scope>test</scope>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-web</artifactId>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.springframework.boot</groupId>
+-            <artifactId>spring-boot-starter-actuator</artifactId>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.springframework.boot</groupId>
+-            <artifactId>spring-boot-starter-jdbc</artifactId>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.flywaydb</groupId>
+-            <artifactId>flyway-core</artifactId>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.flywaydb</groupId>
+-            <artifactId>flyway-database-postgresql</artifactId>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.postgresql</groupId>
+-            <artifactId>postgresql</artifactId>
+-            <scope>runtime</scope>
+-        </dependency>
+-    </dependencies>
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <groupId>org.springframework.boot</groupId>
+-                <artifactId>spring-boot-maven-plugin</artifactId>
+-            </plugin>
+-        </plugins>
+-    </build>
+-</project>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-actuator</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-jdbc</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.flywaydb</groupId>
++            <artifactId>flyway-core</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.flywaydb</groupId>
++            <artifactId>flyway-database-postgresql</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.postgresql</groupId>
++            <artifactId>postgresql</artifactId>
++            <scope>runtime</scope>
++        </dependency>
++    </dependencies>
++    <build>
++        <plugins>
++            <plugin>
++                <groupId>org.springframework.boot</groupId>
++                <artifactId>spring-boot-maven-plugin</artifactId>
++            </plugin>
++        </plugins>
++    </build>
++</project>
+--- phase0/docs/api.md
++++ phase1/docs/api.md
+@@ -1,50 +1,87 @@
+-# API 계약 및 단계
+-
+-## 서비스 health (현재 구현)
+-
+-| 서비스 | Method | Endpoint | 확인 항목 |
+-|---|---|---|---|
+-| Spring Boot | GET | `/actuator/health` | 애플리케이션 및 datasource |
+-| Python AI Service | GET | `/health` | 애플리케이션 및 `rag_reader` DB 연결 |
+-
+-## 사용자 API (후속 구현)
+-
+-| Method | Endpoint | 책임 |
+-|---|---|---|
+-| POST | `/api/requirements` | 요구사항 등록, Spring 업무 데이터 저장 |
+-| POST | `/api/requirements/{id}/analysis` | AI Service 분석/TC 생성 요청 후 결과 저장 |
+-| GET | `/api/requirements/{id}` | 요구사항 조회 |
+-| GET | `/api/requirements/{id}/analysis` | 분석 JSON 및 evidence 조회 |
+-| GET | `/api/requirements/{id}/test-cases` | 생성된 TC 초안 조회 |
+-
+-이 단계에서는 위 사용자 API를 구현하지 않습니다. Review, Evaluation, Dummy Execution endpoint도 후속 단계입니다.
+-
+-## 내부 AI 계약 (후속 구현)
+-
+-`POST /internal/v1/analyze` 입력은 `{ "requirement": { "title": "...", "description": "..." } }`입니다. 출력은 다음 JSON 구조로 고정합니다.
+-
+-```json
+-{
+-  "analysis": {
+-    "confirmedConditions": [],
+-    "ambiguousExpressions": [],
+-    "missingConditions": [],
+-    "relatedBusinessRules": [],
+-    "relatedApis": [],
+-    "clarificationQuestions": [],
+-    "evidence": []
+-  },
+-  "testCases": [
+-    {
+-      "category": "NORMAL",
+-      "title": "합성 샘플 테스트",
+-      "preconditions": [],
+-      "steps": [],
+-      "expectedResult": "...",
+-      "executable": false
+-    }
+-  ]
+-}
+-```
+-
+-Evidence 객체는 `documentId`, `chunkId`, `documentType`, `section`, `contentSnippet`, `score`를 포함합니다. 허용 category는 `NORMAL`, `EXCEPTION`, `AUTHORIZATION`, `BOUNDARY`, `BUSINESS_RULE`입니다. AI Service는 사용자 승인이나 업무 상태를 변경하지 않으며, Dummy 실행 권한 판정도 수행하지 않습니다.
++# API 계약 및 단계
++
++## Phase 1: Requirement 등록·조회
++
++두 API는 Spring Boot가 app_user로 app.requirement에 접근한다. 인증/승인 및 후속 AI 기능은 이 단계의 범위가 아니다.
++
++### POST /api/requirements
++
++Content-Type: application/json
++
++```json
++{"title":"주문 취소 조건 변경","description":"배송 시작 전 주문만 취소할 수 있습니다."}
++```
++
++- 제목과 내용은 필수이며 양끝 공백 제거 후 검증한다. 공백만 있는 문자열은 거부한다.
++- 제목 최대 200자, 내용 최대 10,000자(Java 문자열 길이 기준).
++- id는 서버 UUID, status는 DB 기본값 DRAFT, createdAt은 DB 생성시각(ISO 8601 UTC)이다. 클라이언트가 상태를 지정할 수 없다.
++- 성공: HTTP 201, Location: /api/requirements/{id}. 응답 본문은 아래 객체.
++
++```json
++{
++  "id":"00000000-0000-4000-8000-000000000001",
++  "title":"주문 취소 조건 변경",
++  "description":"배송 시작 전 주문만 취소할 수 있습니다.",
++  "status":"DRAFT",
++  "createdAt":"2026-09-29T12:00:00Z"
++}
++```
++
++### GET /api/requirements/{id}
++
++저장된 객체를 HTTP 200으로 반환한다. 없는 UUID는 404, UUID 형식 오류는 400이다. 목록/수정/삭제 endpoint는 이번 범위가 아니다.
++
++### 오류 형식
++
++```json
++{"code":"VALIDATION_ERROR","message":"입력값을 확인해 주세요.","fieldErrors":{"title":"제목을 입력해 주세요."}}
++```
++
++| HTTP | code | 상황 |
++|---|---|---|
++| 400 | VALIDATION_ERROR | 누락/공백/최대 길이 초과 |
++| 400 | INVALID_JSON | 파싱할 수 없는 JSON 또는 요청 본문 누락 |
++| 400 | INVALID_ID | 잘못된 UUID |
++| 404 | REQUIREMENT_NOT_FOUND | 해당 ID 없음 |
++| 405/415 등 | HTTP_{status} | 지원하지 않는 메서드/미디어 타입 등 |
++| 500 | INTERNAL_ERROR | 내부 오류; SQL/stack trace는 응답에 노출하지 않음 |
++
++## Phase 0 health (유지)
++
++- Spring Boot: GET /actuator/health
++- AI Service: GET /health
++- React의 /api는 backend로, /actuator와 /ai-health는 기존 health 경로로 프록시한다.
++
++## 후속 기능 (미구현)
++
++분석, RAG, Embedding, 테스트케이스 생성, Evaluation, Dummy API 실행, GraphRAG/MCP는 구현하지 않았다. 아래 AI 계약은 향후 설계 문서이며 동작하는 endpoint가 아니다.
++
++## 내부 AI 계약 (후속 구현)
++
++`POST /internal/v1/analyze` 입력은 `{ "requirement": { "title": "...", "description": "..." } }`입니다. 출력은 다음 JSON 구조로 고정합니다.
++
++```json
++{
++  "analysis": {
++    "confirmedConditions": [],
++    "ambiguousExpressions": [],
++    "missingConditions": [],
++    "relatedBusinessRules": [],
++    "relatedApis": [],
++    "clarificationQuestions": [],
++    "evidence": []
++  },
++  "testCases": [
++    {
++      "category": "NORMAL",
++      "title": "합성 샘플 테스트",
++      "preconditions": [],
++      "steps": [],
++      "expectedResult": "...",
++      "executable": false
++    }
++  ]
++}
++```
++
++Evidence 객체는 `documentId`, `chunkId`, `documentType`, `section`, `contentSnippet`, `score`를 포함합니다. 허용 category는 `NORMAL`, `EXCEPTION`, `AUTHORIZATION`, `BOUNDARY`, `BUSINESS_RULE`입니다. AI Service는 사용자 승인이나 업무 상태를 변경하지 않으며, Dummy 실행 권한 판정도 수행하지 않습니다.
+--- phase0/docs/data-model.md
++++ phase1/docs/data-model.md
+@@ -1,24 +1,30 @@
+-# 데이터 모델
+-
+-| Schema.Table | 필드 | 설명 |
+-|---|---|---|
+-| `app.requirement` | `id`, `title`, `description`, `status`, `created_at` | 변경 요구사항과 업무 상태 |
+-| `app.analysis_result` | `id`, `requirement_id`, `result_json`, `created_at` | 구조화된 분석 결과와 evidence |
+-| `app.test_case` | `id`, `requirement_id`, `category`, `test_case_json`, `approval_status`, `executable` | 테스트 초안과 향후 승인/실행 가능 상태 |
+-| `app.review` | `id`, `requirement_id`, `reviewer`, `decision`, `comment`, `reviewed_at` | 다음 단계에서 추가할 검토 이력 |
+-| `rag.knowledge_document` | `id`, `document_type`, `title`, `source_name`, `version` | 합성 업무 규칙/API 명세 문서 |
+-| `rag.knowledge_chunk` | `id`, `document_id`, `section`, `content`, `metadata`, `embedding` | 검색 단위와 pgvector 임베딩 |
+-| `evaluation.ground_truth` | `id`, `name`, `version`, `expected_json` | 격리된 Ground Truth 정답 데이터 |
+-| `evaluation.evaluation_run` | `id`, `ground_truth_id`, `requirement_id`, `metrics`, `created_at` | 기준 데이터 기반 평가 결과 |
+-| `app.dummy_execution` | `id`, `test_case_id`, `status`, `actual_result`, `executed_at` | 이후 승인된 테스트만 실행한 결과 |
+-
+-초기 migration은 health/연결 검증과 다음 단계의 기반을 위해 Requirement 및 RAG 문서 테이블만 생성합니다. 나머지 업무 기능 테이블과 Evaluation/Dummy 데이터는 해당 기능 단계에서 migration으로 추가합니다. Embedding은 모델 선택을 미루기 위해 vector dimension을 schema에서 고정하지 않습니다.
+-
+-## 역할
+-
+-- `migration_owner`: migration 전용 DDL 계정.
+-- `app_user`: `app` 업무 데이터 DML 계정.
+-- `rag_reader`: `rag` 읽기 전용 계정. AI Service가 받는 유일한 DB 계정.
+-- `evaluation_reader`: 향후 Evaluation Service 전용 읽기 계정. AI Service에는 전달하지 않음.
+-
+-Ground Truth는 `evaluation` schema에만 저장하고 `rag` 문서/chunk 테이블에 넣지 않습니다. Evaluation용 Repository/Service와 일반 생성 workflow의 Repository/Service를 코드 및 credential 수준에서 분리합니다.
++# 데이터 모델
++
++| Schema.Table | 필드 | 설명 |
++|---|---|---|
++| `app.requirement` | `id`, `title`, `description`, `status`, `created_at` | 변경 요구사항과 업무 상태 |
++| `app.analysis_result` | `id`, `requirement_id`, `result_json`, `created_at` | 구조화된 분석 결과와 evidence |
++| `app.test_case` | `id`, `requirement_id`, `category`, `test_case_json`, `approval_status`, `executable` | 테스트 초안과 향후 승인/실행 가능 상태 |
++| `app.review` | `id`, `requirement_id`, `reviewer`, `decision`, `comment`, `reviewed_at` | 다음 단계에서 추가할 검토 이력 |
++| `rag.knowledge_document` | `id`, `document_type`, `title`, `source_name`, `version` | 합성 업무 규칙/API 명세 문서 |
++| `rag.knowledge_chunk` | `id`, `document_id`, `section`, `content`, `metadata`, `embedding` | 검색 단위와 pgvector 임베딩 |
++| `evaluation.ground_truth` | `id`, `name`, `version`, `expected_json` | 격리된 Ground Truth 정답 데이터 |
++| `evaluation.evaluation_run` | `id`, `ground_truth_id`, `requirement_id`, `metrics`, `created_at` | 기준 데이터 기반 평가 결과 |
++| `app.dummy_execution` | `id`, `test_case_id`, `status`, `actual_result`, `executed_at` | 이후 승인된 테스트만 실행한 결과 |
++
++초기 migration은 health/연결 검증과 다음 단계의 기반을 위해 Requirement 및 RAG 문서 테이블만 생성합니다. 나머지 업무 기능 테이블과 Evaluation/Dummy 데이터는 해당 기능 단계에서 migration으로 추가합니다. Embedding은 모델 선택을 미루기 위해 vector dimension을 schema에서 고정하지 않습니다.
++
++## 역할
++
++- `migration_owner`: migration 전용 DDL 계정.
++- `app_user`: `app` 업무 데이터 DML 계정.
++- `rag_reader`: `rag` 읽기 전용 계정. AI Service가 받는 유일한 DB 계정.
++- `evaluation_reader`: 향후 Evaluation Service 전용 읽기 계정. AI Service에는 전달하지 않음.
++
++Ground Truth는 `evaluation` schema에만 저장하고 `rag` 문서/chunk 테이블에 넣지 않습니다. Evaluation용 Repository/Service와 일반 생성 workflow의 Repository/Service를 코드 및 credential 수준에서 분리합니다.
++
++## Phase 1 적용
++
++V1/V2는 변경하지 않았다. V3는 기존 app.requirement에 제목 공백 방지와 내용 공백/10,000자 길이 제약을 추가한다. 기존 UUID PK, VARCHAR(200), DRAFT 기본값, 생성시각 및 상태 제약을 유지한다. 소유자/권한 및 rag/evaluation은 변경하지 않는다.
++
++Spring의 Requirement record는 id/title/description/status/createdAt을 반환한다. JdbcClient 기반 Repository는 app.requirement에만 접근하며 Service에서 등록/조회 트랜잭션을 관리한다.
+--- phase0/frontend/Dockerfile
++++ phase1/frontend/Dockerfile
+@@ -1,8 +1,9 @@
+-FROM node:22-alpine
+-WORKDIR /app
+-COPY package.json .
+-COPY package-lock.json .
+-RUN npm ci
+-COPY . .
+-EXPOSE 5173
+-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
++FROM node:22-alpine
++WORKDIR /app
++COPY package.json .
++COPY package-lock.json .
++RUN npm ci
++COPY . .
++RUN npm run build
++EXPOSE 5173
++CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+--- phase0/frontend/vite.config.ts
++++ phase1/frontend/vite.config.ts
+@@ -1,15 +1,16 @@
+-import { defineConfig } from 'vite'
+-import react from '@vitejs/plugin-react'
+-
+-export default defineConfig({
+-  plugins: [react()],
+-  server: {
+-    proxy: {
+-      '/actuator': 'http://backend:8080',
+-      '/ai-health': {
+-        target: 'http://ai-service:8000',
+-        rewrite: (path) => path.replace(/^\/ai-health/, ''),
+-      },
+-    },
+-  },
+-})
++import { defineConfig } from 'vite'
++import react from '@vitejs/plugin-react'
++
++export default defineConfig({
++  plugins: [react()],
++  server: {
++    proxy: {
++      '/api': 'http://backend:8080',
++      '/actuator': 'http://backend:8080',
++      '/ai-health': {
++        target: 'http://ai-service:8000',
++        rewrite: (path) => path.replace(/^\/ai-health/, ''),
++      },
++    },
++  },
++})
+--- phase0/frontend/src/App.tsx
++++ phase1/frontend/src/App.tsx
+@@ -1,102 +1,105 @@
+-import { useEffect, useState } from 'react'
+-
+-type ServiceState = 'checking' | 'online' | 'offline'
+-
+-type ServiceStatus = {
+-  name: string
+-  detail: string
+-  state: ServiceState
+-}
+-
+-const initialServices: ServiceStatus[] = [
+-  { name: 'Spring Boot', detail: '업무 API · :8080', state: 'checking' },
+-  { name: 'AI Service', detail: 'RAG 연결 · :8000', state: 'checking' },
+-]
+-
+-async function checkService(url: string): Promise<boolean> {
+-  try {
+-    const response = await fetch(url)
+-    if (!response.ok) return false
+-    const body = await response.json()
+-    return body.status === 'UP'
+-  } catch {
+-    return false
+-  }
+-}
+-
+-export default function App() {
+-  const [services, setServices] = useState(initialServices)
+-
+-  useEffect(() => {
+-    let active = true
+-    Promise.all([
+-      checkService('/actuator/health'),
+-      checkService('/ai-health/health'),
+-    ]).then(([backendOnline, aiOnline]) => {
+-      if (!active) return
+-      setServices([
+-        { ...initialServices[0], state: backendOnline ? 'online' : 'offline' },
+-        { ...initialServices[1], state: aiOnline ? 'online' : 'offline' },
+-      ])
+-    })
+-    return () => {
+-      active = false
+-    }
+-  }, [])
+-
+-  return (
+-    <main className="shell">
+-      <header className="topbar">
+-        <a className="wordmark" href="#home" aria-label="Legacy Change Assistant 홈">
+-          <span className="mark">LC</span>
+-          <span>LEGACY CHANGE ASSISTANT</span>
+-        </a>
+-        <span className="environment"><span className="environment-dot" /> LOCAL POC</span>
+-      </header>
+-
+-      <section className="intro" id="home">
+-        <p className="eyebrow">ENGINEERING WORKBENCH <span> / </span> 01</p>
+-        <h1>변경 요청을<br /><em>근거와 함께.</em></h1>
+-        <p className="lede">업무 규칙과 API 명세를 찾아 요구사항을 분석하고, 검토할 테스트 초안을 준비합니다.</p>
+-      </section>
+-
+-      <section className="workspace" aria-labelledby="workspace-title">
+-        <div className="section-heading">
+-          <div>
+-            <p className="eyebrow">WORKSPACE STATUS</p>
+-            <h2 id="workspace-title">서비스 연결</h2>
+-          </div>
+-          <span className="read-only">SKELETON</span>
+-        </div>
+-        <div className="service-list">
+-          {services.map((service, index) => (
+-            <article className="service-row" key={service.name}>
+-              <span className="service-index">0{index + 1}</span>
+-              <div className="service-name">
+-                <h3>{service.name}</h3>
+-                <p>{service.detail}</p>
+-              </div>
+-              <span className={`status status-${service.state}`}>
+-                <span className="status-dot" />
+-                {service.state === 'checking' ? '확인 중' : service.state === 'online' ? '정상' : '연결 안 됨'}
+-              </span>
+-            </article>
+-          ))}
+-          <article className="service-row database-row">
+-            <span className="service-index">03</span>
+-            <div className="service-name">
+-              <h3>PostgreSQL + pgvector</h3>
+-              <p>app · rag · evaluation schemas</p>
+-            </div>
+-            <span className="status status-managed"><span className="status-dot" /> AI health로 확인</span>
+-          </article>
+-        </div>
+-      </section>
+-
+-      <footer className="footer">
+-        <span>LEGACY SYSTEMS / CHANGE ANALYSIS</span>
+-        <span>01 — FOUNDATION</span>
+-      </footer>
+-    </main>
+-  )
+-}
++import { useEffect, useState } from 'react'
++import Requirements from './Requirements'
++
++type ServiceState = 'checking' | 'online' | 'offline'
++
++type ServiceStatus = {
++  name: string
++  detail: string
++  state: ServiceState
++}
++
++const initialServices: ServiceStatus[] = [
++  { name: 'Spring Boot', detail: '업무 API · :8080', state: 'checking' },
++  { name: 'AI Service', detail: 'RAG 연결 · :8000', state: 'checking' },
++]
++
++async function checkService(url: string): Promise<boolean> {
++  try {
++    const response = await fetch(url)
++    if (!response.ok) return false
++    const body = await response.json()
++    return body.status === 'UP'
++  } catch {
++    return false
++  }
++}
++
++export default function App() {
++  const [services, setServices] = useState(initialServices)
++
++  useEffect(() => {
++    let active = true
++    Promise.all([
++      checkService('/actuator/health'),
++      checkService('/ai-health/health'),
++    ]).then(([backendOnline, aiOnline]) => {
++      if (!active) return
++      setServices([
++        { ...initialServices[0], state: backendOnline ? 'online' : 'offline' },
++        { ...initialServices[1], state: aiOnline ? 'online' : 'offline' },
++      ])
++    })
++    return () => {
++      active = false
++    }
++  }, [])
++
++  return (
++    <main className="shell">
++      <header className="topbar">
++        <a className="wordmark" href="#home" aria-label="Legacy Change Assistant 홈">
++          <span className="mark">LC</span>
++          <span>LEGACY CHANGE ASSISTANT</span>
++        </a>
++        <span className="environment"><span className="environment-dot" /> LOCAL POC</span>
++      </header>
++
++      <section className="intro" id="home">
++        <p className="eyebrow">ENGINEERING WORKBENCH <span> / </span> 01</p>
++        <h1>변경 요청을<br /><em>근거와 함께.</em></h1>
++        <p className="lede">업무 규칙과 API 명세를 찾아 요구사항을 분석하고, 검토할 테스트 초안을 준비합니다.</p>
++      </section>
++
++      <Requirements />
++
++      <section className="workspace" aria-labelledby="workspace-title">
++        <div className="section-heading">
++          <div>
++            <p className="eyebrow">WORKSPACE STATUS</p>
++            <h2 id="workspace-title">서비스 연결</h2>
++          </div>
++          <span className="read-only">SKELETON</span>
++        </div>
++        <div className="service-list">
++          {services.map((service, index) => (
++            <article className="service-row" key={service.name}>
++              <span className="service-index">0{index + 1}</span>
++              <div className="service-name">
++                <h3>{service.name}</h3>
++                <p>{service.detail}</p>
++              </div>
++              <span className={`status status-${service.state}`}>
++                <span className="status-dot" />
++                {service.state === 'checking' ? '확인 중' : service.state === 'online' ? '정상' : '연결 안 됨'}
++              </span>
++            </article>
++          ))}
++          <article className="service-row database-row">
++            <span className="service-index">03</span>
++            <div className="service-name">
++              <h3>PostgreSQL + pgvector</h3>
++              <p>app · rag · evaluation schemas</p>
++            </div>
++            <span className="status status-managed"><span className="status-dot" /> AI health로 확인</span>
++          </article>
++        </div>
++      </section>
++
++      <footer className="footer">
++        <span>LEGACY SYSTEMS / CHANGE ANALYSIS</span>
++        <span>01 — FOUNDATION</span>
++      </footer>
++    </main>
++  )
++}
+--- phase0/frontend/src/style.css
++++ phase1/frontend/src/style.css
+@@ -1,141 +1,158 @@
+-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+-
+-:root {
+-  font-family: 'Manrope', 'Malgun Gothic', sans-serif;
+-  color: #202d2b;
+-  background: #f4f2ec;
+-  font-synthesis: none;
+-  text-rendering: optimizeLegibility;
+-  --ink: #202d2b;
+-  --muted: #76807a;
+-  --line: #d8d8ce;
+-  --green: #28664e;
+-  --paper: #fbfaf6;
+-  --mono: 'DM Mono', Consolas, monospace;
+-}
+-
+-* { box-sizing: border-box; }
+-
+-body {
+-  min-width: 320px;
+-  min-height: 100vh;
+-  margin: 0;
+-  background-image: linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), #e9e7df 50%, transparent calc(50% + 1px)), radial-gradient(#d6d4ca 0.65px, transparent 0.65px);
+-  background-size: 100% 100%, 9px 9px;
+-  background-position: center, 0 0;
+-  background-color: #f4f2ec;
+-}
+-
+-button, a { font: inherit; }
+-
+-.shell {
+-  width: min(100% - 64px, 1080px);
+-  min-height: 100vh;
+-  margin: 0 auto;
+-  padding: 0 34px;
+-  background: rgba(244, 242, 236, 0.94);
+-  animation: arrive 500ms ease-out both;
+-}
+-
+-.topbar {
+-  height: 78px;
+-  display: flex;
+-  align-items: center;
+-  justify-content: space-between;
+-  border-bottom: 1px solid var(--line);
+-}
+-
+-.wordmark {
+-  display: inline-flex;
+-  align-items: center;
+-  gap: 11px;
+-  color: var(--ink);
+-  text-decoration: none;
+-  font: 500 11px var(--mono);
+-}
+-
+-.mark {
+-  display: grid;
+-  place-items: center;
+-  width: 31px;
+-  height: 31px;
+-  color: var(--paper);
+-  background: var(--green);
+-  font: 500 10px var(--mono);
+-}
+-
+-.environment, .eyebrow, .read-only, .service-index, .status, .footer {
+-  font-family: var(--mono);
+-  font-size: 10px;
+-  letter-spacing: 0;
+-}
+-
+-.environment { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+-.environment-dot, .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #b1b5ae; }
+-.environment-dot { background: #c78842; }
+-
+-.intro { max-width: 660px; padding: 76px 0 68px; }
+-.eyebrow { margin: 0; color: var(--green); font-weight: 500; }
+-.eyebrow span { color: #a6aaa1; padding: 0 7px; }
+-
+-h1 {
+-  margin: 24px 0 20px;
+-  font-size: clamp(42px, 6vw, 66px);
+-  line-height: 1.12;
+-  letter-spacing: 0;
+-  font-weight: 600;
+-}
+-
+-h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
+-.lede { max-width: 460px; margin: 0; color: #68736d; font-size: 15px; line-height: 1.9; }
+-
+-.workspace { border-top: 1px solid var(--ink); }
+-.section-heading { display: flex; align-items: end; justify-content: space-between; padding: 24px 0 18px; }
+-h2 { margin: 8px 0 0; font-size: 19px; font-weight: 700; }
+-.read-only { padding: 6px 8px; border: 1px solid var(--line); color: var(--muted); }
+-.service-list { border-top: 1px solid var(--line); }
+-
+-.service-row {
+-  min-height: 82px;
+-  display: grid;
+-  grid-template-columns: 62px minmax(0, 1fr) auto;
+-  align-items: center;
+-  border-bottom: 1px solid var(--line);
+-  animation: row-in 400ms ease-out both;
+-}
+-.service-row:nth-child(2) { animation-delay: 80ms; }
+-.service-row:nth-child(3) { animation-delay: 160ms; }
+-.service-index { color: #9a9f96; }
+-.service-name h3 { margin: 0; font-size: 14px; font-weight: 700; }
+-.service-name p { margin: 5px 0 0; color: var(--muted); font: 10px var(--mono); }
+-.status { display: flex; align-items: center; gap: 8px; color: var(--muted); white-space: nowrap; }
+-.status-online { color: var(--green); }
+-.status-online .status-dot { background: #3e8b65; }
+-.status-offline { color: #a6453c; }
+-.status-offline .status-dot { background: #bd594f; }
+-.status-managed { color: #68736d; }
+-.status-managed .status-dot { background: #c78842; }
+-
+-.footer {
+-  display: flex;
+-  justify-content: space-between;
+-  gap: 12px;
+-  padding: 28px 0 34px;
+-  color: #899088;
+-  font-size: 9px;
+-}
+-
+-@keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+-@keyframes row-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+-
+-@media (max-width: 600px) {
+-  .shell { width: 100%; padding: 0 22px; }
+-  .topbar { height: 68px; }
+-  .wordmark { gap: 8px; font-size: 9px; }
+-  .intro { padding: 60px 0 52px; }
+-  h1 { font-size: 44px; }
+-  .lede { font-size: 14px; }
+-  .service-row { grid-template-columns: 34px minmax(0, 1fr); gap: 4px; padding: 16px 0; }
+-  .status { grid-column: 2; margin-top: 10px; }
+-  .footer { flex-direction: column; }
+-}
++@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
++
++:root {
++  font-family: 'Manrope', 'Malgun Gothic', sans-serif;
++  color: #202d2b;
++  background: #f4f2ec;
++  font-synthesis: none;
++  text-rendering: optimizeLegibility;
++  --ink: #202d2b;
++  --muted: #76807a;
++  --line: #d8d8ce;
++  --green: #28664e;
++  --paper: #fbfaf6;
++  --mono: 'DM Mono', Consolas, monospace;
++}
++
++* { box-sizing: border-box; }
++
++body {
++  min-width: 320px;
++  min-height: 100vh;
++  margin: 0;
++  background-image: linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), #e9e7df 50%, transparent calc(50% + 1px)), radial-gradient(#d6d4ca 0.65px, transparent 0.65px);
++  background-size: 100% 100%, 9px 9px;
++  background-position: center, 0 0;
++  background-color: #f4f2ec;
++}
++
++button, a, input, textarea { font: inherit; }
++.requirements { margin-bottom: 44px; }
++.requirements form { display: grid; gap: 12px; margin-bottom: 24px; }
++.requirements label { font-size: 14px; font-weight: 700; }
++.requirements label span { font-size: 12px; color: var(--muted); font-weight: 400; }
++.requirements input, .requirements textarea { width: 100%; border: 1px solid var(--line); padding: 12px; background: var(--paper); color: var(--ink); border-radius: 4px; }
++.requirements textarea { resize: vertical; }
++.requirements button { justify-self: start; padding: 12px 20px; background: var(--green); color: white; border: 0; border-radius: 4px; cursor: pointer; }
++.requirements button:disabled { opacity: .55; cursor: wait; }
++.requirements :focus-visible { outline: 3px solid #c78842; outline-offset: 3px; }
++.lookup-controls { display: flex; gap: 12px; }
++.lookup-controls button { flex-shrink: 0; }
++.form-error { color: #a6453c; }
++.form-notice { color: var(--green); }
++.requirement-result { background: var(--paper); border: 1px solid var(--line); padding: 20px; overflow-wrap: anywhere; }
++.requirement-result dl { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 8px; font-size: 13px; }
++.requirement-result dd { margin: 0; }
++.requirement-description { white-space: pre-wrap; line-height: 1.8; }
++
++.shell {
++  width: min(100% - 64px, 1080px);
++  min-height: 100vh;
++  margin: 0 auto;
++  padding: 0 34px;
++  background: rgba(244, 242, 236, 0.94);
++  animation: arrive 500ms ease-out both;
++}
++
++.topbar {
++  height: 78px;
++  display: flex;
++  align-items: center;
++  justify-content: space-between;
++  border-bottom: 1px solid var(--line);
++}
++
++.wordmark {
++  display: inline-flex;
++  align-items: center;
++  gap: 11px;
++  color: var(--ink);
++  text-decoration: none;
++  font: 500 11px var(--mono);
++}
++
++.mark {
++  display: grid;
++  place-items: center;
++  width: 31px;
++  height: 31px;
++  color: var(--paper);
++  background: var(--green);
++  font: 500 10px var(--mono);
++}
++
++.environment, .eyebrow, .read-only, .service-index, .status, .footer {
++  font-family: var(--mono);
++  font-size: 10px;
++  letter-spacing: 0;
++}
++
++.environment { display: flex; align-items: center; gap: 8px; color: var(--muted); }
++.environment-dot, .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #b1b5ae; }
++.environment-dot { background: #c78842; }
++
++.intro { max-width: 660px; padding: 76px 0 68px; }
++.eyebrow { margin: 0; color: var(--green); font-weight: 500; }
++.eyebrow span { color: #a6aaa1; padding: 0 7px; }
++
++h1 {
++  margin: 24px 0 20px;
++  font-size: clamp(42px, 6vw, 66px);
++  line-height: 1.12;
++  letter-spacing: 0;
++  font-weight: 600;
++}
++
++h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
++.lede { max-width: 460px; margin: 0; color: #68736d; font-size: 15px; line-height: 1.9; }
++
++.workspace { border-top: 1px solid var(--ink); }
++.section-heading { display: flex; align-items: end; justify-content: space-between; padding: 24px 0 18px; }
++h2 { margin: 8px 0 0; font-size: 19px; font-weight: 700; }
++.read-only { padding: 6px 8px; border: 1px solid var(--line); color: var(--muted); }
++.service-list { border-top: 1px solid var(--line); }
++
++.service-row {
++  min-height: 82px;
++  display: grid;
++  grid-template-columns: 62px minmax(0, 1fr) auto;
++  align-items: center;
++  border-bottom: 1px solid var(--line);
++  animation: row-in 400ms ease-out both;
++}
++.service-row:nth-child(2) { animation-delay: 80ms; }
++.service-row:nth-child(3) { animation-delay: 160ms; }
++.service-index { color: #9a9f96; }
++.service-name h3 { margin: 0; font-size: 14px; font-weight: 700; }
++.service-name p { margin: 5px 0 0; color: var(--muted); font: 10px var(--mono); }
++.status { display: flex; align-items: center; gap: 8px; color: var(--muted); white-space: nowrap; }
++.status-online { color: var(--green); }
++.status-online .status-dot { background: #3e8b65; }
++.status-offline { color: #a6453c; }
++.status-offline .status-dot { background: #bd594f; }
++.status-managed { color: #68736d; }
++.status-managed .status-dot { background: #c78842; }
++
++.footer {
++  display: flex;
++  justify-content: space-between;
++  gap: 12px;
++  padding: 28px 0 34px;
++  color: #899088;
++  font-size: 9px;
++}
++
++@keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
++@keyframes row-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
++
++@media (max-width: 600px) {
++  .shell { width: 100%; padding: 0 22px; }
++  .topbar { height: 68px; }
++  .wordmark { gap: 8px; font-size: 9px; }
++  .intro { padding: 60px 0 52px; }
++  h1 { font-size: 44px; }
++  .lede { font-size: 14px; }
++  .service-row { grid-template-columns: 34px minmax(0, 1fr); gap: 4px; padding: 16px 0; }
++  .status { grid-column: 2; margin-top: 10px; }
++  .footer { flex-direction: column; }
++}
