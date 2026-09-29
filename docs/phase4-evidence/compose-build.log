@@ -1,0 +1,242 @@
+docker :  Image master-frontend Building 
+At line:2 char:42
++ ... StartNew(); docker compose up --build -d *> docs/phase4-evidence/comp ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image master-frontend Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image master-backend Building 
+ Image master-ai-service Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.36kB 0.0s done
+#1 DONE 0.0s
+
+#2 [ai-service internal] load build definition from Dockerfile
+#2 transferring dockerfile: 373B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 358B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load build definition from Dockerfile
+#4 transferring dockerfile: 229B done
+#4 DONE 0.1s
+
+#5 [ai-service internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [ai-service internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load metadata for docker.io/library/node:22-alpine
+#7 ...
+
+#8 [ai-service internal] load build context
+#8 transferring context: 12.19kB 0.0s done
+#8 DONE 0.0s
+
+#9 [ai-service 1/8] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#9 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f 0.0s done
+#9 DONE 0.0s
+
+#10 [ai-service 2/8] WORKDIR /app
+#10 CACHED
+
+#11 [ai-service 4/8] RUN pip install --no-cache-dir -r requirements.txt
+#11 CACHED
+
+#12 [ai-service 3/8] COPY requirements.txt .
+#12 CACHED
+
+#13 [ai-service 5/8] COPY requirements-embedding.txt .
+#13 CACHED
+
+#14 [ai-service 6/8] RUN pip install --no-cache-dir -r requirements-embedding.txt
+#14 CACHED
+
+#15 [ai-service 7/8] COPY app ./app
+#15 DONE 0.1s
+
+#16 [ai-service 8/8] COPY config ./config
+#16 DONE 0.1s
+
+#17 [ai-service] exporting to image
+#17 exporting layers
+#17 exporting layers 0.2s done
+#17 exporting manifest sha256:b6aece4d3e13ab99ea6d43be33c4b90d46b17230261fd190afbb81d6c36479ed 0.0s done
+#17 exporting config sha256:0d7e72e37158ce92b020de397711ea13231bc85b9ade40a3dc46b380dabcb674 0.0s done
+#17 exporting attestation manifest sha256:356eeeab6887f26640429587dad2d77b9f9767d01498828779d96fc1f3b0585b 0.0s done
+#17 exporting manifest list sha256:3b40a4f1f0086a5780e112f3a48c8d8df5a48a657273ba263fec219748f663f3
+#17 exporting manifest list sha256:3b40a4f1f0086a5780e112f3a48c8d8df5a48a657273ba263fec219748f663f3 0.0s done
+#17 naming to docker.io/library/master-ai-service:latest done
+#17 unpacking to docker.io/library/master-ai-service:latest 0.1s done
+#17 DONE 0.4s
+
+#18 [auth] library/node:pull token for registry-1.docker.io
+#18 DONE 0.0s
+
+#19 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#19 DONE 0.0s
+
+#20 [backend internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#20 DONE 0.8s
+
+#21 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#21 ...
+
+#22 [ai-service] resolving provenance for metadata file
+#22 DONE 0.0s
+
+#21 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#21 ...
+
+#7 [frontend internal] load metadata for docker.io/library/node:22-alpine
+#7 DONE 1.1s
+
+#23 [frontend internal] load .dockerignore
+#23 transferring context: 70B done
+#23 DONE 0.0s
+
+#21 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#21 DONE 1.2s
+
+#24 [backend internal] load .dockerignore
+#24 transferring context: 2B done
+#24 DONE 0.0s
+
+#25 [frontend 1/7] FROM docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402
+#25 resolve docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 0.0s done
+#25 DONE 0.0s
+
+#26 [backend internal] load build context
+#26 DONE 0.0s
+
+#27 [frontend internal] load build context
+#27 transferring context: 11.17kB 0.0s done
+#27 DONE 0.0s
+
+#28 [backend build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#28 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#28 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.1s done
+#28 DONE 0.1s
+
+#29 [frontend 2/7] WORKDIR /app
+#29 CACHED
+
+#30 [frontend 3/7] COPY package.json .
+#30 CACHED
+
+#31 [frontend 4/7] COPY package-lock.json .
+#31 CACHED
+
+#32 [frontend 5/7] RUN npm ci
+#32 CACHED
+
+#33 [backend stage-1 1/3] FROM docker.io/library/eclipse-temurin:21-jre@sha256:d7051a45dd955e4d5d1db4d3f4269fe13d1c6dff8cc6b7ef89fc8577b96c1982
+#33 resolve docker.io/library/eclipse-temurin:21-jre@sha256:d7051a45dd955e4d5d1db4d3f4269fe13d1c6dff8cc6b7ef89fc8577b96c1982 0.1s done
+#33 DONE 0.1s
+
+#26 [backend internal] load build context
+#26 transferring context: 4.16kB done
+#26 DONE 0.0s
+
+#34 [backend build 2/5] WORKDIR /workspace
+#34 CACHED
+
+#35 [backend build 3/5] COPY pom.xml .
+#35 CACHED
+
+#36 [backend build 4/5] COPY src ./src
+#36 CACHED
+
+#37 [backend build 5/5] RUN mvn -B -DskipTests package
+#37 CACHED
+
+#38 [frontend 6/7] COPY . .
+#38 DONE 0.1s
+
+#39 [frontend 7/7] RUN npm run build
+#39 ...
+
+#40 [backend stage-1 2/3] WORKDIR /app
+#40 CACHED
+
+#41 [backend stage-1 3/3] COPY --from=build /workspace/target/legacy-change-assistant-0.1.0-SNAPSHOT.jar app.jar
+#41 DONE 0.1s
+
+#42 [backend] exporting to image
+#42 exporting layers 0.6s done
+#42 exporting manifest sha256:b6ef50ea98af28b3adb6dab68181156a1b7231472e097a3ad545f1de12f323f2 0.0s done
+#42 exporting config sha256:c7ed750d50bad3ef644a21c687ac563554fc570f448449ee271079d2f761e9bb 0.0s done
+#42 exporting attestation manifest sha256:d4b4257f83f67fc509fbf369d19c952218526a37f91d2ee11a7d9c795c6a2dde 0.0s done
+#42 exporting manifest list sha256:8ea18610c424977d7a7513b30c1455909dfea88a13759aeb6e602ee8ba397189
+#42 exporting manifest list sha256:8ea18610c424977d7a7513b30c1455909dfea88a13759aeb6e602ee8ba397189 0.0s done
+#42 naming to docker.io/library/master-backend:latest done
+#42 unpacking to docker.io/library/master-backend:latest
+#42 unpacking to docker.io/library/master-backend:latest 0.2s done
+#42 DONE 0.9s
+
+#39 [frontend 7/7] RUN npm run build
+#39 0.417 
+#39 0.417 > legacy-change-assistant-frontend@0.1.0 build
+#39 0.417 > tsc -b && vite build
+#39 0.417 
+#39 ...
+
+#43 [backend] resolving provenance for metadata file
+#43 DONE 0.0s
+
+#39 [frontend 7/7] RUN npm run build
+#39 2.230 vite v7.3.6 building client environment for production...
+#39 2.296 transforming...
+#39 3.106 ✓ 32 modules transformed.
+#39 3.210 rendering chunks...
+#39 3.218 computing gzip size...
+#39 3.225 dist/index.html                   0.47 kB │ gzip:  0.30 kB
+#39 3.225 dist/assets/index-DIeGcLRX.css    5.16 kB │ gzip:  1.88 kB
+#39 3.225 dist/assets/index-DUYFVFq-.js   236.44 kB │ gzip: 74.06 kB
+#39 3.226 ✓ built in 964ms
+#39 DONE 3.3s
+
+#44 [frontend] exporting to image
+#44 exporting layers 0.2s done
+#44 exporting manifest sha256:33d2683fa182a8382fe623b8be72f6cffaf5bf567ed1f94c436f638529190c22 0.0s done
+#44 exporting config sha256:74094170f1b6b08a13c2d292b11866bddd10381d9c2fd94811e43fa4f396864b 0.0s done
+#44 exporting attestation manifest sha256:750ed8806ebf8dfba8e119d92f3bfd3527147176cc74ba454af454fc994937d8 0.0s done
+#44 exporting manifest list sha256:b54cd61e7e16a99d527a12f56f2a808183e52561047389ed5d89d517ff8eb96b 0.0s done
+#44 naming to docker.io/library/master-frontend:latest
+#44 naming to docker.io/library/master-frontend:latest done
+#44 unpacking to docker.io/library/master-frontend:latest 0.1s done
+#44 DONE 0.5s
+
+#45 [frontend] resolving provenance for metadata file
+#45 DONE 0.0s
+ Image master-ai-service Built 
+ Image master-backend Built 
+ Image master-frontend Built 
+ Container master-postgres-1 Running 
+ Container master-ollama-1 Running 
+ Container master-ai-service-1 Recreate 
+ Container master-backend-1 Recreate 
+ Container master-backend-1 Recreated 
+ Container master-ai-service-1 Recreated 
+ Container master-frontend-1 Recreate 
+ Container master-frontend-1 Recreated 
+ Container master-postgres-1 Waiting 
+ Container master-ollama-1 Waiting 
+ Container master-ollama-1 Healthy 
+ Container master-postgres-1 Healthy 
+ Container master-analysis-model-init-1 Starting 
+ Container master-backend-1 Starting 
+ Container master-analysis-model-init-1 Started 
+ Container master-analysis-model-init-1 Waiting 
+ Container master-postgres-1 Waiting 
+ Container master-backend-1 Started 
+ Container master-postgres-1 Healthy 
+ Container master-analysis-model-init-1 Exited 
+ Container master-ai-service-1 Starting 
+ Container master-ai-service-1 Started 
+ Container master-frontend-1 Starting 
+ Container master-frontend-1 Started 

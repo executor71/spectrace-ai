@@ -1,0 +1,76 @@
+ version | success 
+---------+---------
+ 1       | t
+ 2       | t
+ 3       | t
+ 4       | t
+ 5       | t
+ 6       | t
+ 7       | t
+(7 rows)
+
+ current_user | extversion 
+--------------+------------
+ postgres     | 0.8.6
+(1 row)
+
+ documents 
+-----------
+         9
+(1 row)
+
+ chunks | vectors 
+--------+---------
+     27 |      27
+(1 row)
+
+      rolname      |  nspname   | usage 
+-------------------+------------+-------
+ app_user          | app        | t
+ app_user          | evaluation | f
+ app_user          | rag        | f
+ evaluation_reader | app        | f
+ evaluation_reader | evaluation | t
+ evaluation_reader | rag        | f
+ rag_reader        | app        | f
+ rag_reader        | evaluation | f
+ rag_reader        | rag        | t
+(9 rows)
+
+ generations 
+-------------
+           2
+(1 row)
+
+     type      | executable | count 
+---------------+------------+-------
+ AUTHORIZATION | false      |     1
+ BOUNDARY      | false      |     1
+ BUSINESS_RULE | false      |     1
+ EXCEPTION     | false      |     1
+ NORMAL        | false      |     1
+(5 rows)
+
+BEGIN
+CREATE TABLE
+INSERT 0 1
+GRANT
+SET
+ evaluation_control 
+--------------------
+                  1
+(1 row)
+
+RESET
+SET
+DO
+RESET
+docker : psql:<stdin>:28: NOTICE:  PASS Ground Truth denied: SQLSTATE 42501
+At line:2 char:148
++ ... ndary.sql | docker compose exec -T postgres psql -U postgres -d legac ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (psql:<stdin>:28... SQLSTATE 42501:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+psql:<stdin>:28: NOTICE:  PASS app test cases denied: SQLSTATE 42501
+ROLLBACK

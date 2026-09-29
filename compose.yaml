@@ -22,6 +22,8 @@ services:
 
   backend:
     build: ./backend
+    volumes:
+      - ./contracts:/contracts:ro
     environment:
       AI_SERVICE_URL: http://ai-service:8000
       ANALYSIS_TIMEOUT_SECONDS: "630"
@@ -57,6 +59,7 @@ services:
       TOKENIZERS_PARALLELISM: "false"
     volumes:
       - embedding-model-cache:/models
+      - ./contracts:/contracts:ro
     ports:
       - "8000:8000"
     depends_on:

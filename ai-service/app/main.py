@@ -4,10 +4,12 @@ import psycopg
 from fastapi import FastAPI, HTTPException
 from app.search_api import router as search_router
 from app.analysis_api import router as analysis_router
+from app.test_case_api import router as test_case_router
 
 app = FastAPI(title="Legacy Change Assistant AI Service", version="0.1.0")
 app.include_router(search_router)
 app.include_router(analysis_router)
+app.include_router(test_case_router)
 
 
 @app.get("/health")

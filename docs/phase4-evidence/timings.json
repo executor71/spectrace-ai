@@ -1,0 +1,32 @@
+{
+  "measurement": "commandElapsedMs = PowerShell Stopwatch; initialToolReturnMs = host wall clock around exec_command. Asynchronous first returns contain a session ID and are not completion times.",
+  "steps": [
+    {"step":"Phase 3 baseline snapshot","commandElapsedMs":358,"initialToolReturnMs":6832},
+    {"step":"Apply Phase 4 sources","commandElapsedMs":188,"initialToolReturnMs":5352},
+    {"step":"Compose config --quiet","commandElapsedMs":138,"initialToolReturnMs":3274},
+    {"step":"Development Python 20 code tests","commandElapsedMs":1095,"initialToolReturnMs":4894},
+    {"step":"Development Backend build/tests","commandElapsedMs":33397,"initialToolReturnMs":14254,"asynchronous":true},
+    {"step":"Development Compose build/up","commandElapsedMs":11118,"initialToolReturnMs":13752,"asynchronous":true},
+    {"step":"Development smoke 2 cases","commandElapsedMs":226719,"initialToolReturnMs":14620,"asynchronous":true},
+    {"step":"Model progress diagnosis","commandElapsedMs":224,"initialToolReturnMs":3287},
+    {"step":"Model process/log diagnosis","commandElapsedMs":571,"initialToolReturnMs":3767},
+    {"step":"Apply final source/docs","commandElapsedMs":190,"initialToolReturnMs":4646},
+    {"step":"Final Python 61 code tests","commandElapsedMs":7938,"initialToolReturnMs":11232},
+    {"step":"Final Backend 39 tests","commandElapsedMs":14305,"initialToolReturnMs":14514,"asynchronous":true},
+    {"step":"Final Compose build/up","commandElapsedMs":9550,"initialToolReturnMs":12638},
+    {"step":"Final health/hash/Vector regression","commandElapsedMs":1507,"initialToolReturnMs":5197},
+    {"step":"Database and Ground Truth boundary","commandElapsedMs":367,"initialToolReturnMs":5427},
+    {"step":"Runtime AI role boundary","commandElapsedMs":460,"initialToolReturnMs":4279},
+    {"step":"Export Structured Output schema","commandElapsedMs":495,"initialToolReturnMs":3890},
+    {"step":"Final Phase 3 five real-model cases","commandElapsedMs":430854,"initialToolReturnMs":13749,"asynchronous":true},
+    {"step":"Final Phase 4 five cases","commandElapsedMs":76580,"initialToolReturnMs":14098,"asynchronous":true},
+    {"step":"React Chrome final verification","commandElapsedMs":3975,"initialToolReturnMs":7626},
+    {"step":"Final DB storage verification","commandElapsedMs":203,"initialToolReturnMs":4109},
+    {"step":"Isolated test environment cleanup","commandElapsedMs":454,"initialToolReturnMs":4836}
+  ],
+  "notes": [
+    "No observed short command exceeded 20 seconds. Finite builds and actual local LLM runs were expected long commands and returned asynchronous sessions.",
+    "The 226.447 second smoke HTTP generation ran in the Ollama CPU model; short diagnostic commands completed in 0.224/0.571 seconds.",
+    "An initial file-apply request was rejected before execution because automatic review read a garbled Korean path. The script was corrected to explicit Unicode escapes and verified project markers before successful application. No files were written to another project."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "healthCards": 2,
+  "analysisEvidenceCards": 5,
+  "typesDisplayed": 5,
+  "referenceDetailsOpened": true,
+  "negativeCasesDisplayed": 4,
+  "mobileNoHorizontalOverflow": true,
+  "persistedAfterReload": true,
+  "generationPostStatus": 200,
+  "extraLlmCalls": 0,
+  "browserErrors": []
+}

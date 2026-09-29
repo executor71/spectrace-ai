@@ -1,0 +1,233 @@
+docker :  Image master-frontend Building 
+At line:2 char:42
++ ... StartNew(); docker compose up --build -d *> docs/phase4-evidence/comp ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image master-frontend Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image master-backend Building 
+ Image master-ai-service Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.36kB 0.0s done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 229B done
+#2 DONE 0.0s
+
+#3 [ai-service internal] load build definition from Dockerfile
+#3 transferring dockerfile: 373B done
+#3 DONE 0.0s
+
+#4 [backend internal] load build definition from Dockerfile
+#4 transferring dockerfile: 358B done
+#4 DONE 0.0s
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [ai-service internal] load metadata for docker.io/library/python:3.12-slim
+#6 DONE 0.0s
+
+#7 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#7 DONE 0.0s
+
+#8 [ai-service internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#9 ...
+
+#10 [ai-service internal] load build context
+#10 transferring context: 10.91kB done
+#10 DONE 0.0s
+
+#11 [ai-service 1/8] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#11 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f 0.0s done
+#11 DONE 0.0s
+
+#12 [ai-service 2/8] WORKDIR /app
+#12 CACHED
+
+#13 [ai-service 4/8] RUN pip install --no-cache-dir -r requirements.txt
+#13 CACHED
+
+#14 [ai-service 5/8] COPY requirements-embedding.txt .
+#14 CACHED
+
+#15 [ai-service 3/8] COPY requirements.txt .
+#15 CACHED
+
+#16 [ai-service 6/8] RUN pip install --no-cache-dir -r requirements-embedding.txt
+#16 CACHED
+
+#17 [ai-service 7/8] COPY app ./app
+#17 DONE 0.0s
+
+#18 [ai-service 8/8] COPY config ./config
+#18 DONE 0.1s
+
+#19 [backend internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#19 DONE 0.4s
+
+#20 [ai-service] exporting to image
+#20 exporting layers
+#20 exporting layers 0.2s done
+#20 exporting manifest sha256:2c947b16db9f9a79ba203014a4d658594c4ca5c9f6cd0668c1222ea498d444ff 0.0s done
+#20 exporting config sha256:7bd838cd75a4a603b7ebf38b94b0f90844d1dc04a65cab72054e6237651039d6 0.0s done
+#20 exporting attestation manifest sha256:5c24da2105d38ba088b1e3726e85e2abb6df1ce000761ab497c92c52ff699437 0.0s done
+#20 exporting manifest list sha256:c3e6ee942a6ddeb3de1a438c8225efce31fdc5c4235a99017992b637678308e0 0.0s done
+#20 naming to docker.io/library/master-ai-service:latest 0.0s done
+#20 unpacking to docker.io/library/master-ai-service:latest 0.1s done
+#20 DONE 0.4s
+
+#21 [ai-service] resolving provenance for metadata file
+#21 DONE 0.0s
+
+#22 [frontend internal] load metadata for docker.io/library/node:22-alpine
+#22 ...
+
+#9 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#9 DONE 1.0s
+
+#22 [frontend internal] load metadata for docker.io/library/node:22-alpine
+#22 DONE 1.0s
+
+#23 [backend internal] load .dockerignore
+#23 transferring context: 2B done
+#23 DONE 0.0s
+
+#24 [backend internal] load build context
+#24 DONE 0.0s
+
+#25 [frontend internal] load .dockerignore
+#25 transferring context: 70B done
+#25 DONE 0.0s
+
+#26 [frontend internal] load build context
+#26 DONE 0.0s
+
+#27 [backend stage-1 1/3] FROM docker.io/library/eclipse-temurin:21-jre@sha256:d7051a45dd955e4d5d1db4d3f4269fe13d1c6dff8cc6b7ef89fc8577b96c1982
+#27 resolve docker.io/library/eclipse-temurin:21-jre@sha256:d7051a45dd955e4d5d1db4d3f4269fe13d1c6dff8cc6b7ef89fc8577b96c1982 0.1s done
+#27 DONE 0.1s
+
+#28 [backend build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#28 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.1s done
+#28 DONE 0.1s
+
+#29 [frontend 1/7] FROM docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402
+#29 resolve docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 0.1s done
+#29 DONE 0.1s
+
+#24 [backend internal] load build context
+#24 transferring context: 4.16kB done
+#24 DONE 0.0s
+
+#26 [frontend internal] load build context
+#26 transferring context: 12.87kB done
+#26 DONE 0.0s
+
+#30 [backend build 3/5] COPY pom.xml .
+#30 CACHED
+
+#31 [backend stage-1 2/3] WORKDIR /app
+#31 CACHED
+
+#32 [backend build 5/5] RUN mvn -B -DskipTests package
+#32 CACHED
+
+#33 [backend build 4/5] COPY src ./src
+#33 CACHED
+
+#34 [backend build 2/5] WORKDIR /workspace
+#34 CACHED
+
+#35 [backend stage-1 3/3] COPY --from=build /workspace/target/legacy-change-assistant-0.1.0-SNAPSHOT.jar app.jar
+#35 CACHED
+
+#36 [frontend 4/7] COPY package-lock.json .
+#36 CACHED
+
+#37 [frontend 3/7] COPY package.json .
+#37 CACHED
+
+#38 [frontend 2/7] WORKDIR /app
+#38 CACHED
+
+#39 [frontend 5/7] RUN npm ci
+#39 CACHED
+
+#40 [backend] exporting to image
+#40 exporting layers done
+#40 exporting manifest sha256:b6ef50ea98af28b3adb6dab68181156a1b7231472e097a3ad545f1de12f323f2 done
+#40 exporting config sha256:c7ed750d50bad3ef644a21c687ac563554fc570f448449ee271079d2f761e9bb done
+#40 exporting attestation manifest sha256:78d8f83a115d72b3a14d1595f93cb4f2f59c472bdbec6cf7d95ab403bf4f7795
+#40 exporting attestation manifest sha256:78d8f83a115d72b3a14d1595f93cb4f2f59c472bdbec6cf7d95ab403bf4f7795 0.0s done
+#40 exporting manifest list sha256:36164b94e28a20a08353997018afe2efb897ec11bca751d3824d287697705a3f 0.0s done
+#40 naming to docker.io/library/master-backend:latest 0.0s done
+#40 unpacking to docker.io/library/master-backend:latest 0.0s done
+#40 DONE 0.2s
+
+#41 [frontend 6/7] COPY . .
+#41 DONE 0.1s
+
+#42 [frontend 7/7] RUN npm run build
+#42 ...
+
+#43 [backend] resolving provenance for metadata file
+#43 DONE 0.0s
+
+#42 [frontend 7/7] RUN npm run build
+#42 0.471 
+#42 0.471 > legacy-change-assistant-frontend@0.1.0 build
+#42 0.471 > tsc -b && vite build
+#42 0.471 
+#42 2.156 vite v7.3.6 building client environment for production...
+#42 2.207 transforming...
+#42 2.966 ✓ 32 modules transformed.
+#42 3.074 rendering chunks...
+#42 3.082 computing gzip size...
+#42 3.089 dist/index.html                   0.47 kB │ gzip:  0.30 kB
+#42 3.089 dist/assets/index-Dem27sSo.css    5.77 kB │ gzip:  2.03 kB
+#42 3.089 dist/assets/index-CinX0hrz.js   236.44 kB │ gzip: 74.06 kB
+#42 3.090 ✓ built in 912ms
+#42 DONE 3.2s
+
+#44 [frontend] exporting to image
+#44 exporting layers 0.3s done
+#44 exporting manifest sha256:7b79aa9d452a13d7ba6a064897af6018ba54345c53441db36b674b5e20e9281c 0.0s done
+#44 exporting config sha256:d9c380d71087553486a0e3de32a9c44078d822676d86ad0b118598b91f6115ad 0.0s done
+#44 exporting attestation manifest sha256:bcde86e29d5bf15722a62793cc9b11546883d2e16cf36207084116280f87ade5 0.0s done
+#44 exporting manifest list sha256:4ae320887318d256e0409313f03673781764f80451d82bdcd1e185054dcec643 0.0s done
+#44 naming to docker.io/library/master-frontend:latest
+#44 naming to docker.io/library/master-frontend:latest done
+#44 unpacking to docker.io/library/master-frontend:latest 0.1s done
+#44 DONE 0.5s
+
+#45 [frontend] resolving provenance for metadata file
+#45 DONE 0.0s
+ Image master-ai-service Built 
+ Image master-backend Built 
+ Image master-frontend Built 
+ Container master-ollama-1 Running 
+ Container master-postgres-1 Running 
+ Container master-backend-1 Running 
+ Container master-ai-service-1 Recreate 
+ Container master-ai-service-1 Recreated 
+ Container master-frontend-1 Recreate 
+ Container master-frontend-1 Recreated 
+ Container master-ollama-1 Waiting 
+ Container master-postgres-1 Waiting 
+ Container master-postgres-1 Healthy 
+ Container master-ollama-1 Healthy 
+ Container master-analysis-model-init-1 Starting 
+ Container master-analysis-model-init-1 Started 
+ Container master-postgres-1 Waiting 
+ Container master-analysis-model-init-1 Waiting 
+ Container master-postgres-1 Healthy 
+ Container master-analysis-model-init-1 Exited 
+ Container master-ai-service-1 Starting 
+ Container master-ai-service-1 Started 
+ Container master-frontend-1 Starting 
+ Container master-frontend-1 Started 

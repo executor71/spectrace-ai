@@ -1,0 +1,7 @@
+PASS SQLSTATE 42501: SELECT * FROM evaluation.phase4_ground_truth_probe
+PASS SQLSTATE 42501: SELECT * FROM app.requirement
+PASS SQLSTATE 42501: SELECT * FROM app.requirement_analysis
+PASS SQLSTATE 42501: SELECT * FROM app.test_case
+PASS SQLSTATE 42501: SELECT * FROM app.test_case_generation
+PASS SQLSTATE 42501: UPDATE rag.knowledge_chunk SET content='forbidden' WHERE false
+PASS runtime role rag_reader; no app/evaluation/migration credentials; 27 chunks

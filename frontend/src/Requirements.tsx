@@ -1,4 +1,5 @@
 import RequirementAnalysis from './RequirementAnalysis'
+import TestCases from './TestCases'
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 
@@ -89,6 +90,7 @@ export default function Requirements() {
         <p className="requirement-description">{result.description}</p>
       </article>}
       {result && <RequirementAnalysis key={result.id} requirementId={result.id} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}
+      {result && <TestCases key={result.id} requirementId={result.id} />}
     </section>
   )
 }

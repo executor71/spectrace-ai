@@ -1,0 +1,66 @@
+{
+  "testCaseId": "c53be0ea-3157-49be-a922-efa378d6ca11",
+  "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+  "type": "NORMAL",
+  "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+  "preconditions": [
+    "합성 계정과 부서 관계를 시험 환경에 준비한다: same-department-manager",
+    "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+    "해당 자산의 상태는 AVAILABLE이다.",
+    "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+  ],
+  "input": {
+    "method": "POST",
+    "endpoint": "/loans/{loanId}/approve",
+    "pathParameters": {
+      "loanId": "00000000-0000-4000-8000-000000000041"
+    },
+    "body": {
+      "comment": "합성 검증"
+    },
+    "actorFixture": "same-department-manager"
+  },
+  "steps": [
+    "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+    "지정 계정으로 input의 승인 요청을 보낸다.",
+    "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+  ],
+  "expectedResult": {
+    "description": "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+    "assertions": [
+      {
+        "kind": "HTTP_STATUS",
+        "value": 200
+      },
+      {
+        "kind": "OBSERVATION_EQUALS",
+        "field": "loanStatus",
+        "value": "APPROVED"
+      },
+      {
+        "kind": "OBSERVATION_EQUALS",
+        "field": "assetStatus",
+        "value": "RESERVED"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+      "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+    },
+    {
+      "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+      "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+    },
+    {
+      "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+      "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+    },
+    {
+      "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+      "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+    }
+  ],
+  "executable": false
+}

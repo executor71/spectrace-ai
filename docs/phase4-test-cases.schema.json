@@ -1,0 +1,179 @@
+{
+  "$defs": {
+    "EvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "title": "Documentid",
+          "type": "string"
+        },
+        "chunkId": {
+          "title": "Chunkid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "documentId",
+        "chunkId"
+      ],
+      "title": "EvidenceRef",
+      "type": "object"
+    },
+    "ExpectedResult": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "assertions": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Assertions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "description",
+        "assertions"
+      ],
+      "title": "ExpectedResult",
+      "type": "object"
+    },
+    "TestCase": {
+      "additionalProperties": false,
+      "properties": {
+        "testCaseId": {
+          "title": "Testcaseid",
+          "type": "string"
+        },
+        "requirementId": {
+          "title": "Requirementid",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "NORMAL",
+            "EXCEPTION",
+            "AUTHORIZATION",
+            "BOUNDARY",
+            "BUSINESS_RULE"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "scenario": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Scenario",
+          "type": "string"
+        },
+        "preconditions": {
+          "items": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Preconditions",
+          "type": "array"
+        },
+        "input": {
+          "additionalProperties": true,
+          "title": "Input",
+          "type": "object"
+        },
+        "steps": {
+          "items": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Steps",
+          "type": "array"
+        },
+        "expectedResult": {
+          "$ref": "#/$defs/ExpectedResult"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "executable": {
+          "title": "Executable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "testCaseId",
+        "requirementId",
+        "type",
+        "scenario",
+        "preconditions",
+        "input",
+        "steps",
+        "expectedResult",
+        "evidence",
+        "executable"
+      ],
+      "title": "TestCase",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "testCases": {
+      "items": {
+        "$ref": "#/$defs/TestCase"
+      },
+      "title": "Testcases",
+      "type": "array"
+    },
+    "clarificationRequired": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Clarificationrequired",
+      "type": "array"
+    },
+    "uncoveredTypes": {
+      "items": {
+        "enum": [
+          "NORMAL",
+          "EXCEPTION",
+          "AUTHORIZATION",
+          "BOUNDARY",
+          "BUSINESS_RULE"
+        ],
+        "type": "string"
+      },
+      "title": "Uncoveredtypes",
+      "type": "array"
+    },
+    "policyHash": {
+      "title": "Policyhash",
+      "type": "string"
+    },
+    "llmCalls": {
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Llmcalls",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "testCases",
+    "clarificationRequired",
+    "uncoveredTypes",
+    "policyHash",
+    "llmCalls"
+  ],
+  "title": "GenerationResult",
+  "type": "object"
+}

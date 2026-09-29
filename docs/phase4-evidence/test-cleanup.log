@@ -1,0 +1,16 @@
+docker :  Container master-phase4-test-backend-test-1 Stopping 
+At line:2 char:42
++ ... StartNew(); docker compose -f compose.test.yaml -p master-phase4-test ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container mast...est-1 Stopping :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container master-phase4-test-backend-test-1 Stopped 
+ Container master-phase4-test-backend-test-1 Removing 
+ Container master-phase4-test-backend-test-1 Removed 
+ Container master-phase4-test-postgres-test-1 Stopping 
+ Container master-phase4-test-postgres-test-1 Stopped 
+ Container master-phase4-test-postgres-test-1 Removing 
+ Container master-phase4-test-postgres-test-1 Removed 
+ Network master-phase4-test_default Removing 
+ Network master-phase4-test_default Removed 

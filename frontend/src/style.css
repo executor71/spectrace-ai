@@ -164,3 +164,13 @@ h2 { margin: 8px 0 0; font-size: 19px; font-weight: 700; }
 .analysis-evidence { border:1px solid #ccd4ce; border-radius:8px; padding:1rem; margin:1rem 0; }
 .analysis-evidence h5 { font-size:1rem; margin:0; }
 .analysis-evidence blockquote { margin:1rem 0; white-space:pre-wrap; }
+
+.test-cases { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccd4ce; }
+.test-case-result { overflow-wrap: anywhere; }
+.test-case-list { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.test-case-list button { width: 100%; text-align: left; }
+.test-case-list button[aria-pressed="true"] { outline: 2px solid #47765c; outline-offset: 2px; }
+.test-case-detail { padding: 1rem; border: 1px solid #ccd4ce; border-radius: 8px; }
+.test-case-detail pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f1f4f0; padding: 1rem; }
+.test-case-evidence details { border-top: 1px solid #ccd4ce; padding: .8rem 0; }
+.test-case-evidence summary { cursor: pointer; }

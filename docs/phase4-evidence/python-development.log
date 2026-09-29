@@ -1,0 +1,49 @@
+docker : test_all_five_execution_gates_required (test_test_case_generation.TestCaseGenerationTest.test_all_five_executi
+on_gates_required) ... ok
+At line:2 char:42
++ ... StartNew(); docker run --rm --mount 'type=bind,source=D:\MASTER과정,tar ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_all_five_e...equired) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_ambiguous_deferred_without_model (test_test_case_generation.TestCaseGenerationTest.test_ambiguous_deferred_without
+_model) ... ok
+test_duplicate_or_omitted_candidate_rejected (test_test_case_generation.TestCaseGenerationTest.test_duplicate_or_omitte
+d_candidate_rejected) ... ok
+test_error_token_no_invented_response_path (test_test_case_generation.TestCaseGenerationTest.test_error_token_no_invent
+ed_response_path) ... ok
+test_fabricated_api_or_expected_result_extra_field_rejected (test_test_case_generation.TestCaseGenerationTest.test_fabr
+icated_api_or_expected_result_extra_field_rejected) ... ok
+test_fabricated_candidate_bounded_retry (test_test_case_generation.TestCaseGenerationTest.test_fabricated_candidate_bou
+nded_retry) ... ok
+test_five_types_full_contract_and_original_evidence (test_test_case_generation.TestCaseGenerationTest.test_five_types_f
+ull_contract_and_original_evidence) ... ok
+test_forged_condition_rejected (test_test_case_generation.TestCaseGenerationTest.test_forged_condition_rejected) ... ok
+test_forged_evidence_id_rejected (test_test_case_generation.TestCaseGenerationTest.test_forged_evidence_id_rejected) ..
+. ok
+test_identity_mismatch_rejected (test_test_case_generation.TestCaseGenerationTest.test_identity_mismatch_rejected) ... 
+ok
+test_injection_cannot_change_materialized_results (test_test_case_generation.TestCaseGenerationTest.test_injection_cann
+ot_change_materialized_results) ... ok
+test_missing_deferred_without_model (test_test_case_generation.TestCaseGenerationTest.test_missing_deferred_without_mod
+el) ... ok
+test_no_confirmed_fact_deferred (test_test_case_generation.TestCaseGenerationTest.test_no_confirmed_fact_deferred) ... 
+ok
+test_no_database_or_search_dependency (test_test_case_generation.TestCaseGenerationTest.test_no_database_or_search_depe
+ndency) ... ok
+test_pure_assertions_pass_and_fail (test_test_case_generation.TestCaseGenerationTest.test_pure_assertions_pass_and_fail
+) ... ok
+test_quote_missing_never_uses_outside_corpus (test_test_case_generation.TestCaseGenerationTest.test_quote_missing_never
+_uses_outside_corpus) ... ok
+test_retry_can_recover (test_test_case_generation.TestCaseGenerationTest.test_retry_can_recover) ... ok
+test_strict_result_schema_rejects_unrecognized_type (test_test_case_generation.TestCaseGenerationTest.test_strict_resul
+t_schema_rejects_unrecognized_type) ... ok
+test_unchanged_requires_both_observations (test_test_case_generation.TestCaseGenerationTest.test_unchanged_requires_bot
+h_observations) ... ok
+test_unrelated_confirmed_condition_cannot_create_approval (test_test_case_generation.TestCaseGenerationTest.test_unrela
+ted_confirmed_condition_cannot_create_approval) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.019s
+
+OK

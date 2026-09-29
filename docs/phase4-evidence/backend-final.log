@@ -1,0 +1,309 @@
+docker :  Image master-phase4-test-backend-test Building 
+At line:2 char:42
++ ... StartNew(); docker compose -f compose.test.yaml -p master-phase4-test ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image master-p...-test Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+#1 [internal] load local bake definitions
+#1 reading from stdin 574B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 358B done
+#2 DONE 0.0s
+
+#3 [auth] library/maven:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#4 DONE 1.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#6 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 37.14kB 0.0s done
+#7 DONE 0.0s
+
+#8 [build 2/5] WORKDIR /workspace
+#8 CACHED
+
+#9 [build 3/5] COPY pom.xml .
+#9 CACHED
+
+#10 [build 4/5] COPY src ./src
+#10 CACHED
+
+#11 [build 5/5] RUN mvn -B -DskipTests package
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:b8c95739d476772d89dd750e55a4a2997b87ee230660c93dc19ba99c22458589 done
+#12 exporting config sha256:5a910e0369850d366298fd07afc3c1fd43e3983fed9992d51504ab3cbab8b5e5 done
+#12 exporting attestation manifest sha256:ce4db8238175c9398bf981213645afe60c6283bf6eb3040e2af0c8f31bc59f88 0.0s done
+#12 exporting manifest list sha256:d9bf0aeac9e63b489d6934b79ec4769e493a4b2d8186766a7b387c4f4ac13caa 0.0s done
+#12 naming to docker.io/library/master-phase4-test-backend-test:latest done
+#12 unpacking to docker.io/library/master-phase4-test-backend-test:latest
+#12 unpacking to docker.io/library/master-phase4-test-backend-test:latest 0.0s done
+#12 DONE 0.1s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image master-phase4-test-backend-test Built 
+Attaching to backend-test-1, postgres-test-1
+ Container master-phase4-test-postgres-test-1 Starting 
+ Container master-phase4-test-postgres-test-1 Started 
+ Container master-phase4-test-postgres-test-1 Waiting 
+postgres-test-1  | The files belonging to this database system will be owned by user "postgres".
+postgres-test-1  | This user must also own the server process.
+postgres-test-1  | 
+postgres-test-1  | The database cluster will be initialized with locale "en_US.utf8".
+postgres-test-1  | The default database encoding has accordingly been set to "UTF8".
+postgres-test-1  | The default text search configuration will be set to "english".
+postgres-test-1  | 
+postgres-test-1  | Data page checksums are disabled.
+postgres-test-1  | 
+postgres-test-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-test-1  | creating subdirectories ... ok
+postgres-test-1  | selecting dynamic shared memory implementation ... posix
+postgres-test-1  | selecting default max_connections ... 100
+postgres-test-1  | selecting default shared_buffers ... 128MB
+postgres-test-1  | selecting default time zone ... Etc/UTC
+postgres-test-1  | creating configuration files ... ok
+postgres-test-1  | running bootstrap script ... ok
+postgres-test-1  | performing post-bootstrap initialization ... ok
+postgres-test-1  | initdb: warning: enabling "trust" authentication for local connections
+postgres-test-1  | syncing data to disk ... ok
+postgres-test-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and
+ --auth-host, the next time you run initdb.
+postgres-test-1  | 
+postgres-test-1  | 
+postgres-test-1  | Success. You can now start the database server using:
+postgres-test-1  | 
+postgres-test-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-test-1  | 
+postgres-test-1  | waiting for server to start....2026-09-29 15:00:29.817 UTC [49] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-test-1  | 2026-09-29 15:00:29.821 UTC [49] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-test-1  | 2026-09-29 15:00:29.823 UTC [52] LOG:  database system was shut down at 2026-09-29 15:00:29 UTC
+postgres-test-1  | 2026-09-29 15:00:29.829 UTC [49] LOG:  database system is ready to accept connections
+postgres-test-1  |  done
+postgres-test-1  | server started
+postgres-test-1  | CREATE DATABASE
+postgres-test-1  | 
+postgres-test-1  | 
+postgres-test-1  | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/001-roles.sql
+postgres-test-1  | CREATE EXTENSION
+postgres-test-1  | CREATE ROLE
+postgres-test-1  | CREATE ROLE
+postgres-test-1  | CREATE ROLE
+postgres-test-1  | CREATE ROLE
+postgres-test-1  | CREATE SCHEMA
+postgres-test-1  | CREATE SCHEMA
+postgres-test-1  | CREATE SCHEMA
+postgres-test-1  | GRANT
+postgres-test-1  | GRANT
+postgres-test-1  | GRANT
+postgres-test-1  | ALTER DEFAULT PRIVILEGES
+postgres-test-1  | ALTER DEFAULT PRIVILEGES
+postgres-test-1  | ALTER DEFAULT PRIVILEGES
+postgres-test-1  | ALTER DEFAULT PRIVILEGES
+postgres-test-1  | 
+postgres-test-1  | 
+postgres-test-1  | waiting for server to shut down...2026-09-29 15:00:30.031 UTC [49] LOG:  received fast shutdown request
+postgres-test-1  | 2026-09-29 15:00:30.031 UTC [49] LOG:  aborting any active transactions
+postgres-test-1  | .2026-09-29 15:00:30.033 UTC [49] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+postgres-test-1  | 2026-09-29 15:00:30.033 UTC [50] LOG:  shutting down
+postgres-test-1  | 2026-09-29 15:00:30.033 UTC [50] LOG:  checkpoint starting: shutdown immediate
+postgres-test-1  | 2026-09-29 15:00:30.042 UTC [50] LOG:  checkpoint complete: wrote 960 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.001 s, total=0.010 s; sync files=308, longest=0.001 s, average=0.000 s; distance=4650 kB, estimate=4650 kB; lsn=0/1974E20, redo lsn=0/1974E20
+postgres-test-1  | 2026-09-29 15:00:30.048 UTC [49] LOG:  database system is shut down
+postgres-test-1  |  done
+postgres-test-1  | server stopped
+postgres-test-1  | 
+postgres-test-1  | PostgreSQL init process complete; ready for start up.
+postgres-test-1  | 
+postgres-test-1  | 2026-09-29 15:00:30.152 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg12+2) on x86_64-
+pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-test-1  | 2026-09-29 15:00:30.152 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-test-1  | 2026-09-29 15:00:30.152 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-test-1  | 2026-09-29 15:00:30.156 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-test-1  | 2026-09-29 15:00:30.158 UTC [67] LOG:  database system was shut down at 2026-09-29 15:00:30 UTC
+postgres-test-1  | 2026-09-29 15:00:30.161 UTC [1] LOG:  database system is ready to accept connections
+ Container master-phase4-test-postgres-test-1 Healthy 
+ Container master-phase4-test-backend-test-1 Starting 
+ Container master-phase4-test-backend-test-1 Started 
+backend-test-1   | [INFO] Scanning for projects...
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] ----------------< com.example:legacy-change-assistant >-----------------
+backend-test-1   | [INFO] Building legacy-change-assistant 0.1.0-SNAPSHOT
+backend-test-1   | [INFO]   from pom.xml
+backend-test-1   | [INFO] --------------------------------[ jar ]---------------------------------
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] --- resources:3.3.1:resources (default-resources) @ legacy-change-assistant ---
+backend-test-1   | [INFO] Copying 1 resource from src/main/resources to target/classes
+backend-test-1   | [INFO] Copying 7 resources from src/main/resources to target/classes
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] --- compiler:3.14.0:compile (default-compile) @ legacy-change-assistant ---
+backend-test-1   | [INFO] Nothing to compile - all classes are up to date.
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] --- resources:3.3.1:testResources (default-testResources) @ legacy-change-assistant ---
+backend-test-1   | [INFO] Copying 1 resource from src/test/resources to target/test-classes
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ legacy-change-assistant ---
+backend-test-1   | [INFO] Nothing to compile - all classes are up to date.
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] --- surefire:3.5.4:test (default-test) @ legacy-change-assistant ---
+backend-test-1   | [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] -------------------------------------------------------
+backend-test-1   | [INFO]  T E S T S
+backend-test-1   | [INFO] -------------------------------------------------------
+backend-test-1   | [INFO] Running com.example.legacyassistant.requirement.RequirementIntegrationTest
+backend-test-1   | 15:00:34.848 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.legacyassistant.requirement.RequirementIntegrationTest]: RequirementIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+backend-test-1   | 15:00:34.943 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.legacyassistant.LegacyChangeAssistantApplication for test class com.example.legacyassistant.requirement.RequirementIntegrationTest
+backend-test-1   | 
+backend-test-1   |   .   ____          _            __ _ _
+backend-test-1   |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+backend-test-1   | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+backend-test-1   |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+backend-test-1   |   '  |____| .__|_| |_|_| |_\__, | / / / /
+backend-test-1   |  =========|_|==============|___/=/_/_/_/
+backend-test-1   | 
+backend-test-1   |  :: Spring Boot ::                (v3.5.6)
+backend-test-1   | 
+backend-test-1   | 2026-09-29T15:00:35.244Z  INFO 96 --- [           main] c.e.l.r.RequirementIntegrationTest       : Starting RequirementIntegrationTest using Java 21.0.12.1 with PID 96 (started by root in /workspace)
+backend-test-1   | 2026-09-29T15:00:35.245Z  INFO 96 --- [           main] c.e.l.r.RequirementIntegrationTest       : No active profile set, falling back to 1 default profile: "default"
+backend-test-1   | 2026-09-29T15:00:36.311Z  INFO 96 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://postgres-test:5432/legacy_assistant_test?currentSchema=app (PostgreSQL 16.15)
+backend-test-1   | 2026-09-29T15:00:36.366Z  INFO 96 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "app"."flyway_schema_history" does not exist yet
+backend-test-1   | 2026-09-29T15:00:36.369Z  INFO 96 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 7 migrations (execution time 00:00.039s)
+backend-test-1   | 2026-09-29T15:00:36.382Z  INFO 96 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "app"."flyway_schema_history" ...
+backend-test-1   | 2026-09-29T15:00:36.421Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "app": << Empty Schema >>
+backend-test-1   | 2026-09-29T15:00:36.430Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "1 - create initial tables"
+backend-test-1   | 2026-09-29T15:00:36.447Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "2 - protect flyway history"
+backend-test-1   | 2026-09-29T15:00:36.454Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "3 - validate requirement content"
+backend-test-1   | 2026-09-29T15:00:36.465Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "4 - prepare synthetic knowledge"
+backend-test-1   | 2026-09-29T15:00:36.520Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "5 - seed synthetic knowledge"
+backend-test-1   | 2026-09-29T15:00:36.558Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "6 - store requirement analysis"
+backend-test-1   | 2026-09-29T15:00:36.566Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "7 - store grounded test cases"
+backend-test-1   | 2026-09-29T15:00:36.584Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 7 migrations to schema "app", now at version v7 (execution time 00:00.049s)
+backend-test-1   | 2026-09-29T15:00:37.098Z  INFO 96 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+backend-test-1   | 2026-09-29T15:00:37.098Z  INFO 96 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+backend-test-1   | 2026-09-29T15:00:37.104Z  INFO 96 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+backend-test-1   | 2026-09-29T15:00:37.111Z  INFO 96 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 13 ms
+backend-test-1   | 2026-09-29T15:00:37.161Z  INFO 96 --- [           main] c.e.l.r.RequirementIntegrationTest       : Started RequirementIntegrationTest in 2.131 seconds (process running for 2.84)
+backend-test-1   | 2026-09-29T15:00:37.249Z  INFO 96 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+backend-test-1   | 2026-09-29T15:00:37.267Z  INFO 96 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@286dfa20
+backend-test-1   | Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in fut
+ure releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://
+javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+backend-test-1   | 2026-09-29T15:00:37.269Z  INFO 96 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+backend-test-1   | OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstra
+p classpath has been appended
+backend-test-1   | WARNING: A Java agent has been loaded dynamically (/root/.m2/repository/net/bytebuddy/byte-buddy-age
+nt/1.17.7/byte-buddy-agent-1.17.7.jar)
+backend-test-1   | WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide 
+this warning
+backend-test-1   | WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for mor
+e information
+backend-test-1   | WARNING: Dynamic loading of agents will be disallowed by default in a future release
+postgres-test-1  | 2026-09-29 15:00:37.949 UTC [97] ERROR:  new row for relation "requirement" violates check constrain
+t "requirement_title_not_blank"
+postgres-test-1  | 2026-09-29 15:00:37.949 UTC [97] DETAIL:  Failing row contains (a281f8e7-d788-4a47-8a83-d24879947b83
+,  , sample, DRAFT, 2026-09-29 15:00:37.949213+00).
+postgres-test-1  | 2026-09-29 15:00:37.949 UTC [97] STATEMENT:  INSERT INTO app.requirement(id,title,description) VALUE
+S ($1, $2, $3)
+backend-test-1   | [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.231 s -- in com.example.legacyassistant.requirement.RequirementIntegrationTest
+backend-test-1   | [INFO] Running com.example.legacyassistant.requirement.RequirementServiceTest
+backend-test-1   | [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 s -- in com.example.legacyassistant.requirement.RequirementServiceTest
+backend-test-1   | [INFO] Running com.example.legacyassistant.testcase.TestCaseIntegrationTest
+backend-test-1   | 2026-09-29T15:00:38.318Z  INFO 96 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.legacyassistant.testcase.TestCaseIntegrationTest]: TestCaseIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+backend-test-1   | 2026-09-29T15:00:38.368Z  INFO 96 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.legacyassistant.LegacyChangeAssistantApplication for test class com.example.legacyassistant.testcase.TestCaseIntegrationTest
+backend-test-1   | 
+backend-test-1   |   .   ____          _            __ _ _
+backend-test-1   |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+backend-test-1   | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+backend-test-1   |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+backend-test-1   |   '  |____| .__|_| |_|_| |_\__, | / / / /
+backend-test-1   |  =========|_|==============|___/=/_/_/_/
+backend-test-1   | 
+backend-test-1   |  :: Spring Boot ::                (v3.5.6)
+backend-test-1   | 
+backend-test-1   | 2026-09-29T15:00:38.462Z  INFO 96 --- [           main] c.e.l.testcase.TestCaseIntegrationTest   : Starting TestCaseIntegrationTest using Java 21.0.12.1 with PID 96 (started by root in /workspace)
+backend-test-1   | 2026-09-29T15:00:38.463Z  INFO 96 --- [           main] c.e.l.testcase.TestCaseIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+backend-test-1   | 2026-09-29T15:00:39.084Z  INFO 96 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://postgres-test:5432/legacy_assistant_test?currentSchema=app (PostgreSQL 16.15)
+backend-test-1   | 2026-09-29T15:00:39.144Z  INFO 96 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 7 migrations (execution time 00:00.048s)
+backend-test-1   | 2026-09-29T15:00:39.167Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "app": 7
+backend-test-1   | 2026-09-29T15:00:39.169Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "app" is up to date. No migration necessary.
+backend-test-1   | 2026-09-29T15:00:39.374Z  INFO 96 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+backend-test-1   | 2026-09-29T15:00:39.375Z  INFO 96 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+backend-test-1   | 2026-09-29T15:00:39.377Z  INFO 96 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+backend-test-1   | 2026-09-29T15:00:39.381Z  INFO 96 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+backend-test-1   | 2026-09-29T15:00:39.405Z  INFO 96 --- [           main] c.e.l.testcase.TestCaseIntegrationTest   : Started TestCaseIntegrationTest in 1.026 seconds (process running for 5.086)
+backend-test-1   | 2026-09-29T15:00:39.413Z  INFO 96 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+backend-test-1   | 2026-09-29T15:00:39.423Z  INFO 96 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@5bd191c2
+backend-test-1   | 2026-09-29T15:00:39.424Z  INFO 96 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+backend-test-1   | [INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.532 s -- in com.example.legacyassistant.testcase.TestCaseIntegrationTest
+backend-test-1   | [INFO] Running com.example.legacyassistant.analysis.AnalysisIntegrationTest
+backend-test-1   | 2026-09-29T15:00:39.842Z  INFO 96 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.legacyassistant.analysis.AnalysisIntegrationTest]: AnalysisIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+backend-test-1   | 2026-09-29T15:00:39.852Z  INFO 96 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.legacyassistant.LegacyChangeAssistantApplication for test class com.example.legacyassistant.analysis.AnalysisIntegrationTest
+backend-test-1   | 
+backend-test-1   |   .   ____          _            __ _ _
+backend-test-1   |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+backend-test-1   | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+backend-test-1   |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+backend-test-1   |   '  |____| .__|_| |_|_| |_\__, | / / / /
+backend-test-1   |  =========|_|==============|___/=/_/_/_/
+backend-test-1   | 
+backend-test-1   |  :: Spring Boot ::                (v3.5.6)
+backend-test-1   | 
+backend-test-1   | 2026-09-29T15:00:39.885Z  INFO 96 --- [           main] c.e.l.analysis.AnalysisIntegrationTest   : Starting AnalysisIntegrationTest using Java 21.0.12.1 with PID 96 (started by root in /workspace)
+backend-test-1   | 2026-09-29T15:00:39.885Z  INFO 96 --- [           main] c.e.l.analysis.AnalysisIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+backend-test-1   | 2026-09-29T15:00:40.156Z  INFO 96 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://postgres-test:5432/legacy_assistant_test?currentSchema=app (PostgreSQL 16.15)
+backend-test-1   | 2026-09-29T15:00:40.176Z  INFO 96 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 7 migrations (execution time 00:00.014s)
+backend-test-1   | 2026-09-29T15:00:40.188Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "app": 7
+backend-test-1   | 2026-09-29T15:00:40.189Z  INFO 96 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "app" is up to date. No migration necessary.
+backend-test-1   | 2026-09-29T15:00:40.292Z  INFO 96 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+backend-test-1   | 2026-09-29T15:00:40.292Z  INFO 96 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+backend-test-1   | 2026-09-29T15:00:40.294Z  INFO 96 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+backend-test-1   | 2026-09-29T15:00:40.297Z  INFO 96 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+backend-test-1   | 2026-09-29T15:00:40.308Z  INFO 96 --- [           main] c.e.l.analysis.AnalysisIntegrationTest   : Started AnalysisIntegrationTest in 0.452 seconds (process running for 5.989)
+backend-test-1   | 2026-09-29T15:00:40.311Z  INFO 96 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+backend-test-1   | 2026-09-29T15:00:40.319Z  INFO 96 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@7cc5bdbd
+backend-test-1   | 2026-09-29T15:00:40.320Z  INFO 96 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+backend-test-1   | [INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.619 s -- in com.example.legacyassistant.analysis.AnalysisIntegrationTest
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] Results:
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0
+backend-test-1   | [INFO] 
+backend-test-1   | [INFO] ------------------------------------------------------------------------
+backend-test-1   | [INFO] BUILD SUCCESS
+backend-test-1   | [INFO] ------------------------------------------------------------------------
+backend-test-1   | [INFO] Total time:  7.463 s
+backend-test-1   | [INFO] Finished at: 2026-09-29T15:00:40Z
+backend-test-1   | [INFO] ------------------------------------------------------------------------
+
+[Kbackend-test-1 exited with code 0
+ Compose Stopping Aborting on container exit...
+ Container master-phase4-test-backend-test-1 Stopping 
+ Container master-phase4-test-backend-test-1 Stopped 
+ Container master-phase4-test-postgres-test-1 Stopping 
+postgres-test-1  | 2026-09-29 15:00:40.924 UTC [1] LOG:  received fast shutdown request
+postgres-test-1  | 2026-09-29 15:00:40.924 UTC [1] LOG:  aborting any active transactions
+postgres-test-1  | 2026-09-29 15:00:40.926 UTC [1] LOG:  background worker "logical replication launcher" (PID 70) exit
+ed with exit code 1
+postgres-test-1  | 2026-09-29 15:00:40.926 UTC [65] LOG:  shutting down
+postgres-test-1  | 2026-09-29 15:00:40.926 UTC [65] LOG:  checkpoint starting: shutdown immediate
+postgres-test-1  | 2026-09-29 15:00:40.927 UTC [65] LOG:  checkpoint complete: wrote 210 buffers (1.3%); 0 WAL file(s) 
+added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=90, longest=0.001 s, average=0.000
+ s; distance=702 kB, estimate=702 kB; lsn=0/1A24A10, redo lsn=0/1A24A10
+postgres-test-1  | 2026-09-29 15:00:40.932 UTC [1] LOG:  database system is shut down
+ Container master-phase4-test-postgres-test-1 Stopped 
+
+[Kpostgres-test-1 exited with code 0

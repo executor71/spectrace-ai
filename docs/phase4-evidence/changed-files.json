@@ -1,0 +1,38 @@
+{
+  "changed": [
+    "compose.test.yaml",
+    "compose.yaml",
+    "frontend/src/Requirements.tsx",
+    "frontend/src/style.css",
+    "ai-service/app/main.py"
+  ],
+  "new": [
+    "backend/src/test/resources/test-case-analysis.json",
+    "backend/src/test/java/com/example/legacyassistant/testcase/TestCaseIntegrationTest.java",
+    "backend/src/main/resources/db/migration/V7__store_grounded_test_cases.sql",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseAdvice.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseClient.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseController.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseException.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCasePolicy.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseRepository.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseService.java",
+    "ai-service/app/test_case_api.py",
+    "ai-service/app/test_case_models.py",
+    "ai-service/app/test_case_policy.py",
+    "ai-service/app/test_case_service.py",
+    "ai-service/tests/test_test_case_generation.py",
+    "ai-service/tests/fixtures/test-case-analysis.json",
+    "frontend/src/TestCases.tsx",
+    "contracts/test-case-policy.json",
+    "docs/scripts/phase4-analysis-regression.py",
+    "docs/scripts/phase4-boundary.sql",
+    "docs/scripts/phase4-browser.py",
+    "docs/scripts/phase4-live.py",
+    "docs/scripts/phase4-regression.py",
+    "docs/scripts/phase4-runtime-security.py",
+    "docs/phase4-design.md",
+    "docs/phase4-test-cases.schema.json",
+    "docs/phase4-result.md"
+  ]
+}
