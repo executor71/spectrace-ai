@@ -1,0 +1,26 @@
+[
+  {
+    "body": {
+      "query": " "
+    },
+    "status": 422
+  },
+  {
+    "body": {
+      "query": "x",
+      "topK": 11
+    },
+    "status": 422
+  },
+  {
+    "body": {
+      "query": "x",
+      "schema": "evaluation"
+    },
+    "status": 422
+  },
+  {
+    "check": "evaluation marker never returned",
+    "result": "PASS"
+  }
+]

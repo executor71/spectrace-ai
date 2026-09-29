@@ -23,6 +23,8 @@ services:
   backend:
     build: ./backend
     environment:
+      AI_SERVICE_URL: http://ai-service:8000
+      ANALYSIS_TIMEOUT_SECONDS: "630"
       DB_HOST: postgres
       DB_NAME: legacy_assistant
       DB_APP_USER: app_user
@@ -38,15 +40,54 @@ services:
   ai-service:
     build: ./ai-service
     environment:
+      ANALYSIS_LLM_URL: http://ollama:11434
+      ANALYSIS_LLM_THINK: ${ANALYSIS_LLM_THINK:-false}
+      ANALYSIS_LLM_MODEL: ${ANALYSIS_LLM_MODEL:-qwen2.5:7b-instruct}
+      ANALYSIS_LLM_TIMEOUT_SECONDS: ${ANALYSIS_LLM_TIMEOUT_SECONDS:-300}
       RAG_DB_HOST: postgres
       RAG_DB_NAME: legacy_assistant
       RAG_DB_USER: rag_reader
       RAG_DB_PASSWORD: ${RAG_DB_PASSWORD:-local_rag_reader_only}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-}
+      EMBEDDING_DIMENSIONS: ${EMBEDDING_DIMENSIONS:-}
+      EMBEDDING_REVISION: ${EMBEDDING_REVISION:-}
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-}
+      HF_HUB_DISABLE_XET: "1"
+      HF_HUB_DOWNLOAD_TIMEOUT: "30"
+      TOKENIZERS_PARALLELISM: "false"
+    volumes:
+      - embedding-model-cache:/models
     ports:
       - "8000:8000"
     depends_on:
+      analysis-model-init:
+        condition: service_completed_successfully
       postgres:
         condition: service_healthy
+
+  ollama:
+    image: ollama/ollama:0.11.10
+    environment:
+      OLLAMA_NUM_PARALLEL: "1"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+    volumes:
+      - analysis-model-cache:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  analysis-model-init:
+    image: ollama/ollama:0.11.10
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["ollama", "pull"]
+    command: ["${ANALYSIS_LLM_MODEL:-qwen2.5:7b-instruct}"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
 
   frontend:
     build: ./frontend
@@ -58,3 +99,5 @@ services:
 
 volumes:
   postgres-data:
+  embedding-model-cache:
+  analysis-model-cache:

@@ -1,0 +1,21 @@
+[
+  "knowledge/manifest.json",
+  "knowledge/README.md",
+  "knowledge/documents/access-policy.md",
+  "knowledge/documents/asset-api.md",
+  "knowledge/documents/asset-lifecycle.md",
+  "knowledge/documents/error-codes.md",
+  "knowledge/documents/loan-api.md",
+  "knowledge/documents/loan-rules.md",
+  "knowledge/documents/loan-test-guide.md",
+  "knowledge/documents/return-api.md",
+  "knowledge/documents/return-rules.md",
+  "docs/phase2-pending/V4__prepare_synthetic_knowledge.sql",
+  "ai-service/app/embedding_contract.py",
+  "ai-service/app/knowledge.py",
+  "ai-service/app/seed_export.py",
+  "ai-service/app/vector_search.py",
+  "ai-service/tests/test_knowledge.py",
+  "ai-service/tests/test_vector_search.py",
+  "ai-service/tests/fixtures/retrieval_cases.json"
+]

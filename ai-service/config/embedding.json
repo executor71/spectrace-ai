@@ -1,0 +1,11 @@
+{
+  "provider": "local_sentence_transformers",
+  "model": "BAAI/bge-m3",
+  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "dimensions": 1024,
+  "device": "cpu",
+  "batch_size": 4,
+  "max_sequence_length": 512,
+  "cpu_threads": 4,
+  "cache_dir": "/models"
+}

@@ -1,0 +1,56 @@
+{
+  "requirementId": "d7a38712-89ac-4858-89a9-633eb780930f",
+  "confirmedConditions": [],
+  "ambiguousExpressions": [],
+  "missingConditions": [
+    "퇴직자의 장비 해외 배송료를 가상화폐로 정산한다. 조건은 검색 근거에서 확인되지 않습니다."
+  ],
+  "relatedBusinessRules": [],
+  "relatedApis": [],
+  "clarificationQuestions": [
+    "해외 배송료 정산의 기준 가격이나 환율 등에 대한 추가 정보가 필요합니다.",
+    "정산 과정에서 발생할 수 있는 예외 상황은 무엇인가요?"
+  ],
+  "evidence": [
+    {
+      "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+      "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+      "documentType": "BUSINESS_RULE",
+      "section": "대여 가능한 재고 판정",
+      "contentSnippet": "임직원에게 지급할 수 있는 재고는 자산 상태가 AVAILABLE이고 활성 대여 기록이 없는 장비다. RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다. 예약은 승인 완료부터 실물 지급까지 유효하다. 대여 화면의 재고 조회 결과만 신뢰하지 않고 승인 트랜잭션에서 최신 상태를 다시 확인한다.",
+      "score": 0.5150122335545887
+    },
+    {
+      "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982",
+      "documentType": "BUSINESS_RULE",
+      "section": "파손 장비의 수리 전환",
+      "contentSnippet": "자산 담당자는 반납 장비의 외관과 작동 상태를 검사한다. 파손 또는 기능 이상이 있으면 검사 결과를 DAMAGED로 기록하고 자산 상태를 MAINTENANCE로 바꾼다. 사진과 파손 설명은 필수이며 정상 재고로 바로 돌릴 수 없다. 이상 없는 장비는 검사 결과 PASSED와 함께 AVAILABLE로 전환한다.",
+      "score": 0.5143729431184598
+    },
+    {
+      "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+      "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+      "documentType": "BUSINESS_RULE",
+      "section": "반납 접수와 검사 대기",
+      "contentSnippet": "현재 대여자 또는 자산 담당자만 반납 접수를 할 수 있다. 반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다. 반납 건은 INSPECTION_PENDING으로 생성되고 자산은 검사 완료 전까지 새로운 대여에서 제외한다. 본체, 충전기, 부속품의 반납 여부를 기록하며 접수일과 담당자를 보관한다.",
+      "score": 0.5042657551607048
+    },
+    {
+      "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+      "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+      "documentType": "BUSINESS_RULE",
+      "section": "자산 등록과 관리번호",
+      "contentSnippet": "가상 자산관리 시스템의 자산 담당자는 노트북, 모니터, 휴대전화에 고유한 자산번호를 부여한다. 자산번호와 제조사 일련번호는 중복될 수 없다. 신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다. 분실 신고된 장비나 폐기된 장비를 신규 재고로 다시 등록하지 않는다. 구매일, 장비 종류, 관리 부서, 일련번호는 필수 입력이다.",
+      "score": 0.49924480928573534
+    },
+    {
+      "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+      "chunkId": "4f380a68-9148-5c58-86e2-760176ba6cf2",
+      "documentType": "API_SPEC",
+      "section": "POST /loans/{loanId}/issue 지급 확인",
+      "contentSnippet": "POST /loans/{loanId}/issue는 자산 담당자가 실물 장비를 지급한 뒤 호출한다. 승인된 신청만 처리할 수 있으며 성공 시 HTTP 200, 대여 상태 ACTIVE와 자산 상태 ON_LOAN을 반환한다. 승인 전 지급 요청은 HTTP 409 LOAN_STATE_CONFLICT다. 수령 확인 시각과 담당자 ID는 서버에서 기록한다.",
+      "score": 0.493955285437951
+    }
+  ]
+}

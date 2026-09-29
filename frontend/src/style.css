@@ -156,3 +156,11 @@ h2 { margin: 8px 0 0; font-size: 19px; font-weight: 700; }
   .status { grid-column: 2; margin-top: 10px; }
   .footer { flex-direction: column; }
 }
+
+.analysis-panel { margin-top: 2rem; border-top: 1px solid #ccd4ce; padding-top: 1rem; }
+.analysis-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+.analysis-result { overflow-wrap:anywhere; }
+.analysis-result h4 { margin-top:1.8rem; }
+.analysis-evidence { border:1px solid #ccd4ce; border-radius:8px; padding:1rem; margin:1rem 0; }
+.analysis-evidence h5 { font-size:1rem; margin:0; }
+.analysis-evidence blockquote { margin:1rem 0; white-space:pre-wrap; }

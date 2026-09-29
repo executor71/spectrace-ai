@@ -1,0 +1,19 @@
+[
+  "ai-service/requirements-embedding.txt",
+  "ai-service/app/db.py",
+  "ai-service/app/export_seed.py",
+  "ai-service/app/local_embedding.py",
+  "ai-service/app/search_api.py",
+  "ai-service/config/embedding.json",
+  "ai-service/tests/test_local_embedding.py",
+  "ai-service/app/embedding_contract.py",
+  "ai-service/app/vector_search.py",
+  "ai-service/app/seed_export.py",
+  "ai-service/Dockerfile",
+  "ai-service/app/main.py",
+  "ai-service/app/main.py",
+  "compose.yaml",
+  "compose.yaml",
+  ".env.example",
+  "backend/src/main/resources/db/migration/V4__prepare_synthetic_knowledge.sql"
+]

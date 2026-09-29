@@ -49,6 +49,11 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(404).body(new ApiError("REQUIREMENT_NOT_FOUND", ex.getMessage(), Map.of()));
     }
 
+    @ExceptionHandler(com.example.legacyassistant.analysis.AnalysisException.class)
+    public ResponseEntity<ApiError> analysis(com.example.legacyassistant.analysis.AnalysisException ex) {
+        return ResponseEntity.status(ex.status()).body(new ApiError(ex.code(), ex.getMessage(), Map.of()));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> unexpected(Exception ex) {
         LOG.error("Requirement request failed", ex);

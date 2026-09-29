@@ -1,0 +1,38 @@
+ version |         description          | success 
+---------+------------------------------+---------
+ 1       | create initial tables        | t
+ 2       | protect flyway history       | t
+ 3       | validate requirement content | t
+ 4       | prepare synthetic knowledge  | t
+ 5       | seed synthetic knowledge     | t
+ 6       | store requirement analysis   | t
+(6 rows)
+
+      rolname      |  nspname   | usage 
+-------------------+------------+-------
+ app_user          | app        | t
+ app_user          | evaluation | f
+ app_user          | rag        | f
+ evaluation_reader | app        | f
+ evaluation_reader | evaluation | t
+ evaluation_reader | rag        | f
+ rag_reader        | app        | f
+ rag_reader        | evaluation | f
+ rag_reader        | rag        | t
+(9 rows)
+
+      rolname      | read_analysis | write_analysis 
+-------------------+---------------+----------------
+ app_user          | t             | t
+ rag_reader        | f             | f
+ evaluation_reader | f             | f
+(3 rows)
+
+DO
+docker : NOTICE:  PASS: V1-V6 migrations and new analysis table privileges
+At line:2 char:170
++ ... dary.sql' | docker compose exec -T postgres psql -U postgres -d legac ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (NOTICE:  PASS: ...able privileges:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

@@ -1,0 +1,8 @@
+docker :  Container master-ai-service-1 Stopping 
+At line:2 char:42
++ ... StartNew(); docker compose stop ai-service *> docs/phase3-evidence/mo ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container master-ai-service-1 Stopping :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container master-ai-service-1 Stopped 

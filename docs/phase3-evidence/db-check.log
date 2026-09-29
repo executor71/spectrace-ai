@@ -1,0 +1,54 @@
+ version |         description          | success 
+---------+------------------------------+---------
+ 1       | create initial tables        | t
+ 2       | protect flyway history       | t
+ 3       | validate requirement content | t
+ 4       | prepare synthetic knowledge  | t
+ 5       | seed synthetic knowledge     | t
+ 6       | store requirement analysis   | t
+(6 rows)
+
+ documents 
+-----------
+         9
+(1 row)
+
+ chunks | vectors | min_dimensions | max_dimensions 
+--------+---------+----------------+----------------
+     27 |      27 |           1024 |           1024
+(1 row)
+
+          provider           |    model    |                 revision                 | dimensions | dataset_version 
+-----------------------------+-------------+------------------------------------------+------------+-----------------
+ local_sentence_transformers | BAAI/bge-m3 | 5617a9f61b028005a4858fdac845db406aefb181 |       1024 | 1.0.0
+(1 row)
+
+DO
+BEGIN
+SET
+docker : NOTICE:  PASS: 9 documents, 27 populated vectors, dimensions and metadata agree
+At line:2 char:170
++ ... heck.sql' | docker compose exec -T postgres psql -U postgres -d legac ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (NOTICE:  PASS: ... metadata agree:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+CREATE TABLE
+INSERT 0 1
+SET
+ evaluation_control_read 
+-------------------------
+                       1
+(1 row)
+
+SET
+NOTICE:  PASS: rag_reader cannot read populated evaluation Ground Truth probe
+NOTICE:  PASS: rag_reader cannot read app
+NOTICE:  PASS: rag_reader cannot write rag
+DO
+ROLLBACK
+ probe_removed 
+---------------
+ t
+(1 row)
+

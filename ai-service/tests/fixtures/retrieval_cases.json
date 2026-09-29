@@ -1,0 +1,63 @@
+[
+  {
+    "query": "노트북을 이미 빌린 직원이 한 대 더 신청할 수 있나요?",
+    "expectedDocumentKeys": [
+      "loan-rules"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "부서장이 자기 장비 대여 신청을 직접 승인해도 되나요?",
+    "expectedDocumentKeys": [
+      "loan-rules",
+      "error-codes"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "동일한 장비를 두 사람이 동시에 승인하면 어떻게 검증하나요?",
+    "expectedDocumentKeys": [
+      "loan-test-guide",
+      "loan-rules"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "반납한 노트북이 파손된 경우 어떤 상태로 전환해야 하나요?",
+    "expectedDocumentKeys": [
+      "return-rules",
+      "return-api"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "대여 신청 API의 요청 필드와 성공 응답 상태는 무엇인가요?",
+    "expectedDocumentKeys": [
+      "loan-api"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "반납 예정일 당일에 접수해도 연체로 계산하나요?",
+    "expectedDocumentKeys": [
+      "return-rules",
+      "loan-test-guide"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "대여 내역 CSV를 직원이 내려받을 수 있나요?",
+    "expectedDocumentKeys": [
+      "access-policy"
+    ],
+    "topK": 5
+  },
+  {
+    "query": "동일 장비에 반납 요청을 두 번 보내면 어떤 오류가 발생하나요?",
+    "expectedDocumentKeys": [
+      "error-codes",
+      "return-api"
+    ],
+    "topK": 5
+  }
+]

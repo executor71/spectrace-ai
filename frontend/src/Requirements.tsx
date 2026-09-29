@@ -1,3 +1,4 @@
+import RequirementAnalysis from './RequirementAnalysis'
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 
@@ -87,6 +88,7 @@ export default function Requirements() {
           <dt>등록 일시</dt><dd>{new Date(result.createdAt).toLocaleString('ko-KR')}</dd></dl>
         <p className="requirement-description">{result.description}</p>
       </article>}
+      {result && <RequirementAnalysis key={result.id} requirementId={result.id} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}
     </section>
   )
 }

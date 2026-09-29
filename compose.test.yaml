@@ -32,7 +32,7 @@ services:
       DB_MIGRATION_USER: migration_owner
       DB_MIGRATION_PASSWORD: test_migration_only
     volumes:
-      - ./docs/phase1-evidence/test-results:/workspace/target/surefire-reports
+      - ./docs/phase3-evidence/test-results:/workspace/target/surefire-reports
     depends_on:
       postgres-test:
         condition: service_healthy

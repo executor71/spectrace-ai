@@ -52,36 +52,26 @@ Content-Type: application/json
 - AI Service: GET /health
 - React의 /api는 backend로, /actuator와 /ai-health는 기존 health 경로로 프록시한다.
 
+## Phase 2: 내부 Vector 검색
+
+POST /internal/v1/search (AI Service :8000)
+
+요청: {"query":"반납 파손 처리 규칙","topK":5}. query는 공백 제거 후 1~2000자, topK는 정수 1~10이다. 모델 설정의 token 한도 초과도 422로 거부한다. schema 등 정의되지 않은 필드는 거부한다.
+
+응답: documentId/chunkId/documentType/section/contentSnippet/score/domain/version/relatedApis 객체 배열. score는 cosine similarity, chunk별 내림차순이며 같은 문서의 여러 section이 반환될 수 있다. 모델/corpus 불일치는 503 CORPUS_NOT_READY, 내부 오류는 세부정보 없는 503 SEARCH_UNAVAILABLE이다. 모델 초기화는 첫 요청에서 수행한다.
+
+[실제 검색 결과](phase2-result.md)
+
+## Phase 3: 근거 기반 요구사항 분석
+
+`POST /api/requirements/{id}/analysis`: 기존 요구사항으로 Vector 검색과 로컬 LLM 분석을 수행하고 저장한다. 성공 200.
+`GET /api/requirements/{id}/analysis`: 저장된 결과와 당시 evidence를 조회한다. 성공 200.
+
+외부 결과는 requirementId/confirmedConditions/ambiguousExpressions/missingConditions/relatedBusinessRules/relatedApis/clarificationQuestions/evidence의 8개 필드이다.
+AI 내부 endpoint는 `POST /internal/v1/requirement-analysis`, 입력은 `{requirementId, title, description}`이다. AI는 app DB를 조회하지 않는다.
+
+세부 타입, 근거 검증과 오류 코드는 [Phase 3 설계](phase3-design.md), 기계 판독 계약은 [JSON Schema](phase3-analysis.schema.json)를 따른다.
+
 ## 후속 기능 (미구현)
 
-분석, RAG, Embedding, 테스트케이스 생성, Evaluation, Dummy API 실행, GraphRAG/MCP는 구현하지 않았다. 아래 AI 계약은 향후 설계 문서이며 동작하는 endpoint가 아니다.
-
-## 내부 AI 계약 (후속 구현)
-
-`POST /internal/v1/analyze` 입력은 `{ "requirement": { "title": "...", "description": "..." } }`입니다. 출력은 다음 JSON 구조로 고정합니다.
-
-```json
-{
-  "analysis": {
-    "confirmedConditions": [],
-    "ambiguousExpressions": [],
-    "missingConditions": [],
-    "relatedBusinessRules": [],
-    "relatedApis": [],
-    "clarificationQuestions": [],
-    "evidence": []
-  },
-  "testCases": [
-    {
-      "category": "NORMAL",
-      "title": "합성 샘플 테스트",
-      "preconditions": [],
-      "steps": [],
-      "expectedResult": "...",
-      "executable": false
-    }
-  ]
-}
-```
-
-Evidence 객체는 `documentId`, `chunkId`, `documentType`, `section`, `contentSnippet`, `score`를 포함합니다. 허용 category는 `NORMAL`, `EXCEPTION`, `AUTHORIZATION`, `BOUNDARY`, `BUSINESS_RULE`입니다. AI Service는 사용자 승인이나 업무 상태를 변경하지 않으며, Dummy 실행 권한 판정도 수행하지 않습니다.
+TestCase Generation, Hybrid Search, Reranking, Query Rewrite, LangGraph, Evaluation, Dummy API 실행, GraphRAG/MCP는 구현하지 않았다.

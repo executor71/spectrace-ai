@@ -1,0 +1,70 @@
+{
+  "result": "PASS",
+  "baselineFilesUnchanged": 54,
+  "backendTests": [
+    {
+      "name": "com.example.legacyassistant.requirement.RequirementIntegrationTest",
+      "tests": "14",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.requirement.RequirementServiceTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "health": [
+    {
+      "url": "http://localhost:8080/actuator/health",
+      "status": 200,
+      "body": {
+        "status": "UP",
+        "components": {
+          "db": {
+            "status": "UP",
+            "details": {
+              "database": "PostgreSQL",
+              "validationQuery": "isValid()"
+            }
+          },
+          "diskSpace": {
+            "status": "UP",
+            "details": {
+              "total": 1081101176832,
+              "free": 1020877611008,
+              "threshold": 10485760,
+              "path": "/app/.",
+              "exists": true
+            }
+          },
+          "ping": {
+            "status": "UP"
+          },
+          "ssl": {
+            "status": "UP",
+            "details": {
+              "validChains": [],
+              "invalidChains": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "url": "http://localhost:8000/health",
+      "status": 200,
+      "body": {
+        "status": "UP",
+        "database": "UP",
+        "schema": "rag",
+        "pgvector": "0.8.6"
+      }
+    }
+  ],
+  "requirementLookupId": "6f1fd8bb-b9c2-4be9-a095-879a30447376",
+  "react": "PASS"
+}

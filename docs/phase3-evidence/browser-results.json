@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "requirementId": "79dd9d87-57e8-4b11-8cea-846b00fc2acb",
+  "analysisPostStatus": 200,
+  "elapsedSeconds": 73.616,
+  "healthCards": 2,
+  "evidenceCards": 5,
+  "requirementCreatedInReact": true,
+  "statusUpdatedToAnalyzed": true,
+  "persistedAfterReload": true,
+  "browserErrors": []
+}

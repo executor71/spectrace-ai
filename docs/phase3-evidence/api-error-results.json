@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "requirementId": "82c0c825-c976-4ae0-9c69-257c1747c3e9",
+  "checks": [
+    {
+      "path": "/api/requirements/invalid/analysis",
+      "status": 400,
+      "expected": 400,
+      "elapsedSeconds": 0.036
+    },
+    {
+      "path": "/api/requirements/ce1c3b99-e522-4498-8849-bc9f52bf1126/analysis",
+      "status": 404,
+      "expected": 404,
+      "elapsedSeconds": 0.006
+    },
+    {
+      "path": "/api/requirements",
+      "status": 400,
+      "expected": 400,
+      "elapsedSeconds": 0.079
+    },
+    {
+      "path": "/api/requirements",
+      "status": 201,
+      "expected": 201,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "path": "/api/requirements/82c0c825-c976-4ae0-9c69-257c1747c3e9/analysis",
+      "status": 404,
+      "expected": 404,
+      "elapsedSeconds": 0.029
+    },
+    {
+      "path": "/api/requirements/82c0c825-c976-4ae0-9c69-257c1747c3e9/analysis",
+      "status": 422,
+      "expected": 422,
+      "elapsedSeconds": 0.016
+    },
+    {
+      "path": "/api/requirements/82c0c825-c976-4ae0-9c69-257c1747c3e9",
+      "status": 200,
+      "expected": 200,
+      "elapsedSeconds": 0.004
+    },
+    {
+      "path": "/internal/v1/search",
+      "status": 422,
+      "expected": 422,
+      "elapsedSeconds": 0.022
+    },
+    {
+      "path": "/internal/v1/requirement-analysis",
+      "status": 422,
+      "expected": 422,
+      "elapsedSeconds": 0.002
+    }
+  ]
+}

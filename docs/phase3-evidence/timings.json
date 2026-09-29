@@ -1,0 +1,138 @@
+{
+  "measurement": "command_elapsed_ms = PowerShell Stopwatch; initial_tool_return_ms/tool_return_ms = elapsed around exec_command, including tool/approval overhead. Asynchronous commands continue after first return; completion_poll_ms measures only the final poll. API request timings are separately in live-analysis-results.json.",
+  "records": [
+    {
+      "step": "Phase 2 baseline snapshot",
+      "command_elapsed_ms": 642,
+      "initial_tool_return_ms": 8526
+    },
+    {
+      "step": "Compose config validation",
+      "command_elapsed_ms": 120,
+      "initial_tool_return_ms": 4370
+    },
+    {
+      "step": "Initial Phase 3 Compose build",
+      "command_elapsed_ms": 22091,
+      "initial_tool_return_ms": 14672,
+      "asynchronous": true
+    },
+    {
+      "step": "Flyway, vector and populated Ground Truth isolation",
+      "command_elapsed_ms": 352,
+      "initial_tool_return_ms": 6175
+    },
+    {
+      "step": "New analysis table permission boundary",
+      "command_elapsed_ms": 439,
+      "initial_tool_return_ms": 4427
+    },
+    {
+      "step": "Final runtime RAG credential boundary",
+      "command_elapsed_ms": 473,
+      "initial_tool_return_ms": 5192
+    },
+    {
+      "step": "Backend 26 tests (isolated Compose)",
+      "command_elapsed_ms": 20261,
+      "initial_tool_return_ms": 13559,
+      "asynchronous": true
+    },
+    {
+      "step": "Python 37 tests (container)",
+      "command_elapsed_ms": 5931,
+      "initial_tool_return_ms": 9637
+    },
+    {
+      "step": "Qwen2.5 model download and Compose up",
+      "command_elapsed_ms": 103697,
+      "initial_tool_return_ms": 15272,
+      "asynchronous": true
+    },
+    {
+      "step": "Final application Compose build",
+      "command_elapsed_ms": 6766,
+      "initial_tool_return_ms": 11531
+    },
+    {
+      "step": "Final Phase 0-2 regression",
+      "command_elapsed_ms": 1331,
+      "initial_tool_return_ms": 6318
+    },
+    {
+      "step": "Qwen2.5 five live cases",
+      "initial_tool_return_ms": 13759,
+      "completion_poll_ms": 1,
+      "command_elapsed_ms": 442422,
+      "exit_code": 0,
+      "asynchronous": true
+    },
+    {
+      "step": "Ambiguity coverage live recheck",
+      "command_elapsed_ms": 88208,
+      "initial_tool_return_ms": 13435,
+      "completion_poll_ms": 8,
+      "exit_code": 0,
+      "asynchronous": true
+    },
+    {
+      "step": "Nine live API error checks",
+      "command_elapsed_ms": 375,
+      "tool_return_ms": 5389,
+      "exit_code": 0
+    },
+    {
+      "step": "Actual busy response / previous-result preservation",
+      "command_elapsed_ms": 338,
+      "initial_tool_return_ms": 5511
+    },
+    {
+      "step": "Initial Qwen3 cases (failed quality check)",
+      "command_elapsed_ms": 555816,
+      "initial_tool_return_ms": 14879,
+      "asynchronous": true,
+      "result": "failed"
+    },
+    {
+      "step": "Qwen3 nonthinking recheck (failed quality check)",
+      "command_elapsed_ms": 201051,
+      "initial_tool_return_ms": 13684,
+      "asynchronous": true,
+      "result": "failed"
+    },
+    {
+      "step": "Qwen3 thinking/format incompatibility",
+      "command_elapsed_ms": 356569,
+      "initial_tool_return_ms": 13298,
+      "asynchronous": true,
+      "result": "failed"
+    },
+    {
+      "step": "Model format diagnostic (includes model queue)",
+      "command_elapsed_ms": 120807,
+      "initial_tool_return_ms": 14836,
+      "asynchronous": true
+    },
+    {
+      "step": "Qwen3 timeout run (remaining cases interrupted)",
+      "command_elapsed_ms": 409017,
+      "initial_tool_return_ms": 13675,
+      "asynchronous": true,
+      "result": "interrupted after timeout"
+    },
+    {
+      "step": "Browser initial selector correction",
+      "command_elapsed_ms": 2412,
+      "initial_tool_return_ms": 8536,
+      "result": "test selector corrected"
+    },
+    {
+      "step": "React real create/analyze/reload GET",
+      "command_elapsed_ms": 75550,
+      "initial_tool_return_ms": 13347,
+      "completion_poll_ms": 1,
+      "exit_code": 0,
+      "asynchronous": true
+    }
+  ]
+}

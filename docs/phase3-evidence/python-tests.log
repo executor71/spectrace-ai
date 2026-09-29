@@ -1,0 +1,87 @@
+docker : test_concurrent_call_is_explicitly_busy (test_analysis.AnalysisApiTests.test_concurrent_call_is_explicitly_bus
+y) ... ok
+At line:2 char:42
++ ... StartNew(); docker run --rm --mount 'type=bind,source=D:\MASTER과정,tar ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_concurrent...ly_busy) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_explicit_invalid_output_failure (test_analysis.AnalysisApiTests.test_explicit_invalid_output_failure) ... ok
+test_unavailable_model_is_not_success (test_analysis.AnalysisApiTests.test_unavailable_model_is_not_success) ... ok
+test_unknown_schema_selector_rejected (test_analysis.AnalysisApiTests.test_unknown_schema_selector_rejected) ... ok
+test_empty_search_requires_missing_and_questions (test_analysis.AnalysisTests.test_empty_search_requires_missing_and_qu
+estions) ... ok
+test_exact_evidence_and_original_query (test_analysis.AnalysisTests.test_exact_evidence_and_original_query) ... ok
+test_existing_ambiguity_is_not_duplicated (test_analysis.AnalysisTests.test_existing_ambiguity_is_not_duplicated) ... o
+k
+test_full_sentence_preserves_negation (test_analysis.AnalysisTests.test_full_sentence_preserves_negation) ... ok
+test_input_qualifier_omitted_by_model_still_requires_clarification (test_analysis.AnalysisTests.test_input_qualifier_om
+itted_by_model_still_requires_clarification) ... ok
+test_invalid_schema_retried_once_then_fails (test_analysis.AnalysisTests.test_invalid_schema_retried_once_then_fails) .
+.. ok
+test_invented_api_rejected (test_analysis.AnalysisTests.test_invented_api_rejected) ... ok
+test_invented_rule_id_rejected (test_analysis.AnalysisTests.test_invented_rule_id_rejected) ... ok
+test_long_input_is_not_silently_truncated (test_analysis.AnalysisTests.test_long_input_is_not_silently_truncated) ... o
+k
+test_model_cannot_supply_forged_evidence_or_claim_text (test_analysis.AnalysisTests.test_model_cannot_supply_forged_evi
+dence_or_claim_text) ... ok
+test_non_business_rule_cannot_be_reported_as_business_rule (test_analysis.AnalysisTests.test_non_business_rule_cannot_b
+e_reported_as_business_rule) ... ok
+test_none_cannot_select_unrelated_existing_facts (test_analysis.AnalysisTests.test_none_cannot_select_unrelated_existin
+g_facts) ... ok
+test_recover_after_single_invalid_response (test_analysis.AnalysisTests.test_recover_after_single_invalid_response) ...
+ ok
+test_silent_insufficient_evidence_fails (test_analysis.AnalysisTests.test_silent_insufficient_evidence_fails) ... ok
+test_uncertainty_requires_questions (test_analysis.AnalysisTests.test_uncertainty_requires_questions) ... ok
+test_corpus_is_deterministic_and_complete (test_knowledge.KnowledgeTests.test_corpus_is_deterministic_and_complete) ...
+ ok
+test_embedding_shape_and_values_are_validated (test_knowledge.KnowledgeTests.test_embedding_shape_and_values_are_valida
+ted) ... ok
+test_empty_duplicate_and_oversized_sections_are_rejected (test_knowledge.KnowledgeTests.test_empty_duplicate_and_oversi
+zed_sections_are_rejected) ... ok
+test_non_thinking_uses_json_schema_format (test_llm_provider.LlmProviderTests.test_non_thinking_uses_json_schema_format
+) ... ok
+test_thinking_does_not_use_incompatible_decoder_constraint (test_llm_provider.LlmProviderTests.test_thinking_does_not_u
+se_incompatible_decoder_constraint) ... ok
+test_transport_timeout_is_explicit_failure (test_llm_provider.LlmProviderTests.test_transport_timeout_is_explicit_failu
+re) ... ok
+test_truncated_generation_is_explicit_failure (test_llm_provider.LlmProviderTests.test_truncated_generation_is_explicit
+_failure) ... ok
+test_input_is_not_silently_truncated (test_local_embedding.LocalEmbeddingTests.test_input_is_not_silently_truncated) ..
+. ok
+test_query_and_documents_share_dense_embedding_path (test_local_embedding.LocalEmbeddingTests.test_query_and_documents_
+share_dense_embedding_path) ... ok
+test_settings_are_external_and_overridable (test_local_embedding.LocalEmbeddingTests.test_settings_are_external_and_ove
+rridable) ... ok
+test_wrong_dimension_is_rejected (test_local_embedding.LocalEmbeddingTests.test_wrong_dimension_is_rejected) ... ok
+test_database_details_not_leaked (test_search_api.SearchApiTests.test_database_details_not_leaked) ... Vector search fa
+iled
+Traceback (most recent call last):
+  File "/work/ai-service/app/search_api.py", line 19, in search
+    return engine.search(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+RuntimeError: private-database-host
+ok
+test_invalid_query_and_evaluation_override_rejected (test_search_api.SearchApiTests.test_invalid_query_and_evaluation_o
+verride_rejected) ... ok
+test_mismatched_profile_is_unavailable (test_search_api.SearchApiTests.test_mismatched_profile_is_unavailable) ... ok
+test_response_contract (test_search_api.SearchApiTests.test_response_contract) ... ok
+test_only_rag_is_queried_and_parameters_are_bound (test_vector_search.VectorSearchTests.test_only_rag_is_queried_and_pa
+rameters_are_bound) ... ok
+test_profile_mismatch_fails_before_embedding (test_vector_search.VectorSearchTests.test_profile_mismatch_fails_before_e
+mbedding) ... ok
+test_query_validation_rejects_empty_and_schema_override (test_vector_search.VectorSearchTests.test_query_validation_rej
+ects_empty_and_schema_override) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 3.894s
+
+OK

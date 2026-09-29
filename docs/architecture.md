@@ -4,7 +4,7 @@
 
 - React는 입력·검토·결과 화면을 담당합니다. 이 단계에는 서비스 상태를 보여주는 화면만 있습니다.
 - Spring Boot는 업무 API, 업무 데이터 변경, 사용자 승인 및 Dummy 실행 권한 검증의 최종 소유자입니다.
-- Python AI Service는 vector 우선 근거 검색, 요구사항 분석, 테스트 케이스 생성과 향후 AI 평가 계산만 담당합니다. 현재는 health와 DB 연결만 구현합니다.
+- Python AI Service는 vector 우선 근거 검색, 요구사항 분석, 테스트 케이스 생성과 향후 AI 평가 계산만 담당합니다. 현재는 health, DB 연결 및 Phase 2 dense vector 검색을 구현합니다. 분석과 테스트케이스 생성은 미구현입니다.
 - PostgreSQL 16 + pgvector 한 인스턴스를 사용하되 `app`, `rag`, `evaluation` schema와 Repository/DB role을 분리합니다.
 
 ## 데이터 경계
@@ -41,3 +41,7 @@ Flyway는 별도 `migration_owner` 계정으로 DDL을 실행합니다. Spring �
 ## 향후 LangGraph 경계
 
 일반 생성 graph는 `retrieve_evidence(rag only) → analyze_requirement → generate_test_cases → validate_structured_output`으로 제한합니다. Graph 입력은 Spring이 전달한 요구사항 payload와 검색된 근거뿐입니다. Evaluation 단계는 이 graph의 도구나 repository를 재사용해 Ground Truth에 접근하지 않고, 별도 Evaluation Service가 정답 데이터를 가져와 AI 평가 계산 입력으로 전달합니다.
+
+## Phase 2 적재/검색 경계
+
+초기 합성 Markdown은 manifest와 section 기준으로 처리합니다. LocalEmbeddingProvider는 설정된 모델을 CPU 컨테이너에서 실행하고 exporter는 SQL 파일만 만듭니다. Flyway가 migration_owner로 V4/V5를 적용합니다. 온라인 AI에는 rag_reader만 전달하며 app/evaluation credential이나 쓰기 권한은 추가하지 않습니다. 검색 기대 문서 fixture는 corpus가 아니며 evaluation schema도 적재/검색 대상이 아닙니다.

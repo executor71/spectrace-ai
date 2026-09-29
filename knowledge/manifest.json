@@ -1,0 +1,179 @@
+{
+  "synthetic": true,
+  "datasetVersion": "1.0.0",
+  "documents": [
+    {
+      "key": "asset-lifecycle",
+      "title": "IT 자산 상태와 재고 관리 규칙",
+      "documentType": "BUSINESS_RULE",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/asset-lifecycle.md",
+      "sections": {
+        "자산 등록과 관리번호": [
+          "POST /assets"
+        ],
+        "대여 가능한 재고 판정": [
+          "GET /assets",
+          "POST /loans/{loanId}/approve"
+        ],
+        "수리와 폐기 상태 전이": [
+          "POST /returns/{returnId}/inspection"
+        ]
+      }
+    },
+    {
+      "key": "loan-rules",
+      "title": "임직원 장비 대여 신청과 승인 규칙",
+      "documentType": "BUSINESS_RULE",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/loan-rules.md",
+      "sections": {
+        "신청 자격과 중복 대여 제한": [
+          "POST /loans"
+        ],
+        "부서장 승인과 자기 승인 금지": [
+          "POST /loans/{loanId}/approve"
+        ],
+        "동시 승인과 자산 예약": [
+          "POST /loans/{loanId}/approve",
+          "POST /loans/{loanId}/issue"
+        ]
+      }
+    },
+    {
+      "key": "return-rules",
+      "title": "장비 반납 및 연체 처리 규칙",
+      "documentType": "BUSINESS_RULE",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/return-rules.md",
+      "sections": {
+        "반납 접수와 검사 대기": [
+          "POST /loans/{loanId}/returns"
+        ],
+        "파손 장비의 수리 전환": [
+          "POST /returns/{returnId}/inspection"
+        ],
+        "반납 기한과 연체 계산": [
+          "GET /loans/overdue"
+        ]
+      }
+    },
+    {
+      "key": "asset-api",
+      "title": "자산 조회와 등록 API 명세",
+      "documentType": "API_SPEC",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/asset-api.md",
+      "sections": {
+        "GET /assets 재고 조회": [
+          "GET /assets"
+        ],
+        "POST /assets 자산 등록": [
+          "POST /assets"
+        ],
+        "GET /assets/{assetId} 상세 조회": [
+          "GET /assets/{assetId}"
+        ]
+      }
+    },
+    {
+      "key": "loan-api",
+      "title": "장비 대여 신청과 승인 API 명세",
+      "documentType": "API_SPEC",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/loan-api.md",
+      "sections": {
+        "POST /loans 대여 신청": [
+          "POST /loans"
+        ],
+        "POST /loans/{loanId}/approve 승인": [
+          "POST /loans/{loanId}/approve"
+        ],
+        "POST /loans/{loanId}/issue 지급 확인": [
+          "POST /loans/{loanId}/issue"
+        ]
+      }
+    },
+    {
+      "key": "return-api",
+      "title": "장비 반납 및 검사 API 명세",
+      "documentType": "API_SPEC",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/return-api.md",
+      "sections": {
+        "POST /loans/{loanId}/returns 반납 접수": [
+          "POST /loans/{loanId}/returns"
+        ],
+        "POST /returns/{returnId}/inspection 검사 완료": [
+          "POST /returns/{returnId}/inspection"
+        ],
+        "GET /loans/overdue 연체 조회": [
+          "GET /loans/overdue"
+        ]
+      }
+    },
+    {
+      "key": "loan-test-guide",
+      "title": "대여와 반납 기능 검증 가이드",
+      "documentType": "TEST_GUIDE",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/loan-test-guide.md",
+      "sections": {
+        "대여 승인 권한 테스트": [
+          "POST /loans/{loanId}/approve"
+        ],
+        "동시 대여 승인 테스트": [
+          "POST /loans/{loanId}/approve"
+        ],
+        "반납 연체 경계값 테스트": [
+          "GET /loans/overdue",
+          "POST /loans/{loanId}/returns"
+        ]
+      }
+    },
+    {
+      "key": "access-policy",
+      "title": "자산관리 접근 권한과 감사 정책",
+      "documentType": "POLICY",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/access-policy.md",
+      "sections": {
+        "역할별 조회 범위": [
+          "GET /assets",
+          "GET /loans/overdue"
+        ],
+        "대여 내역 CSV 다운로드": [
+          "GET /loans/export"
+        ],
+        "감사 로그와 민감정보 처리": []
+      }
+    },
+    {
+      "key": "error-codes",
+      "title": "자산관리 업무 오류 코드 사전",
+      "documentType": "ERROR_CODE",
+      "domain": "IT_ASSET",
+      "version": "1.0.0",
+      "sourceName": "documents/error-codes.md",
+      "sections": {
+        "ASSET_NOT_AVAILABLE 재고 충돌": [
+          "POST /loans/{loanId}/approve"
+        ],
+        "SELF_APPROVAL_FORBIDDEN 자기 승인": [
+          "POST /loans/{loanId}/approve"
+        ],
+        "RETURN_ALREADY_REQUESTED 중복 반납": [
+          "POST /loans/{loanId}/returns"
+        ]
+      }
+    }
+  ]
+}

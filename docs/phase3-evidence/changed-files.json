@@ -1,0 +1,137 @@
+[
+  {
+    "path": ".env.example",
+    "change": "modified",
+    "sha256": "c36310ae0a20c48365357c485eb7c71925f6bece847bf5c1c49642eab58ef564"
+  },
+  {
+    "path": "compose.test.yaml",
+    "change": "modified",
+    "sha256": "a5d07a09bfafb02f476d9e1a088ccce53aed6c33d9d84f977789ade33434862a"
+  },
+  {
+    "path": "compose.yaml",
+    "change": "modified",
+    "sha256": "a3a711d703779746b9330cacf71a90818c6a0e87d8c03b2a564ea5ed8e0ed34a"
+  },
+  {
+    "path": "README.md",
+    "change": "modified",
+    "sha256": "c16a638abf8b9fa8b1cd35981915106d6fde655eee1e499ceb6a4f41ad832a32"
+  },
+  {
+    "path": "docs/api.md",
+    "change": "modified",
+    "sha256": "f091cf2290af0f7e9f476e282d783c886cdc3f2e22ea2d0076be863f37668605"
+  },
+  {
+    "path": "docs/data-model.md",
+    "change": "modified",
+    "sha256": "29a41ee26e83f2844c004e769f9369f55bda61fcfb30ace4fbf0870055f4a968"
+  },
+  {
+    "path": "docs/phase3-analysis.schema.json",
+    "change": "added",
+    "sha256": "c26717a94f4a3a8510e27cae3afa143c02d751a559ce6b7e469ff6a04335391f"
+  },
+  {
+    "path": "docs/phase3-design.md",
+    "change": "added",
+    "sha256": "8ae6040b6267d5a4397dd312144bf304a923bd7332fc330e512f848d5dfe17e6"
+  },
+  {
+    "path": "frontend/src/RequirementAnalysis.tsx",
+    "change": "added",
+    "sha256": "fa5169cea07159dccbd586cff614e6984ecd314df0f2b2e7d75d8bc99071ad4e"
+  },
+  {
+    "path": "frontend/src/Requirements.tsx",
+    "change": "modified",
+    "sha256": "c32d5e30f32af14a31c65e4a4017eb9927c532cddb0666b49b174f2c45327272"
+  },
+  {
+    "path": "frontend/src/style.css",
+    "change": "modified",
+    "sha256": "e8a008e7fe5bf499a1e200864012240fec063cd26521e171a150e159ab1c0348"
+  },
+  {
+    "path": "backend/src/test/java/com/example/legacyassistant/analysis/AnalysisIntegrationTest.java",
+    "change": "added",
+    "sha256": "f4b044ca0a53446d166d3691cba924cdca323ee6dbc2c10e56e8e859373cfb43"
+  },
+  {
+    "path": "backend/src/main/resources/db/migration/V6__store_requirement_analysis.sql",
+    "change": "added",
+    "sha256": "6942539aa98ded98f689f27fcb275bb0beeb9b60e5e7736bcda16f2e40214601"
+  },
+  {
+    "path": "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisClient.java",
+    "change": "added",
+    "sha256": "6925210614ffdf73b0f7a3fee2eef8ec67d1f075c5cc1b84a90cb906bb8d2738"
+  },
+  {
+    "path": "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisController.java",
+    "change": "added",
+    "sha256": "6a6675c659dd9f169e4810fd8435fb969aa273a4ace95003d27dc9e611e692a9"
+  },
+  {
+    "path": "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisException.java",
+    "change": "added",
+    "sha256": "e1bdaac252721ed33ab2fb9764b102f64bb74b3139f09ea0e21455f83c685d41"
+  },
+  {
+    "path": "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisRepository.java",
+    "change": "added",
+    "sha256": "45800264145529c25cf86e7599ff501ddaeb21ed320316a5ffdd2e7201aa5955"
+  },
+  {
+    "path": "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisService.java",
+    "change": "added",
+    "sha256": "f4d06a219d362d024ae04ed4431666292da276b03e8a6ae142ed3e1974d3fc56"
+  },
+  {
+    "path": "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisValidator.java",
+    "change": "added",
+    "sha256": "d4707ba5315419f6a44cbec6e7a20f58a856f312101e6738fae3049412b12d69"
+  },
+  {
+    "path": "backend/src/main/java/com/example/legacyassistant/requirement/ApiExceptionHandler.java",
+    "change": "modified",
+    "sha256": "44d18b1d279d7ae93b2651a0adc6ac9a2cd409bd3fa7ad88756b7292b5c94ed6"
+  },
+  {
+    "path": "ai-service/app/analysis_api.py",
+    "change": "added",
+    "sha256": "e0f138a8d43e5429534f4ddee9025234b8a8b832e2fdd233622f0176d36781bb"
+  },
+  {
+    "path": "ai-service/app/analysis_models.py",
+    "change": "added",
+    "sha256": "1ed551b389af760b885a73ca146047f3910c87703fa4e6ad92693e5c4d1a4a9c"
+  },
+  {
+    "path": "ai-service/app/analysis_service.py",
+    "change": "added",
+    "sha256": "744d6f71d28e5ad1d26581fcb43f84d13ee6482c6d7122a82cf973822c1094bf"
+  },
+  {
+    "path": "ai-service/app/llm_provider.py",
+    "change": "added",
+    "sha256": "ff2ee1fddc57074a4355c3570daaee6791cdee804ae44b46f9c45e6ad2e31500"
+  },
+  {
+    "path": "ai-service/app/main.py",
+    "change": "modified",
+    "sha256": "3824fccfe4329158fbb0a5c5a71aa8d47043e9a782aa7e96304dc6d1e77d35a2"
+  },
+  {
+    "path": "ai-service/tests/test_analysis.py",
+    "change": "added",
+    "sha256": "f96e60f123ad92bb42337b9fd7b6091b5b02830f1372cfc8b1a5db0f0816fc3f"
+  },
+  {
+    "path": "ai-service/tests/test_llm_provider.py",
+    "change": "added",
+    "sha256": "f01f30655afbe1ec62b20cb580e9aeb355476de86e67c97d286ea851c29ba375"
+  }
+]

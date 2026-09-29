@@ -1,0 +1,9 @@
+{
+  "documents": 9,
+  "chunks": 27,
+  "model": "BAAI/bge-m3",
+  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "dimensions": 1024,
+  "datasetVersion": "1.0.0",
+  "elapsed_seconds": 132.126
+}
