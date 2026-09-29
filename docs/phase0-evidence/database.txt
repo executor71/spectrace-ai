@@ -1,0 +1,35 @@
+﻿ extname | extversion | extnamespace 
+---------+------------+--------------
+ plpgsql | 1.0        | pg_catalog
+ vector  | 0.8.6      | public
+(2 rows)
+
+ installed_rank | version |      description       | success 
+----------------+---------+------------------------+---------
+              1 | 1       | create initial tables  | t
+              2 | 2       | protect flyway history | t
+(2 rows)
+
+      rolname      |  nspname   | usage | create 
+-------------------+------------+-------+--------
+ app_user          | app        | t     | f
+ app_user          | evaluation | f     | f
+ app_user          | rag        | f     | f
+ evaluation_reader | app        | f     | f
+ evaluation_reader | evaluation | t     | f
+ evaluation_reader | rag        | f     | f
+ rag_reader        | app        | f     | f
+ rag_reader        | evaluation | f     | f
+ rag_reader        | rag        | t     | f
+(9 rows)
+
+  grantee   | table_schema |     table_name     | privilege_type 
+------------+--------------+--------------------+----------------
+ app_user   | app          | requirement        | DELETE
+ app_user   | app          | requirement        | INSERT
+ app_user   | app          | requirement        | SELECT
+ app_user   | app          | requirement        | UPDATE
+ rag_reader | rag          | knowledge_chunk    | SELECT
+ rag_reader | rag          | knowledge_document | SELECT
+(6 rows)
+

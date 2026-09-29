@@ -1,0 +1,29 @@
+{
+  "url": "http://localhost:5173/",
+  "browser": "153.0.8010.53",
+  "rows": [
+    "01\nSpring Boot\n\n업무 API · :8080\n\n정상",
+    "02\nAI Service\n\nRAG 연결 · :8000\n\n정상",
+    "03\nPostgreSQL + pgvector\n\napp · rag · evaluation schemas\n\nAI health로 확인"
+  ],
+  "health_responses": [
+    {
+      "url": "http://localhost:5173/actuator/health",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:5173/ai-health/health",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:5173/actuator/health",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:5173/ai-health/health",
+      "status": 200
+    }
+  ],
+  "page_errors": [],
+  "result": "PASS"
+}

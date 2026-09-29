@@ -1,0 +1,32 @@
+﻿backend-1  | 
+backend-1  |   .   ____          _            __ _ _
+backend-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+backend-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+backend-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+backend-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+backend-1  |  =========|_|==============|___/=/_/_/_/
+backend-1  | 
+backend-1  |  :: Spring Boot ::                (v3.5.6)
+backend-1  | 
+backend-1  | 2026-09-29T12:08:46.468Z  INFO 1 --- [           main] c.e.l.LegacyChangeAssistantApplication   : Starting LegacyChangeAssistantApplication v0.1.0-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+backend-1  | 2026-09-29T12:08:46.470Z  INFO 1 --- [           main] c.e.l.LegacyChangeAssistantApplication   : No active profile set, falling back to 1 default profile: "default"
+backend-1  | 2026-09-29T12:08:47.229Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+backend-1  | 2026-09-29T12:08:47.237Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+backend-1  | 2026-09-29T12:08:47.237Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+backend-1  | 2026-09-29T12:08:47.253Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+backend-1  | 2026-09-29T12:08:47.254Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 749 ms
+backend-1  | 2026-09-29T12:08:47.848Z  INFO 1 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://postgres:5432/legacy_assistant?currentSchema=app (PostgreSQL 16.15)
+backend-1  | 2026-09-29T12:08:47.882Z  INFO 1 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.020s)
+backend-1  | 2026-09-29T12:08:47.901Z  INFO 1 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "app": << Empty Schema >>
+backend-1  | 2026-09-29T12:08:47.915Z  INFO 1 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "1 - create initial tables"
+backend-1  | 2026-09-29T12:08:47.959Z  INFO 1 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "2 - protect flyway history"
+backend-1  | 2026-09-29T12:08:47.972Z  INFO 1 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "app", now at version v2 (execution time 00:00.031s)
+backend-1  | 2026-09-29T12:08:48.057Z  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+backend-1  | 2026-09-29T12:08:48.100Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+backend-1  | 2026-09-29T12:08:48.110Z  INFO 1 --- [           main] c.e.l.LegacyChangeAssistantApplication   : Started LegacyChangeAssistantApplication in 1.962 seconds (process running for 2.263)
+backend-1  | 2026-09-29T12:08:52.005Z  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+backend-1  | 2026-09-29T12:08:52.005Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+backend-1  | 2026-09-29T12:08:52.006Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+backend-1  | 2026-09-29T12:10:36.592Z  INFO 1 --- [nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+backend-1  | 2026-09-29T12:10:36.605Z  INFO 1 --- [nio-8080-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@388c78ae
+backend-1  | 2026-09-29T12:10:36.607Z  INFO 1 --- [nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

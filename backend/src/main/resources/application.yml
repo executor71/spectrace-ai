@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:legacy_assistant}?currentSchema=app
+    username: ${DB_APP_USER:app_user}
+    password: ${DB_APP_PASSWORD:local_app_only}
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:legacy_assistant}?currentSchema=app
+    user: ${DB_MIGRATION_USER:migration_owner}
+    password: ${DB_MIGRATION_PASSWORD:local_migration_only}
+    default-schema: app
+    schemas: app,rag
+    locations: classpath:db/migration
+  sql:
+    init:
+      mode: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
