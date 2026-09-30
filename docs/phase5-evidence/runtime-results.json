@@ -1,0 +1,47 @@
+{
+  "result": "PASS",
+  "phase4BaselineFiles": 83,
+  "unchangedFiles": 78,
+  "allowedChangedFiles": [
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseRepository.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseService.java",
+    "frontend/src/style.css",
+    "frontend/src/TestCases.tsx",
+    "compose.test.yaml"
+  ],
+  "llmCalls": 0,
+  "database": {
+    "migrations": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "vectorExtension": "0.8.6",
+    "documents": 9,
+    "chunks": 27,
+    "appToRag": false,
+    "appToEvaluation": false,
+    "ragToApp": false,
+    "ragToEvaluation": false,
+    "reviewTrigger": 1,
+    "reviewStatuses": [
+      {
+        "approval_status": "REJECTED",
+        "count": 1
+      },
+      {
+        "approval_status": "DRAFT",
+        "count": 3
+      },
+      {
+        "approval_status": "APPROVED",
+        "count": 1
+      }
+    ]
+  }
+}

@@ -174,3 +174,9 @@ h2 { margin: 8px 0 0; font-size: 19px; font-weight: 700; }
 .test-case-detail pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f1f4f0; padding: 1rem; }
 .test-case-evidence details { border-top: 1px solid #ccd4ce; padding: .8rem 0; }
 .test-case-evidence summary { cursor: pointer; }
+
+.test-case-review { margin: 1rem 0; padding: 1rem; background: #f1f4f0; border-radius: 8px; }
+.test-case-review fieldset { min-width: 0; border: 1px solid #ccd4ce; padding: 1rem; }
+.test-case-review label { display: block; margin-top: .8rem; }
+.test-case-review textarea, .test-case-review input, .test-case-review select { width: 100%; max-width: 100%; box-sizing: border-box; }
+.test-case-review button { margin-top: .8rem; }

@@ -1,7 +1,8 @@
+import TestCaseReview from './TestCaseReview'
 import { useState } from 'react'
 
 type Evidence = { documentId: string; chunkId: string; documentType: string; section: string; contentSnippet: string; score: number }
-type TestCase = { testCaseId: string; requirementId: string; type: string; scenario: string; preconditions: string[]; input: Record<string, unknown>; steps: string[]; expectedResult: { description: string; assertions: unknown[] }; evidence: Pick<Evidence, 'documentId' | 'chunkId'>[]; executable: boolean }
+export type TestCase = { approvalStatus: string; reviewedAt: string | null; reviewer: string | null; reviewComment: string | null; reviewRevision: number; modified: boolean; generatedContent: unknown; reviewedContent: unknown; executionEligible: boolean; testCaseId: string; requirementId: string; type: string; scenario: string; preconditions: string[]; input: Record<string, unknown>; steps: string[]; expectedResult: { description: string; assertions: unknown[] }; evidence: Pick<Evidence, 'documentId' | 'chunkId'>[]; executable: boolean }
 type Result = { generationId: string; testCases: TestCase[]; clarificationRequired: string[]; uncoveredTypes: string[]; sourceAnalysis: { evidence: Evidence[] }; stale: boolean; generationLatencyMs: number; llmCalls: number; executionDecisions: { testCaseId: string; gates: Record<string, boolean>; reason: string }[] }
 const labels: Record<string, string> = { apiAllowListed: 'API AllowList', methodEndpointKnown: 'Method / Endpoint 확인', preconditionsReproducible: '사전조건 재현 가능', inputDefined: 'Input 정의', expectedResultCheckable: '코드 판정 가능' }
 
@@ -10,6 +11,14 @@ export default function TestCases({ requirementId }: { requirementId: string }) 
   const [selected, setSelected] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  async function reviewed(updated: TestCase) {
+    setResult(previous => previous && ({ ...previous, testCases: previous.testCases.map(item => item.testCaseId === updated.testCaseId ? updated : item) }))
+    try {
+      const response = await fetch(`/api/requirements/${encodeURIComponent(requirementId)}/test-cases`, { signal: AbortSignal.timeout(15000) })
+      if (!response.ok) throw new Error('검토는 저장되었지만 목록 갱신에 실패했습니다. 저장된 테스트를 다시 조회해 주세요.')
+      setResult(await response.json())
+    } catch (err) { setError(err instanceof Error ? err.message : '목록 갱신에 실패했습니다.') }
+  }
   async function request(generate: boolean) {
     if (busy) return
     setBusy(true); setError(''); setResult(null)
@@ -37,11 +46,12 @@ export default function TestCases({ requirementId }: { requirementId: string }) 
       <p>{result.testCases.length}개 테스트 · 생성 시간 {(result.generationLatencyMs / 1000).toFixed(1)}초</p>
       {!!result.clarificationRequired.length && <section aria-label="사용자 확인 필요"><h3>사용자 확인 필요 · 생성 보류</h3><ul>{result.clarificationRequired.map((text, i) => <li key={i}>{text}</li>)}</ul></section>}
       {!!result.uncoveredTypes.length && <p>생성되지 않은 유형: {result.uncoveredTypes.join(', ')}</p>}
-      <ul className="test-case-list">{result.testCases.map(item => <li key={item.testCaseId}><button aria-pressed={selected === item.testCaseId} onClick={() => setSelected(item.testCaseId)}>{item.type} · {item.scenario}</button></li>)}</ul>
+      <ul className="test-case-list">{result.testCases.map(item => <li key={item.testCaseId}><button aria-pressed={selected === item.testCaseId} onClick={() => setSelected(item.testCaseId)}>{item.type} · {item.scenario} · {item.approvalStatus}</button></li>)}</ul>
       {current && <article className="test-case-detail" aria-label="테스트 상세">
         <h3>{current.type} · {current.scenario}</h3>
         <p>ID: {current.testCaseId}</p><p>실행 가능 후보: {current.executable ? 'true' : 'false'}</p>
         <p>{decision?.reason}</p>
+        <TestCaseReview key={current.testCaseId + ":" + current.reviewRevision} current={current} stale={result.stale} onSaved={reviewed} />
         <ul>{Object.entries(decision?.gates ?? {}).map(([key, value]) => <li key={key}>{labels[key] ?? key}: {String(value)}</li>)}</ul>
         <h4>사전조건</h4><ul>{current.preconditions.map((text, i) => <li key={i}>{text}</li>)}</ul>
         <h4>입력</h4><pre>{JSON.stringify(current.input, null, 2)}</pre>

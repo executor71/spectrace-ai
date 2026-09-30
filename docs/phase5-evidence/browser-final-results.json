@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "allFiveFieldsEditedInChrome": true,
+  "invalidJsonFeedback": true,
+  "technicalGatesRefreshAfterEdit": true,
+  "originalRestored": true,
+  "approvedPersistedAfterFinalBuild": true,
+  "browserErrors": [],
+  "postRequests": []
+}

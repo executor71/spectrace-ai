@@ -1,0 +1,80 @@
+{
+  "result": "PASS",
+  "browser": "154.0.8037.58",
+  "channel": "chrome",
+  "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+  "initialStatuses": [
+    "DRAFT",
+    "DRAFT",
+    "DRAFT",
+    "DRAFT",
+    "DRAFT"
+  ],
+  "edit": true,
+  "approve": true,
+  "reject": true,
+  "readOnlyEvidence": true,
+  "evidenceUnchanged": true,
+  "generatedOriginalUnchanged": true,
+  "reloadPersisted": true,
+  "mobileNoHorizontalOverflow": true,
+  "invalidIdStatus": 404,
+  "invalidRequests": [
+    {
+      "field": "evidence",
+      "status": 400,
+      "response": {
+        "code": "INVALID_REVIEW_INPUT",
+        "fieldErrors": {},
+        "message": "변경할 수 없는 필드: evidence"
+      }
+    },
+    {
+      "field": "requirementId",
+      "status": 400,
+      "response": {
+        "code": "INVALID_REVIEW_INPUT",
+        "fieldErrors": {},
+        "message": "변경할 수 없는 필드: requirementId"
+      }
+    },
+    {
+      "field": "approvalStatus",
+      "status": 400,
+      "response": {
+        "code": "INVALID_REVIEW_INPUT",
+        "fieldErrors": {},
+        "message": "변경할 수 없는 필드: approvalStatus"
+      }
+    },
+    {
+      "field": "executable",
+      "status": 400,
+      "response": {
+        "code": "INVALID_REVIEW_INPUT",
+        "fieldErrors": {},
+        "message": "변경할 수 없는 필드: executable"
+      }
+    },
+    {
+      "field": "type",
+      "status": 400,
+      "response": {
+        "code": "INVALID_REVIEW_INPUT",
+        "fieldErrors": {},
+        "message": "잘못된 Test Type입니다."
+      }
+    },
+    {
+      "field": "scenario",
+      "status": 400,
+      "response": {
+        "code": "INVALID_REVIEW_INPUT",
+        "fieldErrors": {},
+        "message": "scenario 값을 확인해 주세요."
+      }
+    }
+  ],
+  "browserErrors": [],
+  "llmRequests": []
+}

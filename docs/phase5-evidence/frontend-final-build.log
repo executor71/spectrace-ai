@@ -1,0 +1,80 @@
+docker :  Image master-frontend Building 
+At line:2 char:25
++ ... 5-apply.py; docker compose -f 'D:\MASTER과정\compose.yaml' up -d --buil ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image master-frontend Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+#1 [internal] load local bake definitions
+#1 reading from stdin 511B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 229B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-alpine
+#3 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 70B done
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402
+#5 resolve docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 19.22kB 0.0s done
+#6 DONE 0.0s
+
+#7 [2/7] WORKDIR /app
+#7 CACHED
+
+#8 [3/7] COPY package.json .
+#8 CACHED
+
+#9 [4/7] COPY package-lock.json .
+#9 CACHED
+
+#10 [5/7] RUN npm ci
+#10 CACHED
+
+#11 [6/7] COPY . .
+#11 DONE 0.0s
+
+#12 [7/7] RUN npm run build
+#12 0.309 
+#12 0.309 > legacy-change-assistant-frontend@0.1.0 build
+#12 0.309 > tsc -b && vite build
+#12 0.309 
+#12 1.882 vite v7.3.6 building client environment for production...
+#12 1.933 transforming...
+#12 2.607 ✓ 33 modules transformed.
+#12 2.712 rendering chunks...
+#12 2.719 computing gzip size...
+#12 2.725 dist/index.html                   0.47 kB │ gzip:  0.30 kB
+#12 2.725 dist/assets/index-DDJPl1Td.css    6.15 kB │ gzip:  2.11 kB
+#12 2.725 dist/assets/index-BeHN5J4n.js   240.88 kB │ gzip: 75.33 kB
+#12 2.725 ✓ built in 822ms
+#12 DONE 2.8s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.2s done
+#13 exporting manifest sha256:9b0a40d431d1321d2b1877f0f0bea4708e49e5b1dd12a76ae0ad105edcb07ee4 0.0s done
+#13 exporting config sha256:d9a2befe03b53d800e5a352d3dfe1bafd1d5955d54d0a228c6b1d0c6148fa56c 0.0s done
+#13 exporting attestation manifest sha256:ff040bc60f1b312ded67f194d97de2fb9c433a55bca91ec6316072ad6507dcd7 0.0s done
+#13 exporting manifest list sha256:87413250577c1c9047a3bea3a94f785d09d3891284bd177b4c5ceff04125cc0c 0.0s done
+#13 naming to docker.io/library/master-frontend:latest
+#13 naming to docker.io/library/master-frontend:latest done
+#13 unpacking to docker.io/library/master-frontend:latest 0.1s done
+#13 DONE 0.5s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.0s
+ Image master-frontend Built 
+ Container master-frontend-1 Recreate 
+ Container master-frontend-1 Recreated 
+ Container master-frontend-1 Starting 
+ Container master-frontend-1 Started 

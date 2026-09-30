@@ -1,0 +1,26 @@
+{
+  "changed": [
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseRepository.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseService.java",
+    "frontend/src/style.css",
+    "frontend/src/TestCases.tsx",
+    "compose.test.yaml"
+  ],
+  "added": [
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseReviewController.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseReviewService.java",
+    "backend/src/main/resources/db/migration/V8__test_case_review.sql",
+    "backend/src/test/java/com/example/legacyassistant/testcase/TestCaseReviewIntegrationTest.java",
+    "backend/src/test/java/com/example/legacyassistant/testcase/TestCaseReviewUnitTest.java",
+    "docs/phase4-baseline/sha256.json",
+    "docs/phase4-baseline/source.zip",
+    "docs/phase5-design.md",
+    "docs/phase5-result.md",
+    "docs/scripts/phase5-browser-final.py",
+    "docs/scripts/phase5-browser.py",
+    "docs/scripts/phase5-regression.py",
+    "docs/scripts/phase5-runtime.py",
+    "frontend/src/TestCaseReview.tsx"
+  ],
+  "evidenceDirectory": "docs/phase5-evidence/"
+}

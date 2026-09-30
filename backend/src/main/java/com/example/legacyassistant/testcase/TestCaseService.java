@@ -24,8 +24,8 @@ public class TestCaseService {
         long start=System.nanoTime();var response=client.generate(requirement,source);policy.validate(id,source,response);
         ObjectNode result=response.deepCopy();result.put("requirementId",id.toString());result.put("generationId",UUID.randomUUID().toString());
         result.put("createdAt",Instant.now().toString());result.put("generationLatencyMs",(System.nanoTime()-start)/1_000_000);
-        result.set("sourceAnalysis",source);result.put("stale",false);decorate(result);
-        repository.save(id,source,result);return result;
+        result.set("sourceAnalysis",source);result.put("stale",false);
+        repository.save(id,source,result);decorate(result);return result;
     }
     public JsonNode get(UUID id) {
         requirements.get(id);
@@ -37,10 +37,10 @@ public class TestCaseService {
         var decisions=result.putArray("executionDecisions");
         boolean stale=result.path("stale").asBoolean();
         for(var item:result.get("testCases")) {
-            if(stale) ((ObjectNode)item).put("executable",false);
+            TestCaseReviewService.decorate((ObjectNode)item,policy,stale);
             var decision=decisions.addObject().put("testCaseId",item.get("testCaseId").asText());
             decision.set("gates",json.valueToTree(policy.gates(item)));decision.put("sourceCurrent",!stale);
-            decision.put("reason",stale?"분석 또는 정책이 변경되어 다시 생성해야 합니다.":item.get("executable").asBoolean()?"실행 가능 후보입니다. 사용자 승인은 아직 처리하지 않습니다.":"실행 조건이 충족되지 않았습니다. false인 판정 항목을 확인해 주세요.");
+            decision.put("reason",stale?"분석 또는 정책이 변경되어 다시 생성해야 합니다.":item.get("executable").asBoolean()?"기술적 실행 조건을 충족합니다. 실행에는 별도 사용자 승인이 필요합니다.":"실행 조건이 충족되지 않았습니다. false인 판정 항목을 확인해 주세요.");
         }
     }
 }

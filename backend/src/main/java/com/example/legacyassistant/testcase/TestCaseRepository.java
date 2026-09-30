@@ -31,7 +31,7 @@ public class TestCaseRepository {
                 .param("body",item.toString()).update();
     }
     public Optional<JsonNode> find(UUID id) {
-        return jdbc.sql("SELECT (g.metadata || jsonb_build_object('testCases', COALESCE(jsonb_agg(t.result_json ORDER BY t.ordinal) FILTER (WHERE t.test_case_id IS NOT NULL),'[]'::jsonb), 'sourceAnalysis',g.source_analysis, 'stale',g.source_analysis IS DISTINCT FROM a.result_json))::text " +
+        return jdbc.sql("SELECT (g.metadata || jsonb_build_object('testCases', COALESCE(jsonb_agg("+TestCaseReviewService.PROJECTION+" ORDER BY t.ordinal) FILTER (WHERE t.test_case_id IS NOT NULL),'[]'::jsonb), 'sourceAnalysis',g.source_analysis, 'stale',g.source_analysis IS DISTINCT FROM a.result_json))::text " +
             "FROM app.test_case_generation g LEFT JOIN app.test_case t ON t.generation_id=g.generation_id LEFT JOIN app.requirement_analysis a ON a.requirement_id=g.requirement_id WHERE g.requirement_id=:id GROUP BY g.requirement_id,a.result_json")
             .param("id",id).query((rs,row) -> parse(rs.getString(1))).optional();
     }

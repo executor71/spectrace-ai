@@ -1,0 +1,24 @@
+{
+  "approve": {
+    "testCaseId": "c53be0ea-3157-49be-a922-efa378d6ca11",
+    "approvalStatus": "APPROVED",
+    "reviewedAt": "2026-09-30T10:03:21.895379+00:00",
+    "reviewer": "demo/local",
+    "reviewComment": "근거와 수정 내용을 확인하여 승인합니다.",
+    "reviewRevision": 2,
+    "modified": true,
+    "executable": false,
+    "executionEligible": false
+  },
+  "reject": {
+    "testCaseId": "c0dca00f-7a4c-4861-ba42-06c7588235b1",
+    "approvalStatus": "REJECTED",
+    "reviewedAt": "2026-09-30T10:03:22.032836+00:00",
+    "reviewer": "demo/local",
+    "reviewComment": "예외 조건의 추가 검토가 필요하여 반려합니다.",
+    "reviewRevision": 1,
+    "modified": false,
+    "executable": false,
+    "executionEligible": false
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "type": "EXCEPTION",
+  "input": {
+    "body": {
+      "comment": "합성 검증"
+    },
+    "method": "POST",
+    "endpoint": "/loans/{loanId}/approve",
+    "actorFixture": "requester",
+    "pathParameters": {
+      "loanId": "00000000-0000-4000-8000-000000000041"
+    }
+  },
+  "steps": [
+    "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+    "지정 계정으로 input의 승인 요청을 보낸다.",
+    "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+  ],
+  "evidence": [
+    {
+      "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+      "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+    },
+    {
+      "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+      "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+    },
+    {
+      "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+      "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+    },
+    {
+      "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+      "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14"
+    }
+  ],
+  "modified": false,
+  "reviewer": "demo/local",
+  "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+  "executable": false,
+  "reviewedAt": "2026-09-30T10:03:22.032836+00:00",
+  "testCaseId": "c0dca00f-7a4c-4861-ba42-06c7588235b1",
+  "preconditions": [
+    "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+    "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+    "해당 자산의 상태는 AVAILABLE이다.",
+    "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+  ],
+  "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+  "reviewComment": "예외 조건의 추가 검토가 필요하여 반려합니다.",
+  "approvalStatus": "REJECTED",
+  "expectedResult": {
+    "assertions": [
+      {
+        "kind": "HTTP_STATUS",
+        "value": 403
+      },
+      {
+        "kind": "RESPONSE_TOKEN",
+        "value": "SELF_APPROVAL_FORBIDDEN"
+      }
+    ],
+    "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+  },
+  "reviewRevision": 1,
+  "reviewedContent": null,
+  "generatedContent": {
+    "type": "EXCEPTION",
+    "input": {
+      "body": {
+        "comment": "합성 검증"
+      },
+      "method": "POST",
+      "endpoint": "/loans/{loanId}/approve",
+      "actorFixture": "requester",
+      "pathParameters": {
+        "loanId": "00000000-0000-4000-8000-000000000041"
+      }
+    },
+    "steps": [
+      "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+      "지정 계정으로 input의 승인 요청을 보낸다.",
+      "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+    ],
+    "evidence": [
+      {
+        "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+      },
+      {
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+      },
+      {
+        "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      },
+      {
+        "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+        "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14"
+      }
+    ],
+    "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+    "executable": false,
+    "testCaseId": "c0dca00f-7a4c-4861-ba42-06c7588235b1",
+    "preconditions": [
+      "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+      "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+      "해당 자산의 상태는 AVAILABLE이다.",
+      "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+    ],
+    "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+    "expectedResult": {
+      "assertions": [
+        {
+          "kind": "HTTP_STATUS",
+          "value": 403
+        },
+        {
+          "kind": "RESPONSE_TOKEN",
+          "value": "SELF_APPROVAL_FORBIDDEN"
+        }
+      ],
+      "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+    }
+  },
+  "executionEligible": false
+}
