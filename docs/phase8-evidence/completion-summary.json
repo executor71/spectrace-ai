@@ -1,0 +1,74 @@
+{
+  "result": "PASS",
+  "phase": 8,
+  "queryCount": 32,
+  "corpusDocuments": 9,
+  "corpusChunks": 27,
+  "strategies": 3,
+  "auxiliaryLexical": true,
+  "finalTopK": 5,
+  "repetitions": 3,
+  "totalTests": 225,
+  "originalFilesChanged": 0,
+  "baselineRankAndScoreExact": true,
+  "datasetSha256": "16cef486474fc0fe35195866e93bf475b0d2c230a71f9ea2e9d2a1c9d6656ff4",
+  "metrics": {
+    "VECTOR": {
+      "hitAt5": 0.96875,
+      "recallAt5": 0.9010416666666666,
+      "mrrAt5": 0.8854166666666666,
+      "ndcgAt5": 0.8626307054916893,
+      "failedQueries": 1,
+      "queryCount": 32,
+      "latencyMs": {
+        "mean": 112.19267175003249,
+        "p50": 109.8803769996266,
+        "p95": 134.03391475003446,
+        "samples": 96
+      }
+    },
+    "LEXICAL": {
+      "hitAt5": 1,
+      "recallAt5": 0.8854166666666666,
+      "mrrAt5": 0.8588541666666667,
+      "ndcgAt5": 0.8026064182580108,
+      "failedQueries": 0,
+      "queryCount": 32,
+      "latencyMs": {
+        "mean": 0.7471559062726859,
+        "p50": 0.7084939998094342,
+        "p95": 0.9253080002054048,
+        "samples": 96
+      }
+    },
+    "HYBRID": {
+      "hitAt5": 1,
+      "recallAt5": 0.9348958333333334,
+      "mrrAt5": 0.8760416666666667,
+      "ndcgAt5": 0.8597685954079995,
+      "failedQueries": 0,
+      "queryCount": 32,
+      "latencyMs": {
+        "mean": 114.42460590623682,
+        "p50": 111.33519750001142,
+        "p95": 137.91637574991,
+        "samples": 96
+      }
+    },
+    "HYBRID_RERANK": {
+      "hitAt5": 0.96875,
+      "recallAt5": 0.9114583333333334,
+      "mrrAt5": 0.8854166666666666,
+      "ndcgAt5": 0.8772036529239255,
+      "failedQueries": 1,
+      "queryCount": 32,
+      "latencyMs": {
+        "mean": 5670.669269937434,
+        "p50": 5648.104194000098,
+        "p95": 6132.6767555001425,
+        "samples": 96
+      }
+    }
+  },
+  "unresolved": []
+}

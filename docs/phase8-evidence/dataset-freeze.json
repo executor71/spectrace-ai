@@ -1,0 +1,14 @@
+{
+  "datasetSha256": "16cef486474fc0fe35195866e93bf475b0d2c230a71f9ea2e9d2a1c9d6656ff4",
+  "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+  "frozenAt": "2026-10-02T12:36:31.760779+00:00",
+  "queryCount": 32,
+  "finalTopK": 5,
+  "retrievalCandidateK": 20,
+  "rrfK": 60,
+  "bm25K1": 1.5,
+  "bm25B": 0.75,
+  "repetitions": 3,
+  "warmupPasses": 1,
+  "tuningIterations": 0
+}

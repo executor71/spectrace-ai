@@ -1,0 +1,21 @@
+services:
+  retrieval-service:
+    build:
+      context: .
+      dockerfile: retrieval-service/Dockerfile
+    environment:
+      RAG_DB_HOST: postgres
+      RAG_DB_NAME: legacy_assistant
+      RAG_DB_USER: rag_reader
+      RAG_DB_PASSWORD: ${RAG_DB_PASSWORD:-local_rag_reader_only}
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      HF_HUB_DISABLE_XET: "1"
+      TOKENIZERS_PARALLELISM: "false"
+    ports:
+      - "127.0.0.1:8010:8010"
+    volumes:
+      - embedding-model-cache:/models
+      - reranker-model-cache:/reranker-models
+volumes:
+  reranker-model-cache:

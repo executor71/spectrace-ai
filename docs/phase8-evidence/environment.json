@@ -1,0 +1,42 @@
+{
+  "cpuCount": 16,
+  "memoryBytes": 32419495936,
+  "os": "Docker Desktop",
+  "architecture": "x86_64",
+  "retrieverImage": "sha256:712cebcc73bfad64761b43aec073cdb004eacf89ea542185a5044403e54f6438",
+  "cpuLimit": 0,
+  "memoryLimit": 0,
+  "settings": {
+    "finalTopK": 5,
+    "retrievalCandidateK": 20,
+    "rrfK": 60,
+    "bm25K1": 1.5,
+    "bm25B": 0.75,
+    "expectedCorpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+    "reranker": {
+      "provider": "local_transformers",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "device": "cpu",
+      "batchSize": 4,
+      "maxLength": 512,
+      "cpuThreads": 4,
+      "cacheDir": "/reranker-models"
+    }
+  },
+  "embedding": {
+    "provider": "local_sentence_transformers",
+    "model": "BAAI/bge-m3",
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "dimensions": 1024,
+    "device": "cpu",
+    "batch_size": 4,
+    "max_sequence_length": 512,
+    "cpu_threads": 4,
+    "cache_dir": "/models"
+  },
+  "inferenceDevice": "CPU",
+  "inferenceDtype": "float32",
+  "remoteInferenceRequests": 0,
+  "perCallApiFees": 0
+}

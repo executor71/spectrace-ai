@@ -1,0 +1,1961 @@
+{
+  "initialRequests": {
+    "VECTOR": {
+      "queryId": "phase2-1",
+      "strategy": "VECTOR",
+      "results": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+          "documentType": "BUSINESS_RULE",
+          "section": "신청 자격과 중복 대여 제한",
+          "contentSnippet": "재직 상태가 ACTIVE인 임직원만 업무 장비를 신청할 수 있다. 노트북의 활성 대여는 직원당 한 대로 제한한다. 퇴직 예정자는 신규 대여를 신청할 수 없고 기존 장비 반납만 진행한다. 요청자 ID는 로그인 주체에서 결정하며 임의의 다른 직원을 대신하여 신청할 수 없다. 반납 예정일은 신청일보다 뒤여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.7217434644699097,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 1
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve",
+            "POST /loans/{loanId}/issue"
+          ],
+          "vectorScore": 0.5881104118758205,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 2
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+          "documentType": "BUSINESS_RULE",
+          "section": "자산 등록과 관리번호",
+          "contentSnippet": "가상 자산관리 시스템의 자산 담당자는 노트북, 모니터, 휴대전화에 고유한 자산번호를 부여한다. 자산번호와 제조사 일련번호는 중복될 수 없다. 신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다. 분실 신고된 장비나 폐기된 장비를 신규 재고로 다시 등록하지 않는다. 구매일, 장비 종류, 관리 부서, 일련번호는 필수 입력이다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /assets"
+          ],
+          "vectorScore": 0.5867432848521174,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 3
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5786679983139038,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 4
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+          "documentType": "API_SPEC",
+          "section": "POST /loans 대여 신청",
+          "contentSnippet": "POST /loans의 JSON 요청 필드는 assetId, dueDate, purpose다. requesterId는 요청 본문에서 받지 않고 인증된 직원으로 결정한다. 성공 시 HTTP 201과 loanId, status=PENDING_APPROVAL을 반환한다. ACTIVE가 아닌 직원은 HTTP 403 EMPLOYEE_INACTIVE, 노트북 활성 대여가 이미 있으면 HTTP 409 ACTIVE_LOAN_EXISTS다. dueDate는 YYYY-MM-DD 형식이며 미래 날짜여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.5723979473114014,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 5
+        }
+      ],
+      "latencyMs": 8764.810399999988,
+      "timing": {},
+      "candidateCount": 5,
+      "vectorCandidateCount": 0,
+      "lexicalCandidateCount": 0,
+      "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+      "configHash": "321a3811a4167714cc55a17fb2f10c51b1be200ee8664b3d2ec9eea842511c9e",
+      "finalTopK": 5,
+      "candidates": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+          "documentType": "BUSINESS_RULE",
+          "section": "신청 자격과 중복 대여 제한",
+          "contentSnippet": "재직 상태가 ACTIVE인 임직원만 업무 장비를 신청할 수 있다. 노트북의 활성 대여는 직원당 한 대로 제한한다. 퇴직 예정자는 신규 대여를 신청할 수 없고 기존 장비 반납만 진행한다. 요청자 ID는 로그인 주체에서 결정하며 임의의 다른 직원을 대신하여 신청할 수 없다. 반납 예정일은 신청일보다 뒤여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.7217434644699097,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 1
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve",
+            "POST /loans/{loanId}/issue"
+          ],
+          "vectorScore": 0.5881104118758205,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 2
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+          "documentType": "BUSINESS_RULE",
+          "section": "자산 등록과 관리번호",
+          "contentSnippet": "가상 자산관리 시스템의 자산 담당자는 노트북, 모니터, 휴대전화에 고유한 자산번호를 부여한다. 자산번호와 제조사 일련번호는 중복될 수 없다. 신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다. 분실 신고된 장비나 폐기된 장비를 신규 재고로 다시 등록하지 않는다. 구매일, 장비 종류, 관리 부서, 일련번호는 필수 입력이다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /assets"
+          ],
+          "vectorScore": 0.5867432848521174,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 3
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5786679983139038,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 4
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+          "documentType": "API_SPEC",
+          "section": "POST /loans 대여 신청",
+          "contentSnippet": "POST /loans의 JSON 요청 필드는 assetId, dueDate, purpose다. requesterId는 요청 본문에서 받지 않고 인증된 직원으로 결정한다. 성공 시 HTTP 201과 loanId, status=PENDING_APPROVAL을 반환한다. ACTIVE가 아닌 직원은 HTTP 403 EMPLOYEE_INACTIVE, 노트북 활성 대여가 이미 있으면 HTTP 409 ACTIVE_LOAN_EXISTS다. dueDate는 YYYY-MM-DD 형식이며 미래 날짜여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.5723979473114014,
+          "lexicalScore": null,
+          "fusionScore": null,
+          "rerankScore": null,
+          "rank": 5
+        }
+      ],
+      "clientLatencyMs": 12516.167199999472
+    },
+    "LEXICAL": {
+      "queryId": "phase2-1",
+      "strategy": "LEXICAL",
+      "results": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+          "documentType": "BUSINESS_RULE",
+          "section": "신청 자격과 중복 대여 제한",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "재직 상태가 ACTIVE인 임직원만 업무 장비를 신청할 수 있다. 노트북의 활성 대여는 직원당 한 대로 제한한다. 퇴직 예정자는 신규 대여를 신청할 수 없고 기존 장비 반납만 진행한다. 요청자 ID는 로그인 주체에서 결정하며 임의의 다른 직원을 대신하여 신청할 수 없다. 반납 예정일은 신청일보다 뒤여야 한다.",
+          "lexicalScore": 10.93223603442371,
+          "rank": 1,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "lexicalScore": 7.273701488552759,
+          "rank": 2,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+          "documentType": "API_SPEC",
+          "section": "POST /loans 대여 신청",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /loans의 JSON 요청 필드는 assetId, dueDate, purpose다. requesterId는 요청 본문에서 받지 않고 인증된 직원으로 결정한다. 성공 시 HTTP 201과 loanId, status=PENDING_APPROVAL을 반환한다. ACTIVE가 아닌 직원은 HTTP 403 EMPLOYEE_INACTIVE, 노트북 활성 대여가 이미 있으면 HTTP 409 ACTIVE_LOAN_EXISTS다. dueDate는 YYYY-MM-DD 형식이며 미래 날짜여야 한다.",
+          "lexicalScore": 5.261416992202452,
+          "rank": 3,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+          "documentType": "TEST_GUIDE",
+          "section": "대여 승인 권한 테스트",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다.",
+          "lexicalScore": 4.5634409243580505,
+          "rank": 4,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "lexicalScore": 4.376091862806469,
+          "rank": 5,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        }
+      ],
+      "latencyMs": 0.6612420002056751,
+      "timing": {},
+      "candidateCount": 20,
+      "vectorCandidateCount": 0,
+      "lexicalCandidateCount": 0,
+      "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+      "configHash": "321a3811a4167714cc55a17fb2f10c51b1be200ee8664b3d2ec9eea842511c9e",
+      "finalTopK": 5,
+      "candidates": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+          "documentType": "BUSINESS_RULE",
+          "section": "신청 자격과 중복 대여 제한",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "재직 상태가 ACTIVE인 임직원만 업무 장비를 신청할 수 있다. 노트북의 활성 대여는 직원당 한 대로 제한한다. 퇴직 예정자는 신규 대여를 신청할 수 없고 기존 장비 반납만 진행한다. 요청자 ID는 로그인 주체에서 결정하며 임의의 다른 직원을 대신하여 신청할 수 없다. 반납 예정일은 신청일보다 뒤여야 한다.",
+          "lexicalScore": 10.93223603442371,
+          "rank": 1,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "lexicalScore": 7.273701488552759,
+          "rank": 2,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+          "documentType": "API_SPEC",
+          "section": "POST /loans 대여 신청",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /loans의 JSON 요청 필드는 assetId, dueDate, purpose다. requesterId는 요청 본문에서 받지 않고 인증된 직원으로 결정한다. 성공 시 HTTP 201과 loanId, status=PENDING_APPROVAL을 반환한다. ACTIVE가 아닌 직원은 HTTP 403 EMPLOYEE_INACTIVE, 노트북 활성 대여가 이미 있으면 HTTP 409 ACTIVE_LOAN_EXISTS다. dueDate는 YYYY-MM-DD 형식이며 미래 날짜여야 한다.",
+          "lexicalScore": 5.261416992202452,
+          "rank": 3,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+          "documentType": "TEST_GUIDE",
+          "section": "대여 승인 권한 테스트",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다.",
+          "lexicalScore": 4.5634409243580505,
+          "rank": 4,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "lexicalScore": 4.376091862806469,
+          "rank": 5,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "documentType": "BUSINESS_RULE",
+          "section": "부서장 승인과 자기 승인 금지",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "대여 신청은 PENDING_APPROVAL로 생성된다. 요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다. 자기 승인 대신 상위 조직의 지정 승인자에게 전달한다. 반려 시 사유는 필수다. 취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "lexicalScore": 4.335380142373911,
+          "rank": 6,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+          "documentType": "ERROR_CODE",
+          "section": "SELF_APPROVAL_FORBIDDEN 자기 승인",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "HTTP 403 SELF_APPROVAL_FORBIDDEN은 승인자와 신청자가 동일할 때 발생한다. 부서장 역할이 있어도 자기 신청을 승인할 수 없다. 상위 조직의 지정 승인자를 통해 진행한다. 로그인 실패가 아니라 업무 권한 위반이므로 신청이나 자산 상태는 변경하지 않는다.",
+          "lexicalScore": 3.028473707358176,
+          "rank": 7,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+          "documentType": "TEST_GUIDE",
+          "section": "반납 연체 경계값 테스트",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "반납 예정일 당일, 하루 뒤, 월말과 윤년 2월 경계를 각각 확인한다. 예정일 당일 반납 접수의 overdueDays는 0이고 다음 날은 1이다. 반납 검사 완료가 늦어져도 접수 이후 날짜는 연체에 더하지 않는다. 파손 반납은 MAINTENANCE, 정상 반납은 AVAILABLE인지 별도로 확인한다.",
+          "lexicalScore": 3.0114360407120664,
+          "rank": 8,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+          "chunkId": "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+          "documentType": "API_SPEC",
+          "section": "POST /returns/{returnId}/inspection 검사 완료",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /returns/{returnId}/inspection 요청 필드는 result, damageDescription, photoReferences다. result는 PASSED 또는 DAMAGED다. DAMAGED에서는 파손 설명과 최소 한 개의 사진 참조가 필수이며 누락 시 HTTP 400 VALIDATION_ERROR다. PASSED는 AVAILABLE, DAMAGED는 MAINTENANCE로 자산 상태를 전환한다. 이미 완료된 검사는 HTTP 409 RETURN_STATE_CONFLICT다.",
+          "lexicalScore": 2.947723819214384,
+          "rank": 9,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "50c0a5ec-04da-5343-bc57-78c3dc29ed8b",
+          "documentType": "ERROR_CODE",
+          "section": "ASSET_NOT_AVAILABLE 재고 충돌",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "HTTP 409 ASSET_NOT_AVAILABLE은 대여 승인 시 장비가 AVAILABLE이 아니거나 이미 다른 신청에 예약된 경우다. 사용자에게 최신 재고를 조회하고 다른 장비를 선택하도록 안내한다. 같은 승인 요청을 무조건 반복하면 성공을 보장할 수 없다. 단순 입력 누락인 VALIDATION_ERROR와 구분한다.",
+          "lexicalScore": 2.8416754421264914,
+          "rank": 10,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8",
+          "chunkId": "f4563fc7-5072-5672-bc33-455f46d238ec",
+          "documentType": "POLICY",
+          "section": "대여 내역 CSV 다운로드",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "대여 이력 CSV 내보내기는 ASSET_ADMIN만 허용한다. 부서장과 일반 직원은 CSV 다운로드를 할 수 없다. 직원 이메일, 전화번호, 주소는 파일에서 제외하고 직원번호는 끝 네 자리만 표시한다. 파일 링크는 10분 후 만료되며 다운로드 요청자, 필터 조건, 생성 시각을 감사 로그에 남긴다.",
+          "lexicalScore": 2.5625835961764665,
+          "rank": 11,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43",
+          "documentType": "BUSINESS_RULE",
+          "section": "수리와 폐기 상태 전이",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "반납 검사에서 이상이 발견되면 자산을 MAINTENANCE로 전환한다. 수리 완료와 기능 점검 통과가 기록된 후에만 AVAILABLE로 복구한다. RETIRED로의 전이는 자산 관리자만 수행하며 폐기 사유를 남긴다. 활성 대여나 미완료 반납 검사가 있으면 폐기를 거부한다. 이미 폐기된 자산은 대여 가능 상태로 되돌릴 수 없다.",
+          "lexicalScore": 2.4216056230387553,
+          "rank": 12,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+          "documentType": "BUSINESS_RULE",
+          "section": "자산 등록과 관리번호",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "가상 자산관리 시스템의 자산 담당자는 노트북, 모니터, 휴대전화에 고유한 자산번호를 부여한다. 자산번호와 제조사 일련번호는 중복될 수 없다. 신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다. 분실 신고된 장비나 폐기된 장비를 신규 재고로 다시 등록하지 않는다. 구매일, 장비 종류, 관리 부서, 일련번호는 필수 입력이다.",
+          "lexicalScore": 2.4210338352531444,
+          "rank": 13,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8",
+          "chunkId": "1d7a1273-78de-5c79-a276-ba300bf37c09",
+          "documentType": "POLICY",
+          "section": "역할별 조회 범위",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "EMPLOYEE는 본인 대여와 자기 조직의 가용 재고만 조회한다. DEPARTMENT_MANAGER는 자기 부서 직원의 대여 신청과 연체 상태를 조회한다. ASSET_ADMIN은 자산 등록, 지급, 반납 검사, 폐기를 담당한다. 요청의 departmentId 값만으로 접근을 허용하지 않고 로그인 계정의 조직과 비교한다. 타 조직 접근은 ACCESS_DENIED로 차단한다.",
+          "lexicalScore": 2.235850906434119,
+          "rank": 14,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "4f380a68-9148-5c58-86e2-760176ba6cf2",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/issue 지급 확인",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /loans/{loanId}/issue는 자산 담당자가 실물 장비를 지급한 뒤 호출한다. 승인된 신청만 처리할 수 있으며 성공 시 HTTP 200, 대여 상태 ACTIVE와 자산 상태 ON_LOAN을 반환한다. 승인 전 지급 요청은 HTTP 409 LOAN_STATE_CONFLICT다. 수령 확인 시각과 담당자 ID는 서버에서 기록한다.",
+          "lexicalScore": 2.183079017369953,
+          "rank": 15,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/approve 승인",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "lexicalScore": 2.036180492908825,
+          "rank": 16,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+          "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/returns 반납 접수",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /loans/{loanId}/returns 요청은 accessoriesReturned와 note를 받는다. 성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다. 같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다. 현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+          "lexicalScore": 1.9678010681407048,
+          "rank": 17,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+          "documentType": "BUSINESS_RULE",
+          "section": "대여 가능한 재고 판정",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "임직원에게 지급할 수 있는 재고는 자산 상태가 AVAILABLE이고 활성 대여 기록이 없는 장비다. RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다. 예약은 승인 완료부터 실물 지급까지 유효하다. 대여 화면의 재고 조회 결과만 신뢰하지 않고 승인 트랜잭션에서 최신 상태를 다시 확인한다.",
+          "lexicalScore": 1.326752442003007,
+          "rank": 18,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+          "documentType": "BUSINESS_RULE",
+          "section": "반납 접수와 검사 대기",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "현재 대여자 또는 자산 담당자만 반납 접수를 할 수 있다. 반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다. 반납 건은 INSPECTION_PENDING으로 생성되고 자산은 검사 완료 전까지 새로운 대여에서 제외한다. 본체, 충전기, 부속품의 반납 여부를 기록하며 접수일과 담당자를 보관한다.",
+          "lexicalScore": 1.2623448169690075,
+          "rank": 19,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+          "chunkId": "499bf89b-1a91-527a-b35f-a67e264475bf",
+          "documentType": "API_SPEC",
+          "section": "POST /assets 자산 등록",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /assets는 자산 관리자 전용이다. JSON 필드는 assetNumber, serialNumber, assetType, purchasedAt, departmentId다. 성공 시 HTTP 201과 Location: /assets/{assetId}를 반환한다. 자산번호 또는 일련번호가 이미 존재하면 HTTP 409와 DUPLICATE_ASSET 오류를 반환한다. 필수값 누락은 HTTP 400 VALIDATION_ERROR다.",
+          "lexicalScore": 1.2538513424396336,
+          "rank": 20,
+          "vectorScore": null,
+          "fusionScore": null,
+          "rerankScore": null
+        }
+      ],
+      "clientLatencyMs": 2042.5121999996918
+    },
+    "HYBRID": {
+      "queryId": "phase2-1",
+      "strategy": "HYBRID",
+      "results": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+          "documentType": "BUSINESS_RULE",
+          "section": "신청 자격과 중복 대여 제한",
+          "contentSnippet": "재직 상태가 ACTIVE인 임직원만 업무 장비를 신청할 수 있다. 노트북의 활성 대여는 직원당 한 대로 제한한다. 퇴직 예정자는 신규 대여를 신청할 수 없고 기존 장비 반납만 진행한다. 요청자 ID는 로그인 주체에서 결정하며 임의의 다른 직원을 대신하여 신청할 수 없다. 반납 예정일은 신청일보다 뒤여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.7217434644699097,
+          "lexicalScore": 10.93223603442371,
+          "fusionScore": 0.03278688524590164,
+          "rerankScore": null,
+          "vectorRank": 1,
+          "lexicalRank": 1,
+          "rank": 1
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5786679983139038,
+          "lexicalScore": 7.273701488552759,
+          "fusionScore": 0.031754032258064516,
+          "rerankScore": null,
+          "vectorRank": 4,
+          "lexicalRank": 2,
+          "rank": 2
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve",
+            "POST /loans/{loanId}/issue"
+          ],
+          "vectorScore": 0.5881104118758205,
+          "lexicalScore": 4.376091862806469,
+          "fusionScore": 0.0315136476426799,
+          "rerankScore": null,
+          "vectorRank": 2,
+          "lexicalRank": 5,
+          "rank": 3
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+          "documentType": "API_SPEC",
+          "section": "POST /loans 대여 신청",
+          "contentSnippet": "POST /loans의 JSON 요청 필드는 assetId, dueDate, purpose다. requesterId는 요청 본문에서 받지 않고 인증된 직원으로 결정한다. 성공 시 HTTP 201과 loanId, status=PENDING_APPROVAL을 반환한다. ACTIVE가 아닌 직원은 HTTP 403 EMPLOYEE_INACTIVE, 노트북 활성 대여가 이미 있으면 HTTP 409 ACTIVE_LOAN_EXISTS다. dueDate는 YYYY-MM-DD 형식이며 미래 날짜여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.5723979473114014,
+          "lexicalScore": 5.261416992202452,
+          "fusionScore": 0.03125763125763126,
+          "rerankScore": null,
+          "vectorRank": 5,
+          "lexicalRank": 3,
+          "rank": 4
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+          "documentType": "TEST_GUIDE",
+          "section": "대여 승인 권한 테스트",
+          "contentSnippet": "서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5705849188217579,
+          "lexicalScore": 4.5634409243580505,
+          "fusionScore": 0.030776515151515152,
+          "rerankScore": null,
+          "vectorRank": 6,
+          "lexicalRank": 4,
+          "rank": 5
+        }
+      ],
+      "latencyMs": 106.0592079993512,
+      "timing": {
+        "vectorMs": 105.43533800046134,
+        "lexicalMs": 0.5776409998361487,
+        "fusionMs": 0.03625000044849003
+      },
+      "candidateCount": 20,
+      "vectorCandidateCount": 20,
+      "lexicalCandidateCount": 20,
+      "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+      "configHash": "321a3811a4167714cc55a17fb2f10c51b1be200ee8664b3d2ec9eea842511c9e",
+      "finalTopK": 5,
+      "candidates": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+          "documentType": "BUSINESS_RULE",
+          "section": "신청 자격과 중복 대여 제한",
+          "contentSnippet": "재직 상태가 ACTIVE인 임직원만 업무 장비를 신청할 수 있다. 노트북의 활성 대여는 직원당 한 대로 제한한다. 퇴직 예정자는 신규 대여를 신청할 수 없고 기존 장비 반납만 진행한다. 요청자 ID는 로그인 주체에서 결정하며 임의의 다른 직원을 대신하여 신청할 수 없다. 반납 예정일은 신청일보다 뒤여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.7217434644699097,
+          "lexicalScore": 10.93223603442371,
+          "fusionScore": 0.03278688524590164,
+          "rerankScore": null,
+          "vectorRank": 1,
+          "lexicalRank": 1,
+          "rank": 1
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5786679983139038,
+          "lexicalScore": 7.273701488552759,
+          "fusionScore": 0.031754032258064516,
+          "rerankScore": null,
+          "vectorRank": 4,
+          "lexicalRank": 2,
+          "rank": 2
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve",
+            "POST /loans/{loanId}/issue"
+          ],
+          "vectorScore": 0.5881104118758205,
+          "lexicalScore": 4.376091862806469,
+          "fusionScore": 0.0315136476426799,
+          "rerankScore": null,
+          "vectorRank": 2,
+          "lexicalRank": 5,
+          "rank": 3
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+          "documentType": "API_SPEC",
+          "section": "POST /loans 대여 신청",
+          "contentSnippet": "POST /loans의 JSON 요청 필드는 assetId, dueDate, purpose다. requesterId는 요청 본문에서 받지 않고 인증된 직원으로 결정한다. 성공 시 HTTP 201과 loanId, status=PENDING_APPROVAL을 반환한다. ACTIVE가 아닌 직원은 HTTP 403 EMPLOYEE_INACTIVE, 노트북 활성 대여가 이미 있으면 HTTP 409 ACTIVE_LOAN_EXISTS다. dueDate는 YYYY-MM-DD 형식이며 미래 날짜여야 한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans"
+          ],
+          "vectorScore": 0.5723979473114014,
+          "lexicalScore": 5.261416992202452,
+          "fusionScore": 0.03125763125763126,
+          "rerankScore": null,
+          "vectorRank": 5,
+          "lexicalRank": 3,
+          "rank": 4
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+          "documentType": "TEST_GUIDE",
+          "section": "대여 승인 권한 테스트",
+          "contentSnippet": "서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5705849188217579,
+          "lexicalScore": 4.5634409243580505,
+          "fusionScore": 0.030776515151515152,
+          "rerankScore": null,
+          "vectorRank": 6,
+          "lexicalRank": 4,
+          "rank": 5
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "documentType": "BUSINESS_RULE",
+          "section": "부서장 승인과 자기 승인 금지",
+          "contentSnippet": "대여 신청은 PENDING_APPROVAL로 생성된다. 요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다. 자기 승인 대신 상위 조직의 지정 승인자에게 전달한다. 반려 시 사유는 필수다. 취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5402617180503448,
+          "lexicalScore": 4.335380142373911,
+          "fusionScore": 0.02964426877470356,
+          "rerankScore": null,
+          "vectorRank": 9,
+          "lexicalRank": 6,
+          "rank": 6
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+          "documentType": "BUSINESS_RULE",
+          "section": "자산 등록과 관리번호",
+          "contentSnippet": "가상 자산관리 시스템의 자산 담당자는 노트북, 모니터, 휴대전화에 고유한 자산번호를 부여한다. 자산번호와 제조사 일련번호는 중복될 수 없다. 신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다. 분실 신고된 장비나 폐기된 장비를 신규 재고로 다시 등록하지 않는다. 구매일, 장비 종류, 관리 부서, 일련번호는 필수 입력이다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /assets"
+          ],
+          "vectorScore": 0.5867432848521174,
+          "lexicalScore": 2.4210338352531444,
+          "fusionScore": 0.029571646010002173,
+          "rerankScore": null,
+          "vectorRank": 3,
+          "lexicalRank": 13,
+          "rank": 7
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "50c0a5ec-04da-5343-bc57-78c3dc29ed8b",
+          "documentType": "ERROR_CODE",
+          "section": "ASSET_NOT_AVAILABLE 재고 충돌",
+          "contentSnippet": "HTTP 409 ASSET_NOT_AVAILABLE은 대여 승인 시 장비가 AVAILABLE이 아니거나 이미 다른 신청에 예약된 경우다. 사용자에게 최신 재고를 조회하고 다른 장비를 선택하도록 안내한다. 같은 승인 요청을 무조건 반복하면 성공을 보장할 수 없다. 단순 입력 누락인 VALIDATION_ERROR와 구분한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5007343292236328,
+          "lexicalScore": 2.8416754421264914,
+          "fusionScore": 0.028370221327967807,
+          "rerankScore": null,
+          "vectorRank": 11,
+          "lexicalRank": 10,
+          "rank": 8
+        },
+        {
+          "documentId": "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8",
+          "chunkId": "f4563fc7-5072-5672-bc33-455f46d238ec",
+          "documentType": "POLICY",
+          "section": "대여 내역 CSV 다운로드",
+          "contentSnippet": "대여 이력 CSV 내보내기는 ASSET_ADMIN만 허용한다. 부서장과 일반 직원은 CSV 다운로드를 할 수 없다. 직원 이메일, 전화번호, 주소는 파일에서 제외하고 직원번호는 끝 네 자리만 표시한다. 파일 링크는 10분 후 만료되며 다운로드 요청자, 필터 조건, 생성 시각을 감사 로그에 남긴다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "GET /loans/export"
+          ],
+          "vectorScore": 0.49900916212851865,
+          "lexicalScore": 2.5625835961764665,
+          "fusionScore": 0.027783137179239824,
+          "rerankScore": null,
+          "vectorRank": 13,
+          "lexicalRank": 11,
+          "rank": 9
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+          "documentType": "ERROR_CODE",
+          "section": "SELF_APPROVAL_FORBIDDEN 자기 승인",
+          "contentSnippet": "HTTP 403 SELF_APPROVAL_FORBIDDEN은 승인자와 신청자가 동일할 때 발생한다. 부서장 역할이 있어도 자기 신청을 승인할 수 없다. 상위 조직의 지정 승인자를 통해 진행한다. 로그인 실패가 아니라 업무 권한 위반이므로 신청이나 자산 상태는 변경하지 않는다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.4610179089893165,
+          "lexicalScore": 3.028473707358176,
+          "fusionScore": 0.027745885954841176,
+          "rerankScore": null,
+          "vectorRank": 18,
+          "lexicalRank": 7,
+          "rank": 10
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+          "documentType": "BUSINESS_RULE",
+          "section": "대여 가능한 재고 판정",
+          "contentSnippet": "임직원에게 지급할 수 있는 재고는 자산 상태가 AVAILABLE이고 활성 대여 기록이 없는 장비다. RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다. 예약은 승인 완료부터 실물 지급까지 유효하다. 대여 화면의 재고 조회 결과만 신뢰하지 않고 승인 트랜잭션에서 최신 상태를 다시 확인한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "GET /assets",
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.5546675324440002,
+          "lexicalScore": 1.326752442003007,
+          "fusionScore": 0.027745885954841176,
+          "rerankScore": null,
+          "vectorRank": 7,
+          "lexicalRank": 18,
+          "rank": 11
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "4f380a68-9148-5c58-86e2-760176ba6cf2",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/issue 지급 확인",
+          "contentSnippet": "POST /loans/{loanId}/issue는 자산 담당자가 실물 장비를 지급한 뒤 호출한다. 승인된 신청만 처리할 수 있으며 성공 시 HTTP 200, 대여 상태 ACTIVE와 자산 상태 ON_LOAN을 반환한다. 승인 전 지급 요청은 HTTP 409 LOAN_STATE_CONFLICT다. 수령 확인 시각과 담당자 ID는 서버에서 기록한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/issue"
+          ],
+          "vectorScore": 0.4991912246714598,
+          "lexicalScore": 2.183079017369953,
+          "fusionScore": 0.027222222222222224,
+          "rerankScore": null,
+          "vectorRank": 12,
+          "lexicalRank": 15,
+          "rank": 12
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43",
+          "documentType": "BUSINESS_RULE",
+          "section": "수리와 폐기 상태 전이",
+          "contentSnippet": "반납 검사에서 이상이 발견되면 자산을 MAINTENANCE로 전환한다. 수리 완료와 기능 점검 통과가 기록된 후에만 AVAILABLE로 복구한다. RETIRED로의 전이는 자산 관리자만 수행하며 폐기 사유를 남긴다. 활성 대여나 미완료 반납 검사가 있으면 폐기를 거부한다. 이미 폐기된 자산은 대여 가능 상태로 되돌릴 수 없다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /returns/{returnId}/inspection"
+          ],
+          "vectorScore": 0.47582903504371643,
+          "lexicalScore": 2.4216056230387553,
+          "fusionScore": 0.027046783625730993,
+          "rerankScore": null,
+          "vectorRank": 16,
+          "lexicalRank": 12,
+          "rank": 13
+        },
+        {
+          "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+          "documentType": "BUSINESS_RULE",
+          "section": "반납 접수와 검사 대기",
+          "contentSnippet": "현재 대여자 또는 자산 담당자만 반납 접수를 할 수 있다. 반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다. 반납 건은 INSPECTION_PENDING으로 생성되고 자산은 검사 완료 전까지 새로운 대여에서 제외한다. 본체, 충전기, 부속품의 반납 여부를 기록하며 접수일과 담당자를 보관한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/returns"
+          ],
+          "vectorScore": 0.5050687789916992,
+          "lexicalScore": 1.2623448169690075,
+          "fusionScore": 0.02694394213381555,
+          "rerankScore": null,
+          "vectorRank": 10,
+          "lexicalRank": 19,
+          "rank": 14
+        },
+        {
+          "documentId": "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8",
+          "chunkId": "1d7a1273-78de-5c79-a276-ba300bf37c09",
+          "documentType": "POLICY",
+          "section": "역할별 조회 범위",
+          "contentSnippet": "EMPLOYEE는 본인 대여와 자기 조직의 가용 재고만 조회한다. DEPARTMENT_MANAGER는 자기 부서 직원의 대여 신청과 연체 상태를 조회한다. ASSET_ADMIN은 자산 등록, 지급, 반납 검사, 폐기를 담당한다. 요청의 departmentId 값만으로 접근을 허용하지 않고 로그인 계정의 조직과 비교한다. 타 조직 접근은 ACCESS_DENIED로 차단한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "GET /assets",
+            "GET /loans/overdue"
+          ],
+          "vectorScore": 0.4797083449537557,
+          "lexicalScore": 2.235850906434119,
+          "fusionScore": 0.02684684684684685,
+          "rerankScore": null,
+          "vectorRank": 15,
+          "lexicalRank": 14,
+          "rank": 15
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/approve 승인",
+          "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/approve"
+          ],
+          "vectorScore": 0.49403268098831177,
+          "lexicalScore": 2.036180492908825,
+          "fusionScore": 0.02667140825035562,
+          "rerankScore": null,
+          "vectorRank": 14,
+          "lexicalRank": 16,
+          "rank": 16
+        },
+        {
+          "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+          "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/returns 반납 접수",
+          "contentSnippet": "POST /loans/{loanId}/returns 요청은 accessoriesReturned와 note를 받는다. 성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다. 같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다. 현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/returns"
+          ],
+          "vectorScore": 0.4745566562082385,
+          "lexicalScore": 1.9678010681407048,
+          "fusionScore": 0.025974025974025976,
+          "rerankScore": null,
+          "vectorRank": 17,
+          "lexicalRank": 17,
+          "rank": 17
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "566990a9-d4ea-5b39-a07a-c5464ce2e2b8",
+          "documentType": "ERROR_CODE",
+          "section": "RETURN_ALREADY_REQUESTED 중복 반납",
+          "contentSnippet": "HTTP 409 RETURN_ALREADY_REQUESTED는 같은 대여에 반납 접수가 이미 존재하는 경우다. 새 반납 건을 생성하지 않고 기존 returnId의 진행 상태를 조회한다. 첫 요청의 응답을 받지 못한 재시도에서도 반납이 두 번 기록되지 않아야 한다. 검사 완료 후 재접수도 동일하게 거부한다.",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "relatedApis": [
+            "POST /loans/{loanId}/returns"
+          ],
+          "vectorScore": 0.5405562793876968,
+          "lexicalScore": null,
+          "fusionScore": 0.014705882352941176,
+          "rerankScore": null,
+          "vectorRank": 8,
+          "lexicalRank": null,
+          "rank": 18
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+          "documentType": "TEST_GUIDE",
+          "section": "반납 연체 경계값 테스트",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "반납 예정일 당일, 하루 뒤, 월말과 윤년 2월 경계를 각각 확인한다. 예정일 당일 반납 접수의 overdueDays는 0이고 다음 날은 1이다. 반납 검사 완료가 늦어져도 접수 이후 날짜는 연체에 더하지 않는다. 파손 반납은 MAINTENANCE, 정상 반납은 AVAILABLE인지 별도로 확인한다.",
+          "lexicalScore": 3.0114360407120664,
+          "rank": 19,
+          "fusionScore": 0.014705882352941176,
+          "vectorRank": null,
+          "lexicalRank": 8,
+          "vectorScore": null,
+          "rerankScore": null
+        },
+        {
+          "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+          "chunkId": "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+          "documentType": "API_SPEC",
+          "section": "POST /returns/{returnId}/inspection 검사 완료",
+          "domain": "IT_ASSET",
+          "version": "1.0.0",
+          "contentSnippet": "POST /returns/{returnId}/inspection 요청 필드는 result, damageDescription, photoReferences다. result는 PASSED 또는 DAMAGED다. DAMAGED에서는 파손 설명과 최소 한 개의 사진 참조가 필수이며 누락 시 HTTP 400 VALIDATION_ERROR다. PASSED는 AVAILABLE, DAMAGED는 MAINTENANCE로 자산 상태를 전환한다. 이미 완료된 검사는 HTTP 409 RETURN_STATE_CONFLICT다.",
+          "lexicalScore": 2.947723819214384,
+          "rank": 20,
+          "fusionScore": 0.014492753623188406,
+          "vectorRank": null,
+          "lexicalRank": 9,
+          "vectorScore": null,
+          "rerankScore": null
+        }
+      ],
+      "clientLatencyMs": 2152.187600000616
+    }
+  },
+  "steadyStateSamples": {
+    "VECTOR": [
+      {
+        "queryId": "phase2-1",
+        "repetition": 1,
+        "latencyMs": 91.98362700044527,
+        "clientLatencyMs": 2145.685499999672,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-2",
+        "repetition": 1,
+        "latencyMs": 114.46729299950675,
+        "clientLatencyMs": 2159.0651999995316,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-3",
+        "repetition": 1,
+        "latencyMs": 103.43467900020187,
+        "clientLatencyMs": 2159.6096999983274,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-4",
+        "repetition": 1,
+        "latencyMs": 356.2396010001976,
+        "clientLatencyMs": 2393.0710000004183,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-5",
+        "repetition": 1,
+        "latencyMs": 103.46507600024779,
+        "clientLatencyMs": 2147.6187000007485,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-6",
+        "repetition": 1,
+        "latencyMs": 109.1954009998517,
+        "clientLatencyMs": 2152.3695000014413,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-7",
+        "repetition": 1,
+        "latencyMs": 111.97090200039383,
+        "clientLatencyMs": 2143.8863999992464,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-8",
+        "repetition": 1,
+        "latencyMs": 116.32118200031982,
+        "clientLatencyMs": 2166.829100000541,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-01",
+        "repetition": 1,
+        "latencyMs": 105.04830799982301,
+        "clientLatencyMs": 2151.259199999913,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-02",
+        "repetition": 1,
+        "latencyMs": 103.03066199958266,
+        "clientLatencyMs": 2145.261699999537,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-03",
+        "repetition": 1,
+        "latencyMs": 96.1874730001,
+        "clientLatencyMs": 2142.164299999422,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-04",
+        "repetition": 1,
+        "latencyMs": 106.91894299998239,
+        "clientLatencyMs": 2167.3098000010214,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-05",
+        "repetition": 1,
+        "latencyMs": 102.51800199966965,
+        "clientLatencyMs": 2148.7441999997827,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-06",
+        "repetition": 1,
+        "latencyMs": 114.4440369998847,
+        "clientLatencyMs": 2157.849699999133,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-07",
+        "repetition": 1,
+        "latencyMs": 104.76762000052986,
+        "clientLatencyMs": 2149.609199999759,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-08",
+        "repetition": 1,
+        "latencyMs": 104.35424299976148,
+        "clientLatencyMs": 2150.209100000211,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-09",
+        "repetition": 1,
+        "latencyMs": 111.1913659997299,
+        "clientLatencyMs": 2161.3256000000547,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-10",
+        "repetition": 1,
+        "latencyMs": 118.07023999972444,
+        "clientLatencyMs": 2162.5634000010905,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-11",
+        "repetition": 1,
+        "latencyMs": 111.38996899990161,
+        "clientLatencyMs": 2153.788400000849,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-12",
+        "repetition": 1,
+        "latencyMs": 111.4762030001657,
+        "clientLatencyMs": 2158.5152999996353,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-13",
+        "repetition": 1,
+        "latencyMs": 112.41989499922056,
+        "clientLatencyMs": 2154.8781000001327,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-14",
+        "repetition": 1,
+        "latencyMs": 126.75655699968047,
+        "clientLatencyMs": 2168.131300000823,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-15",
+        "repetition": 1,
+        "latencyMs": 129.18427600016003,
+        "clientLatencyMs": 2197.4249000013515,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-16",
+        "repetition": 1,
+        "latencyMs": 120.61355600053503,
+        "clientLatencyMs": 2185.707500000717,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-17",
+        "repetition": 1,
+        "latencyMs": 154.92646300026536,
+        "clientLatencyMs": 2199.2616999996244,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-18",
+        "repetition": 1,
+        "latencyMs": 103.40469699985988,
+        "clientLatencyMs": 2150.973100000556,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-19",
+        "repetition": 1,
+        "latencyMs": 110.50632900060009,
+        "clientLatencyMs": 2164.680699999735,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-20",
+        "repetition": 1,
+        "latencyMs": 124.70769100036705,
+        "clientLatencyMs": 2171.2831999993796,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-21",
+        "repetition": 1,
+        "latencyMs": 116.75010300041322,
+        "clientLatencyMs": 2168.1070999984513,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-22",
+        "repetition": 1,
+        "latencyMs": 105.44230899995455,
+        "clientLatencyMs": 2147.2420999998576,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-23",
+        "repetition": 1,
+        "latencyMs": 117.17964699982986,
+        "clientLatencyMs": 2162.966599998981,
+        "candidateCount": 5,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-24",
+        "repetition": 1,
+        "latencyMs": 104.40218199983065,
+        "clientLatencyMs": 2155.8802999988984,
+        "candidateCount": 5,
+        "timing": {}
+      }
+    ],
+    "LEXICAL": [
+      {
+        "queryId": "phase2-1",
+        "repetition": 1,
+        "latencyMs": 0.709025000105612,
+        "clientLatencyMs": 2051.8981000004715,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-2",
+        "repetition": 1,
+        "latencyMs": 0.782156999775907,
+        "clientLatencyMs": 2039.9070999992546,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-3",
+        "repetition": 1,
+        "latencyMs": 0.830346999464382,
+        "clientLatencyMs": 2054.3980000002193,
+        "candidateCount": 15,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-4",
+        "repetition": 1,
+        "latencyMs": 2.263020999635046,
+        "clientLatencyMs": 2043.779599998743,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-5",
+        "repetition": 1,
+        "latencyMs": 1.4485170004263637,
+        "clientLatencyMs": 2053.3403999997972,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-6",
+        "repetition": 1,
+        "latencyMs": 0.6369600005200482,
+        "clientLatencyMs": 2045.7712999996147,
+        "candidateCount": 11,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-7",
+        "repetition": 1,
+        "latencyMs": 1.2639320002563181,
+        "clientLatencyMs": 2046.5772999996261,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "phase2-8",
+        "repetition": 1,
+        "latencyMs": 0.8341590000782162,
+        "clientLatencyMs": 2048.1643000002805,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-01",
+        "repetition": 1,
+        "latencyMs": 0.8496079999531503,
+        "clientLatencyMs": 2046.5729000006831,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-02",
+        "repetition": 1,
+        "latencyMs": 1.1117869998997776,
+        "clientLatencyMs": 2059.498300000996,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-03",
+        "repetition": 1,
+        "latencyMs": 0.8128660001602839,
+        "clientLatencyMs": 2047.8026000000682,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-04",
+        "repetition": 1,
+        "latencyMs": 0.88853199940786,
+        "clientLatencyMs": 2048.744699999588,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-05",
+        "repetition": 1,
+        "latencyMs": 0.926566000089224,
+        "clientLatencyMs": 2049.557799999093,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-06",
+        "repetition": 1,
+        "latencyMs": 0.7735190001767478,
+        "clientLatencyMs": 2049.9027999994723,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-07",
+        "repetition": 1,
+        "latencyMs": 0.7385319995591999,
+        "clientLatencyMs": 2048.0165999997553,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-08",
+        "repetition": 1,
+        "latencyMs": 0.7969759999468806,
+        "clientLatencyMs": 2051.8250000004628,
+        "candidateCount": 16,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-09",
+        "repetition": 1,
+        "latencyMs": 0.9030920000441256,
+        "clientLatencyMs": 2050.8128000001307,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-10",
+        "repetition": 1,
+        "latencyMs": 0.7226510006148601,
+        "clientLatencyMs": 2047.8435000004538,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-11",
+        "repetition": 1,
+        "latencyMs": 0.8970789995146333,
+        "clientLatencyMs": 2042.2687000009319,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-12",
+        "repetition": 1,
+        "latencyMs": 0.9220580004694057,
+        "clientLatencyMs": 2086.8898000007903,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-13",
+        "repetition": 1,
+        "latencyMs": 0.5941429999438697,
+        "clientLatencyMs": 2062.2743999992963,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-14",
+        "repetition": 1,
+        "latencyMs": 1.2691289994108956,
+        "clientLatencyMs": 2046.2148999995406,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-15",
+        "repetition": 1,
+        "latencyMs": 0.6169159996716189,
+        "clientLatencyMs": 2048.043400000097,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-16",
+        "repetition": 1,
+        "latencyMs": 0.7425459998557926,
+        "clientLatencyMs": 2047.1716999982164,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-17",
+        "repetition": 1,
+        "latencyMs": 0.8276210000985884,
+        "clientLatencyMs": 2032.395500000348,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-18",
+        "repetition": 1,
+        "latencyMs": 1.133252000727225,
+        "clientLatencyMs": 2050.2827999989677,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-19",
+        "repetition": 1,
+        "latencyMs": 0.7353480004894664,
+        "clientLatencyMs": 2047.6134999989881,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-20",
+        "repetition": 1,
+        "latencyMs": 1.0015340003519668,
+        "clientLatencyMs": 2049.387300001399,
+        "candidateCount": 17,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-21",
+        "repetition": 1,
+        "latencyMs": 0.7529209997301223,
+        "clientLatencyMs": 2041.142399999444,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-22",
+        "repetition": 1,
+        "latencyMs": 0.7157899999583606,
+        "clientLatencyMs": 2049.9364999996033,
+        "candidateCount": 20,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-23",
+        "repetition": 1,
+        "latencyMs": 0.8960380000644363,
+        "clientLatencyMs": 2057.7773000004527,
+        "candidateCount": 18,
+        "timing": {}
+      },
+      {
+        "queryId": "synthetic-24",
+        "repetition": 1,
+        "latencyMs": 0.8088989998213947,
+        "clientLatencyMs": 2070.372899999711,
+        "candidateCount": 13,
+        "timing": {}
+      }
+    ],
+    "HYBRID": [
+      {
+        "queryId": "phase2-1",
+        "repetition": 1,
+        "latencyMs": 110.84279999977298,
+        "clientLatencyMs": 2159.9239999995916,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 110.15498500000831,
+          "lexicalMs": 0.645261000499886,
+          "fusionMs": 0.031831999876885675
+        }
+      },
+      {
+        "queryId": "phase2-2",
+        "repetition": 1,
+        "latencyMs": 99.2309170005683,
+        "clientLatencyMs": 2143.466499999704,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 98.56348499943124,
+          "lexicalMs": 0.6273849994613556,
+          "fusionMs": 0.031601000046066474
+        }
+      },
+      {
+        "queryId": "phase2-3",
+        "repetition": 1,
+        "latencyMs": 102.93725900010031,
+        "clientLatencyMs": 2160.2712999992946,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 101.84413200022391,
+          "lexicalMs": 0.9165649998976733,
+          "fusionMs": 0.16147299993463093
+        }
+      },
+      {
+        "queryId": "phase2-4",
+        "repetition": 1,
+        "latencyMs": 103.0310450005345,
+        "clientLatencyMs": 2148.099400001229,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 102.22231199986709,
+          "lexicalMs": 0.7550589998572832,
+          "fusionMs": 0.0433450004493352
+        }
+      },
+      {
+        "queryId": "phase2-5",
+        "repetition": 1,
+        "latencyMs": 103.0919119993996,
+        "clientLatencyMs": 2151.711400001659,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 102.44344199963962,
+          "lexicalMs": 0.6108560000939178,
+          "fusionMs": 0.029757999982393812
+        }
+      },
+      {
+        "queryId": "phase2-6",
+        "repetition": 1,
+        "latencyMs": 109.1112370004339,
+        "clientLatencyMs": 2165.447100000165,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 108.16243999943254,
+          "lexicalMs": 0.9116450000874465,
+          "fusionMs": 0.027584000235947315
+        }
+      },
+      {
+        "queryId": "phase2-7",
+        "repetition": 1,
+        "latencyMs": 116.99693499940622,
+        "clientLatencyMs": 2171.4014999997744,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 115.93528499997774,
+          "lexicalMs": 1.0094480003317585,
+          "fusionMs": 0.041370999497303274
+        }
+      },
+      {
+        "queryId": "phase2-8",
+        "repetition": 1,
+        "latencyMs": 130.91781500042998,
+        "clientLatencyMs": 2194.5109000007506,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 130.04738699964946,
+          "lexicalMs": 0.8176470000762492,
+          "fusionMs": 0.04238200017425697
+        }
+      },
+      {
+        "queryId": "synthetic-01",
+        "repetition": 1,
+        "latencyMs": 116.13959399983287,
+        "clientLatencyMs": 2160.695200000191,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 114.83452199991007,
+          "lexicalMs": 1.2626799998542992,
+          "fusionMs": 0.032343000384571496
+        }
+      },
+      {
+        "queryId": "synthetic-02",
+        "repetition": 1,
+        "latencyMs": 103.90187199936918,
+        "clientLatencyMs": 2143.993899999259,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 103.03869700055657,
+          "lexicalMs": 0.8212040002035792,
+          "fusionMs": 0.0330340008076746
+        }
+      },
+      {
+        "queryId": "synthetic-03",
+        "repetition": 1,
+        "latencyMs": 98.7271599997257,
+        "clientLatencyMs": 2144.059499998548,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 98.08012399935251,
+          "lexicalMs": 0.604462999945099,
+          "fusionMs": 0.03298400042694993
+        }
+      },
+      {
+        "queryId": "synthetic-04",
+        "repetition": 1,
+        "latencyMs": 108.34661700027937,
+        "clientLatencyMs": 2152.9588000012154,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 107.05371899985039,
+          "lexicalMs": 1.2312490007388988,
+          "fusionMs": 0.051109999731124844
+        }
+      },
+      {
+        "queryId": "synthetic-05",
+        "repetition": 1,
+        "latencyMs": 103.15042799993535,
+        "clientLatencyMs": 2149.5598000001337,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 102.43987099966034,
+          "lexicalMs": 0.6413029996110708,
+          "fusionMs": 0.0590939998801332
+        }
+      },
+      {
+        "queryId": "synthetic-06",
+        "repetition": 1,
+        "latencyMs": 123.9038880003136,
+        "clientLatencyMs": 2177.287800001068,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 123.03324999993492,
+          "lexicalMs": 0.8095989996945718,
+          "fusionMs": 0.04835399977309862
+        }
+      },
+      {
+        "queryId": "synthetic-07",
+        "repetition": 1,
+        "latencyMs": 95.3652289999809,
+        "clientLatencyMs": 2148.8697999993747,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 94.29579600055149,
+          "lexicalMs": 1.0277629999109195,
+          "fusionMs": 0.03239299985580146
+        }
+      },
+      {
+        "queryId": "synthetic-08",
+        "repetition": 1,
+        "latencyMs": 97.93467200051964,
+        "clientLatencyMs": 2142.041300001438,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 97.14244600036182,
+          "lexicalMs": 0.7449849999829894,
+          "fusionMs": 0.037242999496811535
+        }
+      },
+      {
+        "queryId": "synthetic-09",
+        "repetition": 1,
+        "latencyMs": 111.92832500000804,
+        "clientLatencyMs": 2153.739100000166,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 111.2452300003497,
+          "lexicalMs": 0.6438889995479258,
+          "fusionMs": 0.030748999961360823
+        }
+      },
+      {
+        "queryId": "synthetic-10",
+        "repetition": 1,
+        "latencyMs": 111.70263399981195,
+        "clientLatencyMs": 2154.3877000003704,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 110.90268299994932,
+          "lexicalMs": 0.7605350001540501,
+          "fusionMs": 0.03094000021519605
+        }
+      },
+      {
+        "queryId": "synthetic-11",
+        "repetition": 1,
+        "latencyMs": 111.74116300026071,
+        "clientLatencyMs": 2161.7868000012095,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 110.96572400037985,
+          "lexicalMs": 0.7157220006774878,
+          "fusionMs": 0.0486939998154412
+        }
+      },
+      {
+        "queryId": "synthetic-12",
+        "repetition": 1,
+        "latencyMs": 153.56764500029385,
+        "clientLatencyMs": 2200.858700000026,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 152.53862900044624,
+          "lexicalMs": 0.967746999776864,
+          "fusionMs": 0.04798400004801806
+        }
+      },
+      {
+        "queryId": "synthetic-13",
+        "repetition": 1,
+        "latencyMs": 108.8665260003836,
+        "clientLatencyMs": 2151.623699999618,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 108.00916300013341,
+          "lexicalMs": 0.8140789996105013,
+          "fusionMs": 0.03405600000405684
+        }
+      },
+      {
+        "queryId": "synthetic-14",
+        "repetition": 1,
+        "latencyMs": 147.72224399985134,
+        "clientLatencyMs": 2187.5952999998844,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 146.67438400010724,
+          "lexicalMs": 0.9924530004354892,
+          "fusionMs": 0.04351400002633454
+        }
+      },
+      {
+        "queryId": "synthetic-15",
+        "repetition": 1,
+        "latencyMs": 112.21608500000002,
+        "clientLatencyMs": 2159.4762000004266,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 111.57270900002914,
+          "lexicalMs": 0.6008039999869652,
+          "fusionMs": 0.03369599926372757
+        }
+      },
+      {
+        "queryId": "synthetic-16",
+        "repetition": 1,
+        "latencyMs": 102.0866600001682,
+        "clientLatencyMs": 2143.8249999991967,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 101.38210300010542,
+          "lexicalMs": 0.6646700003329897,
+          "fusionMs": 0.03168200055370107
+        }
+      },
+      {
+        "queryId": "synthetic-17",
+        "repetition": 1,
+        "latencyMs": 105.50507600055425,
+        "clientLatencyMs": 2152.7189999997063,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 103.60407799998939,
+          "lexicalMs": 1.8458509994161432,
+          "fusionMs": 0.04540800000540912
+        }
+      },
+      {
+        "queryId": "synthetic-18",
+        "repetition": 1,
+        "latencyMs": 103.486425000483,
+        "clientLatencyMs": 2156.2331999994058,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 102.66758499983553,
+          "lexicalMs": 0.765247999879648,
+          "fusionMs": 0.042592999307089485
+        }
+      },
+      {
+        "queryId": "synthetic-19",
+        "repetition": 1,
+        "latencyMs": 102.69857899947965,
+        "clientLatencyMs": 2155.2337000011903,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 101.829510999778,
+          "lexicalMs": 0.8250430000771303,
+          "fusionMs": 0.03397599994059419
+        }
+      },
+      {
+        "queryId": "synthetic-20",
+        "repetition": 1,
+        "latencyMs": 115.85044900039065,
+        "clientLatencyMs": 2149.1110999995726,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 115.0551649998306,
+          "lexicalMs": 0.7536030007031513,
+          "fusionMs": 0.031291000595956575
+        }
+      },
+      {
+        "queryId": "synthetic-21",
+        "repetition": 1,
+        "latencyMs": 102.96520000065357,
+        "clientLatencyMs": 2154.6354000001884,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 102.25041299963777,
+          "lexicalMs": 0.6714529999953811,
+          "fusionMs": 0.03397599994059419
+        }
+      },
+      {
+        "queryId": "synthetic-22",
+        "repetition": 1,
+        "latencyMs": 113.964512000166,
+        "clientLatencyMs": 2155.9540999987803,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 112.79183899932832,
+          "lexicalMs": 1.12813699979597,
+          "fusionMs": 0.03422699955990538
+        }
+      },
+      {
+        "queryId": "synthetic-23",
+        "repetition": 1,
+        "latencyMs": 115.27124799977173,
+        "clientLatencyMs": 2159.424100000251,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 114.22061000030226,
+          "lexicalMs": 0.9963239999706275,
+          "fusionMs": 0.043324000216671266
+        }
+      },
+      {
+        "queryId": "synthetic-24",
+        "repetition": 1,
+        "latencyMs": 97.63508299965906,
+        "clientLatencyMs": 2159.2617999995127,
+        "candidateCount": 20,
+        "timing": {
+          "vectorMs": 96.96716800044669,
+          "lexicalMs": 0.6248219997360138,
+          "fusionMs": 0.03196200032107299
+        }
+      }
+    ]
+  },
+  "repetitions": 1,
+  "percentileMethod": "linear interpolation at (n-1)*p",
+  "timingDefinition": "latencyMs is service search time; clientLatencyMs includes serialization/network/engine initialization; initialRequests and warmup excluded from steady-state"
+}

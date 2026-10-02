@@ -1,0 +1,256 @@
+{
+  "annotationSource": "Unchanged Phase 2 expectedDocumentKeys; distinct document hits within original Top-5 chunks",
+  "summary": {
+    "VECTOR": {
+      "hitAt5": 1,
+      "documentRecallAt5": 0.9375,
+      "mrrAt5": 1.0
+    },
+    "LEXICAL": {
+      "hitAt5": 1,
+      "documentRecallAt5": 0.9375,
+      "mrrAt5": 0.9375
+    },
+    "HYBRID": {
+      "hitAt5": 1,
+      "documentRecallAt5": 0.9375,
+      "mrrAt5": 1.0
+    },
+    "HYBRID_RERANK": {
+      "hitAt5": 1,
+      "documentRecallAt5": 1.0,
+      "mrrAt5": 0.9375
+    }
+  },
+  "queries": [
+    {
+      "queryId": "phase2-1",
+      "expectedDocumentKeys": [
+        "loan-rules"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        }
+      }
+    },
+    {
+      "queryId": "phase2-2",
+      "expectedDocumentKeys": [
+        "loan-rules",
+        "error-codes"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 0.5,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        }
+      }
+    },
+    {
+      "queryId": "phase2-3",
+      "expectedDocumentKeys": [
+        "loan-test-guide",
+        "loan-rules"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        }
+      }
+    },
+    {
+      "queryId": "phase2-4",
+      "expectedDocumentKeys": [
+        "return-rules",
+        "return-api"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        }
+      }
+    },
+    {
+      "queryId": "phase2-5",
+      "expectedDocumentKeys": [
+        "loan-api"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 0.5
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        }
+      }
+    },
+    {
+      "queryId": "phase2-6",
+      "expectedDocumentKeys": [
+        "return-rules",
+        "loan-test-guide"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        }
+      }
+    },
+    {
+      "queryId": "phase2-7",
+      "expectedDocumentKeys": [
+        "access-policy"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        }
+      }
+    },
+    {
+      "queryId": "phase2-8",
+      "expectedDocumentKeys": [
+        "error-codes",
+        "return-api"
+      ],
+      "strategies": {
+        "VECTOR": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 1.0
+        },
+        "LEXICAL": {
+          "hitAt5": 1,
+          "documentRecallAt5": 0.5,
+          "mrrAt5": 1.0
+        },
+        "HYBRID": {
+          "hitAt5": 1,
+          "documentRecallAt5": 0.5,
+          "mrrAt5": 1.0
+        },
+        "HYBRID_RERANK": {
+          "hitAt5": 1,
+          "documentRecallAt5": 1.0,
+          "mrrAt5": 0.5
+        }
+      }
+    }
+  ]
+}

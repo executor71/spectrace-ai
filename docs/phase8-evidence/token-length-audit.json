@@ -1,0 +1,1 @@
+{"result": "PASS", "queryCount": 32, "pairCount": 864, "maxPairTokens": 154, "configuredMaxLength": 512, "truncatedPairs": 0, "maxChunkCharacters": 284, "snippetTruncation": false}

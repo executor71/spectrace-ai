@@ -1,0 +1,273 @@
+{
+  "datasetHash": "16cef486474fc0fe35195866e93bf475b0d2c230a71f9ea2e9d2a1c9d6656ff4",
+  "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+  "startedAt": "2026-10-02T12:54:15.977217+00:00",
+  "finishedAt": "2026-10-02T13:07:13.489751+00:00",
+  "primaryUnit": "chunk",
+  "MRR": "truncated MRR@5; no relevant item in final Top-5 -> 0",
+  "config": {
+    "finalTopK": 5,
+    "retrievalCandidateK": 20,
+    "rrfK": 60,
+    "bm25K1": 1.5,
+    "bm25B": 0.75,
+    "expectedCorpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+    "reranker": {
+      "provider": "local_transformers",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "device": "cpu",
+      "batchSize": 4,
+      "maxLength": 512,
+      "cpuThreads": 4,
+      "cacheDir": "/reranker-models"
+    }
+  },
+  "groups": {
+    "all": {
+      "VECTOR": {
+        "hitAt5": 0.96875,
+        "recallAt5": 0.9010416666666666,
+        "mrrAt5": 0.8854166666666666,
+        "ndcgAt5": 0.8626307054916893,
+        "failedQueries": 1,
+        "queryCount": 32,
+        "latencyMs": {
+          "mean": 112.19267175003249,
+          "p50": 109.8803769996266,
+          "p95": 134.03391475003446,
+          "samples": 96
+        }
+      },
+      "LEXICAL": {
+        "hitAt5": 1,
+        "recallAt5": 0.8854166666666666,
+        "mrrAt5": 0.8588541666666667,
+        "ndcgAt5": 0.8026064182580108,
+        "failedQueries": 0,
+        "queryCount": 32,
+        "latencyMs": {
+          "mean": 0.7471559062726859,
+          "p50": 0.7084939998094342,
+          "p95": 0.9253080002054048,
+          "samples": 96
+        }
+      },
+      "HYBRID": {
+        "hitAt5": 1,
+        "recallAt5": 0.9348958333333334,
+        "mrrAt5": 0.8760416666666667,
+        "ndcgAt5": 0.8597685954079995,
+        "failedQueries": 0,
+        "queryCount": 32,
+        "latencyMs": {
+          "mean": 114.42460590623682,
+          "p50": 111.33519750001142,
+          "p95": 137.91637574991,
+          "samples": 96
+        }
+      },
+      "HYBRID_RERANK": {
+        "hitAt5": 0.96875,
+        "recallAt5": 0.9114583333333334,
+        "mrrAt5": 0.8854166666666666,
+        "ndcgAt5": 0.8772036529239255,
+        "failedQueries": 1,
+        "queryCount": 32,
+        "latencyMs": {
+          "mean": 5670.669269937434,
+          "p50": 5648.104194000098,
+          "p95": 6132.6767555001425,
+          "samples": 96
+        }
+      }
+    },
+    "phase2-original-8": {
+      "VECTOR": {
+        "hitAt5": 1,
+        "recallAt5": 0.875,
+        "mrrAt5": 1.0,
+        "ndcgAt5": 0.9146535245429784,
+        "failedQueries": 0,
+        "queryCount": 8,
+        "latencyMs": {
+          "mean": 108.15159912518386,
+          "p50": 109.36606400036908,
+          "p95": 118.56947580058659,
+          "samples": 24
+        }
+      },
+      "LEXICAL": {
+        "hitAt5": 1,
+        "recallAt5": 0.8125,
+        "mrrAt5": 0.9375,
+        "ndcgAt5": 0.8293774741973167,
+        "failedQueries": 0,
+        "queryCount": 8,
+        "latencyMs": {
+          "mean": 0.746032708320854,
+          "p50": 0.7003394998719159,
+          "p95": 0.9241863502211345,
+          "samples": 24
+        }
+      },
+      "HYBRID": {
+        "hitAt5": 1,
+        "recallAt5": 0.84375,
+        "mrrAt5": 1.0,
+        "ndcgAt5": 0.8918880621646965,
+        "failedQueries": 0,
+        "queryCount": 8,
+        "latencyMs": {
+          "mean": 110.39547824998408,
+          "p50": 108.96426800036352,
+          "p95": 121.45625099974494,
+          "samples": 24
+        }
+      },
+      "HYBRID_RERANK": {
+        "hitAt5": 1,
+        "recallAt5": 0.9375,
+        "mrrAt5": 0.9375,
+        "ndcgAt5": 0.914976854816217,
+        "failedQueries": 0,
+        "queryCount": 8,
+        "latencyMs": {
+          "mean": 5583.801058333241,
+          "p50": 5578.7122715000805,
+          "p95": 5925.340782749981,
+          "samples": 24
+        }
+      }
+    },
+    "synthetic-24": {
+      "VECTOR": {
+        "hitAt5": 0.9583333333333334,
+        "recallAt5": 0.9097222222222222,
+        "mrrAt5": 0.8472222222222222,
+        "ndcgAt5": 0.8452897658079261,
+        "failedQueries": 1,
+        "queryCount": 24,
+        "latencyMs": {
+          "mean": 113.53969595831535,
+          "p50": 110.38819199984573,
+          "p95": 135.38861815036398,
+          "samples": 72
+        }
+      },
+      "LEXICAL": {
+        "hitAt5": 1,
+        "recallAt5": 0.9097222222222222,
+        "mrrAt5": 0.8326388888888889,
+        "ndcgAt5": 0.7936827329449088,
+        "failedQueries": 0,
+        "queryCount": 24,
+        "latencyMs": {
+          "mean": 0.7475303055899631,
+          "p50": 0.7118849998732912,
+          "p95": 0.9192298998186743,
+          "samples": 72
+        }
+      },
+      "HYBRID": {
+        "hitAt5": 1,
+        "recallAt5": 0.9652777777777778,
+        "mrrAt5": 0.8347222222222223,
+        "ndcgAt5": 0.8490621064891006,
+        "failedQueries": 0,
+        "queryCount": 24,
+        "latencyMs": {
+          "mean": 115.76764845832106,
+          "p50": 111.980885000321,
+          "p95": 143.22029775003102,
+          "samples": 72
+        }
+      },
+      "HYBRID_RERANK": {
+        "hitAt5": 0.9583333333333334,
+        "recallAt5": 0.9027777777777778,
+        "mrrAt5": 0.8680555555555556,
+        "ndcgAt5": 0.8646125856264951,
+        "failedQueries": 1,
+        "queryCount": 24,
+        "latencyMs": {
+          "mean": 5699.625340472166,
+          "p50": 5659.856103999573,
+          "p95": 6227.267364949694,
+          "samples": 72
+        }
+      }
+    }
+  },
+  "improvedQueries": {
+    "HYBRID": [
+      "phase2-1",
+      "phase2-2",
+      "phase2-4",
+      "synthetic-07",
+      "synthetic-09",
+      "synthetic-10",
+      "synthetic-11",
+      "synthetic-13",
+      "synthetic-19"
+    ],
+    "HYBRID_RERANK": [
+      "phase2-1",
+      "phase2-2",
+      "phase2-3",
+      "phase2-4",
+      "synthetic-01",
+      "synthetic-07",
+      "synthetic-09",
+      "synthetic-10",
+      "synthetic-11",
+      "synthetic-13",
+      "synthetic-17"
+    ]
+  },
+  "worsenedQueries": {
+    "HYBRID": [
+      "phase2-8",
+      "synthetic-02",
+      "synthetic-04",
+      "synthetic-14",
+      "synthetic-16",
+      "synthetic-20",
+      "synthetic-22"
+    ],
+    "HYBRID_RERANK": [
+      "phase2-8",
+      "synthetic-10",
+      "synthetic-16",
+      "synthetic-20"
+    ]
+  },
+  "rerankerVsHybrid": {
+    "improvedQueries": [
+      "phase2-1",
+      "phase2-2",
+      "phase2-3",
+      "phase2-8",
+      "synthetic-01",
+      "synthetic-02",
+      "synthetic-04",
+      "synthetic-07",
+      "synthetic-10",
+      "synthetic-14",
+      "synthetic-17",
+      "synthetic-22"
+    ],
+    "worsenedQueries": [
+      "phase2-8",
+      "synthetic-10",
+      "synthetic-11",
+      "synthetic-16",
+      "synthetic-19",
+      "synthetic-20"
+    ],
+    "hitRecoveredQueries": [],
+    "hitLostQueries": [
+      "synthetic-19"
+    ]
+  }
+}

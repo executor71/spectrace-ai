@@ -1,0 +1,30 @@
+[
+  {
+    "queryId": "phase2-2",
+    "queryText": "부서장이 자기 장비 대여 신청을 직접 승인해도 되나요?",
+    "missingDocumentKey": "error-codes",
+    "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+    "strategies": {
+      "VECTOR": {
+        "bestChunkRankForDocument": 6,
+        "inTop5": false,
+        "rankScope": "retrieved top-20 candidates; null means absent"
+      },
+      "LEXICAL": {
+        "bestChunkRankForDocument": 4,
+        "inTop5": true,
+        "rankScope": "retrieved top-20 candidates; null means absent"
+      },
+      "HYBRID": {
+        "bestChunkRankForDocument": 5,
+        "inTop5": true,
+        "rankScope": "retrieved top-20 candidates; null means absent"
+      },
+      "HYBRID_RERANK": {
+        "bestChunkRankForDocument": 2,
+        "inTop5": true,
+        "rankScope": "retrieved top-20 candidates; null means absent"
+      }
+    }
+  }
+]

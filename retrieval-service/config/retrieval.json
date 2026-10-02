@@ -1,0 +1,18 @@
+{
+  "finalTopK": 5,
+  "retrievalCandidateK": 20,
+  "rrfK": 60,
+  "bm25K1": 1.5,
+  "bm25B": 0.75,
+  "expectedCorpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+  "reranker": {
+    "provider": "local_transformers",
+    "model": "BAAI/bge-reranker-v2-m3",
+    "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "device": "cpu",
+    "batchSize": 4,
+    "maxLength": 512,
+    "cpuThreads": 4,
+    "cacheDir": "/reranker-models"
+  }
+}

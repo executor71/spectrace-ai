@@ -1,0 +1,184 @@
+{
+  "datasetHash": "16cef486474fc0fe35195866e93bf475b0d2c230a71f9ea2e9d2a1c9d6656ff4",
+  "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+  "startedAt": "2026-10-02T12:44:35.659715+00:00",
+  "finishedAt": "2026-10-02T12:48:16.459533+00:00",
+  "primaryUnit": "chunk",
+  "MRR": "truncated MRR@5; no relevant item in final Top-5 -> 0",
+  "config": {
+    "finalTopK": 5,
+    "retrievalCandidateK": 20,
+    "rrfK": 60,
+    "bm25K1": 1.5,
+    "bm25B": 0.75,
+    "expectedCorpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+    "reranker": {
+      "provider": "local_transformers",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "device": "cpu",
+      "batchSize": 4,
+      "maxLength": 512,
+      "cpuThreads": 4,
+      "cacheDir": "/reranker-models"
+    }
+  },
+  "groups": {
+    "all": {
+      "VECTOR": {
+        "hitAt5": 0.96875,
+        "recallAt5": 0.9010416666666666,
+        "mrrAt5": 0.8854166666666666,
+        "ndcgAt5": 0.8626307054916893,
+        "failedQueries": 1,
+        "queryCount": 32,
+        "latencyMs": {
+          "mean": 119.46151662502302,
+          "p50": 111.29066749981575,
+          "p95": 140.7682601502074,
+          "samples": 32
+        }
+      },
+      "LEXICAL": {
+        "hitAt5": 1,
+        "recallAt5": 0.8854166666666666,
+        "mrrAt5": 0.8588541666666667,
+        "ndcgAt5": 0.8026064182580108,
+        "failedQueries": 0,
+        "queryCount": 32,
+        "latencyMs": {
+          "mean": 0.9126725312569306,
+          "p50": 0.8289839997814852,
+          "p95": 1.349853599867856,
+          "samples": 32
+        }
+      },
+      "HYBRID": {
+        "hitAt5": 1,
+        "recallAt5": 0.9348958333333334,
+        "mrrAt5": 0.8760416666666667,
+        "ndcgAt5": 0.8597685954079995,
+        "failedQueries": 0,
+        "queryCount": 32,
+        "latencyMs": {
+          "mean": 110.65116356257931,
+          "p50": 108.60657150033148,
+          "p95": 138.4798080501696,
+          "samples": 32
+        }
+      }
+    },
+    "phase2-original-8": {
+      "VECTOR": {
+        "hitAt5": 1,
+        "recallAt5": 0.875,
+        "mrrAt5": 1.0,
+        "ndcgAt5": 0.9146535245429784,
+        "failedQueries": 0,
+        "queryCount": 8,
+        "latencyMs": {
+          "mean": 138.38472012514558,
+          "p50": 110.58315150012277,
+          "p95": 272.26815435024025,
+          "samples": 8
+        }
+      },
+      "LEXICAL": {
+        "hitAt5": 1,
+        "recallAt5": 0.8125,
+        "mrrAt5": 0.9375,
+        "ndcgAt5": 0.8293774741973167,
+        "failedQueries": 0,
+        "queryCount": 8,
+        "latencyMs": {
+          "mean": 1.0960147500327366,
+          "p50": 0.8322529997712991,
+          "p95": 1.9779445999120067,
+          "samples": 8
+        }
+      },
+      "HYBRID": {
+        "hitAt5": 1,
+        "recallAt5": 0.84375,
+        "mrrAt5": 1.0,
+        "ndcgAt5": 0.8918880621646965,
+        "failedQueries": 0,
+        "queryCount": 8,
+        "latencyMs": {
+          "mean": 109.51999000008072,
+          "p50": 106.10157449991675,
+          "p95": 126.04550700007167,
+          "samples": 8
+        }
+      }
+    },
+    "synthetic-24": {
+      "VECTOR": {
+        "hitAt5": 0.9583333333333334,
+        "recallAt5": 0.9097222222222222,
+        "mrrAt5": 0.8472222222222222,
+        "ndcgAt5": 0.8452897658079261,
+        "failedQueries": 1,
+        "queryCount": 24,
+        "latencyMs": {
+          "mean": 113.15378212498217,
+          "p50": 111.29066749981575,
+          "p95": 128.8201181500881,
+          "samples": 24
+        }
+      },
+      "LEXICAL": {
+        "hitAt5": 1,
+        "recallAt5": 0.9097222222222222,
+        "mrrAt5": 0.8326388888888889,
+        "ndcgAt5": 0.7936827329449088,
+        "failedQueries": 0,
+        "queryCount": 24,
+        "latencyMs": {
+          "mean": 0.8515584583316619,
+          "p50": 0.8202435001294361,
+          "p95": 1.130032250603108,
+          "samples": 24
+        }
+      },
+      "HYBRID": {
+        "hitAt5": 1,
+        "recallAt5": 0.9652777777777778,
+        "mrrAt5": 0.8347222222222223,
+        "ndcgAt5": 0.8490621064891006,
+        "failedQueries": 0,
+        "queryCount": 24,
+        "latencyMs": {
+          "mean": 111.02822141674551,
+          "p50": 108.60657150033148,
+          "p95": 144.14949059992063,
+          "samples": 24
+        }
+      }
+    }
+  },
+  "improvedQueries": {
+    "HYBRID": [
+      "phase2-1",
+      "phase2-2",
+      "phase2-4",
+      "synthetic-07",
+      "synthetic-09",
+      "synthetic-10",
+      "synthetic-11",
+      "synthetic-13",
+      "synthetic-19"
+    ]
+  },
+  "worsenedQueries": {
+    "HYBRID": [
+      "phase2-8",
+      "synthetic-02",
+      "synthetic-04",
+      "synthetic-14",
+      "synthetic-16",
+      "synthetic-20",
+      "synthetic-22"
+    ]
+  }
+}

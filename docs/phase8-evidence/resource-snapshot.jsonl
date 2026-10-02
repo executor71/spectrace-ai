@@ -1,0 +1,2 @@
+{"BlockIO":"32MB / 2.11MB","CPUPerc":"154.63%","Container":"master-retrieval-service-1","ID":"9e475bba5afd","MemPerc":"4.98%","MemUsage":"1.503GiB / 30.19GiB","Name":"master-retrieval-service-1","NetIO":"5.71MB / 35.1MB","PIDs":"60"}
+{"BlockIO":"2.93GB / 8.19kB","CPUPerc":"0.15%","Container":"master-ai-service-1","ID":"e9881f0ca680","MemPerc":"6.57%","MemUsage":"1.983GiB / 30.19GiB","Name":"master-ai-service-1","NetIO":"585kB / 1.3MB","PIDs":"44"}

@@ -1,0 +1,78 @@
+[
+  {
+    "request": {
+      "queryId": "empty-lexical",
+      "queryText": "zzzznonexistentterm987654",
+      "strategy": "LEXICAL"
+    },
+    "status": 200,
+    "response": {
+      "queryId": "empty-lexical",
+      "strategy": "LEXICAL",
+      "results": [],
+      "latencyMs": 0.21816300068167038,
+      "timing": {},
+      "candidateCount": 0,
+      "vectorCandidateCount": 0,
+      "lexicalCandidateCount": 0,
+      "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+      "configHash": "321a3811a4167714cc55a17fb2f10c51b1be200ee8664b3d2ec9eea842511c9e",
+      "finalTopK": 5,
+      "candidates": [],
+      "vectorCandidates": [],
+      "lexicalCandidates": [],
+      "initializationMs": 1678.595733000293,
+      "rerankerModelLoadMs": 520.5745149996801
+    }
+  },
+  {
+    "request": {
+      "queryId": "../../bad",
+      "queryText": "x",
+      "strategy": "VECTOR"
+    },
+    "status": 422,
+    "response": {
+      "detail": [
+        {
+          "type": "string_pattern_mismatch",
+          "loc": [
+            "body",
+            "queryId"
+          ],
+          "msg": "String should match pattern '^[a-zA-Z0-9_-]+$'",
+          "input": "../../bad",
+          "ctx": {
+            "pattern": "^[a-zA-Z0-9_-]+$"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "queryId": "labels",
+      "queryText": "x",
+      "strategy": "VECTOR",
+      "relevantChunkIds": [
+        "secret"
+      ]
+    },
+    "status": 422,
+    "response": {
+      "detail": [
+        {
+          "type": "extra_forbidden",
+          "loc": [
+            "body",
+            "relevantChunkIds"
+          ],
+          "msg": "Extra inputs are not permitted",
+          "input": [
+            "secret"
+          ]
+        }
+      ]
+    }
+  }
+]

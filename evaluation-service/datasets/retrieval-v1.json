@@ -1,0 +1,2059 @@
+{
+  "datasetVersion": "phase8-retrieval-v1",
+  "frozenAt": "2026-10-02T12:36:31.760779+00:00",
+  "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+  "documents": 9,
+  "chunks": 27,
+  "annotationPolicy": "All 27 chunks judged per query. 2=direct answer; 1=material supporting context; 0=irrelevant. Single annotator synthetic PoC; no post-result edits. Original Phase 2 document expectations remain separately preserved; new graded judgments are a new retrieval evaluation dataset, not changes to Phase 6 Ground Truth.",
+  "queries": [
+    {
+      "queryId": "phase2-1",
+      "queryText": "노트북을 이미 빌린 직원이 한 대 더 신청할 수 있나요?",
+      "category": "eligibility",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      ],
+      "relevantChunkIds": [
+        "00e01630-a4af-5f57-b3ae-4142107d0edc",
+        "97dd0846-eb69-5d26-b10d-321579bdce4e"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 1,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 2,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 2,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 1,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-rules:1"
+        ],
+        "grade1Sections": [
+          "loan-api:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "loan-rules"
+      ]
+    },
+    {
+      "queryId": "phase2-2",
+      "queryText": "부서장이 자기 장비 대여 신청을 직접 승인해도 되나요?",
+      "category": "authorization",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      ],
+      "relevantChunkIds": [
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+        "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "d10c2901-6178-56c5-a019-c45bb1ce5520"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 2,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 2,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 2,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 1,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 1,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 2,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 2,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 2,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-rules:2",
+          "error-codes:2",
+          "loan-api:2"
+        ],
+        "grade1Sections": [
+          "loan-test-guide:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "loan-rules",
+        "error-codes"
+      ]
+    },
+    {
+      "queryId": "phase2-3",
+      "queryText": "동일한 장비를 두 사람이 동시에 승인하면 어떻게 검증하나요?",
+      "category": "concurrency",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+      ],
+      "relevantChunkIds": [
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b",
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 1,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 1,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 2,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 2,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 2,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 1,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 2,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 1
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-rules:3",
+          "loan-test-guide:2"
+        ],
+        "grade1Sections": [
+          "error-codes:1",
+          "asset-lifecycle:2"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "loan-test-guide",
+        "loan-rules"
+      ]
+    },
+    {
+      "queryId": "phase2-4",
+      "queryText": "반납한 노트북이 파손된 경우 어떤 상태로 전환해야 하나요?",
+      "category": "return-damage",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149",
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+      ],
+      "relevantChunkIds": [
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+        "4175e617-06be-519d-afbd-b279688fb982",
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43",
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 1,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 1,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 2,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 2
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 1,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 2,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 1
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-rules:2",
+          "return-api:2"
+        ],
+        "grade1Sections": [
+          "asset-lifecycle:3",
+          "loan-test-guide:3"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "return-rules",
+        "return-api"
+      ]
+    },
+    {
+      "queryId": "phase2-5",
+      "queryText": "대여 신청 API의 요청 필드와 성공 응답 상태는 무엇인가요?",
+      "category": "api-contract",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      ],
+      "relevantChunkIds": [
+        "00e01630-a4af-5f57-b3ae-4142107d0edc"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 2,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 2,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-api:1"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "loan-api"
+      ]
+    },
+    {
+      "queryId": "phase2-6",
+      "queryText": "반납 예정일 당일에 접수해도 연체로 계산하나요?",
+      "category": "overdue-boundary",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "21da5959-2798-5a63-a9ca-f989cec19f4b",
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 2,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 2,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 2,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 2,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 2,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-rules:3",
+          "loan-test-guide:3",
+          "return-api:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "return-rules",
+        "loan-test-guide"
+      ]
+    },
+    {
+      "queryId": "phase2-7",
+      "queryText": "대여 내역 CSV를 직원이 내려받을 수 있나요?",
+      "category": "authorization",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8"
+      ],
+      "relevantChunkIds": [
+        "f4563fc7-5072-5672-bc33-455f46d238ec"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 2,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 2,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "access-policy:2"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "access-policy"
+      ]
+    },
+    {
+      "queryId": "phase2-8",
+      "queryText": "동일 장비에 반납 요청을 두 번 보내면 어떤 오류가 발생하나요?",
+      "category": "error-code",
+      "domain": "IT_ASSET",
+      "split": "phase2-original-8",
+      "relevantDocumentIds": [
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 2,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 2,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 2,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "error-codes:3",
+          "return-api:1"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      },
+      "legacyExpectedDocumentKeys": [
+        "error-codes",
+        "return-api"
+      ]
+    },
+    {
+      "queryId": "synthetic-01",
+      "queryText": "자산을 등록할 때 같은 일련번호가 이미 있으면 응답 코드는 무엇인가요?",
+      "category": "asset-registration",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+      ],
+      "relevantChunkIds": [
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+        "499bf89b-1a91-527a-b35f-a67e264475bf"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 2,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 1,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 2,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 1
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "asset-api:2"
+        ],
+        "grade1Sections": [
+          "asset-lifecycle:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-02",
+      "queryText": "노트북을 대여할 수 있는 자산 상태와 제외되는 상태를 알려 주세요.",
+      "category": "inventory",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+      ],
+      "relevantChunkIds": [
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 1,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 2,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 1,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 2
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "asset-lifecycle:2"
+        ],
+        "grade1Sections": [
+          "asset-api:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-03",
+      "queryText": "현재 대여 중인 장비를 폐기 처리할 수 있나요?",
+      "category": "asset-lifecycle",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+      ],
+      "relevantChunkIds": [
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 2,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 2
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "asset-lifecycle:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-04",
+      "queryText": "수리가 끝난 장비를 다시 대여 가능 상태로 바꾸려면 어떤 조건이 필요한가요?",
+      "category": "asset-lifecycle",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+      ],
+      "relevantChunkIds": [
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 2,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 2
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "asset-lifecycle:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-05",
+      "queryText": "자산 목록 조회에서 size의 기본값과 최댓값은 얼마인가요?",
+      "category": "api-contract",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566"
+      ],
+      "relevantChunkIds": [
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 2,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 2,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "asset-api:1"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-06",
+      "queryText": "GET /assets/{assetId}에 존재하지 않는 UUID를 넣으면 어떤 응답인가요?",
+      "category": "api-contract",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566"
+      ],
+      "relevantChunkIds": [
+        "ea0e26ab-2b77-513a-a272-bb00467d2322"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 2,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 2,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "asset-api:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-07",
+      "queryText": "일반 직원에게 자산 구입 금액이나 직원 개인정보가 조회되나요?",
+      "category": "privacy",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8"
+      ],
+      "relevantChunkIds": [
+        "1d7a1273-78de-5c79-a276-ba300bf37c09",
+        "ea0e26ab-2b77-513a-a272-bb00467d2322"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 1,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 2,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 2,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 1,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "asset-api:3"
+        ],
+        "grade1Sections": [
+          "access-policy:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-08",
+      "queryText": "퇴직 예정 직원이 새 장비를 빌리려고 하면 허용하나요?",
+      "category": "eligibility",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+      ],
+      "relevantChunkIds": [
+        "97dd0846-eb69-5d26-b10d-321579bdce4e"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 2,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 2,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-rules:1"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-09",
+      "queryText": "대여 신청 본문에 requesterId를 넣어 다른 사람 대신 신청할 수 있나요?",
+      "category": "authorization",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      ],
+      "relevantChunkIds": [
+        "00e01630-a4af-5f57-b3ae-4142107d0edc",
+        "97dd0846-eb69-5d26-b10d-321579bdce4e"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 2,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 2,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 2,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 2,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-api:1",
+          "loan-rules:1"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-10",
+      "queryText": "이미 승인한 대여 신청을 다시 승인할 때 어떤 상태 오류가 나나요?",
+      "category": "state-conflict",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      ],
+      "relevantChunkIds": [
+        "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "7c7eda12-4b56-5ad1-a30d-627031666355"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 2,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 2,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 2,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 2,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-rules:2",
+          "loan-api:2"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-11",
+      "queryText": "승인만 끝난 장비는 ON_LOAN인가요, RESERVED인가요?",
+      "category": "state-transition",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      ],
+      "relevantChunkIds": [
+        "4f380a68-9148-5c58-86e2-760176ba6cf2",
+        "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 2,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 1,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 2,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 2,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 2,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-rules:3",
+          "loan-api:2"
+        ],
+        "grade1Sections": [
+          "loan-api:3"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-12",
+      "queryText": "POST /loans/{loanId}/issue는 승인 전 신청을 받으면 어떤 오류를 반환하나요?",
+      "category": "api-contract",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      ],
+      "relevantChunkIds": [
+        "4f380a68-9148-5c58-86e2-760176ba6cf2"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 2,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 2,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "loan-api:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-13",
+      "queryText": "ASSET_NOT_AVAILABLE 오류 뒤에 같은 승인 요청을 반복해도 되나요?",
+      "category": "error-recovery",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+      ],
+      "relevantChunkIds": [
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b",
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 2,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 1,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 2,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 1,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "error-codes:1"
+        ],
+        "grade1Sections": [
+          "loan-rules:3"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-14",
+      "queryText": "SELF_APPROVAL_FORBIDDEN은 로그인 실패인가요? 거절되면 자산 상태도 바뀌나요?",
+      "category": "error-recovery",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a"
+      ],
+      "relevantChunkIds": [
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+        "d10c2901-6178-56c5-a019-c45bb1ce5520"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 2,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 1,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 1,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 2,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "error-codes:2"
+        ],
+        "grade1Sections": [
+          "loan-test-guide:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-15",
+      "queryText": "RETURN_ALREADY_REQUESTED 발생 시 기존 returnId를 조회해야 하나요?",
+      "category": "error-recovery",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 2,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 1,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 2,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 1,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "error-codes:3"
+        ],
+        "grade1Sections": [
+          "return-api:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-16",
+      "queryText": "장비를 반납 접수만 하면 즉시 다른 직원에게 대여할 수 있나요?",
+      "category": "return-workflow",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429"
+      ],
+      "relevantChunkIds": [
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 2,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 2,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-rules:1"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-17",
+      "queryText": "대여자가 아닌 직원도 반납 접수 API를 호출할 수 있나요?",
+      "category": "authorization",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "1d7a1273-78de-5c79-a276-ba300bf37c09",
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 1,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 2,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 2,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 2,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 1,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-api:1",
+          "return-rules:1"
+        ],
+        "grade1Sections": [
+          "access-policy:1"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-18",
+      "queryText": "파손 검사 결과를 DAMAGED로 제출하면서 사진을 빼면 어떤 응답인가요?",
+      "category": "validation",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+        "4175e617-06be-519d-afbd-b279688fb982"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 2,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 1
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 1,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-api:2"
+        ],
+        "grade1Sections": [
+          "return-rules:2"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-19",
+      "queryText": "이미 완료한 반납 검사를 다시 완료하려 하면 어떻게 되나요?",
+      "category": "state-conflict",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 2,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-api:2"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-20",
+      "queryText": "반납 검사가 며칠 걸리면 그 기간도 연체일에 더하나요?",
+      "category": "overdue-boundary",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "21da5959-2798-5a63-a9ca-f989cec19f4b",
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 2,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 1,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 2,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 2,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 2,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 1,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-rules:3",
+          "loan-test-guide:3"
+        ],
+        "grade1Sections": [
+          "return-api:3"
+        ],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-21",
+      "queryText": "연체 조회에서 asOf를 생략하면 기준일은 무엇인가요?",
+      "category": "api-contract",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 2,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 0,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "return-api:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-22",
+      "queryText": "부서장은 다른 부서의 연체 내역을 볼 수 있나요?",
+      "category": "authorization",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8",
+        "de315c10-8e3b-5aed-ae96-2f018bac5149"
+      ],
+      "relevantChunkIds": [
+        "1d7a1273-78de-5c79-a276-ba300bf37c09",
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 2,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 2,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 2,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 2,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "access-policy:1",
+          "return-api:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-23",
+      "queryText": "대여 CSV의 링크 만료 시간과 개인정보 마스킹 규칙을 알려 주세요.",
+      "category": "privacy",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8"
+      ],
+      "relevantChunkIds": [
+        "f4563fc7-5072-5672-bc33-455f46d238ec"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 0,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 2,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 2,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "access-policy:2"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    },
+    {
+      "queryId": "synthetic-24",
+      "queryText": "감사 로그에 비밀번호나 인증 토큰을 기록해도 되나요?",
+      "category": "audit",
+      "domain": "IT_ASSET",
+      "split": "synthetic-24",
+      "relevantDocumentIds": [
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8"
+      ],
+      "relevantChunkIds": [
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02"
+      ],
+      "chunkRelevanceGrades": {
+        "1d7a1273-78de-5c79-a276-ba300bf37c09": 0,
+        "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02": 2,
+        "f4563fc7-5072-5672-bc33-455f46d238ec": 0,
+        "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb": 0,
+        "ea0e26ab-2b77-513a-a272-bb00467d2322": 0,
+        "499bf89b-1a91-527a-b35f-a67e264475bf": 0,
+        "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43": 0,
+        "21c64a3f-f92b-5108-86e0-e6d30c4481d0": 0,
+        "3e8c8b89-7feb-5089-ad27-a092afa3a27e": 0,
+        "50c0a5ec-04da-5343-bc57-78c3dc29ed8b": 0,
+        "566990a9-d4ea-5b39-a07a-c5464ce2e2b8": 0,
+        "10b16630-ba17-5dd8-a15f-361a290ef1bf": 0,
+        "00e01630-a4af-5f57-b3ae-4142107d0edc": 0,
+        "7c7eda12-4b56-5ad1-a30d-627031666355": 0,
+        "4f380a68-9148-5c58-86e2-760176ba6cf2": 0,
+        "29068730-5e86-57f1-bee2-ffaae1575a08": 0,
+        "fac8b9c8-cab2-54a6-a555-f938e47ec23a": 0,
+        "97dd0846-eb69-5d26-b10d-321579bdce4e": 0,
+        "de7ba8eb-bd7b-58a8-afa0-deb1962c8055": 0,
+        "d10c2901-6178-56c5-a019-c45bb1ce5520": 0,
+        "eb8499ff-e3dd-5724-b927-c928df48d1ec": 0,
+        "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65": 0,
+        "54f8fbf4-33ae-5d63-ae48-28eb66120108": 0,
+        "2b53cfe3-370a-5355-9928-3f41d69ddeb2": 0,
+        "21da5959-2798-5a63-a9ca-f989cec19f4b": 0,
+        "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e": 0,
+        "4175e617-06be-519d-afbd-b279688fb982": 0
+      },
+      "documentRelevanceGrades": {
+        "34b91c10-3bd5-547e-97c2-18641d80eb14": 0,
+        "740cae54-6478-57e7-a4d5-4ccc8fa6655a": 0,
+        "7cea4fe7-6b00-56c9-be35-3194aeecb923": 0,
+        "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429": 0,
+        "9fc9f76d-9ded-50fc-96dd-153594c6d566": 0,
+        "a8b7d10c-36f3-5fc1-a9c3-426d7380dfb8": 2,
+        "de315c10-8e3b-5aed-ae96-2f018bac5149": 0,
+        "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520": 0,
+        "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6": 0
+      },
+      "annotationBasis": {
+        "grade2Sections": [
+          "access-policy:3"
+        ],
+        "grade1Sections": [],
+        "grade0": "Other corpus sections do not directly answer or materially support this query."
+      }
+    }
+  ]
+}

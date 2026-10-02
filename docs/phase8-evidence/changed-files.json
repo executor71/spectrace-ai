@@ -1,0 +1,33 @@
+{
+  "changedExistingFiles": [],
+  "addedFiles": [
+    "compose.phase8.yaml",
+    "docs/phase7-baseline/sha256.json",
+    "docs/phase7-baseline/source.zip",
+    "docs/phase8-result.md",
+    "docs/scripts/phase8-browser-regression.py",
+    "docs/scripts/phase8-regression.py",
+    "docs/scripts/phase8-report.py",
+    "docs/scripts/phase8-run.py",
+    "docs/scripts/phase8-runtime.py",
+    "docs/scripts/phase8-token-audit.py",
+    "docs/scripts/phase8-verify.py",
+    "evaluation-service/datasets/retrieval-v1.json",
+    "evaluation-service/retrieval_eval/__init__.py",
+    "evaluation-service/retrieval_eval/metrics.py",
+    "evaluation-service/retrieval_tests/test_metrics.py",
+    "retrieval-service/Dockerfile",
+    "retrieval-service/config/retrieval.json",
+    "retrieval-service/requirements.txt",
+    "retrieval-service/retrieval/__init__.py",
+    "retrieval-service/retrieval/api.py",
+    "retrieval-service/retrieval/core.py",
+    "retrieval-service/retrieval/download.py",
+    "retrieval-service/retrieval/lexical.py",
+    "retrieval-service/retrieval/reranker.py",
+    "retrieval-service/tests/test_reranker.py",
+    "retrieval-service/tests/test_retrieval.py"
+  ],
+  "evidenceDirectory": "docs/phase8-evidence/",
+  "frozenFilesUnchanged": 125
+}
