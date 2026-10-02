@@ -1,0 +1,448 @@
+{
+  "phase": 7,
+  "result": "COMPLETE",
+  "baseline": "Phase 6; docs/phase6-baseline/source.zip + sha256.json",
+  "dummyApis": [
+    {
+      "apiId": "API-ASSET-001",
+      "method": "GET",
+      "pathTemplate": "/assets/{assetId}",
+      "specification": "knowledge/documents/asset-api.md",
+      "allowedInputSchema": {
+        "pathParameters": {
+          "assetId": "canonical UUID; registered synthetic ID only"
+        },
+        "body": {},
+        "actorFixture": "registered same-department synthetic actor"
+      },
+      "validator": "asset-detail-v1"
+    },
+    {
+      "apiId": "API-LOAN-APPROVE",
+      "method": "POST",
+      "pathTemplate": "/loans/{loanId}/approve",
+      "specification": "knowledge/documents/loan-api.md",
+      "allowedInputSchema": {
+        "pathParameters": {
+          "loanId": "canonical UUID; registered synthetic ID only"
+        },
+        "body": {
+          "comment": "optional string <=1000 characters"
+        },
+        "actorFixture": "one of four registered synthetic roles"
+      },
+      "validator": "loan-approval-v1"
+    }
+  ],
+  "executionRule": "approvalStatus == APPROVED AND executable == true AND fixtureReady == true AND apiAllowed == true",
+  "eligibilityAuthority": "GET /api/test-cases/{id}/execution-eligibility: current reviewed input/assertions + source/policy freshness + closed fixture catalogue. Phase 4/5 archived executable remains unchanged; Phase 7 recomputes technical capability independently of approval. Execution snapshot saves this assessment and reviewRevision.",
+  "rejectionCodes": [
+    "NOT_APPROVED",
+    "NOT_EXECUTABLE",
+    "FIXTURE_NOT_READY",
+    "API_NOT_ALLOWED",
+    "TEST_CASE_NOT_FOUND"
+  ],
+  "migration": {
+    "version": "V10__dummy_executions.sql",
+    "table": "app.test_execution",
+    "history": "append-only; snapshot survives TestCase regeneration; no cascading FK",
+    "permissions": "app_user SELECT/INSERT only on new history table; no new rag/evaluation grants"
+  },
+  "newApis": [
+    "POST /api/test-cases/{id}/executions",
+    "GET /api/test-cases/{id}/executions",
+    "GET /api/executions/{executionId}",
+    "GET /api/test-cases/{id}/execution-eligibility"
+  ],
+  "dispatch": "Server-internal typed Dummy handlers returning HTTP status/body; no network transport, external URL, DNS, redirect or dynamic routing. Existing API_SPEC method/path identifies the closed handler.",
+  "fixtures": "Fresh execution-local in-memory synthetic state per run. No shared mutable business data. Unknown actor, ID, profile or precondition is rejected. No business database simulation beyond the explicitly supported state.",
+  "comparison": "Exact typed HTTP status, errorCode, declared response fields and before/after fixture state comparisons. Unsupported/duplicate assertions rejected before invocation. Missing field is different from null. No LLM Judge.",
+  "intentionalDefect": "synthetic-self-approval-bug profile: requester authorization check intentionally omitted. Labelled in request, eligibility, stored result and UI. 403 expected / 200 actual; 4 mismatches.",
+  "tests": {
+    "backend": 84,
+    "phase7New": 29,
+    "existingBackend": 55,
+    "pythonRagAnalysisGeneration": 61,
+    "evaluation": 40,
+    "total": 185,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "frontend": "TypeScript + Vite production build PASS"
+  },
+  "pass": {
+    "executionId": "bef5b6df-62cc-4eed-839b-4e2f49a2365d",
+    "apiId": "API-LOAN-APPROVE",
+    "expected": {
+      "httpStatus": 200,
+      "state": {
+        "loanStatus": "APPROVED",
+        "assetStatus": "RESERVED"
+      },
+      "response": {
+        "status": "APPROVED"
+      }
+    },
+    "actual": {
+      "httpStatus": 200,
+      "response": {
+        "status": "APPROVED"
+      },
+      "errorCode": null,
+      "state": {
+        "loanStatus": "APPROVED",
+        "assetStatus": "RESERVED"
+      }
+    },
+    "result": "PASS",
+    "mismatches": [],
+    "durationMs": 19
+  },
+  "fail": {
+    "executionId": "d8072271-8483-45fc-a211-608e26bc6d7d",
+    "apiId": "API-LOAN-APPROVE",
+    "expected": {
+      "httpStatus": 403,
+      "errorCode": "SELF_APPROVAL_FORBIDDEN",
+      "state": {
+        "loanStatus": "PENDING_APPROVAL",
+        "assetStatus": "AVAILABLE"
+      }
+    },
+    "actual": {
+      "httpStatus": 200,
+      "response": {
+        "status": "APPROVED"
+      },
+      "errorCode": null,
+      "state": {
+        "loanStatus": "APPROVED",
+        "assetStatus": "RESERVED"
+      }
+    },
+    "result": "FAIL",
+    "mismatches": [
+      {
+        "field": "httpStatus",
+        "expected": 403,
+        "actual": 200
+      },
+      {
+        "field": "errorCode",
+        "expected": "SELF_APPROVAL_FORBIDDEN",
+        "actual": null
+      },
+      {
+        "field": "state.loanStatus",
+        "expected": "PENDING_APPROVAL",
+        "actual": "APPROVED"
+      },
+      {
+        "field": "state.assetStatus",
+        "expected": "AVAILABLE",
+        "actual": "RESERVED"
+      }
+    ],
+    "durationMs": 2
+  },
+  "allowList": {
+    "result": "PASS",
+    "liveBlockedEndpoints": 6,
+    "details": "docs/phase7-evidence/allowlist-blocks.json",
+    "integration": "denied cases verify handler was never invoked and no execution row was inserted"
+  },
+  "reactE2E": {
+    "result": "PASS",
+    "browser": "154.0.8037.58",
+    "channel": "chrome",
+    "requirementAnalysisTestCaseFlow": true,
+    "draftDisabled": true,
+    "approvedEnabled": true,
+    "passExecutionId": "4f0aedab-0f6a-4814-a4eb-61d516fc8fc7",
+    "failExecutionId": "d8072271-8483-45fc-a211-608e26bc6d7d",
+    "assetExecutionId": "36b7b031-c562-4186-82c2-f5eba7d6cfad",
+    "reloadPersisted": true,
+    "repeatReproducible": true,
+    "historySelection": true,
+    "allowListBlocked": true,
+    "mobileNoOverflow": true,
+    "pageErrors": [],
+    "modelRequests": []
+  },
+  "screenshots": [
+    "docs/phase7-evidence/01-requirement-analysis.png",
+    "docs/phase7-evidence/02-draft-blocked.png",
+    "docs/phase7-evidence/03-pass.png",
+    "docs/phase7-evidence/04-intentional-fail.png",
+    "docs/phase7-evidence/05-reload-persisted.png",
+    "docs/phase7-evidence/06-repeat-fail.png",
+    "docs/phase7-evidence/07-asset-pass.png",
+    "docs/phase7-evidence/08-allowlist-blocked.png",
+    "docs/phase7-evidence/09-mobile.png"
+  ],
+  "regression": {
+    "result": "PASS",
+    "backendTests": 84,
+    "newExecutionTests": 29,
+    "pythonTests": 61,
+    "evaluationTests": 40,
+    "totalAutomatedTests": 185,
+    "health": [
+      {
+        "url": "http://localhost:8080/actuator/health",
+        "body": {
+          "status": "UP",
+          "components": {
+            "db": {
+              "status": "UP",
+              "details": {
+                "database": "PostgreSQL",
+                "validationQuery": "isValid()"
+              }
+            },
+            "diskSpace": {
+              "status": "UP",
+              "details": {
+                "total": 1081101176832,
+                "free": 998649528320,
+                "threshold": 10485760,
+                "path": "/app/.",
+                "exists": true
+              }
+            },
+            "ping": {
+              "status": "UP"
+            },
+            "ssl": {
+              "status": "UP",
+              "details": {
+                "validChains": [],
+                "invalidChains": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "url": "http://localhost:8000/health",
+        "body": {
+          "status": "UP",
+          "database": "UP",
+          "schema": "rag",
+          "pgvector": "0.8.6"
+        }
+      },
+      {
+        "url": "http://localhost:8090/health",
+        "body": {
+          "status": "UP",
+          "metricVersion": "phase6-deterministic-v1"
+        }
+      }
+    ],
+    "phase2Retrieval": [
+      {
+        "number": 1,
+        "sameTop5AndScores": true
+      },
+      {
+        "number": 2,
+        "sameTop5AndScores": true
+      },
+      {
+        "number": 3,
+        "sameTop5AndScores": true
+      },
+      {
+        "number": 4,
+        "sameTop5AndScores": true
+      },
+      {
+        "number": 5,
+        "sameTop5AndScores": true
+      },
+      {
+        "number": 6,
+        "sameTop5AndScores": true
+      },
+      {
+        "number": 7,
+        "sameTop5AndScores": true
+      },
+      {
+        "number": 8,
+        "sameTop5AndScores": true
+      }
+    ],
+    "phase5ReviewPreserved": true,
+    "baselineFiles": 115,
+    "unchangedFiles": 113,
+    "changedFiles": [
+      "frontend/src/TestCaseReview.tsx",
+      "frontend/src/TestCases.tsx"
+    ],
+    "evaluation": {
+      "result": "PASS",
+      "frozenGroundTruthCases": 3,
+      "savedRunsReplayed": 5,
+      "appAndRagDenied": true,
+      "groundTruthWritesDenied": true,
+      "runUpdateDeleteDenied": true,
+      "onlyEvaluationCredentials": true,
+      "modelCallsForReplay": 0
+    },
+    "generation": {
+      "result": "PASS",
+      "generationRole": "rag_reader",
+      "groundTruthAndEvaluationRunsDenied": true,
+      "evaluationCredentialsAbsent": true
+    },
+    "database": {
+      "migrations": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "appGroundTruthUsage": false,
+      "ragGroundTruthUsage": false,
+      "appCanRecordEvaluation": false,
+      "ragCanRecordEvaluation": false,
+      "documents": 9,
+      "chunks": 27
+    },
+    "executionHistoryImmutableAndRoleIsolated": true,
+    "noEvaluationMountOrCredentialsInRunner": true,
+    "backendSuites": [
+      {
+        "name": "com.example.legacyassistant.analysis.AnalysisIntegrationTest",
+        "tests": "9",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.example.legacyassistant.requirement.RequirementIntegrationTest",
+        "tests": "14",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.example.legacyassistant.requirement.RequirementServiceTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.example.legacyassistant.testcase.ExecutionComparatorTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.example.legacyassistant.testcase.ExecutionIntegrationTest",
+        "tests": "21",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.example.legacyassistant.testcase.TestCaseIntegrationTest",
+        "tests": "13",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.example.legacyassistant.testcase.TestCaseReviewIntegrationTest",
+        "tests": "12",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "com.example.legacyassistant.testcase.TestCaseReviewUnitTest",
+        "tests": "4",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      }
+    ]
+  },
+  "changedFiles": {
+    "changed": [
+      "frontend/src/TestCaseReview.tsx",
+      "frontend/src/TestCases.tsx"
+    ],
+    "added": [
+      "backend/src/main/java/com/example/legacyassistant/testcase/DummyApiRegistry.java",
+      "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionComparator.java",
+      "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionController.java",
+      "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionService.java",
+      "backend/src/main/resources/db/migration/V10__dummy_executions.sql",
+      "backend/src/test/java/com/example/legacyassistant/testcase/ExecutionComparatorTest.java",
+      "backend/src/test/java/com/example/legacyassistant/testcase/ExecutionIntegrationTest.java",
+      "compose.phase7-local.yaml",
+      "compose.phase7-test.yaml",
+      "docs/phase6-baseline/sha256.json",
+      "docs/phase6-baseline/source.zip",
+      "docs/phase7-result.json",
+      "docs/scripts/phase7-browser.py",
+      "docs/scripts/phase7-live.py",
+      "docs/scripts/phase7-regression.py",
+      "docs/scripts/phase7-report.py",
+      "frontend/src/TestCaseExecutions.tsx"
+    ],
+    "baselineFiles": 115,
+    "evidenceDirectory": "docs/phase7-evidence/"
+  },
+  "newModelCalls": 0,
+  "uiUrl": "http://localhost:5173",
+  "demo": {
+    "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+    "generationId": "b2ccb6dd-5820-4cbf-899a-d27f877cedd8",
+    "testCaseIds": [
+      "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+      "4611bca5-0d0c-45dd-9793-75566c432c89",
+      "889ea853-67f3-49a0-b2b3-2ff94520f094",
+      "1f521e4c-458b-4c09-95f3-4e6d26ea112a",
+      "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+    ],
+    "sourceRequirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+    "modelCalls": 0,
+    "synthetic": true,
+    "normalId": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+    "defectId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+    "assetId": "889ea853-67f3-49a0-b2b3-2ff94520f094",
+    "blockedId": "1f521e4c-458b-4c09-95f3-4e6d26ea112a"
+  },
+  "unresolved": [],
+  "scopeLimits": [
+    "Only the 2 registered API handlers and exact synthetic fixtures are supported. Unknown free-text preconditions are not interpreted.",
+    "Dummy business state is in memory; execution history is PostgreSQL. No real external API, company system or deployment.",
+    "Asset lookup demo is an explicitly human-reviewed synthetic variation of a saved TC; original generated evidence is preserved and separate API_SPEC source is included in execution evidence.",
+    "Phase 6 Evaluation and generation policy are unchanged. Execution eligibility is a versioned Phase 7 read model, not a rewrite of stored AI output.",
+    "Windows reserved port 5432 is handled by compose.phase7-local.yaml removing PostgreSQL host publishing; internal Docker DB access is unchanged."
+  ],
+  "notImplemented": [
+    "Failure Analysis Agent",
+    "Hybrid Search",
+    "Reranking",
+    "Query Rewrite",
+    "GraphRAG",
+    "MCP",
+    "external APIs",
+    "automatic deployment",
+    "advanced authentication"
+  ]
+}

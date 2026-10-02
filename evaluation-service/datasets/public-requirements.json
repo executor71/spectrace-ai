@@ -1,0 +1,21 @@
+[
+  {
+    "caseId": "access-development",
+    "split": "development",
+    "existingRequirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+    "title": "[Phase 3 검증] 부서장 대여 승인",
+    "description": "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다."
+  },
+  {
+    "caseId": "inspection-validation",
+    "split": "validation",
+    "title": "[Phase 6 validation] 반납 검사 결과와 필수 증빙",
+    "description": "반납 장비 검사에서 정상 장비는 PASSED와 AVAILABLE로, 파손 장비는 DAMAGED와 MAINTENANCE로 처리한다. 파손 검사에는 파손 설명과 사진이 필요하며 누락하면 거부한다."
+  },
+  {
+    "caseId": "concurrency-final",
+    "split": "final",
+    "title": "[Phase 6 final] 한 장비에 대한 경합 승인",
+    "description": "AVAILABLE 장비 한 대에 서로 다른 직원의 PENDING_APPROVAL 대여 신청 두 건이 있다. 두 부서장의 승인 요청이 동시에 들어오면 정확히 한 건만 성공하고 다른 한 건은 재고 충돌로 거부되어야 한다. 최종 자산은 RESERVED이며 승인된 신청은 한 건이어야 한다."
+  }
+]

@@ -5,6 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+      '^/api/evaluations(?:/|$)': 'http://evaluation-service:8090',
+      '^/api/requirements/[^/]+/evaluations$': 'http://evaluation-service:8090',
       '/api': 'http://backend:8080',
       '/actuator': 'http://backend:8080',
       '/ai-health': {

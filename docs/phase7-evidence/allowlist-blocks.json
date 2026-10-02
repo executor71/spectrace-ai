@@ -1,0 +1,56 @@
+[
+  {
+    "endpoint": "http://example.com",
+    "httpStatus": 409,
+    "response": {
+      "message": "Dummy 실행 거부: API_NOT_ALLOWED",
+      "fieldErrors": {},
+      "code": "API_NOT_ALLOWED"
+    }
+  },
+  {
+    "endpoint": "https://example.com/admin/reset",
+    "httpStatus": 409,
+    "response": {
+      "message": "Dummy 실행 거부: API_NOT_ALLOWED",
+      "fieldErrors": {},
+      "code": "API_NOT_ALLOWED"
+    }
+  },
+  {
+    "endpoint": "//example.com",
+    "httpStatus": 409,
+    "response": {
+      "message": "Dummy 실행 거부: API_NOT_ALLOWED",
+      "fieldErrors": {},
+      "code": "API_NOT_ALLOWED"
+    }
+  },
+  {
+    "endpoint": "/admin/reset",
+    "httpStatus": 409,
+    "response": {
+      "message": "Dummy 실행 거부: API_NOT_ALLOWED",
+      "fieldErrors": {},
+      "code": "API_NOT_ALLOWED"
+    }
+  },
+  {
+    "endpoint": "/loans/{loanId}/approve?redirect=http://example.com",
+    "httpStatus": 409,
+    "response": {
+      "message": "Dummy 실행 거부: API_NOT_ALLOWED",
+      "fieldErrors": {},
+      "code": "API_NOT_ALLOWED"
+    }
+  },
+  {
+    "endpoint": "DELETE /",
+    "httpStatus": 409,
+    "response": {
+      "message": "Dummy 실행 거부: API_NOT_ALLOWED",
+      "fieldErrors": {},
+      "code": "API_NOT_ALLOWED"
+    }
+  }
+]

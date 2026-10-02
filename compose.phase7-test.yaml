@@ -1,0 +1,4 @@
+services:
+  backend-test:
+    volumes:
+      - ./docs/phase7-evidence/backend-tests:/workspace/target/surefire-reports

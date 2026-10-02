@@ -180,3 +180,11 @@ h2 { margin: 8px 0 0; font-size: 19px; font-weight: 700; }
 .test-case-review label { display: block; margin-top: .8rem; }
 .test-case-review textarea, .test-case-review input, .test-case-review select { width: 100%; max-width: 100%; box-sizing: border-box; }
 .test-case-review button { margin-top: .8rem; }
+
+.evaluations { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccd4ce; overflow-wrap: anywhere; }
+.evaluation-kpis { width: 100%; border-collapse: collapse; }
+.evaluation-kpis th, .evaluation-kpis td { padding: .7rem; border: 1px solid #ccd4ce; text-align: left; }
+.evaluation-history { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.evaluation-history button { width: 100%; text-align: left; }
+.evaluation-result { padding: 1rem; border: 1px solid #ccd4ce; border-radius: 8px; }
+.evaluation-result details { margin: 1rem 0; }

@@ -1,0 +1,144 @@
+{
+  "result": "PASS",
+  "baselineFiles": 152,
+  "unchangedFiles": 148,
+  "allowedChangedFiles": [
+    "frontend/src/Requirements.tsx",
+    "frontend/src/style.css",
+    "compose.yaml",
+    "frontend/vite.config.ts"
+  ],
+  "health": [
+    {
+      "url": "http://localhost:8080/actuator/health",
+      "body": {
+        "status": "UP",
+        "components": {
+          "db": {
+            "status": "UP",
+            "details": {
+              "database": "PostgreSQL",
+              "validationQuery": "isValid()"
+            }
+          },
+          "diskSpace": {
+            "status": "UP",
+            "details": {
+              "total": 1081101176832,
+              "free": 999896092672,
+              "threshold": 10485760,
+              "path": "/app/.",
+              "exists": true
+            }
+          },
+          "ping": {
+            "status": "UP"
+          },
+          "ssl": {
+            "status": "UP",
+            "details": {
+              "validChains": [],
+              "invalidChains": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "url": "http://localhost:8000/health",
+      "body": {
+        "status": "UP",
+        "database": "UP",
+        "schema": "rag",
+        "pgvector": "0.8.6"
+      }
+    },
+    {
+      "url": "http://localhost:8090/health",
+      "body": {
+        "status": "UP",
+        "metricVersion": "phase6-deterministic-v1"
+      }
+    }
+  ],
+  "backendTests": [
+    {
+      "name": "com.example.legacyassistant.analysis.AnalysisIntegrationTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.requirement.RequirementIntegrationTest",
+      "tests": "14",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.requirement.RequirementServiceTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.TestCaseIntegrationTest",
+      "tests": "13",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.TestCaseReviewIntegrationTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.TestCaseReviewUnitTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "pythonTests": 61,
+  "phase2Retrieval": [
+    {
+      "number": 1,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 2,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 3,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 4,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 5,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 6,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 7,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 8,
+      "sameTop5AndScores": true
+    }
+  ],
+  "phase5ApprovedRejectedPreserved": true
+}

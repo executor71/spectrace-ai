@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "evaluation": {
+    "result": "PASS",
+    "frozenGroundTruthCases": 3,
+    "savedRunsReplayed": 5,
+    "appAndRagDenied": true,
+    "groundTruthWritesDenied": true,
+    "runUpdateDeleteDenied": true,
+    "onlyEvaluationCredentials": true,
+    "modelCallsForReplay": 0
+  },
+  "generation": {
+    "result": "PASS",
+    "generationRole": "rag_reader",
+    "groundTruthAndEvaluationRunsDenied": true,
+    "evaluationCredentialsAbsent": true
+  },
+  "database": {
+    "migrations": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "appGroundTruthUsage": false,
+    "ragGroundTruthUsage": false,
+    "appCanRecordEvaluation": false,
+    "ragCanRecordEvaluation": false,
+    "documents": 9,
+    "chunks": 27
+  },
+  "labelsNotPackagedInBackend": true,
+  "noEvaluationMountOrCredentialsInGenerationOrReview": true
+}

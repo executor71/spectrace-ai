@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { TestCase } from './TestCases'
+import TestCaseExecutions from './TestCaseExecutions'
 
 export default function TestCaseReview({ current, stale, onSaved }: { current: TestCase; stale: boolean; onSaved: (value: TestCase) => void }) {
   const initial = { type: current.type, scenario: current.scenario, preconditions: current.preconditions.join('\n'), input: JSON.stringify(current.input, null, 2), steps: current.steps.join('\n'), expectedResult: JSON.stringify(current.expectedResult, null, 2) }
@@ -23,7 +24,7 @@ export default function TestCaseReview({ current, stale, onSaved }: { current: T
   }
   return <section className="test-case-review" aria-label="테스트 검토">
     <h4>사용자 검토</h4>
-    <p role="status">승인 상태: <strong>{current.approvalStatus}</strong> · {current.modified ? '사용자 수정본' : 'AI 원본'} · 실행 대상: {String(current.executionEligible)}</p>
+    <p role="status">승인 상태: <strong>{current.approvalStatus}</strong> · {current.modified ? '사용자 수정본' : 'AI 원본'}</p>
     <p>검토자: {current.reviewer ?? '미검토'} · 검토 시각: {current.reviewedAt ? new Date(current.reviewedAt).toLocaleString('ko-KR') : '—'}</p>
     {current.reviewComment && <p>검토 의견: {current.reviewComment}</p>}
     <p>내용을 저장하면 DRAFT가 되어 다시 승인이 필요합니다. Evidence와 요구사항 연결은 변경할 수 없습니다.</p>
@@ -42,6 +43,7 @@ export default function TestCaseReview({ current, stale, onSaved }: { current: T
       <div className="lookup-controls"><button type="button" disabled={dirty || stale} onClick={() => submit('approve')}>승인</button><button type="button" disabled={dirty} onClick={() => submit('reject')}>반려</button></div>
     </fieldset>
     {error && <p role="alert" className="form-error">{error}</p>}
+    <TestCaseExecutions current={current} dirty={dirty} />
     <details><summary>AI 생성 원본 보기 (읽기 전용)</summary><pre>{JSON.stringify(current.generatedContent, null, 2)}</pre></details>
   </section>
 }

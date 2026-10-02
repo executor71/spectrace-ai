@@ -49,10 +49,9 @@ export default function TestCases({ requirementId }: { requirementId: string }) 
       <ul className="test-case-list">{result.testCases.map(item => <li key={item.testCaseId}><button aria-pressed={selected === item.testCaseId} onClick={() => setSelected(item.testCaseId)}>{item.type} · {item.scenario} · {item.approvalStatus}</button></li>)}</ul>
       {current && <article className="test-case-detail" aria-label="테스트 상세">
         <h3>{current.type} · {current.scenario}</h3>
-        <p>ID: {current.testCaseId}</p><p>실행 가능 후보: {current.executable ? 'true' : 'false'}</p>
-        <p>{decision?.reason}</p>
+        <p>ID: {current.testCaseId}</p>
         <TestCaseReview key={current.testCaseId + ":" + current.reviewRevision} current={current} stale={result.stale} onSaved={reviewed} />
-        <ul>{Object.entries(decision?.gates ?? {}).map(([key, value]) => <li key={key}>{labels[key] ?? key}: {String(value)}</li>)}</ul>
+        <details><summary>생성 단계의 실행 가능성 기록</summary><p>{decision?.reason}</p><ul>{Object.entries(decision?.gates ?? {}).map(([key, value]) => <li key={key}>{labels[key] ?? key}: {String(value)}</li>)}</ul></details>
         <h4>사전조건</h4><ul>{current.preconditions.map((text, i) => <li key={i}>{text}</li>)}</ul>
         <h4>입력</h4><pre>{JSON.stringify(current.input, null, 2)}</pre>
         <h4>절차</h4><ol>{current.steps.map((text, i) => <li key={i}>{text}</li>)}</ol>

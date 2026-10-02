@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "approvedBaselineExecuted": "bef5b6df-62cc-4eed-839b-4e2f49a2365d",
+  "repeatReproducible": true,
+  "oldReviewUnchanged": true,
+  "dummyApisExecuted": [
+    "API-LOAN-APPROVE",
+    "API-ASSET-001"
+  ],
+  "blockedEndpoints": 6,
+  "newModelCalls": 0
+}

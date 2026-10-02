@@ -1,0 +1,16 @@
+{
+  "version": "phase6-v1",
+  "frozenBeforeNewGeneration": true,
+  "source": "knowledge dataset 1.0.0",
+  "datasetHash": "76fbdc9ee68f64c8c88c963920560bfdbafc2aae7b94e70fad72453fd5bd6577",
+  "splits": {
+    "development": "access-development",
+    "validation": "inspection-validation",
+    "final": "concurrency-final"
+  },
+  "limitations": [
+    "Three synthetic requirements; exploratory PoC, not a statistical generalization estimate.",
+    "Development approval requirement was used in Phase 3/4/5.",
+    "Validation inspection and final concurrency inputs are new; no evaluation feedback is sent to generation."
+  ]
+}

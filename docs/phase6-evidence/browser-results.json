@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "browser": "154.0.8037.58",
+  "channel": "chrome",
+  "threeSplitsDisplayed": true,
+  "missingScenariosDisplayed": true,
+  "missingDocumentsDisplayed": true,
+  "zeroTCValidityNA": true,
+  "create201": true,
+  "savedGetAndHistory": true,
+  "reloadPersisted": true,
+  "reviewedModeSeparate": true,
+  "unbound409Visible": true,
+  "mobileNoOverflow": true,
+  "pageErrors": [],
+  "modelRequests": []
+}

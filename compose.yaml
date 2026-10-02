@@ -92,6 +92,21 @@ services:
         condition: service_healthy
     restart: "no"
 
+  evaluation-service:
+    build: ./evaluation-service
+    environment:
+      EVALUATION_DB_HOST: postgres
+      EVALUATION_DB_NAME: legacy_assistant
+      EVALUATION_DB_USER: evaluation_reader
+      EVALUATION_DB_PASSWORD: ${EVALUATION_DB_PASSWORD:-local_evaluation_reader_only}
+      BACKEND_URL: http://backend:8080
+      SEARCH_URL: http://ai-service:8000
+    ports:
+      - "8090:8090"
+    depends_on:
+      - backend
+      - ai-service
+
   frontend:
     build: ./frontend
     ports:

@@ -1,0 +1,102 @@
+ Container phase7test-postgres-test-1 Running 
+ Image phase7test-evaluation-test Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 711B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 254B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 14.65kB done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#6 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f 0.0s done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /evaluation
+#7 CACHED
+
+#8 [3/5] COPY requirements.txt .
+#8 CACHED
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/5] COPY app ./app
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:b9e193f195fdcb51b3a7bb85527b1c6f984dde751b52f9dbb207f9d08c1e1e52 0.0s done
+#11 exporting config sha256:611c5c3ea6c4bbffbe0e4e9df3903a31e9f1b73361cf339a875d43ac6857c0b6 0.0s done
+#11 exporting attestation manifest sha256:73218cf20ccac7eb5f4eb6017f93093616ba9c95959a5cd0124ae17f550807df 0.0s done
+#11 exporting manifest list sha256:ab660e284e23cb4b45dccb65f9428d93be8a6d41ea7d501eea20a46a72c95baa
+#11 exporting manifest list sha256:ab660e284e23cb4b45dccb65f9428d93be8a6d41ea7d501eea20a46a72c95baa 0.0s done
+#11 naming to docker.io/library/phase7test-evaluation-test:latest done
+#11 unpacking to docker.io/library/phase7test-evaluation-test:latest 0.0s done
+#11 DONE 0.2s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image phase7test-evaluation-test Built 
+ Container phase7test-postgres-test-1 Waiting 
+ Container phase7test-postgres-test-1 Healthy 
+ Container phase7test-evaluation-test-run-8a2c87d139e1 Creating 
+ Container phase7test-evaluation-test-run-8a2c87d139e1 Created 
+/usr/local/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_create_persists_exact_snapshot_and_hash (test_api.ApiTests.test_create_persists_exact_snapshot_and_hash) ... ok
+test_generated_default_is_not_reviewed_content (test_api.ApiTests.test_generated_default_is_not_reviewed_content) ... ok
+test_groundtruth_is_never_sent_to_search_or_generation (test_api.ApiTests.test_groundtruth_is_never_sent_to_search_or_generation) ... ok
+test_missing_generation_is_explicit_and_validity_na (test_api.ApiTests.test_missing_generation_is_explicit_and_validity_na) ... ok
+test_missing_requirement404 (test_api.ApiTests.test_missing_requirement404) ... ok
+test_requirement_fingerprint_mismatch409 (test_api.ApiTests.test_requirement_fingerprint_mismatch409) ... ok
+test_search_failure_is_persisted_without_fake_score (test_api.ApiTests.test_search_failure_is_persisted_without_fake_score) ... ok
+test_stale_snapshot_is_visible_not_silently_dropped (test_api.ApiTests.test_stale_snapshot_is_visible_not_silently_dropped) ... ok
+test_unbound_requirement409 (test_api.ApiTests.test_unbound_requirement409) ... ok
+test_unknown_fields_enums_and_bad_ids_are400 (test_api.ApiTests.test_unknown_fields_enums_and_bad_ids_are400) ... ok
+test_api_has_no_groundtruth_or_update_endpoint (test_database.DatabaseTests.test_api_has_no_groundtruth_or_update_endpoint) ... ok
+test_app_and_rag_roles_cannot_access_truth_or_writer_function (test_database.DatabaseTests.test_app_and_rag_roles_cannot_access_truth_or_writer_function) ... ok
+test_evaluation_role_cannot_read_app_or_rag (test_database.DatabaseTests.test_evaluation_role_cannot_read_app_or_rag) ... ok
+test_immutability_also_applies_to_owner (test_database.DatabaseTests.test_immutability_also_applies_to_owner) ... ok
+test_reader_can_read_truth_but_not_change_it (test_database.DatabaseTests.test_reader_can_read_truth_but_not_change_it) ... ok
+test_replay_uses_only_saved_snapshots (test_database.DatabaseTests.test_replay_uses_only_saved_snapshots) ... ok
+test_run_persists_and_get_list_match (test_database.DatabaseTests.test_run_persists_and_get_list_match) ... ok
+test_unknown_run_and_requirement_ids404 (test_database.DatabaseTests.test_unknown_run_and_requirement_ids404) ... ok
+test_all_required_checklist_fields (test_metrics.MetricsTests.test_all_required_checklist_fields) ... ok
+test_conditions_are_not_merged_across_test_cases (test_metrics.MetricsTests.test_conditions_are_not_merged_across_test_cases) ... ok
+test_contradictory_status_fails (test_metrics.MetricsTests.test_contradictory_status_fails) ... ok
+test_description_paraphrase_does_not_change_structural_match (test_metrics.MetricsTests.test_description_paraphrase_does_not_change_structural_match) ... ok
+test_deterministic_hash_and_replay (test_metrics.MetricsTests.test_deterministic_hash_and_replay) ... ok
+test_document_recall_deduplicates_chunks (test_metrics.MetricsTests.test_document_recall_deduplicates_chunks) ... ok
+test_duplicate_tc_does_not_inflate_coverage (test_metrics.MetricsTests.test_duplicate_tc_does_not_inflate_coverage) ... ok
+test_empty_assertions_require_manual_consistency (test_metrics.MetricsTests.test_empty_assertions_require_manual_consistency) ... ok
+test_empty_expected_documents_are_na (test_metrics.MetricsTests.test_empty_expected_documents_are_na) ... ok
+test_evidence_must_exist_in_source_and_catalog (test_metrics.MetricsTests.test_evidence_must_exist_in_source_and_catalog) ... ok
+test_forbidden_self_approval_fails (test_metrics.MetricsTests.test_forbidden_self_approval_fails) ... ok
+test_foreign_requirement_fails (test_metrics.MetricsTests.test_foreign_requirement_fails) ... ok
+test_forged_evidence_pair_fails (test_metrics.MetricsTests.test_forged_evidence_pair_fails) ... ok
+test_missing_documents_preserved (test_metrics.MetricsTests.test_missing_documents_preserved) ... ok
+test_optional_scenarios_not_in_required_denominator (test_metrics.MetricsTests.test_optional_scenarios_not_in_required_denominator) ... ok
+test_sixth_chunk_does_not_count (test_metrics.MetricsTests.test_sixth_chunk_does_not_count) ... ok
+test_strict_coverage_exposes_missing_state_checks (test_metrics.MetricsTests.test_strict_coverage_exposes_missing_state_checks) ... ok
+test_structured_match_does_not_coerce_boolean_to_integer (test_metrics.MetricsTests.test_structured_match_does_not_coerce_boolean_to_integer) ... ok
+test_unknown_operator_fails_closed (test_metrics.MetricsTests.test_unknown_operator_fails_closed) ... ok
+test_unsupported_assertion_is_unknown_not_pass (test_metrics.MetricsTests.test_unsupported_assertion_is_unknown_not_pass) ... ok
+test_wrong_category_cannot_match (test_metrics.MetricsTests.test_wrong_category_cannot_match) ... ok
+test_zero_testcases_not_perfect_validity (test_metrics.MetricsTests.test_zero_testcases_not_perfect_validity) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.234s
+
+OK

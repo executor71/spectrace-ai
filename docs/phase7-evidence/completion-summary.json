@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "phase": 7,
+  "totalAutomatedTests": 185,
+  "newTests": 29,
+  "browser": "Chrome 154.0.8037.58",
+  "screenshots": 9,
+  "apiCount": 2,
+  "newModelCalls": 0,
+  "unresolved": []
+}

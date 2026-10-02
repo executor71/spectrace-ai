@@ -1,0 +1,11 @@
+{"migrations" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "appGroundTruthUsage" : false, "ragGroundTruthUsage" : false, "appCanRecordEvaluation" : false, "ragCanRecordEvaluation" : false, "documents" : 9, "chunks" : 27}
+SET
+DO
+SET
+DO
+RESET
+SET
+DO
+RESET
+SET
+DO

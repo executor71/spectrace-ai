@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "browser": "154.0.8037.58",
+  "channel": "chrome",
+  "requirementAnalysisTestCaseFlow": true,
+  "draftDisabled": true,
+  "approvedEnabled": true,
+  "passExecutionId": "4f0aedab-0f6a-4814-a4eb-61d516fc8fc7",
+  "failExecutionId": "d8072271-8483-45fc-a211-608e26bc6d7d",
+  "assetExecutionId": "36b7b031-c562-4186-82c2-f5eba7d6cfad",
+  "reloadPersisted": true,
+  "repeatReproducible": true,
+  "historySelection": true,
+  "allowListBlocked": true,
+  "mobileNoOverflow": true,
+  "pageErrors": [],
+  "modelRequests": []
+}

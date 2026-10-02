@@ -1,0 +1,27 @@
+{
+  "changed": [
+    "frontend/src/TestCaseReview.tsx",
+    "frontend/src/TestCases.tsx"
+  ],
+  "added": [
+    "backend/src/main/java/com/example/legacyassistant/testcase/DummyApiRegistry.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionComparator.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionController.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionService.java",
+    "backend/src/main/resources/db/migration/V10__dummy_executions.sql",
+    "backend/src/test/java/com/example/legacyassistant/testcase/ExecutionComparatorTest.java",
+    "backend/src/test/java/com/example/legacyassistant/testcase/ExecutionIntegrationTest.java",
+    "compose.phase7-local.yaml",
+    "compose.phase7-test.yaml",
+    "docs/phase6-baseline/sha256.json",
+    "docs/phase6-baseline/source.zip",
+    "docs/phase7-result.json",
+    "docs/scripts/phase7-browser.py",
+    "docs/scripts/phase7-live.py",
+    "docs/scripts/phase7-regression.py",
+    "docs/scripts/phase7-report.py",
+    "frontend/src/TestCaseExecutions.tsx"
+  ],
+  "baselineFiles": 115,
+  "evidenceDirectory": "docs/phase7-evidence/"
+}

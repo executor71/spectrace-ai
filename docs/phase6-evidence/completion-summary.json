@@ -1,0 +1,360 @@
+{
+  "result": "PASS",
+  "backendTests": 55,
+  "pythonRegressionTests": 61,
+  "evaluationTests": 40,
+  "totalAutomatedTests": 156,
+  "snapshotReplays": 5,
+  "datasetHash": "76fbdc9ee68f64c8c88c963920560bfdbafc2aae7b94e70fad72453fd5bd6577",
+  "metrics": [
+    {
+      "split": "development",
+      "testCases": 5,
+      "recallAt5": {
+        "numerator": 3,
+        "denominator": 4,
+        "value": 0.75,
+        "status": "MEASURED",
+        "topK": 5,
+        "retrievedChunkCount": 5,
+        "retrievedDocumentIds": [
+          "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+        ],
+        "matchedDocumentIds": [
+          "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+        ],
+        "missingDocumentIds": [
+          "740cae54-6478-57e7-a4d5-4ccc8fa6655a"
+        ]
+      },
+      "scenarioCoverage": {
+        "numerator": 2,
+        "denominator": 5,
+        "value": 0.4,
+        "status": "MEASURED",
+        "scenarios": [
+          {
+            "scenarioId": "ACCESS-NORMAL",
+            "category": "NORMAL",
+            "description": "동일 부서 부서장의 정상 승인과 상태 변경",
+            "matchedTestCaseIds": [
+              "c53be0ea-3157-49be-a922-efa378d6ca11"
+            ],
+            "covered": true
+          },
+          {
+            "scenarioId": "ACCESS-SELF",
+            "category": "EXCEPTION",
+            "description": "자기 승인 거부 코드와 상태 불변",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "ACCESS-EMPLOYEE",
+            "category": "AUTHORIZATION",
+            "description": "일반 직원 승인 거부와 상태 불변",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "ACCESS-DEPARTMENT",
+            "category": "BOUNDARY",
+            "description": "타 부서 부서장 승인 거부와 상태 불변",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "ACCESS-UNCHANGED",
+            "category": "BUSINESS_RULE",
+            "description": "자기 승인 실패 시 신청·자산 불변",
+            "matchedTestCaseIds": [
+              "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+            ],
+            "covered": true
+          }
+        ],
+        "missingScenarios": [
+          {
+            "scenarioId": "ACCESS-SELF",
+            "category": "EXCEPTION",
+            "description": "자기 승인 거부 코드와 상태 불변",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "ACCESS-EMPLOYEE",
+            "category": "AUTHORIZATION",
+            "description": "일반 직원 승인 거부와 상태 불변",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "ACCESS-DEPARTMENT",
+            "category": "BOUNDARY",
+            "description": "타 부서 부서장 승인 거부와 상태 불변",
+            "matchedTestCaseIds": [],
+            "covered": false
+          }
+        ]
+      },
+      "testCaseValidity": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0,
+        "status": "MEASURED",
+        "failedCount": 0,
+        "unknownCount": 0,
+        "cases": [
+          {
+            "testCaseId": "c53be0ea-3157-49be-a922-efa378d6ca11",
+            "status": "PASS",
+            "checks": {
+              "scenarioPresent": "PASS",
+              "preconditionsDefined": "PASS",
+              "inputDefined": "PASS",
+              "stepsPresent": "PASS",
+              "expectedResultDefined": "PASS",
+              "evidencePresent": "PASS",
+              "evidenceReferencesValid": "PASS",
+              "noStructuredContradiction": "PASS"
+            },
+            "consistencyReasons": [
+              "same-department"
+            ]
+          },
+          {
+            "testCaseId": "c0dca00f-7a4c-4861-ba42-06c7588235b1",
+            "status": "PASS",
+            "checks": {
+              "scenarioPresent": "PASS",
+              "preconditionsDefined": "PASS",
+              "inputDefined": "PASS",
+              "stepsPresent": "PASS",
+              "expectedResultDefined": "PASS",
+              "evidencePresent": "PASS",
+              "evidenceReferencesValid": "PASS",
+              "noStructuredContradiction": "PASS"
+            },
+            "consistencyReasons": [
+              "self-denied"
+            ]
+          },
+          {
+            "testCaseId": "0cdd544d-a755-412a-88e5-78f570c427c2",
+            "status": "PASS",
+            "checks": {
+              "scenarioPresent": "PASS",
+              "preconditionsDefined": "PASS",
+              "inputDefined": "PASS",
+              "stepsPresent": "PASS",
+              "expectedResultDefined": "PASS",
+              "evidencePresent": "PASS",
+              "evidenceReferencesValid": "PASS",
+              "noStructuredContradiction": "PASS"
+            },
+            "consistencyReasons": [
+              "employee-denied"
+            ]
+          },
+          {
+            "testCaseId": "4b357887-da03-4295-9399-78b5ae5a587d",
+            "status": "PASS",
+            "checks": {
+              "scenarioPresent": "PASS",
+              "preconditionsDefined": "PASS",
+              "inputDefined": "PASS",
+              "stepsPresent": "PASS",
+              "expectedResultDefined": "PASS",
+              "evidencePresent": "PASS",
+              "evidenceReferencesValid": "PASS",
+              "noStructuredContradiction": "PASS"
+            },
+            "consistencyReasons": [
+              "department-denied"
+            ]
+          },
+          {
+            "testCaseId": "f25fc98b-f047-4799-88dc-7fa77dd579b1",
+            "status": "PASS",
+            "checks": {
+              "scenarioPresent": "PASS",
+              "preconditionsDefined": "PASS",
+              "inputDefined": "PASS",
+              "stepsPresent": "PASS",
+              "expectedResultDefined": "PASS",
+              "evidencePresent": "PASS",
+              "evidenceReferencesValid": "PASS",
+              "noStructuredContradiction": "PASS"
+            },
+            "consistencyReasons": [
+              "self-denied"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "split": "validation",
+      "testCases": 0,
+      "recallAt5": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0,
+        "status": "MEASURED",
+        "topK": 5,
+        "retrievedChunkCount": 5,
+        "retrievedDocumentIds": [
+          "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+          "de315c10-8e3b-5aed-ae96-2f018bac5149",
+          "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+        ],
+        "matchedDocumentIds": [
+          "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+          "de315c10-8e3b-5aed-ae96-2f018bac5149"
+        ],
+        "missingDocumentIds": []
+      },
+      "scenarioCoverage": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0,
+        "status": "MEASURED",
+        "scenarios": [
+          {
+            "scenarioId": "INSPECTION-PASSED",
+            "category": "NORMAL",
+            "description": "정상 검사 시 AVAILABLE",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "INSPECTION-DAMAGED",
+            "category": "BUSINESS_RULE",
+            "description": "파손 검사 시 MAINTENANCE",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "INSPECTION-PHOTO-MISSING",
+            "category": "EXCEPTION",
+            "description": "파손 사진 누락 거부",
+            "matchedTestCaseIds": [],
+            "covered": false
+          }
+        ],
+        "missingScenarios": [
+          {
+            "scenarioId": "INSPECTION-PASSED",
+            "category": "NORMAL",
+            "description": "정상 검사 시 AVAILABLE",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "INSPECTION-DAMAGED",
+            "category": "BUSINESS_RULE",
+            "description": "파손 검사 시 MAINTENANCE",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "INSPECTION-PHOTO-MISSING",
+            "category": "EXCEPTION",
+            "description": "파손 사진 누락 거부",
+            "matchedTestCaseIds": [],
+            "covered": false
+          }
+        ]
+      },
+      "testCaseValidity": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "status": "NOT_APPLICABLE",
+        "failedCount": 0,
+        "unknownCount": 0,
+        "cases": []
+      }
+    },
+    {
+      "split": "final",
+      "testCases": 0,
+      "recallAt5": {
+        "numerator": 4,
+        "denominator": 5,
+        "value": 0.8,
+        "status": "MEASURED",
+        "topK": 5,
+        "retrievedChunkCount": 5,
+        "retrievedDocumentIds": [
+          "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+        ],
+        "matchedDocumentIds": [
+          "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+        ],
+        "missingDocumentIds": [
+          "740cae54-6478-57e7-a4d5-4ccc8fa6655a"
+        ]
+      },
+      "scenarioCoverage": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0,
+        "status": "MEASURED",
+        "scenarios": [
+          {
+            "scenarioId": "CONCURRENCY-SINGLE-WINNER",
+            "category": "BUSINESS_RULE",
+            "description": "동시 승인 두 건 중 정확히 한 건 승인 및 자산 RESERVED",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "CONCURRENCY-LOSER",
+            "category": "EXCEPTION",
+            "description": "동시 승인에서 패자 요청의 재고 충돌 코드",
+            "matchedTestCaseIds": [],
+            "covered": false
+          }
+        ],
+        "missingScenarios": [
+          {
+            "scenarioId": "CONCURRENCY-SINGLE-WINNER",
+            "category": "BUSINESS_RULE",
+            "description": "동시 승인 두 건 중 정확히 한 건 승인 및 자산 RESERVED",
+            "matchedTestCaseIds": [],
+            "covered": false
+          },
+          {
+            "scenarioId": "CONCURRENCY-LOSER",
+            "category": "EXCEPTION",
+            "description": "동시 승인에서 패자 요청의 재고 충돌 코드",
+            "matchedTestCaseIds": [],
+            "covered": false
+          }
+        ]
+      },
+      "testCaseValidity": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "status": "NOT_APPLICABLE",
+        "failedCount": 0,
+        "unknownCount": 0,
+        "cases": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+services:
+  backend-test:
+    volumes:
+      - ./docs/phase6-evidence/backend-tests:/workspace/target/surefire-reports
+  evaluation-test:
+    build: ./evaluation-service
+    command: ["python", "-m", "unittest", "discover", "-s", "tests", "-v"]
+    environment:
+      EVALUATION_DB_HOST: postgres-test
+      EVALUATION_DB_NAME: legacy_assistant_test
+      EVALUATION_DB_USER: evaluation_reader
+      EVALUATION_DB_PASSWORD: test_evaluation_only
+      TEST_MIGRATION_PASSWORD: test_migration_only
+    volumes:
+      - ./evaluation-service/tests:/evaluation/tests:ro
+    depends_on:
+      postgres-test:
+        condition: service_healthy
