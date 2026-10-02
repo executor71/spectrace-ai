@@ -1,0 +1,51 @@
+test_http_gate_errors_and_not_found (test_gateway.ClientTests.test_http_gate_errors_and_not_found) ... ok
+test_redirect_cannot_reach_external_url (test_gateway.ClientTests.test_redirect_cannot_reach_external_url) ... ok
+test_timeout_is_standard_error (test_gateway.ClientTests.test_timeout_is_standard_error) ... ok
+test_absent_analysis_uses_existing_api (test_gateway.GatewayTests.test_absent_analysis_uses_existing_api) ... ok
+test_all_execution_gate_errors_propagate (test_gateway.GatewayTests.test_all_execution_gate_errors_propagate) ... {"toolName": "execute_approved_test", "requestId": "90fec183-e2ff-4e8c-a3db-a8c5315bc748", "startedAt": "2026-10-02T16:06:08.024913+00:00", "durationMs": 0.261, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "NOT_APPROVED"}
+{"toolName": "execute_approved_test", "requestId": "2861d94b-295b-4b21-b0a1-19f568a47150", "startedAt": "2026-10-02T16:06:08.025278+00:00", "durationMs": 0.104, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "NOT_EXECUTABLE"}
+{"toolName": "execute_approved_test", "requestId": "4c14185f-ac4b-4865-923f-94544fc3a7c7", "startedAt": "2026-10-02T16:06:08.025452+00:00", "durationMs": 0.124, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "FIXTURE_NOT_READY"}
+{"toolName": "execute_approved_test", "requestId": "d044f9af-495e-499a-b806-27218407bd8a", "startedAt": "2026-10-02T16:06:08.025656+00:00", "durationMs": 0.385, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "API_NOT_ALLOWED"}
+ok
+test_cached_analysis_does_not_post (test_gateway.GatewayTests.test_cached_analysis_does_not_post) ... ok
+test_every_execution_override_is_forbidden (test_gateway.GatewayTests.test_every_execution_override_is_forbidden) ... {"toolName": "execute_approved_test", "requestId": "e72deb19-2e88-43f7-a8df-ba1ef99e2b93", "startedAt": "2026-10-02T16:06:08.028910+00:00", "durationMs": 0.138, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "a4fb7e87-2862-4dcc-9da3-5f270c4dcdbf", "startedAt": "2026-10-02T16:06:08.029146+00:00", "durationMs": 0.085, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "57477135-dab4-423e-8895-90538c143be4", "startedAt": "2026-10-02T16:06:08.029317+00:00", "durationMs": 0.083, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "c3240eab-d9bc-4b76-adc3-e266eadde4c9", "startedAt": "2026-10-02T16:06:08.029511+00:00", "durationMs": 0.148, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "a2f44342-da46-42f2-b2bc-09624c82acfa", "startedAt": "2026-10-02T16:06:08.029956+00:00", "durationMs": 0.148, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "8e873637-dade-4a6e-abef-92cf7b6d06e4", "startedAt": "2026-10-02T16:06:08.030167+00:00", "durationMs": 0.112, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "d0b387f2-3564-480f-a024-cc55e3ce1e18", "startedAt": "2026-10-02T16:06:08.030371+00:00", "durationMs": 0.156, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "5fd012b3-e48d-4202-a638-10e1af691ced", "startedAt": "2026-10-02T16:06:08.030621+00:00", "durationMs": 0.091, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "0e4e6c28-2955-4ded-9edb-22c03cf14da6", "startedAt": "2026-10-02T16:06:08.030887+00:00", "durationMs": 0.09, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "20f680f8-e7db-4e54-8d9d-62d8f669ef0a", "startedAt": "2026-10-02T16:06:08.031285+00:00", "durationMs": 0.097, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "02978dcc-7974-41f9-859d-be3c8843fcfa", "startedAt": "2026-10-02T16:06:08.031465+00:00", "durationMs": 0.077, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+ok
+test_execution_has_no_body_and_rechecks_every_time (test_gateway.GatewayTests.test_execution_has_no_body_and_rechecks_every_time) ... {"toolName": "execute_approved_test", "requestId": "90a385e5-ae17-493d-a27f-3d0a04fd48e8", "startedAt": "2026-10-02T16:06:08.033318+00:00", "durationMs": 0.085, "resultStatus": "SUCCESS", "downstreamService": "backend", "errorCode": null}
+{"toolName": "execute_approved_test", "requestId": "f28556d5-9b6c-4088-a4f2-9340eb37ed92", "startedAt": "2026-10-02T16:06:08.033462+00:00", "durationMs": 0.084, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "NOT_APPROVED"}
+ok
+test_ground_truth_is_dropped_recursively_by_projection (test_gateway.GatewayTests.test_ground_truth_is_dropped_recursively_by_projection) ... ok
+test_internal_exception_is_sanitized (test_gateway.GatewayTests.test_internal_exception_is_sanitized) ... {"toolName": "search_knowledge", "requestId": "5921fe91-06bc-4e65-ad72-aa795b25c3f9", "startedAt": "2026-10-02T16:06:08.035946+00:00", "durationMs": 0.082, "resultStatus": "ERROR", "downstreamService": "ai/retrieval", "errorCode": "INTERNAL_ERROR"}
+ok
+test_invalid_input_never_dispatches (test_gateway.GatewayTests.test_invalid_input_never_dispatches) ... {"toolName": "search_knowledge", "requestId": "f37ac88a-11fc-4824-a6f6-53b1987af309", "startedAt": "2026-10-02T16:06:08.037416+00:00", "durationMs": 0.053, "resultStatus": "ERROR", "downstreamService": "ai/retrieval", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "search_knowledge", "requestId": "a3829ebe-670e-4c5c-b20e-5820a872cc77", "startedAt": "2026-10-02T16:06:08.037539+00:00", "durationMs": 0.061, "resultStatus": "ERROR", "downstreamService": "ai/retrieval", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "search_knowledge", "requestId": "483fb2f9-5ed9-4c46-9135-3c92d29de68a", "startedAt": "2026-10-02T16:06:08.037673+00:00", "durationMs": 0.106, "resultStatus": "ERROR", "downstreamService": "ai/retrieval", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "search_knowledge", "requestId": "37f36781-05be-4d0c-856f-56fd0bed4563", "startedAt": "2026-10-02T16:06:08.037869+00:00", "durationMs": 0.14, "resultStatus": "ERROR", "downstreamService": "ai/retrieval", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "search_knowledge", "requestId": "d1209a91-bee4-418d-b493-333b1dc263ce", "startedAt": "2026-10-02T16:06:08.038094+00:00", "durationMs": 0.1, "resultStatus": "ERROR", "downstreamService": "ai/retrieval", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "analyze_requirement", "requestId": "fca067b7-0ede-42f4-87d3-4c56a091625a", "startedAt": "2026-10-02T16:06:08.038276+00:00", "durationMs": 0.087, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+{"toolName": "execute_approved_test", "requestId": "3b58158d-be38-4a0d-b8fe-b89fa3258e1e", "startedAt": "2026-10-02T16:06:08.038438+00:00", "durationMs": 0.065, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "INVALID_ARGUMENTS"}
+ok
+test_logs_do_not_contain_prompt_or_payload (test_gateway.GatewayTests.test_logs_do_not_contain_prompt_or_payload) ... ok
+test_missing_requirement_cannot_generate (test_gateway.GatewayTests.test_missing_requirement_cannot_generate) ... {"toolName": "analyze_requirement", "requestId": "8367bb29-d5ea-4101-ac76-596b63250934", "startedAt": "2026-10-02T16:06:08.043928+00:00", "durationMs": 0.094, "resultStatus": "ERROR", "downstreamService": "backend", "errorCode": "NOT_FOUND"}
+ok
+test_no_evaluation_is_clear_error (test_gateway.GatewayTests.test_no_evaluation_is_clear_error) ... {"toolName": "get_evaluation_result", "requestId": "064443fa-8836-42fe-be3b-819c2118fafa", "startedAt": "2026-10-02T16:06:08.045616+00:00", "durationMs": 0.084, "resultStatus": "ERROR", "downstreamService": "evaluation", "errorCode": "EVALUATION_NOT_FOUND"}
+ok
+test_prompt_in_query_is_only_search_data (test_gateway.GatewayTests.test_prompt_in_query_is_only_search_data) ... ok
+test_resource_rejects_other_schemes (test_gateway.GatewayTests.test_resource_rejects_other_schemes) ... ok
+test_runtime_eligibility_preserves_review_evidence (test_gateway.GatewayTests.test_runtime_eligibility_preserves_review_evidence) ... ok
+test_unknown_tool (test_gateway.GatewayTests.test_unknown_tool) ... {"toolName": "UNKNOWN_TOOL", "requestId": "33b0ca92-7acb-48c8-b2bd-084d833bc71d", "startedAt": "2026-10-02T16:06:08.051761+00:00", "durationMs": 0.03, "resultStatus": "ERROR", "downstreamService": null, "errorCode": "UNKNOWN_TOOL"}
+ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.037s
+
+OK

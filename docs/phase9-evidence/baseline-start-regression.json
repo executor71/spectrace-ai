@@ -1,0 +1,47 @@
+{
+  "result": "PASS",
+  "frozenFiles": 197,
+  "vectorBaseline": [
+    {
+      "queryId": "phase2-1",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    },
+    {
+      "queryId": "phase2-2",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    },
+    {
+      "queryId": "phase2-3",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    },
+    {
+      "queryId": "phase2-4",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    },
+    {
+      "queryId": "phase2-5",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    },
+    {
+      "queryId": "phase2-6",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    },
+    {
+      "queryId": "phase2-7",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    },
+    {
+      "queryId": "phase2-8",
+      "ranksIdentical": true,
+      "scoresIdentical": true
+    }
+  ],
+  "phase8EvidenceFrozen": true
+}

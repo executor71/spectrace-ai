@@ -1,0 +1,62 @@
+{
+  "_meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"strategy\": \"VECTOR\", \"hits\": [{\"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\", \"chunkId\": \"fac8b9c8-cab2-54a6-a555-f938e47ec23a\", \"documentType\": \"BUSINESS_RULE\", \"section\": \"동시 승인과 자산 예약\", \"contentSnippet\": \"대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.\", \"rank\": 1, \"score\": 0.7253617375657871}, {\"documentId\": \"e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520\", \"chunkId\": \"7c7eda12-4b56-5ad1-a30d-627031666355\", \"documentType\": \"API_SPEC\", \"section\": \"POST /loans/{loanId}/approve 승인\", \"contentSnippet\": \"POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.\", \"rank\": 2, \"score\": 0.6484607071601934}, {\"documentId\": \"34b91c10-3bd5-547e-97c2-18641d80eb14\", \"chunkId\": \"eb8499ff-e3dd-5724-b927-c928df48d1ec\", \"documentType\": \"TEST_GUIDE\", \"section\": \"동시 대여 승인 테스트\", \"contentSnippet\": \"AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.\", \"rank\": 3, \"score\": 0.6372195102441615}, {\"documentId\": \"e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520\", \"chunkId\": \"4f380a68-9148-5c58-86e2-760176ba6cf2\", \"documentType\": \"API_SPEC\", \"section\": \"POST /loans/{loanId}/issue 지급 확인\", \"contentSnippet\": \"POST /loans/{loanId}/issue는 자산 담당자가 실물 장비를 지급한 뒤 호출한다. 승인된 신청만 처리할 수 있으며 성공 시 HTTP 200, 대여 상태 ACTIVE와 자산 상태 ON_LOAN을 반환한다. 승인 전 지급 요청은 HTTP 409 LOAN_STATE_CONFLICT다. 수령 확인 시각과 담당자 ID는 서버에서 기록한다.\", \"rank\": 4, \"score\": 0.6189355935569547}, {\"documentId\": \"ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6\", \"chunkId\": \"3e8c8b89-7feb-5089-ad27-a092afa3a27e\", \"documentType\": \"BUSINESS_RULE\", \"section\": \"대여 가능한 재고 판정\", \"contentSnippet\": \"임직원에게 지급할 수 있는 재고는 자산 상태가 AVAILABLE이고 활성 대여 기록이 없는 장비다. RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다. 예약은 승인 완료부터 실물 지급까지 유효하다. 대여 화면의 재고 조회 결과만 신뢰하지 않고 승인 트랜잭션에서 최신 상태를 다시 확인한다.\", \"rank\": 5, \"score\": 0.6087644929430202}]}",
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "structuredContent": {
+    "strategy": "VECTOR",
+    "hits": [
+      {
+        "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "documentType": "BUSINESS_RULE",
+        "section": "동시 승인과 자산 예약",
+        "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+        "rank": 1,
+        "score": 0.7253617375657871
+      },
+      {
+        "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+        "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "documentType": "API_SPEC",
+        "section": "POST /loans/{loanId}/approve 승인",
+        "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+        "rank": 2,
+        "score": 0.6484607071601934
+      },
+      {
+        "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "documentType": "TEST_GUIDE",
+        "section": "동시 대여 승인 테스트",
+        "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+        "rank": 3,
+        "score": 0.6372195102441615
+      },
+      {
+        "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+        "chunkId": "4f380a68-9148-5c58-86e2-760176ba6cf2",
+        "documentType": "API_SPEC",
+        "section": "POST /loans/{loanId}/issue 지급 확인",
+        "contentSnippet": "POST /loans/{loanId}/issue는 자산 담당자가 실물 장비를 지급한 뒤 호출한다. 승인된 신청만 처리할 수 있으며 성공 시 HTTP 200, 대여 상태 ACTIVE와 자산 상태 ON_LOAN을 반환한다. 승인 전 지급 요청은 HTTP 409 LOAN_STATE_CONFLICT다. 수령 확인 시각과 담당자 ID는 서버에서 기록한다.",
+        "rank": 4,
+        "score": 0.6189355935569547
+      },
+      {
+        "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+        "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+        "documentType": "BUSINESS_RULE",
+        "section": "대여 가능한 재고 판정",
+        "contentSnippet": "임직원에게 지급할 수 있는 재고는 자산 상태가 AVAILABLE이고 활성 대여 기록이 없는 장비다. RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다. 예약은 승인 완료부터 실물 지급까지 유효하다. 대여 화면의 재고 조회 결과만 신뢰하지 않고 승인 트랜잭션에서 최신 상태를 다시 확인한다.",
+        "rank": 5,
+        "score": 0.6087644929430202
+      }
+    ]
+  },
+  "isError": false
+}

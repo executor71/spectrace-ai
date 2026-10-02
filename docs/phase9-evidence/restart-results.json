@@ -1,0 +1,78 @@
+{
+  "result": "PASS",
+  "health": [
+    {
+      "url": "http://127.0.0.1:8080/actuator/health",
+      "status": "UP"
+    },
+    {
+      "url": "http://127.0.0.1:8000/health",
+      "status": "UP"
+    },
+    {
+      "url": "http://127.0.0.1:8090/health",
+      "status": "UP"
+    },
+    {
+      "url": "http://127.0.0.1:8010/health",
+      "status": "UP"
+    },
+    {
+      "url": "http://127.0.0.1:8020/health",
+      "status": "UP"
+    },
+    {
+      "url": "http://127.0.0.1:5173",
+      "status": "UP"
+    }
+  ],
+  "containers": [
+    {
+      "name": "/master-postgres-1",
+      "running": true,
+      "health": "healthy"
+    },
+    {
+      "name": "/master-ollama-1",
+      "running": true,
+      "health": "healthy"
+    },
+    {
+      "name": "/master-backend-1",
+      "running": true,
+      "health": null
+    },
+    {
+      "name": "/master-ai-service-1",
+      "running": true,
+      "health": null
+    },
+    {
+      "name": "/master-evaluation-service-1",
+      "running": true,
+      "health": null
+    },
+    {
+      "name": "/master-retrieval-service-1",
+      "running": true,
+      "health": null
+    },
+    {
+      "name": "/master-frontend-1",
+      "running": true,
+      "health": null
+    },
+    {
+      "name": "/master-mcp-server-1",
+      "running": true,
+      "health": "healthy"
+    }
+  ],
+  "mcpAfterRestart": {
+    "result": "PASS",
+    "reconnected": true,
+    "savedAnalysis": true
+  },
+  "phase8HashesUnchanged": 197,
+  "observabilityRecords": 168
+}

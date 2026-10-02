@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "noDatabaseCredentials": true,
+  "noMounts": true,
+  "noDatabaseOrShellImports": true,
+  "user": 10001,
+  "readOnlyRoot": true,
+  "loopbackOnly": true,
+  "analysisSchemaExactSourceHash": "1ed551b389af760b885a73ca146047f3910c87703fa4e6ad92693e5c4d1a4a9c"
+}

@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "browser": "Chrome 154.0.8037.58",
+  "requirementAnalysisReviewFlow": true,
+  "dummyPass": "accdc64b-648b-4fc8-b9e7-eafe6e5c9d20",
+  "dummyFail": "c4dcfaf4-600b-4a29-9b8e-80c6309ca46e",
+  "reloadPersisted": true,
+  "pageErrors": [],
+  "modelRequests": []
+}

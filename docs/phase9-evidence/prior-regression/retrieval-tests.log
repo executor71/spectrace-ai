@@ -1,0 +1,32 @@
+test_bad_score_count_is_error (test_reranker.RerankerTests.test_bad_score_count_is_error) ... ok
+test_empty_candidates (test_reranker.RerankerTests.test_empty_candidates) ... ok
+test_empty_does_not_load (test_reranker.RerankerTests.test_empty_does_not_load) ... ok
+test_failure_is_error (test_reranker.RerankerTests.test_failure_is_error) ... ok
+test_invalid_provider (test_reranker.RerankerTests.test_invalid_provider) ... ok
+test_model_is_configured (test_reranker.RerankerTests.test_model_is_configured) ... ok
+test_nonfinite_scores_are_error (test_reranker.RerankerTests.test_nonfinite_scores_are_error) ... ok
+test_only_top_twenty_passed_to_model (test_reranker.RerankerTests.test_only_top_twenty_passed_to_model) ... ok
+test_empty_query (test_retrieval.ApiTests.test_empty_query) ... ok
+test_empty_result_schema (test_retrieval.ApiTests.test_empty_result_schema) ... ok
+test_extra_ground_truth_rejected (test_retrieval.ApiTests.test_extra_ground_truth_rejected) ... ok
+test_malformed_id (test_retrieval.ApiTests.test_malformed_id) ... ok
+test_reranker_failure_no_silent_fallback (test_retrieval.ApiTests.test_reranker_failure_no_silent_fallback) ... ok
+test_score_nulls (test_retrieval.ApiTests.test_score_nulls) ... ok
+test_duplicate_rejected (test_retrieval.FusionTests.test_duplicate_rejected) ... ok
+test_invalid_rrf (test_retrieval.FusionTests.test_invalid_rrf) ... ok
+test_rrf_formula (test_retrieval.FusionTests.test_rrf_formula) ... ok
+test_scores_not_added (test_retrieval.FusionTests.test_scores_not_added) ... ok
+test_union_empty_and_single_branch (test_retrieval.FusionTests.test_union_empty_and_single_branch) ... ok
+test_bm25_exact (test_retrieval.LexicalTests.test_bm25_exact) ... ok
+test_bm25_math (test_retrieval.LexicalTests.test_bm25_math) ... ok
+test_empty_corpus (test_retrieval.LexicalTests.test_empty_corpus) ... ok
+test_exact_error_code (test_retrieval.LexicalTests.test_exact_error_code) ... ok
+test_invalid_settings (test_retrieval.LexicalTests.test_invalid_settings) ... ok
+test_korean_inflections (test_retrieval.LexicalTests.test_korean_inflections) ... ok
+test_no_match (test_retrieval.LexicalTests.test_no_match) ... ok
+test_tie_is_deterministic (test_retrieval.LexicalTests.test_tie_is_deterministic) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 3.412s
+
+OK

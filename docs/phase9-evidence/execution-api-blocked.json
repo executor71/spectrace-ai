@@ -1,0 +1,16 @@
+{
+  "_meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"errorCode\": \"API_NOT_ALLOWED\", \"requestId\": \"9eeb0f5e-cde4-4859-ade7-aed3f71f5fab\"}",
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "structuredContent": {
+    "errorCode": "API_NOT_ALLOWED",
+    "requestId": "9eeb0f5e-cde4-4859-ade7-aed3f71f5fab"
+  },
+  "isError": true
+}

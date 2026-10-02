@@ -1,0 +1,64 @@
+{
+  "_meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"retrievalMetrics\": {\"recallAt5\": {\"numerator\": 3, \"denominator\": 4, \"value\": 0.75, \"status\": \"MEASURED\", \"topK\": 5, \"retrievedChunkCount\": 5}}, \"testScenarioCoverage\": {\"numerator\": 2, \"denominator\": 5, \"value\": 0.4, \"status\": \"MEASURED\"}, \"testCaseValidity\": {\"numerator\": 5, \"denominator\": 5, \"value\": 1.0, \"status\": \"MEASURED\", \"failedCount\": 0, \"unknownCount\": 0}, \"missingScenarios\": [{\"scenarioId\": \"ACCESS-SELF\", \"category\": \"EXCEPTION\", \"description\": \"자기 승인 거부 코드와 상태 불변\"}, {\"scenarioId\": \"ACCESS-EMPLOYEE\", \"category\": \"AUTHORIZATION\", \"description\": \"일반 직원 승인 거부와 상태 불변\"}, {\"scenarioId\": \"ACCESS-DEPARTMENT\", \"category\": \"BOUNDARY\", \"description\": \"타 부서 부서장 승인 거부와 상태 불변\"}], \"evaluationMetadata\": {\"id\": \"1b743698-299e-4b02-90fe-5721b3600152\", \"requirementId\": \"b5270f71-c92c-48ae-8530-8946f1cfce62\", \"createdAt\": \"2026-09-30T10:51:18.435475+00:00\", \"metricVersion\": \"phase6-deterministic-v1\", \"engineHash\": \"505b10d5e6f02569f0a0ce43783a3d42e29a87b314a386fb09cc944cf6c3c353\", \"contentMode\": \"REVIEWED\", \"status\": \"COMPLETED\"}}",
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "structuredContent": {
+    "retrievalMetrics": {
+      "recallAt5": {
+        "numerator": 3,
+        "denominator": 4,
+        "value": 0.75,
+        "status": "MEASURED",
+        "topK": 5,
+        "retrievedChunkCount": 5
+      }
+    },
+    "testScenarioCoverage": {
+      "numerator": 2,
+      "denominator": 5,
+      "value": 0.4,
+      "status": "MEASURED"
+    },
+    "testCaseValidity": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0,
+      "status": "MEASURED",
+      "failedCount": 0,
+      "unknownCount": 0
+    },
+    "missingScenarios": [
+      {
+        "scenarioId": "ACCESS-SELF",
+        "category": "EXCEPTION",
+        "description": "자기 승인 거부 코드와 상태 불변"
+      },
+      {
+        "scenarioId": "ACCESS-EMPLOYEE",
+        "category": "AUTHORIZATION",
+        "description": "일반 직원 승인 거부와 상태 불변"
+      },
+      {
+        "scenarioId": "ACCESS-DEPARTMENT",
+        "category": "BOUNDARY",
+        "description": "타 부서 부서장 승인 거부와 상태 불변"
+      }
+    ],
+    "evaluationMetadata": {
+      "id": "1b743698-299e-4b02-90fe-5721b3600152",
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "createdAt": "2026-09-30T10:51:18.435475+00:00",
+      "metricVersion": "phase6-deterministic-v1",
+      "engineHash": "505b10d5e6f02569f0a0ce43783a3d42e29a87b314a386fb09cc944cf6c3c353",
+      "contentMode": "REVIEWED",
+      "status": "COMPLETED"
+    }
+  },
+  "isError": false
+}

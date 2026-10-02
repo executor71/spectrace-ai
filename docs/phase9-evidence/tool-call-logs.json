@@ -1,0 +1,1514 @@
+[
+  {
+    "toolName": "search_knowledge",
+    "requestId": "ff70317f-7bc3-4200-bfd7-4ae274da72c5",
+    "startedAt": "2026-10-02T16:05:20.201747+00:00",
+    "durationMs": 0.165,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "170c35bc-752d-4766-9386-cb3c23552094",
+    "startedAt": "2026-10-02T16:05:20.204507+00:00",
+    "durationMs": 0.135,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "4dc3b308-ae8b-470c-976d-8a0c59cf32e1",
+    "startedAt": "2026-10-02T16:05:20.207387+00:00",
+    "durationMs": 0.098,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "d5dd5355-58e1-465b-9292-ae25b3765bef",
+    "startedAt": "2026-10-02T16:05:20.210076+00:00",
+    "durationMs": 0.071,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "b81d4456-9292-466c-b228-fa34387e80d0",
+    "startedAt": "2026-10-02T16:05:20.212793+00:00",
+    "durationMs": 0.092,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "7f84065e-69dd-48d1-a035-777d833afb3d",
+    "startedAt": "2026-10-02T16:05:20.215522+00:00",
+    "durationMs": 0.067,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "b1295b1b-e559-47d5-adfd-b85dfabc0125",
+    "startedAt": "2026-10-02T16:05:20.217978+00:00",
+    "durationMs": 0.063,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "a77dea8a-edf9-4817-a2af-7395c1b115b7",
+    "startedAt": "2026-10-02T16:05:20.220413+00:00",
+    "durationMs": 0.267,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "068714ce-3836-4c07-ba3b-a8b61fd49700",
+    "startedAt": "2026-10-02T16:05:20.223132+00:00",
+    "durationMs": 0.073,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "ef250096-1125-4c70-a73b-4665a7f7292f",
+    "startedAt": "2026-10-02T16:05:20.225649+00:00",
+    "durationMs": 0.07,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "cf0d667f-7e1d-42db-8581-c108b536cfc8",
+    "startedAt": "2026-10-02T16:05:20.228227+00:00",
+    "durationMs": 0.069,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "550d551d-9969-4aab-9932-eb453dff2f25",
+    "startedAt": "2026-10-02T16:05:20.230964+00:00",
+    "durationMs": 0.07,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "0b743d1c-a865-417c-9017-b2cd424d9bb4",
+    "startedAt": "2026-10-02T16:05:20.233642+00:00",
+    "durationMs": 0.068,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "ac90a2b5-4fcc-4718-832a-683ca686fbfa",
+    "startedAt": "2026-10-02T16:05:20.236182+00:00",
+    "durationMs": 0.065,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "18714c6e-83c6-4863-b38f-de1d19edfda5",
+    "startedAt": "2026-10-02T16:05:20.238652+00:00",
+    "durationMs": 0.075,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "de16ed2d-b4b0-4a56-b79b-b173a72e4584",
+    "startedAt": "2026-10-02T16:05:20.241610+00:00",
+    "durationMs": 0.065,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "dfc5fbf0-c80e-4e0f-a371-7777c6baec18",
+    "startedAt": "2026-10-02T16:05:20.244017+00:00",
+    "durationMs": 0.063,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "b6e6051c-c65d-45e1-8da6-2d6eb07ff6c9",
+    "startedAt": "2026-10-02T16:05:20.246582+00:00",
+    "durationMs": 14.102,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "0af62b7b-7666-463c-a9af-ed58847cc76f",
+    "startedAt": "2026-10-02T16:05:20.263331+00:00",
+    "durationMs": 3.865,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "f9e26cb3-87f3-409f-a661-bc1575e4aa3d",
+    "startedAt": "2026-10-02T16:05:20.269927+00:00",
+    "durationMs": 10.712,
+    "resultStatus": "ERROR",
+    "downstreamService": "evaluation",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "5bf8d818-2f62-48c6-afd5-31d6e5f2d3b5",
+    "startedAt": "2026-10-02T16:05:20.283255+00:00",
+    "durationMs": 8.162,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "5bb1f8ca-d8fa-4769-afdf-e45f7d451a35",
+    "startedAt": "2026-10-02T16:05:20.294133+00:00",
+    "durationMs": 0.034,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "7bf77712-c10e-4a54-9227-5f946777c9e4",
+    "startedAt": "2026-10-02T16:05:20.296653+00:00",
+    "durationMs": 0.032,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "53a5ac1f-582e-4f22-a12b-319b51aa1840",
+    "startedAt": "2026-10-02T16:05:20.299202+00:00",
+    "durationMs": 0.03,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "b654a2eb-6a05-4095-975b-f3b75a1a2233",
+    "startedAt": "2026-10-02T16:05:20.302103+00:00",
+    "durationMs": 0.038,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "06d726e4-83bf-4453-9f91-a0379155fbf8",
+    "startedAt": "2026-10-02T16:05:20.304713+00:00",
+    "durationMs": 7.165,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "API_NOT_ALLOWED"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "0cb29797-5e99-462c-b620-eb802b5c96d2",
+    "startedAt": "2026-10-02T16:05:49.324742+00:00",
+    "durationMs": 0.148,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "d9660abd-b714-47e3-9df3-0621389caaa5",
+    "startedAt": "2026-10-02T16:05:49.327288+00:00",
+    "durationMs": 0.092,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "feae3143-3850-4899-97fc-bfe62bc60f34",
+    "startedAt": "2026-10-02T16:05:49.329931+00:00",
+    "durationMs": 0.074,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "29ee2d13-9c44-4608-a305-c0f05974b3a4",
+    "startedAt": "2026-10-02T16:05:49.332364+00:00",
+    "durationMs": 0.06,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "dd223e39-a56b-4293-98a4-9e82b4a163e7",
+    "startedAt": "2026-10-02T16:05:49.334933+00:00",
+    "durationMs": 0.079,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "300d56d1-e367-4873-8913-82a9bbe8ca16",
+    "startedAt": "2026-10-02T16:05:49.337462+00:00",
+    "durationMs": 0.081,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "1ed88d93-62b9-4b38-abe5-af45577ad66e",
+    "startedAt": "2026-10-02T16:05:49.339847+00:00",
+    "durationMs": 0.064,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "1e907ff9-e59a-4f57-897d-523c682ccf13",
+    "startedAt": "2026-10-02T16:05:49.342697+00:00",
+    "durationMs": 0.098,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "3489d0ea-0c71-43d8-8dcd-cd91c4297c86",
+    "startedAt": "2026-10-02T16:05:49.345437+00:00",
+    "durationMs": 0.07,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "5a9d8a40-f33d-4776-b097-1a3e001aebe3",
+    "startedAt": "2026-10-02T16:05:49.347840+00:00",
+    "durationMs": 0.069,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "f64f36b1-a696-41cb-ad36-a33913f8abf7",
+    "startedAt": "2026-10-02T16:05:49.350345+00:00",
+    "durationMs": 0.068,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "1c972ca2-9434-42af-82e3-d502d865cb58",
+    "startedAt": "2026-10-02T16:05:49.352727+00:00",
+    "durationMs": 0.069,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "2f4971db-4ffb-448d-b3ce-c92e9f97124e",
+    "startedAt": "2026-10-02T16:05:49.355089+00:00",
+    "durationMs": 0.068,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "a4fafed0-9aa7-4a14-88b7-92776b46b836",
+    "startedAt": "2026-10-02T16:05:49.357675+00:00",
+    "durationMs": 0.072,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "937fac68-58ca-4251-bfe5-4586c3647ff0",
+    "startedAt": "2026-10-02T16:05:49.359943+00:00",
+    "durationMs": 0.115,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "ff024fc6-13d8-42e6-84b3-97f63f2eadd2",
+    "startedAt": "2026-10-02T16:05:49.362611+00:00",
+    "durationMs": 0.086,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "5ddb24da-ac56-447b-aac6-ada54303d50a",
+    "startedAt": "2026-10-02T16:05:49.365302+00:00",
+    "durationMs": 0.068,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "8fd53898-711d-412e-b6b4-4d6357759e52",
+    "startedAt": "2026-10-02T16:05:49.367693+00:00",
+    "durationMs": 6.535,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "b01cb913-1276-4e0a-9863-43d69b6466b0",
+    "startedAt": "2026-10-02T16:05:49.377238+00:00",
+    "durationMs": 4.245,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "160eb3e9-e5e8-4aca-ba09-c3232ccaf7d5",
+    "startedAt": "2026-10-02T16:05:49.384403+00:00",
+    "durationMs": 10.591,
+    "resultStatus": "ERROR",
+    "downstreamService": "evaluation",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "c66a6c72-c15b-4716-a6fb-58a1264ba68c",
+    "startedAt": "2026-10-02T16:05:49.397759+00:00",
+    "durationMs": 3.684,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "fa88bce6-fa03-4eba-99ae-e6dc5a454b54",
+    "startedAt": "2026-10-02T16:05:49.404268+00:00",
+    "durationMs": 0.036,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "71d5b1d7-0b44-41cd-bd31-7346d4321eac",
+    "startedAt": "2026-10-02T16:05:49.406914+00:00",
+    "durationMs": 0.035,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "af247bf3-df6a-4355-a53c-60729e7e538d",
+    "startedAt": "2026-10-02T16:05:49.409341+00:00",
+    "durationMs": 0.032,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "994ba855-47a5-47a3-90b6-ab54fcaf5083",
+    "startedAt": "2026-10-02T16:05:49.411901+00:00",
+    "durationMs": 0.032,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "ece06efe-c33f-4feb-aa22-68770cff2d72",
+    "startedAt": "2026-10-02T16:05:49.414485+00:00",
+    "durationMs": 4.81,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "API_NOT_ALLOWED"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "9a0706f0-5524-44e7-87dc-2675ea6fb194",
+    "startedAt": "2026-10-02T16:05:49.423695+00:00",
+    "durationMs": 5.638,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_APPROVED"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "8233c66d-baa0-4a70-aa19-14cf2f0148f4",
+    "startedAt": "2026-10-02T16:05:49.434289+00:00",
+    "durationMs": 4.523,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_APPROVED"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "81b47b2b-aa29-42e1-aaff-a36c7a8c65e3",
+    "startedAt": "2026-10-02T16:05:49.456866+00:00",
+    "durationMs": 431.908,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "d2c5f713-afa4-42fc-8226-76485dc63dd8",
+    "startedAt": "2026-10-02T16:05:49.998046+00:00",
+    "durationMs": 9.746,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "eccd642e-22ff-4ac7-9dd3-d09f5fa78d6f",
+    "startedAt": "2026-10-02T16:05:50.019563+00:00",
+    "durationMs": 25.557,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "8ee4be09-e853-4eb8-b1fd-23690cf3464e",
+    "startedAt": "2026-10-02T16:06:09.081753+00:00",
+    "durationMs": 0.174,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "afb2717b-112a-4928-b729-4b01307cb892",
+    "startedAt": "2026-10-02T16:06:09.084737+00:00",
+    "durationMs": 0.126,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "af7c9f85-4dc4-4c8a-93a3-488f722d66fb",
+    "startedAt": "2026-10-02T16:06:09.087979+00:00",
+    "durationMs": 0.082,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "932da270-ac9c-4065-a522-aad8637d6440",
+    "startedAt": "2026-10-02T16:06:09.090538+00:00",
+    "durationMs": 0.066,
+    "resultStatus": "ERROR",
+    "downstreamService": "ai/retrieval",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "b444d74e-2360-45b0-9e26-1bd2ff01621c",
+    "startedAt": "2026-10-02T16:06:09.093740+00:00",
+    "durationMs": 0.081,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "2d3aa9dc-7eb7-465c-b695-ab4374218085",
+    "startedAt": "2026-10-02T16:06:09.096542+00:00",
+    "durationMs": 0.077,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "d09c96f7-cc1f-4693-80f2-238e38ef7f1b",
+    "startedAt": "2026-10-02T16:06:09.099658+00:00",
+    "durationMs": 0.076,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "34e028c9-82ad-4c75-9719-be0a8cf8b4e5",
+    "startedAt": "2026-10-02T16:06:09.102401+00:00",
+    "durationMs": 0.099,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "c9a651eb-470b-456d-94da-1fe6dab051e0",
+    "startedAt": "2026-10-02T16:06:09.105230+00:00",
+    "durationMs": 0.086,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "87fc1990-0510-47e5-beba-5722ba229e65",
+    "startedAt": "2026-10-02T16:06:09.107778+00:00",
+    "durationMs": 0.071,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "c33c5a04-91e3-4fed-a591-f78c484428f1",
+    "startedAt": "2026-10-02T16:06:09.110260+00:00",
+    "durationMs": 0.072,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "4e6d021c-4023-4daf-974f-9ca20435426c",
+    "startedAt": "2026-10-02T16:06:09.112832+00:00",
+    "durationMs": 0.07,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "2c559a9a-d66c-4f9a-9a5a-8a96af624943",
+    "startedAt": "2026-10-02T16:06:09.115692+00:00",
+    "durationMs": 0.073,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "2d1ce41a-3761-44db-b285-52611ab8d746",
+    "startedAt": "2026-10-02T16:06:09.118357+00:00",
+    "durationMs": 0.074,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "fd15e3a2-45b5-44d1-80f6-d931208d8af6",
+    "startedAt": "2026-10-02T16:06:09.121242+00:00",
+    "durationMs": 0.086,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "f153b7fe-1eb1-465b-b99d-c0440c8f9c1f",
+    "startedAt": "2026-10-02T16:06:09.124030+00:00",
+    "durationMs": 0.086,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "db3d7532-334e-4213-9192-df40f1b62c98",
+    "startedAt": "2026-10-02T16:06:09.126745+00:00",
+    "durationMs": 0.072,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "INVALID_ARGUMENTS"
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "1fc51653-34e3-4019-bcd4-a08489dcdf74",
+    "startedAt": "2026-10-02T16:06:09.129271+00:00",
+    "durationMs": 5.293,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "6c80c9d8-fae5-432d-9840-57709e63b433",
+    "startedAt": "2026-10-02T16:06:09.137591+00:00",
+    "durationMs": 3.626,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "353d8a75-4ac0-4b70-be60-f3987eeb26df",
+    "startedAt": "2026-10-02T16:06:09.143953+00:00",
+    "durationMs": 11.518,
+    "resultStatus": "ERROR",
+    "downstreamService": "evaluation",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "9236a328-a1d8-44f0-81a0-585deb026cc4",
+    "startedAt": "2026-10-02T16:06:09.158606+00:00",
+    "durationMs": 3.154,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_FOUND"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "8a83c8ae-0673-419c-b573-954478efe3ec",
+    "startedAt": "2026-10-02T16:06:09.164515+00:00",
+    "durationMs": 0.034,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "2acbd753-1b8d-4742-a84f-7cb82f6b0f75",
+    "startedAt": "2026-10-02T16:06:09.167225+00:00",
+    "durationMs": 0.032,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "6ebd352c-8de6-4d09-9cec-44d72f9ed3ee",
+    "startedAt": "2026-10-02T16:06:09.169896+00:00",
+    "durationMs": 0.032,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "UNKNOWN_TOOL",
+    "requestId": "03ce5b53-6e09-4ecb-9144-2652c86844b9",
+    "startedAt": "2026-10-02T16:06:09.172423+00:00",
+    "durationMs": 0.031,
+    "resultStatus": "ERROR",
+    "downstreamService": null,
+    "errorCode": "UNKNOWN_TOOL"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "9eeb0f5e-cde4-4859-ade7-aed3f71f5fab",
+    "startedAt": "2026-10-02T16:06:09.174934+00:00",
+    "durationMs": 4.976,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "API_NOT_ALLOWED"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "1a57fc99-5c7d-4f70-b2cc-271ab912752d",
+    "startedAt": "2026-10-02T16:06:09.186267+00:00",
+    "durationMs": 4.4,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_APPROVED"
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "4ef5c0b4-e74c-466f-af30-ce6bddad0dfa",
+    "startedAt": "2026-10-02T16:06:09.195945+00:00",
+    "durationMs": 4.4,
+    "resultStatus": "ERROR",
+    "downstreamService": "backend",
+    "errorCode": "NOT_APPROVED"
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "7505d860-341e-440a-9f7b-7c49e7d7139d",
+    "startedAt": "2026-10-02T16:06:09.220245+00:00",
+    "durationMs": 94.656,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "7b35c47a-1e53-452c-93bb-f03a44217ed6",
+    "startedAt": "2026-10-02T16:06:09.436747+00:00",
+    "durationMs": 7.84,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "b74eb100-4a00-429c-8fa0-55a4b7f6d6ed",
+    "startedAt": "2026-10-02T16:06:09.459951+00:00",
+    "durationMs": 25.844,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "207b77d2-fa55-47dd-8e10-b7290f94228a",
+    "startedAt": "2026-10-02T16:06:09.518328+00:00",
+    "durationMs": 22.939,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "8895b851-f8dd-4d65-a49a-dfde60813969",
+    "startedAt": "2026-10-02T16:06:09.547758+00:00",
+    "durationMs": 13.744,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "862f523c-1f88-4e6d-8581-618f796b81a6",
+    "startedAt": "2026-10-02T16:06:09.574333+00:00",
+    "durationMs": 9.306,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "8383b9d1-2b8d-488f-9082-550f735315c6",
+    "startedAt": "2026-10-02T16:06:09.590049+00:00",
+    "durationMs": 232.824,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "09197155-2666-4446-81a2-cf5e9b0f13ab",
+    "startedAt": "2026-10-02T16:06:09.930679+00:00",
+    "durationMs": 195.276,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "5f14b05f-434b-454d-8940-e3a7c499a00d",
+    "startedAt": "2026-10-02T16:06:10.245009+00:00",
+    "durationMs": 99.867,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "2caa4058-a271-4ba8-a1f2-f94f2e6f2e1c",
+    "startedAt": "2026-10-02T16:06:10.348968+00:00",
+    "durationMs": 106.315,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "97ad1e30-7d25-46fe-824b-ea471ef97b5b",
+    "startedAt": "2026-10-02T16:06:10.640682+00:00",
+    "durationMs": 89.583,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "53a53e26-2eb0-4c66-8c8b-e59d96eff807",
+    "startedAt": "2026-10-02T16:06:10.734334+00:00",
+    "durationMs": 88.586,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "48fcd72c-2b14-4fcf-b8e6-1a286910a695",
+    "startedAt": "2026-10-02T16:06:11.005234+00:00",
+    "durationMs": 87.502,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "b86a2e5d-da89-4fce-bfc0-7c6d16a7d9ea",
+    "startedAt": "2026-10-02T16:06:11.097111+00:00",
+    "durationMs": 89.972,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "e5f6222d-cce0-42de-a58a-c8843e65fada",
+    "startedAt": "2026-10-02T16:06:11.394130+00:00",
+    "durationMs": 89.055,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "db2d47c0-17c5-45d0-a422-25a7e3d40e14",
+    "startedAt": "2026-10-02T16:06:11.487575+00:00",
+    "durationMs": 92.048,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "0550f51d-579f-4145-a199-eb383002bcd8",
+    "startedAt": "2026-10-02T16:06:11.777270+00:00",
+    "durationMs": 87.205,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "2911650a-3853-4b8c-81a2-daae1bc77752",
+    "startedAt": "2026-10-02T16:06:11.868583+00:00",
+    "durationMs": 83.222,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "bfa7e4e3-4825-4b14-9c88-13dea5862267",
+    "startedAt": "2026-10-02T16:06:12.135917+00:00",
+    "durationMs": 87.023,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "d15d3fbc-4906-49c3-80e8-ca76f84ae707",
+    "startedAt": "2026-10-02T16:06:12.227360+00:00",
+    "durationMs": 87.933,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "56370b9d-8cf2-4f80-85bb-a94eb757c8e4",
+    "startedAt": "2026-10-02T16:06:12.504084+00:00",
+    "durationMs": 102.376,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "b2602f01-c3cc-4674-a760-e75c09e98afe",
+    "startedAt": "2026-10-02T16:06:12.610340+00:00",
+    "durationMs": 102.19,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "cbde99b1-6213-43a1-af81-cb43e7a2b4b5",
+    "startedAt": "2026-10-02T16:06:12.922790+00:00",
+    "durationMs": 96.029,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "096dfa9b-fb24-4c46-a034-e189ff2b8370",
+    "startedAt": "2026-10-02T16:06:13.022784+00:00",
+    "durationMs": 97.176,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "0258eabf-e565-44d7-b596-495ccde670fb",
+    "startedAt": "2026-10-02T16:06:13.326032+00:00",
+    "durationMs": 100.259,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "4e890e6d-81ac-4775-870e-321cfa48f43b",
+    "startedAt": "2026-10-02T16:06:13.430522+00:00",
+    "durationMs": 94.645,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "4ac89593-3d48-4084-8b4d-efcb81ed93a8",
+    "startedAt": "2026-10-02T16:06:13.714493+00:00",
+    "durationMs": 93.516,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "229f7f34-2172-495c-874d-0b55ec8ac89f",
+    "startedAt": "2026-10-02T16:06:13.811839+00:00",
+    "durationMs": 93.399,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "1a7ff527-4002-433e-9459-d35a40888fa7",
+    "startedAt": "2026-10-02T16:06:14.105267+00:00",
+    "durationMs": 92.576,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "7738e67b-a2f2-465e-b590-d752f5a209d4",
+    "startedAt": "2026-10-02T16:06:14.202242+00:00",
+    "durationMs": 100.002,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "eeeee314-893f-4c60-b965-d627dda510e8",
+    "startedAt": "2026-10-02T16:06:14.495956+00:00",
+    "durationMs": 89.735,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "search_knowledge",
+    "requestId": "8f0242f2-52fe-4327-b870-f98d6267b090",
+    "startedAt": "2026-10-02T16:06:14.589502+00:00",
+    "durationMs": 106.621,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "ai/retrieval",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "5dcb21ad-230e-4316-b668-ccc85a74d0ce",
+    "startedAt": "2026-10-02T16:06:14.805725+00:00",
+    "durationMs": 6.594,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "01e1620d-a38c-4798-96e2-b3e26e6892fd",
+    "startedAt": "2026-10-02T16:06:14.821261+00:00",
+    "durationMs": 6.089,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "b227c401-83e8-4b93-9d21-85ff07363ea1",
+    "startedAt": "2026-10-02T16:06:14.849101+00:00",
+    "durationMs": 5.503,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "0df6cb37-8642-415c-9669-96c1da2116da",
+    "startedAt": "2026-10-02T16:06:14.862747+00:00",
+    "durationMs": 7.055,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "99f50880-6d7e-4e45-8608-48fef5987e2f",
+    "startedAt": "2026-10-02T16:06:14.894359+00:00",
+    "durationMs": 5.908,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "d32f4650-b694-44a6-805b-f0cf17c4bd27",
+    "startedAt": "2026-10-02T16:06:14.908307+00:00",
+    "durationMs": 4.76,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "2be85674-b20b-4ae3-8c51-75621c15a012",
+    "startedAt": "2026-10-02T16:06:14.934878+00:00",
+    "durationMs": 5.767,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "7c7d1fe6-c128-46f4-808f-7b46b108680b",
+    "startedAt": "2026-10-02T16:06:14.948392+00:00",
+    "durationMs": 5.145,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "3989cb3f-4cc0-4d7e-bda8-0833fe0125a0",
+    "startedAt": "2026-10-02T16:06:14.976927+00:00",
+    "durationMs": 5.624,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "36473b6b-3952-44d5-b75d-74800b15ab69",
+    "startedAt": "2026-10-02T16:06:14.991367+00:00",
+    "durationMs": 6.739,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "89ca5e0a-079a-4ea8-b0b8-460287605df5",
+    "startedAt": "2026-10-02T16:06:15.020097+00:00",
+    "durationMs": 5.876,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "15fe824f-9c9d-43c0-846a-7e99df24c09c",
+    "startedAt": "2026-10-02T16:06:15.037108+00:00",
+    "durationMs": 8.396,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "2cefd4e0-074e-4023-9a20-c701bea555b3",
+    "startedAt": "2026-10-02T16:06:15.089586+00:00",
+    "durationMs": 19.763,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "c5dfc808-078a-423b-a880-ce0aeb35306e",
+    "startedAt": "2026-10-02T16:06:15.115146+00:00",
+    "durationMs": 18.73,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "ca29e108-b7c5-411e-ab0e-2a136a595cbd",
+    "startedAt": "2026-10-02T16:06:15.184058+00:00",
+    "durationMs": 16.477,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "be3db4fc-b398-4cad-b82a-5ceb028e1efb",
+    "startedAt": "2026-10-02T16:06:15.205487+00:00",
+    "durationMs": 18.832,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "f0d2a607-dabb-485d-8197-c76d529716a7",
+    "startedAt": "2026-10-02T16:06:15.285633+00:00",
+    "durationMs": 16.98,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "3f4c7128-2187-4700-bf8d-0f909f5fc5b8",
+    "startedAt": "2026-10-02T16:06:15.307926+00:00",
+    "durationMs": 19.192,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "aafd9e50-8a07-4cc6-8dae-a87c7fcfcee7",
+    "startedAt": "2026-10-02T16:06:15.382705+00:00",
+    "durationMs": 15.359,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "bdb35bf4-ba31-40d6-b59d-30ceaef3adb6",
+    "startedAt": "2026-10-02T16:06:15.402720+00:00",
+    "durationMs": 14.647,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "3a6d5a4c-7bd7-43ff-9a50-78bbec8a4ecd",
+    "startedAt": "2026-10-02T16:06:15.473294+00:00",
+    "durationMs": 14.884,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "ae61f8a4-9f67-4008-8fc0-4828504ec57f",
+    "startedAt": "2026-10-02T16:06:15.493265+00:00",
+    "durationMs": 14.753,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "d4548562-53eb-4409-b08d-516fe74b2820",
+    "startedAt": "2026-10-02T16:06:15.553569+00:00",
+    "durationMs": 15.663,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "cfb9c3c5-f86e-4afe-be0b-bcb870805350",
+    "startedAt": "2026-10-02T16:06:15.574085+00:00",
+    "durationMs": 13.82,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "81d8ba1f-aa49-49f7-bc33-6926c5071772",
+    "startedAt": "2026-10-02T16:06:15.630152+00:00",
+    "durationMs": 19.024,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "44877e8b-d237-47a8-b109-08b60e8e8b4d",
+    "startedAt": "2026-10-02T16:06:15.652723+00:00",
+    "durationMs": 24.236,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "bdc50d14-08e0-4328-86e7-f7ca9ad7e430",
+    "startedAt": "2026-10-02T16:06:15.715442+00:00",
+    "durationMs": 18.729,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "a7a8b8a2-3335-4c80-b860-4d977b95d885",
+    "startedAt": "2026-10-02T16:06:15.738309+00:00",
+    "durationMs": 18.209,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "60b9a08c-6c5f-4fe5-84ab-78475e54fac5",
+    "startedAt": "2026-10-02T16:06:15.796122+00:00",
+    "durationMs": 16.433,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "b66f8b2c-e398-4d28-a7fe-45741ffd8b41",
+    "startedAt": "2026-10-02T16:06:15.816057+00:00",
+    "durationMs": 23.749,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "5d870e5d-7741-47ec-af7e-6a7e0ce8684a",
+    "startedAt": "2026-10-02T16:06:15.878324+00:00",
+    "durationMs": 15.937,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "441c0a31-0824-4701-856a-dda65169134f",
+    "startedAt": "2026-10-02T16:06:15.898017+00:00",
+    "durationMs": 19.633,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "91a9cfd9-10e6-401c-b1fb-44d1ef6882d2",
+    "startedAt": "2026-10-02T16:06:15.955701+00:00",
+    "durationMs": 16.986,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "32f455c0-cf35-4b7d-83e8-3518216cb520",
+    "startedAt": "2026-10-02T16:06:15.976360+00:00",
+    "durationMs": 25.398,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "18357cf2-c0a3-4e2c-828a-c19780f4d4b9",
+    "startedAt": "2026-10-02T16:06:16.042095+00:00",
+    "durationMs": 18.241,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_evaluation_result",
+    "requestId": "bde44d3d-7457-42f0-b6d6-db4e2e8dcb21",
+    "startedAt": "2026-10-02T16:06:16.064834+00:00",
+    "durationMs": 18.161,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "evaluation",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "2d407471-b5bc-4b70-8ca0-0bb83357a6c6",
+    "startedAt": "2026-10-02T16:06:16.114888+00:00",
+    "durationMs": 7.924,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "3137dc17-9bba-4a39-8443-23dbe6867130",
+    "startedAt": "2026-10-02T16:06:16.126333+00:00",
+    "durationMs": 5.747,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "282ea496-2c3b-4d29-9ae0-776c101f0a88",
+    "startedAt": "2026-10-02T16:06:16.148494+00:00",
+    "durationMs": 5.885,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "8ba7d725-17e8-48d2-8a4c-1c2f401b5230",
+    "startedAt": "2026-10-02T16:06:16.158300+00:00",
+    "durationMs": 5.895,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "5bcede7f-9aaf-4342-9ff4-4e8ff53c4aea",
+    "startedAt": "2026-10-02T16:06:16.181345+00:00",
+    "durationMs": 7.084,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "27283cc3-ba69-4b04-a124-e1f2f7084c4d",
+    "startedAt": "2026-10-02T16:06:16.192489+00:00",
+    "durationMs": 6.306,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "96657116-bfff-46ab-ab9c-9ac3bcbf6c14",
+    "startedAt": "2026-10-02T16:06:16.216942+00:00",
+    "durationMs": 7.294,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "a2449750-e6a6-4b4d-8990-6c99378efb2e",
+    "startedAt": "2026-10-02T16:06:16.228639+00:00",
+    "durationMs": 5.461,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "9949ad5c-358d-4b19-96b6-583a0ec4d1f4",
+    "startedAt": "2026-10-02T16:06:16.249333+00:00",
+    "durationMs": 7.017,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "6dc30014-736c-4c3d-bfc3-d5771354635c",
+    "startedAt": "2026-10-02T16:06:16.259913+00:00",
+    "durationMs": 4.821,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "d0fad062-3e98-44bd-866e-ef12ad4e10ba",
+    "startedAt": "2026-10-02T16:06:16.281175+00:00",
+    "durationMs": 6.253,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "execute_approved_test",
+    "requestId": "334ef6d6-c503-4a99-98d4-f85cd0862bee",
+    "startedAt": "2026-10-02T16:06:16.290924+00:00",
+    "durationMs": 5.338,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "get_test_cases",
+    "requestId": "e14042e0-4541-4f13-82e7-9f5c185c2d48",
+    "startedAt": "2026-10-02T16:06:16.329596+00:00",
+    "durationMs": 20.12,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "788f0159-680e-48fb-95e3-eb168fd5de61",
+    "startedAt": "2026-10-02T16:11:13.511601+00:00",
+    "durationMs": 41.739,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  },
+  {
+    "toolName": "analyze_requirement",
+    "requestId": "7247ab81-ac67-4d28-a0a3-c9cf8031c4a1",
+    "startedAt": "2026-10-02T16:11:45.750437+00:00",
+    "durationMs": 19.546,
+    "resultStatus": "SUCCESS",
+    "downstreamService": "backend",
+    "errorCode": null
+  }
+]

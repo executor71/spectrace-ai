@@ -1,0 +1,343 @@
+{
+  "_meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"executionId\": \"deaa727d-4766-4f4b-b47b-7e0dbbb94572\", \"testCaseId\": \"4611bca5-0d0c-45dd-9793-75566c432c89\", \"requirementId\": \"80e2d374-0825-4811-a11e-03ade256b6e8\", \"executedAt\": \"2026-10-02T16:06:09.578296Z\", \"apiId\": \"API-LOAN-APPROVE\", \"testCaseRevision\": 4, \"generationId\": \"b2ccb6dd-5820-4cbf-899a-d27f877cedd8\", \"runnerVersion\": \"phase7-dummy-v1\", \"validator\": \"loan-approval-v1\", \"syntheticDefect\": true, \"testCaseSnapshot\": {\"type\": \"EXCEPTION\", \"input\": {\"body\": {\"comment\": \"합성 검증\"}, \"method\": \"POST\", \"endpoint\": \"/loans/{loanId}/approve\", \"actorFixture\": \"requester\", \"fixtureProfile\": \"synthetic-self-approval-bug\", \"pathParameters\": {\"loanId\": \"00000000-0000-4000-8000-000000000041\"}}, \"steps\": [\"사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.\", \"지정 계정으로 input의 승인 요청을 보낸다.\", \"응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다.\"], \"evidence\": [{\"chunkId\": \"29068730-5e86-57f1-bee2-ffaae1575a08\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\"}, {\"chunkId\": \"fac8b9c8-cab2-54a6-a555-f938e47ec23a\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\"}, {\"chunkId\": \"7c7eda12-4b56-5ad1-a30d-627031666355\", \"documentId\": \"e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520\"}, {\"chunkId\": \"d10c2901-6178-56c5-a019-c45bb1ce5520\", \"documentId\": \"34b91c10-3bd5-547e-97c2-18641d80eb14\"}], \"modified\": true, \"reviewer\": \"demo/local\", \"scenario\": \"[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.\", \"executable\": true, \"reviewedAt\": \"2026-10-02T11:27:40.771762+00:00\", \"testCaseId\": \"4611bca5-0d0c-45dd-9793-75566c432c89\", \"preconditions\": [\"합성 계정과 부서 관계를 시험 환경에 준비한다: requester\", \"합성 대여 신청의 상태는 PENDING_APPROVAL이다.\", \"해당 자산의 상태는 AVAILABLE이다.\", \"상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다.\"], \"requirementId\": \"80e2d374-0825-4811-a11e-03ade256b6e8\", \"reviewComment\": \"\", \"approvalStatus\": \"APPROVED\", \"expectedResult\": {\"assertions\": [{\"kind\": \"HTTP_STATUS\", \"value\": 403}, {\"kind\": \"RESPONSE_TOKEN\", \"value\": \"SELF_APPROVAL_FORBIDDEN\"}, {\"kind\": \"UNCHANGED\", \"field\": \"loanStatus\"}, {\"kind\": \"UNCHANGED\", \"field\": \"assetStatus\"}], \"description\": \"본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다.\"}, \"reviewRevision\": 4, \"reviewedContent\": {\"type\": \"EXCEPTION\", \"input\": {\"body\": {\"comment\": \"합성 검증\"}, \"method\": \"POST\", \"endpoint\": \"/loans/{loanId}/approve\", \"actorFixture\": \"requester\", \"fixtureProfile\": \"synthetic-self-approval-bug\", \"pathParameters\": {\"loanId\": \"00000000-0000-4000-8000-000000000041\"}}, \"steps\": [\"사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.\", \"지정 계정으로 input의 승인 요청을 보낸다.\", \"응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다.\"], \"scenario\": \"[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.\", \"preconditions\": [\"합성 계정과 부서 관계를 시험 환경에 준비한다: requester\", \"합성 대여 신청의 상태는 PENDING_APPROVAL이다.\", \"해당 자산의 상태는 AVAILABLE이다.\", \"상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다.\"], \"expectedResult\": {\"assertions\": [{\"kind\": \"HTTP_STATUS\", \"value\": 403}, {\"kind\": \"RESPONSE_TOKEN\", \"value\": \"SELF_APPROVAL_FORBIDDEN\"}, {\"kind\": \"UNCHANGED\", \"field\": \"loanStatus\"}, {\"kind\": \"UNCHANGED\", \"field\": \"assetStatus\"}], \"description\": \"본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다.\"}}, \"generatedContent\": {\"type\": \"EXCEPTION\", \"input\": {\"body\": {\"comment\": \"합성 검증\"}, \"method\": \"POST\", \"endpoint\": \"/loans/{loanId}/approve\", \"actorFixture\": \"requester\", \"pathParameters\": {\"loanId\": \"00000000-0000-4000-8000-000000000041\"}}, \"steps\": [\"사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.\", \"지정 계정으로 input의 승인 요청을 보낸다.\", \"응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다.\"], \"evidence\": [{\"chunkId\": \"29068730-5e86-57f1-bee2-ffaae1575a08\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\"}, {\"chunkId\": \"fac8b9c8-cab2-54a6-a555-f938e47ec23a\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\"}, {\"chunkId\": \"7c7eda12-4b56-5ad1-a30d-627031666355\", \"documentId\": \"e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520\"}, {\"chunkId\": \"d10c2901-6178-56c5-a019-c45bb1ce5520\", \"documentId\": \"34b91c10-3bd5-547e-97c2-18641d80eb14\"}], \"scenario\": \"신청자 본인이 자신의 신청을 승인하면 거부된다.\", \"executable\": false, \"testCaseId\": \"4611bca5-0d0c-45dd-9793-75566c432c89\", \"preconditions\": [\"합성 계정과 부서 관계를 시험 환경에 준비한다: requester\", \"합성 대여 신청의 상태는 PENDING_APPROVAL이다.\", \"해당 자산의 상태는 AVAILABLE이다.\", \"상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다.\"], \"requirementId\": \"80e2d374-0825-4811-a11e-03ade256b6e8\", \"expectedResult\": {\"assertions\": [{\"kind\": \"HTTP_STATUS\", \"value\": 403}, {\"kind\": \"RESPONSE_TOKEN\", \"value\": \"SELF_APPROVAL_FORBIDDEN\"}], \"description\": \"본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다.\"}}, \"fixtureReady\": true, \"executionEligible\": true}, \"evidence\": [{\"chunkId\": \"29068730-5e86-57f1-bee2-ffaae1575a08\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\"}, {\"chunkId\": \"fac8b9c8-cab2-54a6-a555-f938e47ec23a\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\"}, {\"chunkId\": \"7c7eda12-4b56-5ad1-a30d-627031666355\", \"documentId\": \"e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520\"}, {\"chunkId\": \"d10c2901-6178-56c5-a019-c45bb1ce5520\", \"documentId\": \"34b91c10-3bd5-547e-97c2-18641d80eb14\"}], \"sourceEvidence\": [{\"score\": 0.8322013120531386, \"chunkId\": \"29068730-5e86-57f1-bee2-ffaae1575a08\", \"section\": \"부서장 승인과 자기 승인 금지\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\", \"documentType\": \"BUSINESS_RULE\", \"contentSnippet\": \"대여 신청은 PENDING_APPROVAL로 생성된다. 요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다. 자기 승인 대신 상위 조직의 지정 승인자에게 전달한다. 반려 시 사유는 필수다. 취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.\"}, {\"score\": 0.7837601690721223, \"chunkId\": \"d10c2901-6178-56c5-a019-c45bb1ce5520\", \"section\": \"대여 승인 권한 테스트\", \"documentId\": \"34b91c10-3bd5-547e-97c2-18641d80eb14\", \"documentType\": \"TEST_GUIDE\", \"contentSnippet\": \"서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다.\"}, {\"score\": 0.6859023349401601, \"chunkId\": \"7c7eda12-4b56-5ad1-a30d-627031666355\", \"section\": \"POST /loans/{loanId}/approve 승인\", \"documentId\": \"e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520\", \"documentType\": \"API_SPEC\", \"contentSnippet\": \"POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.\"}, {\"score\": 0.6748847156900555, \"chunkId\": \"eb8499ff-e3dd-5724-b927-c928df48d1ec\", \"section\": \"동시 대여 승인 테스트\", \"documentId\": \"34b91c10-3bd5-547e-97c2-18641d80eb14\", \"documentType\": \"TEST_GUIDE\", \"contentSnippet\": \"AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.\"}, {\"score\": 0.6700801843261401, \"chunkId\": \"fac8b9c8-cab2-54a6-a555-f938e47ec23a\", \"section\": \"동시 승인과 자산 예약\", \"documentId\": \"7cea4fe7-6b00-56c9-be35-3194aeecb923\", \"documentType\": \"BUSINESS_RULE\", \"contentSnippet\": \"대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.\"}], \"apiSpecEvidence\": {\"source\": \"knowledge/documents/loan-api.md\", \"route\": \"POST /loans/{loanId}/approve\", \"excerpt\": \"성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다.\"}, \"eligibility\": {\"testCaseId\": \"4611bca5-0d0c-45dd-9793-75566c432c89\", \"approvalStatus\": \"APPROVED\", \"executable\": true, \"fixtureReady\": true, \"apiAllowed\": true, \"executionEligible\": true, \"reviewRevision\": 4, \"assessmentVersion\": \"phase7-dummy-v1\", \"apiId\": \"API-LOAN-APPROVE\", \"blockedReason\": null, \"syntheticDefect\": true}, \"expected\": {\"httpStatus\": 403, \"errorCode\": \"SELF_APPROVAL_FORBIDDEN\", \"state\": {\"loanStatus\": \"PENDING_APPROVAL\", \"assetStatus\": \"AVAILABLE\"}}, \"fixtureBefore\": {\"loanStatus\": \"PENDING_APPROVAL\", \"assetStatus\": \"AVAILABLE\"}, \"request\": {\"method\": \"POST\", \"path\": \"/loans/00000000-0000-4000-8000-000000000041/approve\", \"actorFixture\": \"requester\", \"fixtureProfile\": \"synthetic-self-approval-bug\", \"body\": {\"comment\": \"합성 검증\"}}, \"actual\": {\"httpStatus\": 200, \"response\": {\"status\": \"APPROVED\"}, \"errorCode\": null, \"state\": {\"loanStatus\": \"APPROVED\", \"assetStatus\": \"RESERVED\"}}, \"mismatches\": [{\"field\": \"httpStatus\", \"expected\": 403, \"actual\": 200}, {\"field\": \"errorCode\", \"expected\": \"SELF_APPROVAL_FORBIDDEN\", \"actual\": null}, {\"field\": \"state.loanStatus\", \"expected\": \"PENDING_APPROVAL\", \"actual\": \"APPROVED\"}, {\"field\": \"state.assetStatus\", \"expected\": \"AVAILABLE\", \"actual\": \"RESERVED\"}], \"result\": \"FAIL\", \"durationMs\": 2}",
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "structuredContent": {
+    "executionId": "deaa727d-4766-4f4b-b47b-7e0dbbb94572",
+    "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+    "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+    "executedAt": "2026-10-02T16:06:09.578296Z",
+    "apiId": "API-LOAN-APPROVE",
+    "testCaseRevision": 4,
+    "generationId": "b2ccb6dd-5820-4cbf-899a-d27f877cedd8",
+    "runnerVersion": "phase7-dummy-v1",
+    "validator": "loan-approval-v1",
+    "syntheticDefect": true,
+    "testCaseSnapshot": {
+      "type": "EXCEPTION",
+      "input": {
+        "body": {
+          "comment": "합성 검증"
+        },
+        "method": "POST",
+        "endpoint": "/loans/{loanId}/approve",
+        "actorFixture": "requester",
+        "fixtureProfile": "synthetic-self-approval-bug",
+        "pathParameters": {
+          "loanId": "00000000-0000-4000-8000-000000000041"
+        }
+      },
+      "steps": [
+        "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+        "지정 계정으로 input의 승인 요청을 보낸다.",
+        "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+      ],
+      "evidence": [
+        {
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+        },
+        {
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14"
+        }
+      ],
+      "modified": true,
+      "reviewer": "demo/local",
+      "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+      "executable": true,
+      "reviewedAt": "2026-10-02T11:27:40.771762+00:00",
+      "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+      "preconditions": [
+        "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+        "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+        "해당 자산의 상태는 AVAILABLE이다.",
+        "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+      ],
+      "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+      "reviewComment": "",
+      "approvalStatus": "APPROVED",
+      "expectedResult": {
+        "assertions": [
+          {
+            "kind": "HTTP_STATUS",
+            "value": 403
+          },
+          {
+            "kind": "RESPONSE_TOKEN",
+            "value": "SELF_APPROVAL_FORBIDDEN"
+          },
+          {
+            "kind": "UNCHANGED",
+            "field": "loanStatus"
+          },
+          {
+            "kind": "UNCHANGED",
+            "field": "assetStatus"
+          }
+        ],
+        "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+      },
+      "reviewRevision": 4,
+      "reviewedContent": {
+        "type": "EXCEPTION",
+        "input": {
+          "body": {
+            "comment": "합성 검증"
+          },
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "actorFixture": "requester",
+          "fixtureProfile": "synthetic-self-approval-bug",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          }
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "expectedResult": {
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "SELF_APPROVAL_FORBIDDEN"
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "loanStatus"
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "assetStatus"
+            }
+          ],
+          "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+        }
+      },
+      "generatedContent": {
+        "type": "EXCEPTION",
+        "input": {
+          "body": {
+            "comment": "합성 검증"
+          },
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "actorFixture": "requester",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          }
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "evidence": [
+          {
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+          },
+          {
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+          },
+          {
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+          },
+          {
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14"
+          }
+        ],
+        "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+        "executable": false,
+        "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+        "expectedResult": {
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "SELF_APPROVAL_FORBIDDEN"
+            }
+          ],
+          "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+        }
+      },
+      "fixtureReady": true,
+      "executionEligible": true
+    },
+    "evidence": [
+      {
+        "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+      },
+      {
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+      },
+      {
+        "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520"
+      },
+      {
+        "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+        "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14"
+      }
+    ],
+    "sourceEvidence": [
+      {
+        "score": 0.8322013120531386,
+        "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "section": "부서장 승인과 자기 승인 금지",
+        "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "documentType": "BUSINESS_RULE",
+        "contentSnippet": "대여 신청은 PENDING_APPROVAL로 생성된다. 요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다. 자기 승인 대신 상위 조직의 지정 승인자에게 전달한다. 반려 시 사유는 필수다. 취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다."
+      },
+      {
+        "score": 0.7837601690721223,
+        "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+        "section": "대여 승인 권한 테스트",
+        "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "documentType": "TEST_GUIDE",
+        "contentSnippet": "서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다."
+      },
+      {
+        "score": 0.6859023349401601,
+        "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "section": "POST /loans/{loanId}/approve 승인",
+        "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+        "documentType": "API_SPEC",
+        "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다."
+      },
+      {
+        "score": 0.6748847156900555,
+        "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "section": "동시 대여 승인 테스트",
+        "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+        "documentType": "TEST_GUIDE",
+        "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다."
+      },
+      {
+        "score": 0.6700801843261401,
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "section": "동시 승인과 자산 예약",
+        "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+        "documentType": "BUSINESS_RULE",
+        "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다."
+      }
+    ],
+    "apiSpecEvidence": {
+      "source": "knowledge/documents/loan-api.md",
+      "route": "POST /loans/{loanId}/approve",
+      "excerpt": "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+    },
+    "eligibility": {
+      "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+      "approvalStatus": "APPROVED",
+      "executable": true,
+      "fixtureReady": true,
+      "apiAllowed": true,
+      "executionEligible": true,
+      "reviewRevision": 4,
+      "assessmentVersion": "phase7-dummy-v1",
+      "apiId": "API-LOAN-APPROVE",
+      "blockedReason": null,
+      "syntheticDefect": true
+    },
+    "expected": {
+      "httpStatus": 403,
+      "errorCode": "SELF_APPROVAL_FORBIDDEN",
+      "state": {
+        "loanStatus": "PENDING_APPROVAL",
+        "assetStatus": "AVAILABLE"
+      }
+    },
+    "fixtureBefore": {
+      "loanStatus": "PENDING_APPROVAL",
+      "assetStatus": "AVAILABLE"
+    },
+    "request": {
+      "method": "POST",
+      "path": "/loans/00000000-0000-4000-8000-000000000041/approve",
+      "actorFixture": "requester",
+      "fixtureProfile": "synthetic-self-approval-bug",
+      "body": {
+        "comment": "합성 검증"
+      }
+    },
+    "actual": {
+      "httpStatus": 200,
+      "response": {
+        "status": "APPROVED"
+      },
+      "errorCode": null,
+      "state": {
+        "loanStatus": "APPROVED",
+        "assetStatus": "RESERVED"
+      }
+    },
+    "mismatches": [
+      {
+        "field": "httpStatus",
+        "expected": 403,
+        "actual": 200
+      },
+      {
+        "field": "errorCode",
+        "expected": "SELF_APPROVAL_FORBIDDEN",
+        "actual": null
+      },
+      {
+        "field": "state.loanStatus",
+        "expected": "PENDING_APPROVAL",
+        "actual": "APPROVED"
+      },
+      {
+        "field": "state.assetStatus",
+        "expected": "AVAILABLE",
+        "actual": "RESERVED"
+      }
+    ],
+    "result": "FAIL",
+    "durationMs": 2
+  },
+  "isError": false
+}
