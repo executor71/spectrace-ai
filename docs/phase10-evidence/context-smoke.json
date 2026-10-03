@@ -1,0 +1,718 @@
+{
+  "data": [
+    {
+      "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+      "spans": [
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "f234b846436c21f5",
+          "operationName": "http.server",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "39182ca49d47e2fb"
+            }
+          ],
+          "startTime": 1790960423644522,
+          "duration": 1013,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 1.0130189984920435
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 200
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 1.0130189984920435
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "55f9eda0-87fa-43a7-83cf-b435e9c67945"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "cb4a034b00d5d213",
+          "operationName": "query.embedding",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "65fa78926bb5d292"
+            }
+          ],
+          "startTime": 1790960419208676,
+          "duration": 4422381,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 4422.1754879981745
+            },
+            {
+              "key": "embedding.model",
+              "type": "string",
+              "value": "BAAI/bge-m3"
+            },
+            {
+              "key": "inputLength",
+              "type": "int64",
+              "value": 8
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 4422.1754879981745
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fe7c29c0-10b3-4222-ab12-4c74a54f2f4a"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "vectorDimension",
+              "type": "int64",
+              "value": 1024
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "bade8860283e09f2",
+          "operationName": "lexical.search",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "91f1c7aa3fc1240f"
+            }
+          ],
+          "startTime": 1790960423636305,
+          "duration": 455,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 0.42581399975460954
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 0.42581399975460954
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fe7c29c0-10b3-4222-ab12-4c74a54f2f4a"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "4d5ea71ea694b11e",
+          "operationName": "http.server",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "9bae75189c5b55b8"
+            }
+          ],
+          "startTime": 1790960417696136,
+          "duration": 5942218,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 5943.345558000146
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 200
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 5943.345558000146
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fe7c29c0-10b3-4222-ab12-4c74a54f2f4a"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "f319105518d7c65a",
+          "operationName": "http.server",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "39182ca49d47e2fb"
+            }
+          ],
+          "startTime": 1790960417676027,
+          "duration": 6218,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 6.712112000968773
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 200
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 6.712112000968773
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fc74ed7f-1722-4564-bd20-2b133f68dfb5"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "b69e0838841c9cda",
+          "operationName": "http.server",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "39182ca49d47e2fb"
+            }
+          ],
+          "startTime": 1790960417683969,
+          "duration": 749,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 0.6860860012238845
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 202
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 0.6860860012238845
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "d1e38e9e-0d3d-47ef-ad2f-093d3eb6b40d"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "38261b79a8d9483b",
+          "operationName": "http.server",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "39182ca49d47e2fb"
+            }
+          ],
+          "startTime": 1790960417687660,
+          "duration": 5953506,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 5953.491917996871
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 200
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 5953.491917996871
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "9361d737-7bda-43b7-a26c-4569f3d5e76e"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "774aae7e2eb3711a",
+          "operationName": "vector.search",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "65fa78926bb5d292"
+            }
+          ],
+          "startTime": 1790960423632260,
+          "duration": 3225,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 3.217003002646379
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 3.217003002646379
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fe7c29c0-10b3-4222-ab12-4c74a54f2f4a"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "65fa78926bb5d292",
+          "operationName": "rag.search",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "91f1c7aa3fc1240f"
+            }
+          ],
+          "startTime": 1790960419201212,
+          "duration": 4434901,
+          "tags": [
+            {
+              "key": "candidateCount",
+              "type": "int64",
+              "value": 20
+            },
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 4434.852484002477
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 4434.852484002477
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fe7c29c0-10b3-4222-ab12-4c74a54f2f4a"
+            },
+            {
+              "key": "resultCount",
+              "type": "int64",
+              "value": 20
+            },
+            {
+              "key": "retrieval.strategy",
+              "type": "string",
+              "value": "VECTOR"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "topK",
+              "type": "int64",
+              "value": 20
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "91f1c7aa3fc1240f",
+          "operationName": "rag.search",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "4d5ea71ea694b11e"
+            }
+          ],
+          "startTime": 1790960419201100,
+          "duration": 4435866,
+          "tags": [
+            {
+              "key": "candidateCount",
+              "type": "int64",
+              "value": 20
+            },
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 4435.926360998565
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 4435.926360998565
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fe7c29c0-10b3-4222-ab12-4c74a54f2f4a"
+            },
+            {
+              "key": "resultCount",
+              "type": "int64",
+              "value": 5
+            },
+            {
+              "key": "retrieval.strategy",
+              "type": "string",
+              "value": "HYBRID"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "topK",
+              "type": "int64",
+              "value": 5
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "39182ca49d47e2fb",
+          "operationName": "workflow.mcp",
+          "references": [],
+          "startTime": 1790960417647241,
+          "duration": 6000234,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 6000.222632999794
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 6000.222632999794
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            }
+          ],
+          "logs": [],
+          "processID": "p3",
+          "warnings": null
+        },
+        {
+          "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+          "spanID": "9bae75189c5b55b8",
+          "operationName": "mcp.tool",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "65ef58b5efda019c100af6ee29ce67f4",
+              "spanID": "38261b79a8d9483b"
+            }
+          ],
+          "startTime": 1790960417688595,
+          "duration": 5951790,
+          "tags": [
+            {
+              "key": "downstreamService",
+              "type": "string",
+              "value": "ai/retrieval"
+            },
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 5951.745018999645
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 5951.745018999645
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "fe7c29c0-10b3-4222-ab12-4c74a54f2f4a"
+            },
+            {
+              "key": "resultStatus",
+              "type": "string",
+              "value": "SUCCESS"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "toolName",
+              "type": "string",
+              "value": "search_knowledge"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        }
+      ],
+      "processes": {
+        "p1": {
+          "serviceName": "legacy-assistant-mcp",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.34.1"
+            }
+          ]
+        },
+        "p2": {
+          "serviceName": "legacy-assistant-retrieval",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.34.1"
+            }
+          ]
+        },
+        "p3": {
+          "serviceName": "legacy-assistant-demo",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.34.1"
+            }
+          ]
+        }
+      },
+      "warnings": null
+    }
+  ],
+  "total": 0,
+  "limit": 0,
+  "offset": 0,
+  "errors": null
+}

@@ -1,0 +1,14 @@
+{
+  "frozenFiles": 552,
+  "changedTracingOnlyFiles": [
+    "ai-service/app/llm_provider.py",
+    "ai-service/app/main.py",
+    "backend/pom.xml",
+    "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisClient.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseClient.java",
+    "evaluation-service/app/main.py",
+    "mcp-server/app/server.py",
+    "retrieval-service/retrieval/api.py"
+  ],
+  "unchangedFiles": 544
+}

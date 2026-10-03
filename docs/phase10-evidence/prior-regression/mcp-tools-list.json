@@ -1,0 +1,347 @@
+{
+  "meta": null,
+  "nextCursor": null,
+  "tools": [
+    {
+      "name": "search_knowledge",
+      "title": null,
+      "description": "Adapter to existing search_knowledge service",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "topK": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "default": 5
+          },
+          "strategy": {
+            "type": "string",
+            "enum": [
+              "VECTOR",
+              "HYBRID"
+            ],
+            "default": "VECTOR"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "analyze_requirement",
+      "title": null,
+      "description": "Adapter to existing analyze_requirement service",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "requirementId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required": [
+          "requirementId"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis": {
+            "additionalProperties": false,
+            "properties": {
+              "requirementId": {
+                "title": "Requirementid",
+                "type": "string"
+              },
+              "confirmedConditions": {
+                "items": {
+                  "$ref": "#/$defs/GroundedCondition"
+                },
+                "title": "Confirmedconditions",
+                "type": "array"
+              },
+              "ambiguousExpressions": {
+                "items": {
+                  "maxLength": 2000,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "title": "Ambiguousexpressions",
+                "type": "array"
+              },
+              "missingConditions": {
+                "items": {
+                  "maxLength": 2000,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "title": "Missingconditions",
+                "type": "array"
+              },
+              "relatedBusinessRules": {
+                "items": {
+                  "$ref": "#/$defs/GroundedCondition"
+                },
+                "title": "Relatedbusinessrules",
+                "type": "array"
+              },
+              "relatedApis": {
+                "items": {
+                  "$ref": "#/$defs/GroundedApi"
+                },
+                "title": "Relatedapis",
+                "type": "array"
+              },
+              "clarificationQuestions": {
+                "items": {
+                  "maxLength": 2000,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "title": "Clarificationquestions",
+                "type": "array"
+              },
+              "evidence": {
+                "items": {
+                  "$ref": "#/$defs/Evidence"
+                },
+                "title": "Evidence",
+                "type": "array"
+              }
+            },
+            "required": [
+              "requirementId",
+              "confirmedConditions",
+              "ambiguousExpressions",
+              "missingConditions",
+              "relatedBusinessRules",
+              "relatedApis",
+              "clarificationQuestions",
+              "evidence"
+            ],
+            "title": "AnalysisResult",
+            "type": "object"
+          },
+          "analysisSource": {
+            "enum": [
+              "SAVED",
+              "GENERATED"
+            ]
+          }
+        },
+        "required": [
+          "analysis",
+          "analysisSource"
+        ],
+        "additionalProperties": false,
+        "$defs": {
+          "Evidence": {
+            "additionalProperties": false,
+            "properties": {
+              "documentId": {
+                "title": "Documentid",
+                "type": "string"
+              },
+              "chunkId": {
+                "title": "Chunkid",
+                "type": "string"
+              },
+              "documentType": {
+                "title": "Documenttype",
+                "type": "string"
+              },
+              "section": {
+                "title": "Section",
+                "type": "string"
+              },
+              "contentSnippet": {
+                "title": "Contentsnippet",
+                "type": "string"
+              },
+              "score": {
+                "maximum": 1.001,
+                "minimum": -1.001,
+                "title": "Score",
+                "type": "number"
+              }
+            },
+            "required": [
+              "documentId",
+              "chunkId",
+              "documentType",
+              "section",
+              "contentSnippet",
+              "score"
+            ],
+            "title": "Evidence",
+            "type": "object"
+          },
+          "GroundedApi": {
+            "additionalProperties": false,
+            "properties": {
+              "api": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "title": "Api",
+                "type": "string"
+              },
+              "chunkId": {
+                "title": "Chunkid",
+                "type": "string"
+              }
+            },
+            "required": [
+              "api",
+              "chunkId"
+            ],
+            "title": "GroundedApi",
+            "type": "object"
+          },
+          "GroundedCondition": {
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              },
+              "chunkId": {
+                "title": "Chunkid",
+                "type": "string"
+              }
+            },
+            "required": [
+              "text",
+              "chunkId"
+            ],
+            "title": "GroundedCondition",
+            "type": "object"
+          }
+        }
+      },
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "get_test_cases",
+      "title": null,
+      "description": "Adapter to existing get_test_cases service",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "requirementId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required": [
+          "requirementId"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "get_evaluation_result",
+      "title": null,
+      "description": "Adapter to existing get_evaluation_result service",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "requirementId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required": [
+          "requirementId"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "execute_approved_test",
+      "title": null,
+      "description": "Adapter to existing execute_approved_test service",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "testCaseId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required": [
+          "testCaseId"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": {
+        "title": null,
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "meta": null,
+      "execution": null
+    }
+  ]
+}

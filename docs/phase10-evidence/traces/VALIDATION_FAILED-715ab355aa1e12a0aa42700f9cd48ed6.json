@@ -1,0 +1,188 @@
+{
+  "data": [
+    {
+      "traceID": "715ab355aa1e12a0aa42700f9cd48ed6",
+      "spans": [
+        {
+          "traceID": "715ab355aa1e12a0aa42700f9cd48ed6",
+          "spanID": "94d2d0ced00fde80",
+          "operationName": "workflow.validation",
+          "references": [],
+          "startTime": 1790960799997664,
+          "duration": 29352,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 29.297735000000102
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 29.297735000000102
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "715ab355aa1e12a0aa42700f9cd48ed6",
+          "spanID": "feac83c326f99e33",
+          "operationName": "http.server",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "715ab355aa1e12a0aa42700f9cd48ed6",
+              "spanID": "94d2d0ced00fde80"
+            }
+          ],
+          "startTime": 1790960800002396,
+          "duration": 21429,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 22.11154199903831
+            },
+            {
+              "key": "error",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "key": "error.code",
+              "type": "string",
+              "value": "VALIDATION_FAILED"
+            },
+            {
+              "key": "error.message",
+              "type": "string",
+              "value": "VALIDATION_FAILED"
+            },
+            {
+              "key": "error.type",
+              "type": "string",
+              "value": "VALIDATION_FAILED"
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 422
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 22.11154199903831
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "otel.status_code",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "2ad5ea44-3275-4969-b13a-8a4fe8db581e"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            },
+            {
+              "key": "success",
+              "type": "bool",
+              "value": false
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        }
+      ],
+      "processes": {
+        "p1": {
+          "serviceName": "legacy-assistant-demo",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.34.1"
+            }
+          ]
+        },
+        "p2": {
+          "serviceName": "legacy-assistant-ai",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.34.1"
+            }
+          ]
+        }
+      },
+      "warnings": null
+    }
+  ],
+  "total": 0,
+  "limit": 0,
+  "offset": 0,
+  "errors": null
+}

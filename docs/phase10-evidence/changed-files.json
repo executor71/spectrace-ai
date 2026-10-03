@@ -1,0 +1,49 @@
+{
+  "modifiedExistingFiles": [
+    "ai-service/app/llm_provider.py",
+    "ai-service/app/main.py",
+    "backend/pom.xml",
+    "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisClient.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseClient.java",
+    "evaluation-service/app/main.py",
+    "mcp-server/app/server.py",
+    "retrieval-service/retrieval/api.py"
+  ],
+  "newImplementationFiles": [
+    "backend/src/main/java/com/example/legacyassistant/observability/TraceFilter.java",
+    "backend/src/main/java/com/example/legacyassistant/observability/TraceHttpInterceptor.java",
+    "backend/src/main/java/com/example/legacyassistant/observability/Tracing.java",
+    "backend/src/main/java/com/example/legacyassistant/observability/WorkflowAspect.java",
+    "compose.phase10-test.yaml",
+    "compose.phase10.yaml",
+    "docs/scripts/phase10-browser.py",
+    "docs/scripts/phase10-final-check.py",
+    "docs/scripts/phase10-jaeger-details.py",
+    "docs/scripts/phase10-outage.py",
+    "docs/scripts/phase10-regression.py",
+    "docs/scripts/phase10-traces.py",
+    "observability/Dockerfile.ai",
+    "observability/Dockerfile.evaluation",
+    "observability/Dockerfile.mcp",
+    "observability/Dockerfile.retrieval",
+    "observability/README.md",
+    "observability/jaeger-config.yaml",
+    "observability/otel-collector-config.yaml",
+    "observability/python/workflow_otel/__init__.py",
+    "observability/python/workflow_otel/install.py",
+    "observability/requirements.txt",
+    "observability/tests/compare_baseline.py",
+    "observability/tests/demo.py",
+    "observability/tests/measure.py",
+    "observability/tests/mock_mcp_errors.py",
+    "observability/tests/real_analysis.py",
+    "observability/tests/smoke.py",
+    "observability/tests/test_observability.py"
+  ],
+  "newDocumentation": [
+    "docs/phase10-result.md",
+    "docs/phase9-baseline/sha256.json",
+    "docs/phase9-baseline/source.zip",
+    "docs/phase10-evidence/"
+  ]
+}

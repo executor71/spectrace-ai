@@ -1,0 +1,6 @@
+FROM master-evaluation-service:phase9-baseline
+COPY observability/requirements.txt /tmp/otel-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/otel-requirements.txt
+COPY observability/python/ /opt/observability/
+COPY evaluation-service/app/ /evaluation/app/
+ENV PYTHONPATH=/opt/observability:/evaluation

@@ -1,0 +1,506 @@
+[
+  {
+    "case": "A_HYBRID",
+    "traceId": "2e4df2040e8c58c37f0818906b27a65f",
+    "services": [
+      "legacy-assistant-backend",
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "backend.request",
+      "backend.requirement",
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.retrieval"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/2e4df2040e8c58c37f0818906b27a65f"
+  },
+  {
+    "case": "C_MCP",
+    "traceId": "4554d39f1a4fea1b232d93e5c2643172",
+    "services": [
+      "legacy-assistant-backend",
+      "legacy-assistant-demo",
+      "legacy-assistant-mcp"
+    ],
+    "operations": [
+      "backend.request",
+      "backend.requirement",
+      "dummy.execution.read",
+      "http.server",
+      "mcp.tool",
+      "testcase.read",
+      "workflow.mcp"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/4554d39f1a4fea1b232d93e5c2643172"
+  },
+  {
+    "case": "D_PASS",
+    "traceId": "8e30586b197705f10b22615288a952b2",
+    "executionId": "42c8fdb6-949e-4da5-9804-ea3640071927",
+    "services": [
+      "legacy-assistant-backend",
+      "legacy-assistant-demo"
+    ],
+    "operations": [
+      "backend.request",
+      "dummy.execution",
+      "workflow.d_pass"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/8e30586b197705f10b22615288a952b2"
+  },
+  {
+    "case": "E_FAIL",
+    "traceId": "cd088862b51b396283975c40c31d5526",
+    "executionId": "743f85d5-1271-41e4-ad64-551c783f5a4f",
+    "services": [
+      "legacy-assistant-backend",
+      "legacy-assistant-demo"
+    ],
+    "operations": [
+      "backend.request",
+      "dummy.execution",
+      "workflow.e_fail"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/cd088862b51b396283975c40c31d5526"
+  },
+  {
+    "case": "F_NOT_APPROVED",
+    "traceId": "2cd97e571780e423a43bc92aff0318b3",
+    "services": [
+      "legacy-assistant-backend",
+      "legacy-assistant-demo"
+    ],
+    "operations": [
+      "backend.request",
+      "dummy.execution",
+      "workflow.blocked"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/2cd97e571780e423a43bc92aff0318b3"
+  },
+  {
+    "case": "F_API_NOT_ALLOWED",
+    "traceId": "f1308ee314ea50da86e23e0b67aa04a5",
+    "services": [
+      "legacy-assistant-backend",
+      "legacy-assistant-demo"
+    ],
+    "operations": [
+      "backend.request",
+      "dummy.execution",
+      "workflow.blocked"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/f1308ee314ea50da86e23e0b67aa04a5"
+  },
+  {
+    "case": "RAG_NO_RESULT",
+    "traceId": "5e2eb2e97107320a0221ec26d01b1b9a",
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "rag.search",
+      "workflow.no_result"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/5e2eb2e97107320a0221ec26d01b1b9a"
+  },
+  {
+    "case": "VALIDATION_FAILED",
+    "traceId": "715ab355aa1e12a0aa42700f9cd48ed6",
+    "services": [
+      "legacy-assistant-ai",
+      "legacy-assistant-demo"
+    ],
+    "operations": [
+      "http.server",
+      "workflow.validation"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/715ab355aa1e12a0aa42700f9cd48ed6"
+  },
+  {
+    "case": "MCP_TOOL_REJECTED",
+    "traceId": "9416ba9ba173fdcf0389d8e4a463cbb0",
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-mcp"
+    ],
+    "operations": [
+      "http.server",
+      "mcp.tool",
+      "workflow.mcp_rejected"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/9416ba9ba173fdcf0389d8e4a463cbb0"
+  },
+  {
+    "case": "EVALUATION",
+    "traceId": "73a59955ff26ce61ac148a3229688e1c",
+    "evaluationId": "b6f54f3e-c7ff-4486-ba2c-cd6881aed359",
+    "services": [
+      "legacy-assistant-ai",
+      "legacy-assistant-backend",
+      "legacy-assistant-demo",
+      "legacy-assistant-evaluation"
+    ],
+    "operations": [
+      "backend.request",
+      "backend.requirement",
+      "evaluation",
+      "http.server",
+      "query.embedding",
+      "rag.search",
+      "testcase.read",
+      "vector.search",
+      "workflow.evaluation"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/73a59955ff26ce61ac148a3229688e1c"
+  },
+  {
+    "case": "WARMUP_VECTOR",
+    "traceId": "ad137d691121fbe48fec137e501d3fbe",
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.warmup"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/ad137d691121fbe48fec137e501d3fbe"
+  },
+  {
+    "case": "MEASURE_VECTOR",
+    "traceId": "3c6101f08f15f0a9523a3eb2f384d10a",
+    "iteration": 0,
+    "serverLatencyMs": 76.44775700100581,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.measure.vector"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/3c6101f08f15f0a9523a3eb2f384d10a"
+  },
+  {
+    "case": "MEASURE_VECTOR",
+    "traceId": "cefc71c5be17fe43b845cef0d9e266f3",
+    "iteration": 1,
+    "serverLatencyMs": 72.251926001627,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.measure.vector"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/cefc71c5be17fe43b845cef0d9e266f3"
+  },
+  {
+    "case": "MEASURE_VECTOR",
+    "traceId": "51b3dca9e31ac9d91e12455f19782fac",
+    "iteration": 2,
+    "serverLatencyMs": 70.3555990003224,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.measure.vector"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/51b3dca9e31ac9d91e12455f19782fac"
+  },
+  {
+    "case": "WARMUP_HYBRID",
+    "traceId": "29abd184a6f5905c8c69372840dd909d",
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.warmup"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/29abd184a6f5905c8c69372840dd909d"
+  },
+  {
+    "case": "MEASURE_HYBRID",
+    "traceId": "75280c73a33f3a4728721add0e7ef2dc",
+    "iteration": 0,
+    "serverLatencyMs": 68.59019799958332,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.measure.hybrid"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/75280c73a33f3a4728721add0e7ef2dc"
+  },
+  {
+    "case": "MEASURE_HYBRID",
+    "traceId": "c6d9aabafd85c538fd25d11b34dc1a7f",
+    "iteration": 1,
+    "serverLatencyMs": 70.46568400255637,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.measure.hybrid"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/c6d9aabafd85c538fd25d11b34dc1a7f"
+  },
+  {
+    "case": "MEASURE_HYBRID",
+    "traceId": "63a8e84601e9513519e7d0f53dc6fe0a",
+    "iteration": 2,
+    "serverLatencyMs": 69.74369000090519,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "vector.search",
+      "workflow.measure.hybrid"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/63a8e84601e9513519e7d0f53dc6fe0a"
+  },
+  {
+    "case": "WARMUP_HYBRID_RERANK",
+    "traceId": "7f639c776e96d754dd2f4625723f6469",
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "rerank",
+      "vector.search",
+      "workflow.warmup"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/7f639c776e96d754dd2f4625723f6469"
+  },
+  {
+    "case": "MEASURE_HYBRID_RERANK",
+    "traceId": "6e6f0b2d250fc1c99470237099bc09b4",
+    "iteration": 0,
+    "serverLatencyMs": 4383.7472980012535,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "rerank",
+      "vector.search",
+      "workflow.measure.hybrid_rerank"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/6e6f0b2d250fc1c99470237099bc09b4"
+  },
+  {
+    "case": "MEASURE_HYBRID_RERANK",
+    "traceId": "ff09e9e8f8a3b327f479f1e8499e211a",
+    "iteration": 1,
+    "serverLatencyMs": 4314.764375001687,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "rerank",
+      "vector.search",
+      "workflow.measure.hybrid_rerank"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/ff09e9e8f8a3b327f479f1e8499e211a"
+  },
+  {
+    "case": "MEASURE_HYBRID_RERANK",
+    "traceId": "f5ad3366f0fcb6bbc799d8431346e3d9",
+    "iteration": 2,
+    "serverLatencyMs": 4349.51326800001,
+    "services": [
+      "legacy-assistant-demo",
+      "legacy-assistant-retrieval"
+    ],
+    "operations": [
+      "http.server",
+      "lexical.search",
+      "query.embedding",
+      "rag.search",
+      "rerank",
+      "vector.search",
+      "workflow.measure.hybrid_rerank"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/f5ad3366f0fcb6bbc799d8431346e3d9"
+  },
+  {
+    "case": "LLM_INVALID_OUTPUT",
+    "traceId": "09a859d62802246fa03b385b232b2015",
+    "synthetic": true,
+    "services": [
+      "legacy-assistant-ai"
+    ],
+    "operations": [
+      "fixture.llm_invalid",
+      "llm.generate",
+      "requirement.analysis"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/09a859d62802246fa03b385b232b2015"
+  },
+  {
+    "case": "TESTCASE_GENERATION_MOCK",
+    "traceId": "638cc10da3f97aa5c31e84b0118209c6",
+    "synthetic": true,
+    "services": [
+      "legacy-assistant-ai"
+    ],
+    "operations": [
+      "fixture.testcase_generation",
+      "testcase.generate"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/638cc10da3f97aa5c31e84b0118209c6"
+  },
+  {
+    "case": "LLM_TIMEOUT",
+    "traceId": "43e3bcd97a639b812c0982a5bc0d5870",
+    "synthetic": true,
+    "services": [
+      "legacy-assistant-ai"
+    ],
+    "operations": [
+      "fixture.llm_timeout",
+      "llm.generate"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/43e3bcd97a639b812c0982a5bc0d5870"
+  },
+  {
+    "case": "NOT_EXECUTABLE",
+    "traceId": "e2603cbbda98b8640b582e2dbc10b545",
+    "synthetic": true,
+    "services": [
+      "legacy-assistant-mcp"
+    ],
+    "operations": [
+      "fixture.mcp_gate",
+      "mcp.tool"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/e2603cbbda98b8640b582e2dbc10b545"
+  },
+  {
+    "case": "FIXTURE_NOT_READY",
+    "traceId": "35d21c3d13f5966fa45631b4c18bfd4a",
+    "synthetic": true,
+    "services": [
+      "legacy-assistant-mcp"
+    ],
+    "operations": [
+      "fixture.mcp_gate",
+      "mcp.tool"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/35d21c3d13f5966fa45631b4c18bfd4a"
+  },
+  {
+    "traceId": "422ed46fd75674f2b7dfb4ba4b1937a4",
+    "status": 201,
+    "case": "BROWSER_PASS",
+    "services": [
+      "legacy-assistant-backend"
+    ],
+    "operations": [
+      "backend.request",
+      "dummy.execution"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/422ed46fd75674f2b7dfb4ba4b1937a4"
+  },
+  {
+    "traceId": "25902ec9f97a4aac6c0fa1572e633e8e",
+    "status": 201,
+    "case": "BROWSER_FAIL",
+    "services": [
+      "legacy-assistant-backend"
+    ],
+    "operations": [
+      "backend.request",
+      "dummy.execution"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/25902ec9f97a4aac6c0fa1572e633e8e"
+  },
+  {
+    "requirementId": "438c6b1b-e41e-4083-93da-72c0be1597bf",
+    "traceId": "0ffe8dbcbfed3a6a3c9f3f7cd7b252c8",
+    "status": "COMPLETED",
+    "representativeRequirements": 1,
+    "httpStatus": 200,
+    "latencyMs": 87384.38957499966,
+    "savedResultVerified": true,
+    "case": "B_REAL_ANALYSIS",
+    "services": [
+      "legacy-assistant-ai",
+      "legacy-assistant-backend",
+      "legacy-assistant-demo"
+    ],
+    "operations": [
+      "backend.request",
+      "backend.requirement",
+      "http.server",
+      "llm.generate",
+      "query.embedding",
+      "rag.search",
+      "requirement.analysis",
+      "requirement.analysis.read",
+      "vector.search",
+      "workflow.real_analysis"
+    ],
+    "jaegerUrl": "http://localhost:16686/trace/0ffe8dbcbfed3a6a3c9f3f7cd7b252c8"
+  }
+]

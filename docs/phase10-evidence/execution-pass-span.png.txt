@@ -1,0 +1,60 @@
+About Jaeger
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+legacy-assistant-backend: backend.request 422ed46
+⌘
+Trace Timeline
+Trace StartOctober 3 2026, 02:13:30.152Duration6.43msServices1Depth2Total Spans2
+0μs
+1.61ms
+3.21ms
+4.82ms
+6.43ms
+Service & Operation
+0μs
+1.61ms
+3.21ms
+4.82ms
+6.43ms
+legacy-assistant-backend backend.request
+6.43ms
+legacy-assistant-backend dummy.execution
+2.51ms
+dummy.execution
+Service:legacy-assistant-backendDuration:2.51msStart Time:834μs
+Tags
+apiId	
+API-LOAN-APPROVE
+	
+durationMs	
+2.192255
+	
+latencyMs	
+2.192255
+	
+mismatchCount	
+0
+	
+operation	
+execute
+	
+otel.scope.name	
+legacy-workflow
+	
+requestId	
+1651e7c5-ab3f-41eb-aa4c-7a1c5ffdfaa3
+	
+result	
+PASS
+	
+span.kind	
+internal
+	
+testCaseId	
+d4723cf0-56bd-46ff-b572-7ca83c586e29
+	
+Process:deployment.environment=localservice.version=phase10
+ fcd6f32fd17855d7

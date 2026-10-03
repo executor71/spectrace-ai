@@ -1,0 +1,4 @@
+services:
+  backend-test:
+    volumes:
+      - ./docs/phase10-evidence/prior-regression/backend-tests:/workspace/target/surefire-reports

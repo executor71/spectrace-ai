@@ -1,0 +1,121 @@
+{
+  "requiredCodes": [
+    "API_NOT_ALLOWED",
+    "DUMMY_TEST_FAIL",
+    "FIXTURE_NOT_READY",
+    "LLM_INVALID_OUTPUT",
+    "LLM_TIMEOUT",
+    "MCP_TOOL_REJECTED",
+    "RAG_NO_RESULT",
+    "TEST_NOT_APPROVED",
+    "TEST_NOT_EXECUTABLE",
+    "VALIDATION_FAILED"
+  ],
+  "result": "PASS",
+  "errors": [
+    {
+      "case": "E_FAIL",
+      "traceId": "cd088862b51b396283975c40c31d5526",
+      "spanId": "c3d7fead18754c3f",
+      "operation": "dummy.execution",
+      "code": "DUMMY_TEST_FAIL",
+      "synthetic": false
+    },
+    {
+      "case": "F_NOT_APPROVED",
+      "traceId": "2cd97e571780e423a43bc92aff0318b3",
+      "spanId": "10abc36b2ed0b8cc",
+      "operation": "backend.request",
+      "code": "VALIDATION_FAILED",
+      "synthetic": false
+    },
+    {
+      "case": "F_NOT_APPROVED",
+      "traceId": "2cd97e571780e423a43bc92aff0318b3",
+      "spanId": "248417ed6f630f1c",
+      "operation": "dummy.execution",
+      "code": "TEST_NOT_APPROVED",
+      "synthetic": false
+    },
+    {
+      "case": "F_API_NOT_ALLOWED",
+      "traceId": "f1308ee314ea50da86e23e0b67aa04a5",
+      "spanId": "1567bdbce64e38ae",
+      "operation": "dummy.execution",
+      "code": "API_NOT_ALLOWED",
+      "synthetic": false
+    },
+    {
+      "case": "F_API_NOT_ALLOWED",
+      "traceId": "f1308ee314ea50da86e23e0b67aa04a5",
+      "spanId": "e1723b68f0dbe821",
+      "operation": "backend.request",
+      "code": "VALIDATION_FAILED",
+      "synthetic": false
+    },
+    {
+      "case": "RAG_NO_RESULT",
+      "traceId": "5e2eb2e97107320a0221ec26d01b1b9a",
+      "spanId": "18a9667759af9788",
+      "operation": "rag.search",
+      "code": "RAG_NO_RESULT",
+      "synthetic": false
+    },
+    {
+      "case": "VALIDATION_FAILED",
+      "traceId": "715ab355aa1e12a0aa42700f9cd48ed6",
+      "spanId": "feac83c326f99e33",
+      "operation": "http.server",
+      "code": "VALIDATION_FAILED",
+      "synthetic": false
+    },
+    {
+      "case": "MCP_TOOL_REJECTED",
+      "traceId": "9416ba9ba173fdcf0389d8e4a463cbb0",
+      "spanId": "958792f5fdf16d12",
+      "operation": "mcp.tool",
+      "code": "MCP_TOOL_REJECTED",
+      "synthetic": false
+    },
+    {
+      "case": "LLM_INVALID_OUTPUT",
+      "traceId": "09a859d62802246fa03b385b232b2015",
+      "spanId": "f1babe996f1196f8",
+      "operation": "requirement.analysis",
+      "code": "LLM_INVALID_OUTPUT",
+      "synthetic": true
+    },
+    {
+      "case": "LLM_TIMEOUT",
+      "traceId": "43e3bcd97a639b812c0982a5bc0d5870",
+      "spanId": "f504edaa114ea982",
+      "operation": "llm.generate",
+      "code": "LLM_TIMEOUT",
+      "synthetic": true
+    },
+    {
+      "case": "NOT_EXECUTABLE",
+      "traceId": "e2603cbbda98b8640b582e2dbc10b545",
+      "spanId": "d91ec4abb6a1a5ed",
+      "operation": "mcp.tool",
+      "code": "TEST_NOT_EXECUTABLE",
+      "synthetic": true
+    },
+    {
+      "case": "FIXTURE_NOT_READY",
+      "traceId": "35d21c3d13f5966fa45631b4c18bfd4a",
+      "spanId": "895d67c3012b697c",
+      "operation": "mcp.tool",
+      "code": "FIXTURE_NOT_READY",
+      "synthetic": true
+    },
+    {
+      "case": "BROWSER_FAIL",
+      "traceId": "25902ec9f97a4aac6c0fa1572e633e8e",
+      "spanId": "b1c8efca81955495",
+      "operation": "dummy.execution",
+      "code": "DUMMY_TEST_FAIL",
+      "synthetic": false
+    }
+  ]
+}

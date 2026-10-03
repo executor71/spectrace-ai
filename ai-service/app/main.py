@@ -11,6 +11,10 @@ app.include_router(search_router)
 app.include_router(analysis_router)
 app.include_router(test_case_router)
 
+if os.getenv('APP_OTEL_ENABLED') == 'true':
+    from workflow_otel.install import ai
+    ai(app)
+
 
 @app.get("/health")
 def health() -> dict[str, object]:

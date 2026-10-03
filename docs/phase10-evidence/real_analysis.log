@@ -1,0 +1,3 @@
+Starting single real analysis 438c6b1b-e41e-4083-93da-72c0be1597bf
+{"timestamp": "2026-10-02T17:08:49.099378+00:00", "service": "legacy-assistant-demo", "level": "INFO", "traceId": "0ffe8dbcbfed3a6a3c9f3f7cd7b252c8", "spanId": "5e55578443e0a1f2", "requestId": "", "event": "workflow.real_analysis", "durationMs": 87402.15668599922}
+{"requirementId": "438c6b1b-e41e-4083-93da-72c0be1597bf", "traceId": "0ffe8dbcbfed3a6a3c9f3f7cd7b252c8", "status": "COMPLETED", "representativeRequirements": 1, "httpStatus": 200, "latencyMs": 87384.38957499966, "savedResultVerified": true}

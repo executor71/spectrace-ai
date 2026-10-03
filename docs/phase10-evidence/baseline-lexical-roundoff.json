@@ -1,0 +1,177 @@
+{
+  "result": "PASS",
+  "image": "unchanged Phase 9 baseline image without observability",
+  "hashSeeds": [
+    1,
+    2
+  ],
+  "sameRank": true,
+  "maxAbsoluteScoreDelta": 8.881784197001252e-16,
+  "cause": "Existing BM25 iterates a Python set; floating point addition order changes across process hash seeds. No retrieval code changed.",
+  "results": [
+    [
+      {
+        "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+        "lexicalScore": 10.93223603442371
+      },
+      {
+        "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "lexicalScore": 7.273701488552759
+      },
+      {
+        "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+        "lexicalScore": 5.261416992202452
+      },
+      {
+        "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+        "lexicalScore": 4.563440924358051
+      },
+      {
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "lexicalScore": 4.376091862806469
+      },
+      {
+        "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "lexicalScore": 4.335380142373911
+      },
+      {
+        "chunkId": "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+        "lexicalScore": 3.028473707358176
+      },
+      {
+        "chunkId": "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+        "lexicalScore": 3.0114360407120664
+      },
+      {
+        "chunkId": "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+        "lexicalScore": 2.947723819214384
+      },
+      {
+        "chunkId": "50c0a5ec-04da-5343-bc57-78c3dc29ed8b",
+        "lexicalScore": 2.8416754421264914
+      },
+      {
+        "chunkId": "f4563fc7-5072-5672-bc33-455f46d238ec",
+        "lexicalScore": 2.5625835961764665
+      },
+      {
+        "chunkId": "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43",
+        "lexicalScore": 2.4216056230387553
+      },
+      {
+        "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+        "lexicalScore": 2.4210338352531444
+      },
+      {
+        "chunkId": "1d7a1273-78de-5c79-a276-ba300bf37c09",
+        "lexicalScore": 2.235850906434119
+      },
+      {
+        "chunkId": "4f380a68-9148-5c58-86e2-760176ba6cf2",
+        "lexicalScore": 2.183079017369953
+      },
+      {
+        "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "lexicalScore": 2.036180492908825
+      },
+      {
+        "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+        "lexicalScore": 1.9678010681407048
+      },
+      {
+        "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+        "lexicalScore": 1.326752442003007
+      },
+      {
+        "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+        "lexicalScore": 1.2623448169690075
+      },
+      {
+        "chunkId": "499bf89b-1a91-527a-b35f-a67e264475bf",
+        "lexicalScore": 1.2538513424396336
+      }
+    ],
+    [
+      {
+        "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+        "lexicalScore": 10.93223603442371
+      },
+      {
+        "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "lexicalScore": 7.27370148855276
+      },
+      {
+        "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+        "lexicalScore": 5.261416992202452
+      },
+      {
+        "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+        "lexicalScore": 4.5634409243580505
+      },
+      {
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "lexicalScore": 4.376091862806469
+      },
+      {
+        "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "lexicalScore": 4.335380142373911
+      },
+      {
+        "chunkId": "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+        "lexicalScore": 3.028473707358176
+      },
+      {
+        "chunkId": "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+        "lexicalScore": 3.0114360407120664
+      },
+      {
+        "chunkId": "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+        "lexicalScore": 2.947723819214384
+      },
+      {
+        "chunkId": "50c0a5ec-04da-5343-bc57-78c3dc29ed8b",
+        "lexicalScore": 2.8416754421264914
+      },
+      {
+        "chunkId": "f4563fc7-5072-5672-bc33-455f46d238ec",
+        "lexicalScore": 2.5625835961764665
+      },
+      {
+        "chunkId": "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43",
+        "lexicalScore": 2.4216056230387553
+      },
+      {
+        "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+        "lexicalScore": 2.4210338352531444
+      },
+      {
+        "chunkId": "1d7a1273-78de-5c79-a276-ba300bf37c09",
+        "lexicalScore": 2.235850906434119
+      },
+      {
+        "chunkId": "4f380a68-9148-5c58-86e2-760176ba6cf2",
+        "lexicalScore": 2.1830790173699532
+      },
+      {
+        "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+        "lexicalScore": 2.036180492908825
+      },
+      {
+        "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+        "lexicalScore": 1.9678010681407048
+      },
+      {
+        "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+        "lexicalScore": 1.326752442003007
+      },
+      {
+        "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+        "lexicalScore": 1.2623448169690075
+      },
+      {
+        "chunkId": "499bf89b-1a91-527a-b35f-a67e264475bf",
+        "lexicalScore": 1.2538513424396336
+      }
+    ]
+  ]
+}

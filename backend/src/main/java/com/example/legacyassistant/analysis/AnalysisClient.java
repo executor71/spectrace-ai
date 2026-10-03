@@ -18,7 +18,7 @@ public class AnalysisClient {
         var factory = new SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(Duration.ofSeconds(5));
         factory.setReadTimeout(Duration.ofSeconds(timeoutSeconds));
-        client = RestClient.builder().baseUrl(url).requestFactory(factory).build();
+        client = RestClient.builder().baseUrl(url).requestFactory(factory).requestInterceptor(new com.example.legacyassistant.observability.TraceHttpInterceptor()).build();
     }
     public JsonNode analyze(Requirement requirement) {
         try {

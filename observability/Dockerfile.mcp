@@ -1,0 +1,8 @@
+FROM master-mcp-server:phase9-baseline
+USER root
+COPY observability/requirements.txt /tmp/otel-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/otel-requirements.txt
+COPY observability/python/ /opt/observability/
+COPY mcp-server/app/ /gateway/app/
+ENV PYTHONPATH=/opt/observability:/gateway
+USER 10001

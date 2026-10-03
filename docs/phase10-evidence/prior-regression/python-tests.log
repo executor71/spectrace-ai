@@ -1,0 +1,129 @@
+test_concurrent_call_is_explicitly_busy (test_analysis.AnalysisApiTests.test_concurrent_call_is_explicitly_busy) ... {"timestamp": "2026-10-02T17:14:29.323408+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "bc2a162ea64aae0f1345c9b5eae75eef", "spanId": "2488ad57d08157dc", "requestId": "2e581039-f15e-46c7-95c7-592820e81fed", "event": "http.server", "durationMs": 2.9386549977061804}
+ok
+test_explicit_invalid_output_failure (test_analysis.AnalysisApiTests.test_explicit_invalid_output_failure) ... {"timestamp": "2026-10-02T17:14:29.328016+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "2f93fb9a322c19e82254c7509f32d9b2", "spanId": "9b44b32aae71f05a", "requestId": "54b36775-879c-4a37-86ed-73ad3b50a2fa", "event": "http.server", "durationMs": 1.1005189990100916}
+ok
+test_unavailable_model_is_not_success (test_analysis.AnalysisApiTests.test_unavailable_model_is_not_success) ... {"timestamp": "2026-10-02T17:14:29.332055+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a19975a1da600d566971eb5aa66a8e78", "spanId": "516ae897b968d01e", "requestId": "80dc817e-c048-4a9a-8181-71376a33439d", "event": "http.server", "durationMs": 0.8652510005049407}
+ok
+test_unknown_schema_selector_rejected (test_analysis.AnalysisApiTests.test_unknown_schema_selector_rejected) ... {"timestamp": "2026-10-02T17:14:29.335979+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "3b8855ed1dd2fffb3da2c26940215cad", "spanId": "6d20d4acae89f5f3", "requestId": "9294c3e1-29f1-46a4-b9aa-6834e6f1faae", "event": "http.server", "durationMs": 0.9742139991431031}
+ok
+test_empty_search_requires_missing_and_questions (test_analysis.AnalysisTests.test_empty_search_requires_missing_and_questions) ... {"timestamp": "2026-10-02T17:14:29.338234+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1a35d392706ceee7439109e301cdfe8b", "spanId": "1cab6b5953b4f4c6", "requestId": "", "event": "requirement.analysis", "durationMs": 0.931851001951145}
+ok
+test_exact_evidence_and_original_query (test_analysis.AnalysisTests.test_exact_evidence_and_original_query) ... {"timestamp": "2026-10-02T17:14:29.338913+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "6ee0845dffd82759719ca5537ff18b79", "spanId": "0dbec955100736ce", "requestId": "", "event": "requirement.analysis", "durationMs": 0.4626560003089253}
+ok
+test_existing_ambiguity_is_not_duplicated (test_analysis.AnalysisTests.test_existing_ambiguity_is_not_duplicated) ... {"timestamp": "2026-10-02T17:14:29.339505+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "01834dc46c59371da7b485c3fc4bf147", "spanId": "85c5ae80bacd45bc", "requestId": "", "event": "requirement.analysis", "durationMs": 0.34101300116162747}
+ok
+test_full_sentence_preserves_negation (test_analysis.AnalysisTests.test_full_sentence_preserves_negation) ... ok
+test_input_qualifier_omitted_by_model_still_requires_clarification (test_analysis.AnalysisTests.test_input_qualifier_omitted_by_model_still_requires_clarification) ... {"timestamp": "2026-10-02T17:14:29.340211+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "81f229815cd4631dd389d436cc13cd28", "spanId": "663198039b41e146", "requestId": "", "event": "requirement.analysis", "durationMs": 0.4303560017433483}
+ok
+test_invalid_schema_retried_once_then_fails (test_analysis.AnalysisTests.test_invalid_schema_retried_once_then_fails) ... {"timestamp": "2026-10-02T17:14:29.340844+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "ac23f0e863b6e91afb4e887a8d8e8f21", "spanId": "235cc53171a18521", "requestId": "", "event": "requirement.analysis", "durationMs": 0.4585210008372087}
+ok
+test_invented_api_rejected (test_analysis.AnalysisTests.test_invented_api_rejected) ... {"timestamp": "2026-10-02T17:14:29.341756+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "642240f91d288dc81793c70acb40e7ce", "spanId": "790528739e05c647", "requestId": "", "event": "requirement.analysis", "durationMs": 0.6903609973960556}
+ok
+test_invented_rule_id_rejected (test_analysis.AnalysisTests.test_invented_rule_id_rejected) ... {"timestamp": "2026-10-02T17:14:29.342460+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "78bf116e7ab6c9e58009406eda3c9937", "spanId": "48b25b9fa659661d", "requestId": "", "event": "requirement.analysis", "durationMs": 0.5098010005895048}
+ok
+test_long_input_is_not_silently_truncated (test_analysis.AnalysisTests.test_long_input_is_not_silently_truncated) ... {"timestamp": "2026-10-02T17:14:29.343063+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "b3774d9afea8bde87e8fc8f005cfcdc5", "spanId": "390b9a3b5263a58e", "requestId": "", "event": "requirement.analysis", "durationMs": 0.36546000046655536}
+ok
+test_model_cannot_supply_forged_evidence_or_claim_text (test_analysis.AnalysisTests.test_model_cannot_supply_forged_evidence_or_claim_text) ... {"timestamp": "2026-10-02T17:14:29.343760+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "89e00468dcf9117762a5197e3664f5aa", "spanId": "e6c0156884463bfd", "requestId": "", "event": "requirement.analysis", "durationMs": 0.4901529973722063}
+{"timestamp": "2026-10-02T17:14:29.344371+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a804f8f1ddd9feb35b9f2564f8c83de1", "spanId": "8cf788bdd5b02978", "requestId": "", "event": "requirement.analysis", "durationMs": 0.4420260011102073}
+{"timestamp": "2026-10-02T17:14:29.344976+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a7d00e360b77490bad9e34294022f62f", "spanId": "3b6b3ead76cd2fc8", "requestId": "", "event": "requirement.analysis", "durationMs": 0.3318349990877323}
+ok
+test_non_business_rule_cannot_be_reported_as_business_rule (test_analysis.AnalysisTests.test_non_business_rule_cannot_be_reported_as_business_rule) ... {"timestamp": "2026-10-02T17:14:29.345736+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "4afab8ea27f2d2f30269d2f2cde40686", "spanId": "c2a2a6e6163a0918", "requestId": "", "event": "requirement.analysis", "durationMs": 0.46517600276274607}
+ok
+test_none_cannot_select_unrelated_existing_facts (test_analysis.AnalysisTests.test_none_cannot_select_unrelated_existing_facts) ... {"timestamp": "2026-10-02T17:14:29.346898+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1efc29c15115c8d24dbe293b8d9fcc99", "spanId": "fceeb7f0298d6279", "requestId": "", "event": "requirement.analysis", "durationMs": 0.6487999999080785}
+ok
+test_recover_after_single_invalid_response (test_analysis.AnalysisTests.test_recover_after_single_invalid_response) ... {"timestamp": "2026-10-02T17:14:29.348008+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "3b81b98b8ad929774e04a4799a9067aa", "spanId": "9cbab92abac38feb", "requestId": "", "event": "requirement.analysis", "durationMs": 0.6007169977237936}
+ok
+test_silent_insufficient_evidence_fails (test_analysis.AnalysisTests.test_silent_insufficient_evidence_fails) ... {"timestamp": "2026-10-02T17:14:29.348614+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "2057a19a972bf99a2ec9afd079d5f512", "spanId": "660395d87e367fec", "requestId": "", "event": "requirement.analysis", "durationMs": 0.42815199776669033}
+ok
+test_uncertainty_requires_questions (test_analysis.AnalysisTests.test_uncertainty_requires_questions) ... {"timestamp": "2026-10-02T17:14:29.349111+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "62cada6883e8ef01fff9fb7c3ce86ce8", "spanId": "47e29f00853bbe06", "requestId": "", "event": "requirement.analysis", "durationMs": 0.3158840008836705}
+ok
+test_corpus_is_deterministic_and_complete (test_knowledge.KnowledgeTests.test_corpus_is_deterministic_and_complete) ... ok
+test_embedding_shape_and_values_are_validated (test_knowledge.KnowledgeTests.test_embedding_shape_and_values_are_validated) ... ok
+test_empty_duplicate_and_oversized_sections_are_rejected (test_knowledge.KnowledgeTests.test_empty_duplicate_and_oversized_sections_are_rejected) ... ok
+test_non_thinking_uses_json_schema_format (test_llm_provider.LlmProviderTests.test_non_thinking_uses_json_schema_format) ... {"timestamp": "2026-10-02T17:14:29.352961+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1326f466812d9405fd8cfd68ea659fbe", "spanId": "8c2c84240b96f8d2", "requestId": "", "event": "llm.generate", "durationMs": 0.2845429989974946}
+ok
+test_thinking_does_not_use_incompatible_decoder_constraint (test_llm_provider.LlmProviderTests.test_thinking_does_not_use_incompatible_decoder_constraint) ... {"timestamp": "2026-10-02T17:14:29.353426+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "05a8c9d0bd7af76b2524885a2bbb04ba", "spanId": "87ff3a0b7cb41159", "requestId": "", "event": "llm.generate", "durationMs": 0.1143120025517419}
+ok
+test_transport_timeout_is_explicit_failure (test_llm_provider.LlmProviderTests.test_transport_timeout_is_explicit_failure) ... {"timestamp": "2026-10-02T17:14:29.354202+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "78ea29c20024045467f1f7bc120fb62d", "spanId": "edfd882703db04c6", "requestId": "", "event": "llm.generate", "durationMs": 0.13191600010031834}
+ok
+test_truncated_generation_is_explicit_failure (test_llm_provider.LlmProviderTests.test_truncated_generation_is_explicit_failure) ... {"timestamp": "2026-10-02T17:14:29.354674+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "4980195982adacdf4950fa6ff28ee64d", "spanId": "faab4201ff5023aa", "requestId": "", "event": "llm.generate", "durationMs": 0.16615300046396442}
+ok
+test_input_is_not_silently_truncated (test_local_embedding.LocalEmbeddingTests.test_input_is_not_silently_truncated) ... {"timestamp": "2026-10-02T17:14:29.355379+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5cba37bf67c7eb0464c74bafbce9bea8", "spanId": "6e213360a7bde11a", "requestId": "", "event": "query.embedding", "durationMs": 0.21004800146329217}
+ok
+test_query_and_documents_share_dense_embedding_path (test_local_embedding.LocalEmbeddingTests.test_query_and_documents_share_dense_embedding_path) ... {"timestamp": "2026-10-02T17:14:29.356573+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "398107c869e4137851efe51f38e816df", "spanId": "b7814403e5e1820e", "requestId": "", "event": "query.embedding", "durationMs": 0.10086600013892166}
+ok
+test_settings_are_external_and_overridable (test_local_embedding.LocalEmbeddingTests.test_settings_are_external_and_overridable) ... ok
+test_wrong_dimension_is_rejected (test_local_embedding.LocalEmbeddingTests.test_wrong_dimension_is_rejected) ... {"timestamp": "2026-10-02T17:14:31.835962+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "f441064f165f6ea4245d8cd651f0d493", "spanId": "aca306d240e209e0", "requestId": "", "event": "query.embedding", "durationMs": 0.20086099902982824}
+ok
+test_database_details_not_leaked (test_search_api.SearchApiTests.test_database_details_not_leaked) ... Vector search failed
+Traceback (most recent call last):
+  File "/app/app/search_api.py", line 19, in search
+    return engine.search(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+RuntimeError: private-database-host
+ok
+test_invalid_query_and_evaluation_override_rejected (test_search_api.SearchApiTests.test_invalid_query_and_evaluation_override_rejected) ... ok
+test_mismatched_profile_is_unavailable (test_search_api.SearchApiTests.test_mismatched_profile_is_unavailable) ... ok
+test_response_contract (test_search_api.SearchApiTests.test_response_contract) ... ok
+test_all_five_execution_gates_required (test_test_case_generation.TestCaseGenerationTest.test_all_five_execution_gates_required) ... ok
+test_ambiguous_deferred_without_model (test_test_case_generation.TestCaseGenerationTest.test_ambiguous_deferred_without_model) ... {"timestamp": "2026-10-02T17:14:31.856391+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1b2c7ae896d959ef00d88e7687e5cdba", "spanId": "a534da454ad4b56b", "requestId": "", "event": "testcase.generate", "durationMs": 0.10342099994886667}
+ok
+test_api_busy_is_429_and_never_calls_model (test_test_case_generation.TestCaseGenerationTest.test_api_busy_is_429_and_never_calls_model) ... ok
+test_api_maps_invalid_model_to_explicit_failure (test_test_case_generation.TestCaseGenerationTest.test_api_maps_invalid_model_to_explicit_failure) ... {"timestamp": "2026-10-02T17:14:31.863837+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "69073d0edee49b594991f38a4acb5c07", "spanId": "ecac3400817937a8", "requestId": "", "event": "testcase.generate", "durationMs": 1.1372100016160402}
+ok
+test_api_rejects_extra_input_fields (test_test_case_generation.TestCaseGenerationTest.test_api_rejects_extra_input_fields) ... ok
+test_api_unavailable_is_503_and_slot_released (test_test_case_generation.TestCaseGenerationTest.test_api_unavailable_is_503_and_slot_released) ... {"timestamp": "2026-10-02T17:14:31.870746+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "80b8569c5d999eb25283b5e10cc752d2", "spanId": "63bc64f3009027b4", "requestId": "", "event": "testcase.generate", "durationMs": 0.45757000043522567}
+ok
+test_duplicate_or_omitted_candidate_rejected (test_test_case_generation.TestCaseGenerationTest.test_duplicate_or_omitted_candidate_rejected) ... {"timestamp": "2026-10-02T17:14:31.872444+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "4f54f95717c9a1da83c97afa3e5f5fd9", "spanId": "ee0adf3d1c6f75d2", "requestId": "", "event": "testcase.generate", "durationMs": 0.5278459975670557}
+{"timestamp": "2026-10-02T17:14:31.873063+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "b71503d51ac563f19f48ea155972fcb0", "spanId": "05305761dff28735", "requestId": "", "event": "testcase.generate", "durationMs": 0.41360300019732676}
+ok
+test_error_token_no_invented_response_path (test_test_case_generation.TestCaseGenerationTest.test_error_token_no_invented_response_path) ... ok
+test_fabricated_api_or_expected_result_extra_field_rejected (test_test_case_generation.TestCaseGenerationTest.test_fabricated_api_or_expected_result_extra_field_rejected) ... {"timestamp": "2026-10-02T17:14:31.873943+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "824bcbbdaafa29c62a7762b3791a14a3", "spanId": "5aae188ee6265068", "requestId": "", "event": "testcase.generate", "durationMs": 0.5856079988006968}
+{"timestamp": "2026-10-02T17:14:31.874820+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "8b4991ae5780886384ac47c8235150c2", "spanId": "987586cce2d455ad", "requestId": "", "event": "testcase.generate", "durationMs": 0.6463060017267708}
+{"timestamp": "2026-10-02T17:14:31.875438+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1041a11de70367d0573605877c6fcb8c", "spanId": "c00f1be3535182d7", "requestId": "", "event": "testcase.generate", "durationMs": 0.41676999899209477}
+ok
+test_fabricated_candidate_bounded_retry (test_test_case_generation.TestCaseGenerationTest.test_fabricated_candidate_bounded_retry) ... {"timestamp": "2026-10-02T17:14:31.876123+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a220d07cce03fb3d8d03c53f0da10217", "spanId": "f76bac26e554945b", "requestId": "", "event": "testcase.generate", "durationMs": 0.4534109975793399}
+ok
+test_five_types_full_contract_and_original_evidence (test_test_case_generation.TestCaseGenerationTest.test_five_types_full_contract_and_original_evidence) ... {"timestamp": "2026-10-02T17:14:31.876780+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "685f0271137a4a3db7e82d06457d4191", "spanId": "6154cd9c104dec05", "requestId": "", "event": "testcase.generate", "durationMs": 0.4347649992268998}
+ok
+test_forged_condition_rejected (test_test_case_generation.TestCaseGenerationTest.test_forged_condition_rejected) ... {"timestamp": "2026-10-02T17:14:31.877246+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "97441399c68369ab765c02ffc8a3dcb7", "spanId": "fa3b6b4987aa1b82", "requestId": "", "event": "testcase.generate", "durationMs": 0.08259000242105685}
+ok
+test_forged_evidence_id_rejected (test_test_case_generation.TestCaseGenerationTest.test_forged_evidence_id_rejected) ... {"timestamp": "2026-10-02T17:14:31.877565+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "ab4e0d7a36eb437c7b0edeba51b192c5", "spanId": "3c7dcf423853c7d3", "requestId": "", "event": "testcase.generate", "durationMs": 0.06964500062167645}
+ok
+test_identity_mismatch_rejected (test_test_case_generation.TestCaseGenerationTest.test_identity_mismatch_rejected) ... {"timestamp": "2026-10-02T17:14:31.877869+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "233b32c8255178486d1b1b6791063d6d", "spanId": "71d73eb8b79d785e", "requestId": "", "event": "testcase.generate", "durationMs": 0.060948001191718504}
+ok
+test_injection_cannot_change_materialized_results (test_test_case_generation.TestCaseGenerationTest.test_injection_cannot_change_materialized_results) ... {"timestamp": "2026-10-02T17:14:31.878614+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "6d47790b1ee12a102716d87e0c6a28ed", "spanId": "6b24789ac7755ebd", "requestId": "", "event": "testcase.generate", "durationMs": 0.4846820011152886}
+ok
+test_missing_deferred_without_model (test_test_case_generation.TestCaseGenerationTest.test_missing_deferred_without_model) ... {"timestamp": "2026-10-02T17:14:31.878902+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "4297bab163c58ba79f68d742e19f5f8e", "spanId": "ffc48c1d3bbc6230", "requestId": "", "event": "testcase.generate", "durationMs": 0.07323300087591633}
+ok
+test_no_confirmed_fact_deferred (test_test_case_generation.TestCaseGenerationTest.test_no_confirmed_fact_deferred) ... {"timestamp": "2026-10-02T17:14:31.879230+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "7cf98ad6ddc0951f457bf53a50bee8ae", "spanId": "b9e5ec279438bd12", "requestId": "", "event": "testcase.generate", "durationMs": 0.07758100036880933}
+ok
+test_no_database_or_search_dependency (test_test_case_generation.TestCaseGenerationTest.test_no_database_or_search_dependency) ... ok
+test_pure_assertions_pass_and_fail (test_test_case_generation.TestCaseGenerationTest.test_pure_assertions_pass_and_fail) ... ok
+test_quote_missing_never_uses_outside_corpus (test_test_case_generation.TestCaseGenerationTest.test_quote_missing_never_uses_outside_corpus) ... {"timestamp": "2026-10-02T17:14:31.881490+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "ae99d2e41740b9842a1773909c39d9cf", "spanId": "fe7beedbdae29e6c", "requestId": "", "event": "testcase.generate", "durationMs": 0.12643599984585308}
+ok
+test_retry_can_recover (test_test_case_generation.TestCaseGenerationTest.test_retry_can_recover) ... {"timestamp": "2026-10-02T17:14:31.882298+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "9ce1d6883acaf5b77dcd2017a786d7fd", "spanId": "0383f49e9c279d1e", "requestId": "", "event": "testcase.generate", "durationMs": 0.46184700113371946}
+ok
+test_strict_result_schema_rejects_unrecognized_type (test_test_case_generation.TestCaseGenerationTest.test_strict_result_schema_rejects_unrecognized_type) ... {"timestamp": "2026-10-02T17:14:31.882938+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "84ac15fe6b15590a20be5f5622bc8a35", "spanId": "91c4e5eeb83ffd03", "requestId": "", "event": "testcase.generate", "durationMs": 0.4240540001774207}
+ok
+test_unchanged_requires_both_observations (test_test_case_generation.TestCaseGenerationTest.test_unchanged_requires_both_observations) ... ok
+test_unrelated_confirmed_condition_cannot_create_approval (test_test_case_generation.TestCaseGenerationTest.test_unrelated_confirmed_condition_cannot_create_approval) ... {"timestamp": "2026-10-02T17:14:31.883421+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5c5c1576d1c09e3c45f96f76e3f22d72", "spanId": "76efc513da2dc16e", "requestId": "", "event": "testcase.generate", "durationMs": 0.09945299825631082}
+ok
+test_only_rag_is_queried_and_parameters_are_bound (test_vector_search.VectorSearchTests.test_only_rag_is_queried_and_parameters_are_bound) ... {"timestamp": "2026-10-02T17:14:31.884650+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5cb620ffbc419125d8e6bbafb27982c8", "spanId": "27c8f8729cc209ba", "requestId": "", "event": "rag.search", "durationMs": 0.3848269989248365}
+ok
+test_profile_mismatch_fails_before_embedding (test_vector_search.VectorSearchTests.test_profile_mismatch_fails_before_embedding) ... {"timestamp": "2026-10-02T17:14:31.885752+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "cc947d69858332765655d9134852ff92", "spanId": "3d6be5513ec483f4", "requestId": "", "event": "rag.search", "durationMs": 0.4569380034809001}
+ok
+test_query_validation_rejects_empty_and_schema_override (test_vector_search.VectorSearchTests.test_query_validation_rejects_empty_and_schema_override) ... ok
+
+----------------------------------------------------------------------
+Ran 61 tests in 2.574s
+
+OK

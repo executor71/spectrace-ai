@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "records": 2389,
+  "realAnalysisTraceId": "0ffe8dbcbfed3a6a3c9f3f7cd7b252c8",
+  "sharedRequestId": "183ec358-22ee-44cc-b01e-b520767ba1f6",
+  "services": [
+    "legacy-assistant-backend",
+    "legacy-assistant-ai"
+  ]
+}

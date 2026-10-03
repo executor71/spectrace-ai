@@ -35,6 +35,10 @@ class LocalLlmProvider:
             request = Request(self.url + '/api/chat', data=body, headers={'Content-Type': 'application/json'})
             with urlopen(request, timeout=self.timeout) as response:
                 data = json.load(response)
+            observer = getattr(self, '_observe_usage', None)
+            if observer:
+                try: observer(data)
+                except Exception: pass  # Operational metadata cannot change model output handling.
             if data.get('done') is not True or data.get('done_reason') == 'length':
                 raise ValueError('Incomplete model response')
             content = data['message']['content']

@@ -1,0 +1,168 @@
+{
+  "data": [
+    {
+      "traceID": "25902ec9f97a4aac6c0fa1572e633e8e",
+      "spans": [
+        {
+          "traceID": "25902ec9f97a4aac6c0fa1572e633e8e",
+          "spanID": "b77ba097f7cf7384",
+          "operationName": "backend.request",
+          "references": [],
+          "startTime": 1790961210334637,
+          "duration": 6483,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 6.374154
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 201
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 6.374154
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "74d3913b-2100-45a3-b09e-e14240a83cba"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "25902ec9f97a4aac6c0fa1572e633e8e",
+          "spanID": "b1c8efca81955495",
+          "operationName": "dummy.execution",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "25902ec9f97a4aac6c0fa1572e633e8e",
+              "spanID": "b77ba097f7cf7384"
+            }
+          ],
+          "startTime": 1790961210335551,
+          "duration": 2620,
+          "tags": [
+            {
+              "key": "apiId",
+              "type": "string",
+              "value": "API-LOAN-APPROVE"
+            },
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 2.457388
+            },
+            {
+              "key": "error",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "key": "error.code",
+              "type": "string",
+              "value": "DUMMY_TEST_FAIL"
+            },
+            {
+              "key": "error.message",
+              "type": "string",
+              "value": "DUMMY_TEST_FAIL"
+            },
+            {
+              "key": "error.type",
+              "type": "string",
+              "value": "DUMMY_TEST_FAIL"
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 2.457388
+            },
+            {
+              "key": "mismatchCount",
+              "type": "int64",
+              "value": 4
+            },
+            {
+              "key": "operation",
+              "type": "string",
+              "value": "execute"
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "otel.status_code",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "74d3913b-2100-45a3-b09e-e14240a83cba"
+            },
+            {
+              "key": "result",
+              "type": "string",
+              "value": "FAIL"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "testCaseId",
+              "type": "string",
+              "value": "4611bca5-0d0c-45dd-9793-75566c432c89"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        }
+      ],
+      "processes": {
+        "p1": {
+          "serviceName": "legacy-assistant-backend",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            }
+          ]
+        }
+      },
+      "warnings": null
+    }
+  ],
+  "total": 0,
+  "limit": 0,
+  "offset": 0,
+  "errors": null
+}

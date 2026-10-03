@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "frozenInputHashes": true,
+  "same32QueriesAllStrategies": true,
+  "measuredRequests": 384,
+  "repetitions": 3,
+  "rankAndScoreRepeatable": true,
+  "metricsRecomputed": true,
+  "rerankerCandidateSubsetVerified": true,
+  "commonSchemaVerified": true,
+  "actualApiEdgeCases": 3
+}

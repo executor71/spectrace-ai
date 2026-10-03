@@ -1,0 +1,28 @@
+test_exception_text_and_stack_are_not_recorded (__main__.ObservabilityTests.test_exception_text_and_stack_are_not_recorded) ... {"timestamp": "2026-10-02T17:04:29.984173+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "39e8ae42fd0672c12a938cbdbf09a928", "spanId": "b5fe20dfbfa04630", "requestId": "", "event": "fixture.exception", "durationMs": 0.31889700039755553}
+ok
+test_invalid_model_output_records_retry_without_reasoning (__main__.ObservabilityTests.test_invalid_model_output_records_retry_without_reasoning) ... {"timestamp": "2026-10-02T17:04:29.986495+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "09a859d62802246fa03b385b232b2015", "spanId": "65be455f42e07f58", "requestId": "", "event": "llm.generate", "durationMs": 0.3005219987244345}
+{"timestamp": "2026-10-02T17:04:29.987067+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "09a859d62802246fa03b385b232b2015", "spanId": "113950af79c00bde", "requestId": "", "event": "llm.generate", "durationMs": 0.15938800061121583}
+{"timestamp": "2026-10-02T17:04:29.987181+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "09a859d62802246fa03b385b232b2015", "spanId": "f1babe996f1196f8", "requestId": "", "event": "requirement.analysis", "durationMs": 2.0457930004340596}
+{"timestamp": "2026-10-02T17:04:29.987313+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "09a859d62802246fa03b385b232b2015", "spanId": "75ef33048a6d63f5", "requestId": "", "event": "fixture.llm_invalid", "durationMs": 2.619674000015948}
+ok
+test_metadata_failure_does_not_change_business_result (__main__.ObservabilityTests.test_metadata_failure_does_not_change_business_result) ... {"timestamp": "2026-10-02T17:04:29.987618+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "078e0e9d0320240ea8d8e82bcfc6a243", "spanId": "a930fd5e71a05dc8", "requestId": "", "event": "fixture.safe", "durationMs": 0.06238099740585312}
+ok
+test_missing_usage_is_not_estimated (__main__.ObservabilityTests.test_missing_usage_is_not_estimated) ... {"timestamp": "2026-10-02T17:04:29.987814+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "9a86511782ff7bf6abadf35962894d24", "spanId": "eea0fb40c8146d84", "requestId": "", "event": "fixture.usage_absent", "durationMs": 0.05442499968921766}
+ok
+test_provider_tokens_are_actual_counts (__main__.ObservabilityTests.test_provider_tokens_are_actual_counts) ... {"timestamp": "2026-10-02T17:04:29.988028+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "7135136cc2f8cee5a42b629e70c5580a", "spanId": "da0907ad81c7538d", "requestId": "", "event": "fixture.usage", "durationMs": 0.07337200077017769}
+ok
+test_sensitive_attributes_and_invalid_identifiers_are_rejected (__main__.ObservabilityTests.test_sensitive_attributes_and_invalid_identifiers_are_rejected) ... {"timestamp": "2026-10-02T17:04:29.988253+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "e2d6ba5b90d622db9b07263d9a425bd8", "spanId": "dc813ff7247c0b7d", "requestId": "", "event": "fixture.sensitive", "durationMs": 0.0771589984651655}
+ok
+test_testcase_generation_counts_without_real_model (__main__.ObservabilityTests.test_testcase_generation_counts_without_real_model) ... {"timestamp": "2026-10-02T17:04:29.989400+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "638cc10da3f97aa5c31e84b0118209c6", "spanId": "d55d99ca677347ef", "requestId": "", "event": "testcase.generate", "durationMs": 0.8159999997587875}
+{"timestamp": "2026-10-02T17:04:29.989488+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "638cc10da3f97aa5c31e84b0118209c6", "spanId": "a28f1c692fd7e7ef", "requestId": "", "event": "fixture.testcase_generation", "durationMs": 1.0302150003553834}
+ok
+test_timeout_failure_has_safe_code (__main__.ObservabilityTests.test_timeout_failure_has_safe_code) ... {"timestamp": "2026-10-02T17:04:29.989887+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "43e3bcd97a639b812c0982a5bc0d5870", "spanId": "f504edaa114ea982", "requestId": "", "event": "llm.generate", "durationMs": 0.09105699791689403}
+{"timestamp": "2026-10-02T17:04:29.990012+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "43e3bcd97a639b812c0982a5bc0d5870", "spanId": "fe19b182224905ff", "requestId": "", "event": "fixture.llm_timeout", "durationMs": 0.36341399754746817}
+ok
+test_w3c_parent_and_tracestate_preserved (__main__.ObservabilityTests.test_w3c_parent_and_tracestate_preserved) ... {"timestamp": "2026-10-02T17:04:29.990349+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1234567890abcdef1234567890abcdef", "spanId": "47127c538351d07c", "requestId": "", "event": "fixture.propagation", "durationMs": 0.08501499905833043}
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.007s
+
+OK

@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "bothCollectorAndJaegerStopped": true,
+  "coreWorkflows": [
+    "VECTOR",
+    "HYBRID",
+    "MCP_READ",
+    "DUMMY",
+    "SAVED_ANALYSIS"
+  ],
+  "successfulMeasuredCalls": 48,
+  "successfulWarmupCalls": 8,
+  "recovered": true,
+  "realAnalysisTracePersisted": "0ffe8dbcbfed3a6a3c9f3f7cd7b252c8",
+  "additionalModelCalls": 0
+}

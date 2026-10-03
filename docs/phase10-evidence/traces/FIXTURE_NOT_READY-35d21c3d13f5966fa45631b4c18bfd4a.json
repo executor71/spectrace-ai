@@ -1,0 +1,178 @@
+{
+  "data": [
+    {
+      "traceID": "35d21c3d13f5966fa45631b4c18bfd4a",
+      "spans": [
+        {
+          "traceID": "35d21c3d13f5966fa45631b4c18bfd4a",
+          "spanID": "1ae4be043a8ce29a",
+          "operationName": "fixture.mcp_gate",
+          "references": [],
+          "startTime": 1790960960486590,
+          "duration": 351,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 0.352244998794049
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 0.352244998794049
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "8863c0e7-b108-4ed9-970c-7147739c7685"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "synthetic",
+              "type": "bool",
+              "value": true
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "35d21c3d13f5966fa45631b4c18bfd4a",
+          "spanID": "895d67c3012b697c",
+          "operationName": "mcp.tool",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "35d21c3d13f5966fa45631b4c18bfd4a",
+              "spanID": "1ae4be043a8ce29a"
+            }
+          ],
+          "startTime": 1790960960486650,
+          "duration": 238,
+          "tags": [
+            {
+              "key": "downstreamService",
+              "type": "string",
+              "value": "backend"
+            },
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 0.22944599913898855
+            },
+            {
+              "key": "error",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "key": "error.code",
+              "type": "string",
+              "value": "FIXTURE_NOT_READY"
+            },
+            {
+              "key": "error.message",
+              "type": "string",
+              "value": "FIXTURE_NOT_READY"
+            },
+            {
+              "key": "error.type",
+              "type": "string",
+              "value": "FIXTURE_NOT_READY"
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 0.22944599913898855
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "otel.status_code",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "requestId",
+              "type": "string",
+              "value": "ded0e52a-f236-43af-9d89-6953c6b22725"
+            },
+            {
+              "key": "resultStatus",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "success",
+              "type": "bool",
+              "value": false
+            },
+            {
+              "key": "toolName",
+              "type": "string",
+              "value": "execute_approved_test"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        }
+      ],
+      "processes": {
+        "p1": {
+          "serviceName": "legacy-assistant-mcp",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.34.1"
+            }
+          ]
+        }
+      },
+      "warnings": null
+    }
+  ],
+  "total": 0,
+  "limit": 0,
+  "offset": 0,
+  "errors": null
+}

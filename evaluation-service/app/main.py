@@ -135,3 +135,7 @@ def list_evaluations(requirement_id: UUID):
     with connection() as db:
         rows = db.execute('SELECT result_json FROM evaluation.evaluation_run WHERE requirement_id=%s ORDER BY created_at DESC,id DESC',(requirement_id,)).fetchall()
     return [r[0] for r in rows]
+
+if os.getenv('APP_OTEL_ENABLED') == 'true':
+    from workflow_otel.install import evaluation
+    evaluation(app)

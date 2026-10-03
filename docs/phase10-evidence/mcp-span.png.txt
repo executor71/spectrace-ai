@@ -1,0 +1,88 @@
+About Jaeger
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+legacy-assistant-demo: workflow.mcp 4554d39
+⌘
+Trace Timeline
+Trace StartOctober 3 2026, 02:06:39.874Duration62.68msServices3Depth6Total Spans19
+0μs
+15.67ms
+31.34ms
+47.01ms
+62.68ms
+Service & Operation
+0μs
+15.67ms
+31.34ms
+47.01ms
+62.68ms
+legacy-assistant-demo workflow.mcp
+62.68ms
+legacy-assistant-mcp http.server
+2.33ms
+legacy-assistant-mcp http.server
+563μs
+legacy-assistant-mcp http.server
+37.8ms
+legacy-assistant-mcp mcp.tool
+36.3ms
+mcp.tool
+Service:legacy-assistant-mcpDuration:36.3msStart Time:17.67ms
+Tags
+downstreamService	
+backend
+	
+durationMs	
+36.575587997504044
+	
+latencyMs	
+36.575587997504044
+	
+otel.scope.name	
+legacy-workflow
+	
+requestId	
+bfdb91c1-557f-490a-9f83-bf67dca49ece
+	
+resultStatus	
+SUCCESS
+	
+span.kind	
+internal
+	
+toolName	
+get_test_cases
+	
+Process:deployment.environment=localservice.version=phase10telemetry.sdk.language=pythontelemetry.sdk.name=opentelemetrytelemetry.sdk.version=1.34.1
+ b3437e21cbf78a45
+legacy-assistant-backend backend.request
+11.55ms
+legacy-assistant-backend testcase.read
+8.73ms
+legacy-assistant-backend backend.requirement
+1.14ms
+legacy-assistant-backend backend.request
+2.88ms
+legacy-assistant-backend dummy.execution.read
+1.58ms
+legacy-assistant-backend backend.request
+2.18ms
+legacy-assistant-backend dummy.execution.read
+1.31ms
+legacy-assistant-backend backend.request
+1.98ms
+legacy-assistant-backend dummy.execution.read
+1.11ms
+legacy-assistant-backend backend.request
+2.09ms
+legacy-assistant-backend dummy.execution.read
+1.23ms
+legacy-assistant-backend backend.request
+2.32ms
+legacy-assistant-backend dummy.execution.read
+1.22ms
+legacy-assistant-mcp http.server
+892μs

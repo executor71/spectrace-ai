@@ -15,7 +15,7 @@ public class TestCaseClient {
     public TestCaseClient(@Value("${AI_SERVICE_URL:http://ai-service:8000}") String url,
             @Value("${TEST_CASE_TIMEOUT_SECONDS:630}") int timeout) {
         var factory=new SimpleClientHttpRequestFactory();factory.setConnectTimeout(Duration.ofSeconds(5));factory.setReadTimeout(Duration.ofSeconds(timeout));
-        client=RestClient.builder().baseUrl(url).requestFactory(factory).build();
+        client=RestClient.builder().baseUrl(url).requestFactory(factory).requestInterceptor(new com.example.legacyassistant.observability.TraceHttpInterceptor()).build();
     }
     public JsonNode generate(Requirement requirement, JsonNode analysis) {
         try {

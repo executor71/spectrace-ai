@@ -1,0 +1,178 @@
+{
+  "data": [
+    {
+      "traceID": "43e3bcd97a639b812c0982a5bc0d5870",
+      "spans": [
+        {
+          "traceID": "43e3bcd97a639b812c0982a5bc0d5870",
+          "spanID": "fe19b182224905ff",
+          "operationName": "fixture.llm_timeout",
+          "references": [],
+          "startTime": 1790960669989670,
+          "duration": 412,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 0.36341399754746817
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 0.36341399754746817
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "synthetic",
+              "type": "bool",
+              "value": true
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "43e3bcd97a639b812c0982a5bc0d5870",
+          "spanID": "f504edaa114ea982",
+          "operationName": "llm.generate",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "43e3bcd97a639b812c0982a5bc0d5870",
+              "spanID": "fe19b182224905ff"
+            }
+          ],
+          "startTime": 1790960669989814,
+          "duration": 154,
+          "tags": [
+            {
+              "key": "durationMs",
+              "type": "float64",
+              "value": 0.09105699791689403
+            },
+            {
+              "key": "error",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "key": "error.code",
+              "type": "string",
+              "value": "LLM_TIMEOUT"
+            },
+            {
+              "key": "error.message",
+              "type": "string",
+              "value": "LLM_TIMEOUT"
+            },
+            {
+              "key": "error.type",
+              "type": "string",
+              "value": "LLM_TIMEOUT"
+            },
+            {
+              "key": "latencyMs",
+              "type": "float64",
+              "value": 0.09105699791689403
+            },
+            {
+              "key": "model",
+              "type": "string",
+              "value": "qwen2.5:7b-instruct"
+            },
+            {
+              "key": "operation",
+              "type": "string",
+              "value": "generate"
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "legacy-workflow"
+            },
+            {
+              "key": "otel.status_code",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "provider",
+              "type": "string",
+              "value": "ollama"
+            },
+            {
+              "key": "retryCount",
+              "type": "int64",
+              "value": 0
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "internal"
+            },
+            {
+              "key": "success",
+              "type": "bool",
+              "value": false
+            },
+            {
+              "key": "timeout",
+              "type": "float64",
+              "value": 300
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        }
+      ],
+      "processes": {
+        "p1": {
+          "serviceName": "legacy-assistant-ai",
+          "tags": [
+            {
+              "key": "deployment.environment",
+              "type": "string",
+              "value": "local"
+            },
+            {
+              "key": "service.version",
+              "type": "string",
+              "value": "phase10"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.34.1"
+            }
+          ]
+        }
+      },
+      "warnings": null
+    }
+  ],
+  "total": 0,
+  "limit": 0,
+  "offset": 0,
+  "errors": null
+}

@@ -1,0 +1,289 @@
+{
+  "result": "PASS",
+  "assertions": 70,
+  "checks": [
+    {
+      "name": "MCP initialize",
+      "result": "PASS"
+    },
+    {
+      "name": "five strict tools",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected search_knowledge:query,strategy",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected search_knowledge:query,topK",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected search_knowledge:query,topK",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected search_knowledge:query",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected analyze_requirement:requirementId",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected get_test_cases:requirementId",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,method",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,endpoint",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,url",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,sql",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,command",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,expected",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,approvalStatus",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,executable",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,fixtureReady",
+      "result": "PASS"
+    },
+    {
+      "name": "reject injected execute_approved_test:testCaseId,prompt",
+      "result": "PASS"
+    },
+    {
+      "name": "missing analyze_requirement",
+      "result": "PASS"
+    },
+    {
+      "name": "missing get_test_cases",
+      "result": "PASS"
+    },
+    {
+      "name": "missing get_evaluation_result",
+      "result": "PASS"
+    },
+    {
+      "name": "missing execute_approved_test",
+      "result": "PASS"
+    },
+    {
+      "name": "unknown read_ground_truth",
+      "result": "PASS"
+    },
+    {
+      "name": "unknown shell",
+      "result": "PASS"
+    },
+    {
+      "name": "unknown sql",
+      "result": "PASS"
+    },
+    {
+      "name": "unknown http_request",
+      "result": "PASS"
+    },
+    {
+      "name": "AllowList enforced by server",
+      "result": "PASS"
+    },
+    {
+      "name": "DRAFT rechecked by existing server",
+      "result": "PASS"
+    },
+    {
+      "name": "REJECTED rechecked by existing server",
+      "result": "PASS"
+    },
+    {
+      "name": "resource blocked groundtruth://dataset",
+      "result": "PASS"
+    },
+    {
+      "name": "resource blocked http://outside.invalid",
+      "result": "PASS"
+    },
+    {
+      "name": "resource blocked requirement://b5270f71-c92c-48ae-8530-8946f1cfce62/admin/reset",
+      "result": "PASS"
+    },
+    {
+      "name": "transport host/origin 400",
+      "result": "PASS"
+    },
+    {
+      "name": "transport host/origin 403",
+      "result": "PASS"
+    },
+    {
+      "name": "VECTOR success",
+      "result": "PASS"
+    },
+    {
+      "name": "VECTOR exact REST ranks scores",
+      "result": "PASS"
+    },
+    {
+      "name": "analysis saved exact REST schema",
+      "result": "PASS"
+    },
+    {
+      "name": "test cases success",
+      "result": "PASS"
+    },
+    {
+      "name": "case evidence review unchanged c53be0ea-3157-49be-a922-efa378d6ca11",
+      "result": "PASS"
+    },
+    {
+      "name": "current eligibility c53be0ea-3157-49be-a922-efa378d6ca11",
+      "result": "PASS"
+    },
+    {
+      "name": "case evidence review unchanged c0dca00f-7a4c-4861-ba42-06c7588235b1",
+      "result": "PASS"
+    },
+    {
+      "name": "current eligibility c0dca00f-7a4c-4861-ba42-06c7588235b1",
+      "result": "PASS"
+    },
+    {
+      "name": "case evidence review unchanged 0cdd544d-a755-412a-88e5-78f570c427c2",
+      "result": "PASS"
+    },
+    {
+      "name": "current eligibility 0cdd544d-a755-412a-88e5-78f570c427c2",
+      "result": "PASS"
+    },
+    {
+      "name": "case evidence review unchanged 4b357887-da03-4295-9399-78b5ae5a587d",
+      "result": "PASS"
+    },
+    {
+      "name": "current eligibility 4b357887-da03-4295-9399-78b5ae5a587d",
+      "result": "PASS"
+    },
+    {
+      "name": "case evidence review unchanged f25fc98b-f047-4799-88dc-7fa77dd579b1",
+      "result": "PASS"
+    },
+    {
+      "name": "current eligibility f25fc98b-f047-4799-88dc-7fa77dd579b1",
+      "result": "PASS"
+    },
+    {
+      "name": "evaluation success",
+      "result": "PASS"
+    },
+    {
+      "name": "evaluation numeric equality",
+      "result": "PASS"
+    },
+    {
+      "name": "evaluation no raw truth snapshot",
+      "result": "PASS"
+    },
+    {
+      "name": "approved execution PASS",
+      "result": "PASS"
+    },
+    {
+      "name": "execution exact REST persisted",
+      "result": "PASS"
+    },
+    {
+      "name": "existing synthetic defect FAIL",
+      "result": "PASS"
+    },
+    {
+      "name": "HYBRID exact REST scores",
+      "result": "PASS"
+    },
+    {
+      "name": "injection query treated only as search data",
+      "result": "PASS"
+    },
+    {
+      "name": "resource template listed",
+      "result": "PASS"
+    },
+    {
+      "name": "resource current state",
+      "result": "PASS"
+    },
+    {
+      "name": "latency zero errors search_knowledge",
+      "result": "PASS"
+    },
+    {
+      "name": "latency zero errors search_knowledge",
+      "result": "PASS"
+    },
+    {
+      "name": "latency zero errors analyze_requirement",
+      "result": "PASS"
+    },
+    {
+      "name": "latency zero errors get_test_cases",
+      "result": "PASS"
+    },
+    {
+      "name": "latency zero errors get_evaluation_result",
+      "result": "PASS"
+    },
+    {
+      "name": "latency zero errors execute_approved_test",
+      "result": "PASS"
+    },
+    {
+      "name": "disconnect reconnect",
+      "result": "PASS"
+    },
+    {
+      "name": "reconnect saved results",
+      "result": "PASS"
+    },
+    {
+      "name": "original testcase review evidence exact after all calls",
+      "result": "PASS"
+    },
+    {
+      "name": "original analysis unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "evaluation unchanged",
+      "result": "PASS"
+    }
+  ],
+  "analysisMode": "SAVED",
+  "newLiveModelCalls": 0,
+  "newAnalysisBranch": "mock integration tested only; existing POST used when absent"
+}

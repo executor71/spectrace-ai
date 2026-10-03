@@ -1,0 +1,11 @@
+{
+  "meta": null,
+  "contents": [
+    {
+      "uri": "requirement://b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "mimeType": "application/json",
+      "meta": null,
+      "text": "{\"requirement\": {\"id\": \"b5270f71-c92c-48ae-8530-8946f1cfce62\", \"title\": \"[Phase 3 검증] 부서장 대여 승인\", \"description\": \"요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.\", \"status\": \"ANALYZED\", \"createdAt\": \"2026-09-29T13:38:24.239194Z\"}, \"analysisExists\": true, \"testCaseCount\": 5, \"reviewSummary\": {\"APPROVED\": 1, \"REJECTED\": 1, \"DRAFT\": 3}}"
+    }
+  ]
+}

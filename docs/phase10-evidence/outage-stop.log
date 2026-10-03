@@ -1,0 +1,4 @@
+ Container master-jaeger-1 Stopping 
+ Container master-otel-collector-1 Stopping 
+ Container master-otel-collector-1 Stopped 
+ Container master-jaeger-1 Stopped 

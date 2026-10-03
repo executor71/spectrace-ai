@@ -5,6 +5,7 @@ from starlette.applications import Starlette
 from starlette.responses import JSONResponse
 from starlette.routing import Mount, Route
 import json
+import os
 import logging
 import time
 from datetime import datetime, timezone
@@ -21,6 +22,12 @@ from .contracts.analysis_models import AnalysisResult
 from .schemas import UUID, strict
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from mcp.server.transport_security import TransportSecuritySettings
+if os.getenv('APP_OTEL_ENABLED') == 'true':
+    from workflow_otel import observed_tool, correlation, request_id as telemetry_request_id, attrs as telemetry_attrs
+    from opentelemetry import trace as telemetry_trace
+else:
+    observed_tool = lambda function: function
+    correlation = lambda: {}
 
 ANALYSIS_SCHEMA = AnalysisResult.model_json_schema()
 # Reference the original public schema without maintaining a second analysis model.
@@ -39,8 +46,12 @@ async def list_tools():
         for name, schema in INPUTS.items()]
 
 @server.call_tool(validate_input=False)
+@observed_tool
 async def call_tool(name, arguments):
     started, request_id = time.perf_counter(), str(uuid4())
+    if os.getenv('APP_OTEL_ENABLED') == 'true':
+        telemetry_request_id.set(request_id)
+        telemetry_attrs(telemetry_trace.get_current_span(), {'requestId': request_id})
     stamp = datetime.now(timezone.utc).isoformat()
     status, code, downstream = "SUCCESS", None, {"search_knowledge": "ai/retrieval",
         "analyze_requirement": "backend", "get_test_cases": "backend", "get_evaluation_result": "evaluation",
@@ -65,7 +76,9 @@ async def call_tool(name, arguments):
         error = {"errorCode": code, "requestId": request_id}
         return types.CallToolResult(isError=True, content=[types.TextContent(type="text", text=json.dumps(error))], structuredContent=error)
     finally:
-        logging.getLogger("gateway").warning(json.dumps({"toolName": name if name in INPUTS else "UNKNOWN_TOOL",
+        logging.getLogger("gateway").warning(json.dumps({**correlation(), "timestamp": stamp,
+            "service": "legacy-assistant-mcp", "level": "INFO", "event": "mcp.tool",
+            "toolName": name if name in INPUTS else "UNKNOWN_TOOL",
             "requestId": request_id, "startedAt": stamp, "durationMs": round((time.perf_counter()-started)*1000, 3),
             "resultStatus": status, "downstreamService": downstream, "errorCode": code}))
 
@@ -107,3 +120,6 @@ async def lifespan(app):
 
 application = Starlette(routes=[Route("/health", health), Mount("/mcp", app=transport)], lifespan=lifespan)
 application.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "mcp-server"])
+if os.getenv('APP_OTEL_ENABLED') == 'true':
+    from workflow_otel.install import mcp
+    mcp(application)

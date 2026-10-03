@@ -1,0 +1,71 @@
+About Jaeger
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+legacy-assistant-demo: workflow.retrieval 2e4df20
+⌘
+Trace Timeline
+Trace StartOctober 3 2026, 02:06:39.742Duration131.73msServices3Depth5Total Spans9
+0μs
+32.93ms
+65.86ms
+98.8ms
+131.73ms
+Service & Operation
+0μs
+32.93ms
+65.86ms
+98.8ms
+131.73ms
+legacy-assistant-demo workflow.retrieval
+131.73ms
+legacy-assistant-backend backend.request
+4.35ms
+legacy-assistant-backend backend.requirement
+1.61ms
+legacy-assistant-retrieval http.server
+107.11ms
+legacy-assistant-retrieval rag.search
+104.44ms
+rag.search
+Service:legacy-assistant-retrievalDuration:104.44msStart Time:20.94ms
+Tags
+candidateCount	
+20
+	
+durationMs	
+104.49221599992597
+	
+latencyMs	
+104.49221599992597
+	
+otel.scope.name	
+legacy-workflow
+	
+requestId	
+96a63ea0-38ea-4af1-a681-1d764dd0eeb5
+	
+resultCount	
+5
+	
+retrieval.strategy	
+HYBRID
+	
+span.kind	
+internal
+	
+topK	
+5
+	
+Process:deployment.environment=localservice.version=phase10telemetry.sdk.language=pythontelemetry.sdk.name=opentelemetrytelemetry.sdk.version=1.34.1
+ 33fc259c6bd405dd
+legacy-assistant-retrieval rag.search
+102.92ms
+legacy-assistant-retrieval query.embedding
+90.28ms
+legacy-assistant-retrieval vector.search
+3.56ms
+legacy-assistant-retrieval lexical.search
+956μs

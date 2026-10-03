@@ -1,0 +1,63 @@
+About Jaeger
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+legacy-assistant-demo: workflow.measure.hybrid_rerank 6e6f0b2
+⌘
+Trace Timeline
+Trace StartOctober 3 2026, 02:06:51.580Duration4.39sServices2Depth5Total Spans8
+0μs
+1.1s
+2.2s
+3.29s
+4.39s
+Service & Operation
+0μs
+1.1s
+2.2s
+3.29s
+4.39s
+legacy-assistant-demo workflow.measure.hybrid_rerank
+4.39s
+legacy-assistant-retrieval http.server
+4.39s
+legacy-assistant-retrieval rag.search
+4.38s
+legacy-assistant-retrieval rag.search
+71.08ms
+legacy-assistant-retrieval query.embedding
+61.25ms
+legacy-assistant-retrieval vector.search
+2.47ms
+legacy-assistant-retrieval lexical.search
+446μs
+legacy-assistant-retrieval rerank
+4.31s
+rerank
+Service:legacy-assistant-retrievalDuration:4.31sStart Time:73.38ms
+Tags
+candidateCount	
+20
+	
+durationMs	
+4311.732635000226
+	
+latencyMs	
+4311.732635000226
+	
+model	
+BAAI/bge-reranker-v2-m3
+	
+otel.scope.name	
+legacy-workflow
+	
+requestId	
+2e572283-4163-4708-8969-010401e9eb9e
+	
+span.kind	
+internal
+	
+Process:deployment.environment=localservice.version=phase10telemetry.sdk.language=pythontelemetry.sdk.name=opentelemetrytelemetry.sdk.version=1.34.1
+ b6cae883abb3a7bd

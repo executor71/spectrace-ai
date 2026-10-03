@@ -1,0 +1,48 @@
+services:
+  ai-service:
+    build:
+      context: .
+      dockerfile: observability/Dockerfile.ai
+    environment:
+      APP_OTEL_ENABLED: "true"
+  retrieval-service:
+    build:
+      context: .
+      dockerfile: observability/Dockerfile.retrieval
+    environment:
+      APP_OTEL_ENABLED: "true"
+  evaluation-service:
+    build:
+      context: .
+      dockerfile: observability/Dockerfile.evaluation
+    environment:
+      APP_OTEL_ENABLED: "true"
+  mcp-server:
+    build:
+      context: .
+      dockerfile: observability/Dockerfile.mcp
+    environment:
+      APP_OTEL_ENABLED: "true"
+  backend:
+    environment:
+      APP_OTEL_ENABLED: "true"
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+  jaeger:
+    image: jaegertracing/jaeger:2.6.0
+    command: ["--config=/etc/jaeger/config.yaml"]
+    volumes:
+      - ./observability/jaeger-config.yaml:/etc/jaeger/config.yaml:ro
+      - jaeger-data:/tmp
+    ports:
+      - "127.0.0.1:16686:16686"
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.128.0
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./observability/otel-collector-config.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - "127.0.0.1:14317:4317"
+      - "127.0.0.1:14318:4318"
+      - "127.0.0.1:13133:13133"
+volumes:
+  jaeger-data:

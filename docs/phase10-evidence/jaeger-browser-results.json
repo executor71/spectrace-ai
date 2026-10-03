@@ -1,0 +1,56 @@
+{
+  "result": "PASS",
+  "browser": "Chrome 154.0.8037.58",
+  "screenshots": [
+    {
+      "file": "trace-overview.png",
+      "traceId": "0ffe8dbcbfed3a6a3c9f3f7cd7b252c8",
+      "case": "B_REAL_ANALYSIS",
+      "url": "http://localhost:16686/trace/0ffe8dbcbfed3a6a3c9f3f7cd7b252c8",
+      "operationVisible": "llm.generate"
+    },
+    {
+      "file": "rag-span.png",
+      "traceId": "2e4df2040e8c58c37f0818906b27a65f",
+      "case": "A_HYBRID",
+      "url": "http://localhost:16686/trace/2e4df2040e8c58c37f0818906b27a65f",
+      "operationVisible": "rag.search"
+    },
+    {
+      "file": "llm-span.png",
+      "traceId": "0ffe8dbcbfed3a6a3c9f3f7cd7b252c8",
+      "case": "B_REAL_ANALYSIS",
+      "url": "http://localhost:16686/trace/0ffe8dbcbfed3a6a3c9f3f7cd7b252c8",
+      "operationVisible": "llm.generate"
+    },
+    {
+      "file": "mcp-span.png",
+      "traceId": "4554d39f1a4fea1b232d93e5c2643172",
+      "case": "C_MCP",
+      "url": "http://localhost:16686/trace/4554d39f1a4fea1b232d93e5c2643172",
+      "operationVisible": "mcp.tool"
+    },
+    {
+      "file": "execution-pass-span.png",
+      "traceId": "422ed46fd75674f2b7dfb4ba4b1937a4",
+      "case": "BROWSER_PASS",
+      "url": "http://localhost:16686/trace/422ed46fd75674f2b7dfb4ba4b1937a4",
+      "operationVisible": "dummy.execution"
+    },
+    {
+      "file": "execution-fail-span.png",
+      "traceId": "25902ec9f97a4aac6c0fa1572e633e8e",
+      "case": "BROWSER_FAIL",
+      "url": "http://localhost:16686/trace/25902ec9f97a4aac6c0fa1572e633e8e",
+      "operationVisible": "dummy.execution"
+    },
+    {
+      "file": "reranker-span.png",
+      "traceId": "6e6f0b2d250fc1c99470237099bc09b4",
+      "case": "MEASURE_HYBRID_RERANK",
+      "url": "http://localhost:16686/trace/6e6f0b2d250fc1c99470237099bc09b4",
+      "operationVisible": "rerank"
+    }
+  ],
+  "detailsExpanded": true
+}

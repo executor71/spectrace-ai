@@ -1,0 +1,120 @@
+{
+  "result": "PASS",
+  "queryId": "phase2-1",
+  "results": [
+    {
+      "strategy": "VECTOR",
+      "iteration": 0,
+      "traceId": "4f3c6f1c533a479d9d8ee0dbc867699c",
+      "latencyMs": 86.30137699947227,
+      "phase8LatencyMs": 100.43743400001404,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 0.0,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "VECTOR",
+      "iteration": 1,
+      "traceId": "a6acf6ad212a3f05a89371dae27950a3",
+      "latencyMs": 84.77049700013595,
+      "phase8LatencyMs": 100.43743400001404,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 0.0,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "VECTOR",
+      "iteration": 2,
+      "traceId": "80b040bc571662090cba41e5ec75870f",
+      "latencyMs": 90.61252199899172,
+      "phase8LatencyMs": 100.43743400001404,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 0.0,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "HYBRID",
+      "iteration": 0,
+      "traceId": "a4506ddebb8846d58df4c3b8d9c88412",
+      "latencyMs": 86.90700399893103,
+      "phase8LatencyMs": 98.37534199959919,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 8.881784197001252e-16,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "HYBRID",
+      "iteration": 1,
+      "traceId": "6b330efa67787a23ff2a80833c952d07",
+      "latencyMs": 86.12775099754799,
+      "phase8LatencyMs": 98.37534199959919,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 8.881784197001252e-16,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "HYBRID",
+      "iteration": 2,
+      "traceId": "36cad460cf0d48ba793faf5ac9054845",
+      "latencyMs": 83.61246300046332,
+      "phase8LatencyMs": 98.37534199959919,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 8.881784197001252e-16,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "HYBRID_RERANK",
+      "iteration": 0,
+      "traceId": "98f9ccbf6766086753750d09f66cadb4",
+      "latencyMs": 4770.302917000663,
+      "phase8LatencyMs": 5665.7779430006485,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 8.881784197001252e-16,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "HYBRID_RERANK",
+      "iteration": 1,
+      "traceId": "4e2fa2ac22c515a258e58041ee74310d",
+      "latencyMs": 4910.584124998422,
+      "phase8LatencyMs": 5665.7779430006485,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 8.881784197001252e-16,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    },
+    {
+      "strategy": "HYBRID_RERANK",
+      "iteration": 2,
+      "traceId": "6138432b6a3b9f7af4cc156a19be11f6",
+      "latencyMs": 4845.921006002754,
+      "phase8LatencyMs": 5665.7779430006485,
+      "sameRanksAndNonLexicalScores": true,
+      "lexicalScoreMaxAbsoluteDelta": 8.881784197001252e-16,
+      "lexicalTolerance": 1e-12,
+      "sameCorpusAndConfig": true
+    }
+  ],
+  "summary": {
+    "VECTOR": {
+      "phase8SameQueryMs": 100.43743400001404,
+      "phase10SameQueryP50Ms": 86.30137699947227
+    },
+    "HYBRID": {
+      "phase8SameQueryMs": 98.37534199959919,
+      "phase10SameQueryP50Ms": 86.12775099754799
+    },
+    "HYBRID_RERANK": {
+      "phase8SameQueryMs": 5665.7779430006485,
+      "phase10SameQueryP50Ms": 4845.921006002754
+    }
+  },
+  "interpretation": "Same query and exact results; historical timing still includes runtime/hardware scheduling differences."
+}

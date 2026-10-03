@@ -1,0 +1,7 @@
+FROM master-ai-service:phase9-baseline
+WORKDIR /app
+COPY observability/requirements.txt /tmp/otel-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/otel-requirements.txt
+COPY observability/python/ /opt/observability/
+COPY ai-service/app/ /app/app/
+ENV PYTHONPATH=/opt/observability:/app

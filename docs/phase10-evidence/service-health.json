@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "services": [
+    {
+      "port": 8080,
+      "status": "UP"
+    },
+    {
+      "port": 8000,
+      "status": "UP"
+    },
+    {
+      "port": 8090,
+      "status": "UP"
+    },
+    {
+      "port": 8010,
+      "status": "UP"
+    },
+    {
+      "port": 8020,
+      "status": "UP"
+    }
+  ],
+  "collector": "UP",
+  "jaeger": "UP",
+  "jaegerServices": [
+    "jaeger",
+    "legacy-assistant-ai",
+    "legacy-assistant-backend",
+    "legacy-assistant-demo",
+    "legacy-assistant-evaluation",
+    "legacy-assistant-mcp",
+    "legacy-assistant-retrieval"
+  ],
+  "otlpReceivers": {
+    "grpc": 14317,
+    "http": 14318
+  }
+}

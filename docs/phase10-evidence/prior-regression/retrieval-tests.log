@@ -1,0 +1,53 @@
+test_bad_score_count_is_error (test_reranker.RerankerTests.test_bad_score_count_is_error) ... {"timestamp": "2026-10-02T17:14:34.307963+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "37b27933490cf9d9ff655967364c884c", "spanId": "4749c3f9629237be", "requestId": "", "event": "lexical.search", "durationMs": 0.08346200047526509}
+{"timestamp": "2026-10-02T17:14:34.308165+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "37b27933490cf9d9ff655967364c884c", "spanId": "99e73865316e5e73", "requestId": "", "event": "rag.search", "durationMs": 0.547504001588095}
+ok
+test_empty_candidates (test_reranker.RerankerTests.test_empty_candidates) ... {"timestamp": "2026-10-02T17:14:34.308509+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "d8d0277fb303c337030cc5a7f01cd9fd", "spanId": "ab8abe885ed10cf6", "requestId": "", "event": "lexical.search", "durationMs": 0.030560000595869496}
+{"timestamp": "2026-10-02T17:14:34.308704+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "d8d0277fb303c337030cc5a7f01cd9fd", "spanId": "dfc3c3926cb1e461", "requestId": "", "event": "rag.search", "durationMs": 0.2733609981078189}
+ok
+test_empty_does_not_load (test_reranker.RerankerTests.test_empty_does_not_load) ... {"timestamp": "2026-10-02T17:14:34.308903+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "728329d0a9de6c48def2f00af4e0e0cb", "spanId": "cfe8975de0845bb4", "requestId": "", "event": "rerank", "durationMs": 0.04922600055579096}
+ok
+test_failure_is_error (test_reranker.RerankerTests.test_failure_is_error) ... {"timestamp": "2026-10-02T17:14:34.309203+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "de48b9df69b2659be72c35f3c4c7d0a2", "spanId": "ae634757dd7bffbe", "requestId": "", "event": "lexical.search", "durationMs": 0.05375500040827319}
+{"timestamp": "2026-10-02T17:14:34.309362+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "de48b9df69b2659be72c35f3c4c7d0a2", "spanId": "e0e5cc91e2ee47b6", "requestId": "", "event": "rag.search", "durationMs": 0.26575599986244924}
+ok
+test_invalid_provider (test_reranker.RerankerTests.test_invalid_provider) ... ok
+test_model_is_configured (test_reranker.RerankerTests.test_model_is_configured) ... ok
+test_nonfinite_scores_are_error (test_reranker.RerankerTests.test_nonfinite_scores_are_error) ... {"timestamp": "2026-10-02T17:14:34.309942+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "b3aea20e5502eeddf59c35b02fb1d651", "spanId": "354034994f3b5fdb", "requestId": "", "event": "lexical.search", "durationMs": 0.08713900024304166}
+{"timestamp": "2026-10-02T17:14:34.310094+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "b3aea20e5502eeddf59c35b02fb1d651", "spanId": "fb39227222ca9de7", "requestId": "", "event": "rag.search", "durationMs": 0.30860900005791336}
+ok
+test_only_top_twenty_passed_to_model (test_reranker.RerankerTests.test_only_top_twenty_passed_to_model) ... {"timestamp": "2026-10-02T17:14:34.310397+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "b7b801ec477b9d087bbb3f3a025f0023", "spanId": "b4e0ee0d7eb7aee8", "requestId": "", "event": "lexical.search", "durationMs": 0.057421999372309074}
+{"timestamp": "2026-10-02T17:14:34.310658+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "b7b801ec477b9d087bbb3f3a025f0023", "spanId": "cb64ae3402d827d7", "requestId": "", "event": "rag.search", "durationMs": 0.3670859987323638}
+ok
+test_empty_query (test_retrieval.ApiTests.test_empty_query) ... {"timestamp": "2026-10-02T17:14:34.318689+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "d61e099aa5e416a633c347cea39ad08d", "spanId": "24cbbfaface6c3a8", "requestId": "8216d851-91c2-4598-a8e0-d5386345eb2f", "event": "http.server", "durationMs": 0.6822760005888995}
+ok
+test_empty_result_schema (test_retrieval.ApiTests.test_empty_result_schema) ... {"timestamp": "2026-10-02T17:14:34.321990+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "efd45d3e242ca6d5f7fd8b01b17a1597", "spanId": "9aed2ec1ada2ca6e", "requestId": "8acd9adb-606e-4d44-812e-4339c1974521", "event": "http.server", "durationMs": 0.945586998568615}
+ok
+test_extra_ground_truth_rejected (test_retrieval.ApiTests.test_extra_ground_truth_rejected) ... {"timestamp": "2026-10-02T17:14:34.324063+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "f91fe346e9012c31762866d5fe0a437f", "spanId": "288aff0a1565c9c9", "requestId": "a4dc642c-9b73-458d-829f-6e611caa9dd4", "event": "http.server", "durationMs": 0.19530999998096377}
+ok
+test_malformed_id (test_retrieval.ApiTests.test_malformed_id) ... {"timestamp": "2026-10-02T17:14:34.326178+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "a0cc90b038a19301d65cd21252d64b8a", "spanId": "c1363d5bcf9a36cf", "requestId": "259305fd-82c0-494e-9c02-01ad0ce52649", "event": "http.server", "durationMs": 0.2774989989120513}
+ok
+test_reranker_failure_no_silent_fallback (test_retrieval.ApiTests.test_reranker_failure_no_silent_fallback) ... {"timestamp": "2026-10-02T17:14:34.328914+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "0ce279adcd6483e27bd8b21d615217dc", "spanId": "70f21f480a41ce3f", "requestId": "8db32b8e-a65c-4e15-a6b1-cfd0778e2be2", "event": "http.server", "durationMs": 0.6948099980945699}
+ok
+test_score_nulls (test_retrieval.ApiTests.test_score_nulls) ... ok
+test_duplicate_rejected (test_retrieval.FusionTests.test_duplicate_rejected) ... ok
+test_invalid_rrf (test_retrieval.FusionTests.test_invalid_rrf) ... ok
+test_rrf_formula (test_retrieval.FusionTests.test_rrf_formula) ... ok
+test_scores_not_added (test_retrieval.FusionTests.test_scores_not_added) ... ok
+test_union_empty_and_single_branch (test_retrieval.FusionTests.test_union_empty_and_single_branch) ... ok
+test_bm25_exact (test_retrieval.LexicalTests.test_bm25_exact) ... {"timestamp": "2026-10-02T17:14:34.330323+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "0b87204f1b9e1e6b9fb27c2ff1aa281d", "spanId": "b027552169fc4128", "requestId": "", "event": "lexical.search", "durationMs": 0.07634800203959458}
+ok
+test_bm25_math (test_retrieval.LexicalTests.test_bm25_math) ... {"timestamp": "2026-10-02T17:14:34.330539+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "f9db48eecc30a2c7b5c8073c4706044e", "spanId": "97da9cc928258081", "requestId": "", "event": "lexical.search", "durationMs": 0.07568699948024005}
+ok
+test_empty_corpus (test_retrieval.LexicalTests.test_empty_corpus) ... {"timestamp": "2026-10-02T17:14:34.330696+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "cd7fce45919e85151b643eeee6b54f5d", "spanId": "fa3c24d04a6b3353", "requestId": "", "event": "lexical.search", "durationMs": 0.04360499951872043}
+ok
+test_exact_error_code (test_retrieval.LexicalTests.test_exact_error_code) ... ok
+test_invalid_settings (test_retrieval.LexicalTests.test_invalid_settings) ... ok
+test_korean_inflections (test_retrieval.LexicalTests.test_korean_inflections) ... ok
+test_no_match (test_retrieval.LexicalTests.test_no_match) ... {"timestamp": "2026-10-02T17:14:36.811156+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "5dafae9c740e64b870dd581cbff4df31", "spanId": "3b18d86e870a9560", "requestId": "", "event": "lexical.search", "durationMs": 0.2457269984006416}
+ok
+test_tie_is_deterministic (test_retrieval.LexicalTests.test_tie_is_deterministic) ... {"timestamp": "2026-10-02T17:14:36.811584+00:00", "service": "legacy-assistant-retrieval", "level": "INFO", "traceId": "728e11eb700b2e31a4e9c4aa25a1dfd8", "spanId": "ecddc509f05cccfd", "requestId": "", "event": "lexical.search", "durationMs": 0.117248000606196}
+ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 2.504s
+
+OK

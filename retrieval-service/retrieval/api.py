@@ -8,6 +8,10 @@ from retrieval.core import SearchEngine,RerankerUnavailable,settings
 from retrieval.reranker import LocalRerankerProvider
 
 app=FastAPI(title='Phase 8 isolated retrieval experiment');serial=Lock()
+import os
+if os.getenv('APP_OTEL_ENABLED') == 'true':
+    from workflow_otel.install import retrieval
+    retrieval(app)
 class Request(BaseModel):
     model_config=ConfigDict(extra='forbid')
     queryId:str=Field(min_length=1,max_length=80,pattern=r'^[a-zA-Z0-9_-]+$')

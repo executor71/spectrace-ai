@@ -1,0 +1,12 @@
+[
+  {
+    "traceId": "422ed46fd75674f2b7dfb4ba4b1937a4",
+    "status": 201,
+    "case": "BROWSER_PASS"
+  },
+  {
+    "traceId": "25902ec9f97a4aac6c0fa1572e633e8e",
+    "status": 201,
+    "case": "BROWSER_FAIL"
+  }
+]

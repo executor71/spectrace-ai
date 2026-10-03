@@ -1,0 +1,128 @@
+{
+  "VECTOR": {
+    "latencyMs": 100.43743400001404,
+    "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+    "configHash": "321a3811a4167714cc55a17fb2f10c51b1be200ee8664b3d2ec9eea842511c9e",
+    "hits": [
+      {
+        "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+        "vectorScore": 0.7217434644699097,
+        "lexicalScore": null,
+        "fusionScore": null,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "vectorScore": 0.5881104118758205,
+        "lexicalScore": null,
+        "fusionScore": null,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+        "vectorScore": 0.5867432848521174,
+        "lexicalScore": null,
+        "fusionScore": null,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "vectorScore": 0.5786679983139038,
+        "lexicalScore": null,
+        "fusionScore": null,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+        "vectorScore": 0.5723979473114014,
+        "lexicalScore": null,
+        "fusionScore": null,
+        "rerankScore": null
+      }
+    ]
+  },
+  "HYBRID": {
+    "latencyMs": 98.37534199959919,
+    "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+    "configHash": "321a3811a4167714cc55a17fb2f10c51b1be200ee8664b3d2ec9eea842511c9e",
+    "hits": [
+      {
+        "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+        "vectorScore": 0.7217434644699097,
+        "lexicalScore": 10.932236034423708,
+        "fusionScore": 0.03278688524590164,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "vectorScore": 0.5786679983139038,
+        "lexicalScore": 7.273701488552759,
+        "fusionScore": 0.031754032258064516,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "vectorScore": 0.5881104118758205,
+        "lexicalScore": 4.376091862806469,
+        "fusionScore": 0.0315136476426799,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+        "vectorScore": 0.5723979473114014,
+        "lexicalScore": 5.261416992202453,
+        "fusionScore": 0.03125763125763126,
+        "rerankScore": null
+      },
+      {
+        "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+        "vectorScore": 0.5705849188217579,
+        "lexicalScore": 4.5634409243580505,
+        "fusionScore": 0.030776515151515152,
+        "rerankScore": null
+      }
+    ]
+  },
+  "HYBRID_RERANK": {
+    "latencyMs": 5665.7779430006485,
+    "corpusHash": "182b26215773607d0cab2116e3297181c3736d7bcc15436849746c0cba77cd2c",
+    "configHash": "321a3811a4167714cc55a17fb2f10c51b1be200ee8664b3d2ec9eea842511c9e",
+    "hits": [
+      {
+        "chunkId": "97dd0846-eb69-5d26-b10d-321579bdce4e",
+        "vectorScore": 0.7217434644699097,
+        "lexicalScore": 10.932236034423708,
+        "fusionScore": 0.03278688524590164,
+        "rerankScore": 3.0524587631225586
+      },
+      {
+        "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+        "vectorScore": 0.5881104118758205,
+        "lexicalScore": 4.376091862806469,
+        "fusionScore": 0.0315136476426799,
+        "rerankScore": -3.1063692569732666
+      },
+      {
+        "chunkId": "00e01630-a4af-5f57-b3ae-4142107d0edc",
+        "vectorScore": 0.5723979473114014,
+        "lexicalScore": 5.261416992202453,
+        "fusionScore": 0.03125763125763126,
+        "rerankScore": -3.215437650680542
+      },
+      {
+        "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+        "vectorScore": 0.5402617180503448,
+        "lexicalScore": 4.335380142373911,
+        "fusionScore": 0.02964426877470356,
+        "rerankScore": -5.42347526550293
+      },
+      {
+        "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+        "vectorScore": 0.5786679983139038,
+        "lexicalScore": 7.273701488552759,
+        "fusionScore": 0.031754032258064516,
+        "rerankScore": -6.236111640930176
+      }
+    ]
+  }
+}

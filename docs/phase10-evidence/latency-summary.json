@@ -1,0 +1,81 @@
+{
+  "unit": "ms",
+  "source": "actual Jaeger span durations; warmup excluded",
+  "workflows": {
+    "VECTOR": {
+      "count": 3,
+      "mean": 73.181,
+      "p50": 72.399,
+      "p95": 76.643,
+      "max": 76.643
+    },
+    "HYBRID": {
+      "count": 3,
+      "mean": 69.749,
+      "p50": 69.892,
+      "p95": 70.618,
+      "max": 70.618
+    },
+    "HYBRID_RERANK": {
+      "count": 3,
+      "mean": 4349.514666666666,
+      "p50": 4349.668,
+      "p95": 4383.945,
+      "max": 4383.945
+    },
+    "reranker": {
+      "count": 3,
+      "mean": 4277.711666666667,
+      "p50": 4279.108,
+      "p95": 4311.912,
+      "max": 4311.912
+    },
+    "LLM analysis": {
+      "count": 1,
+      "mean": 87223.903,
+      "p50": 87223.903,
+      "p95": 87223.903,
+      "max": 87223.903
+    },
+    "MCP tool": {
+      "count": 1,
+      "mean": 36.298,
+      "p50": 36.298,
+      "p95": 36.298,
+      "max": 36.298
+    },
+    "dummy execution": {
+      "count": 2,
+      "mean": 4.6049999999999995,
+      "p50": 4.6049999999999995,
+      "p95": 6.047,
+      "max": 6.047
+    }
+  },
+  "bottleneckTop3": [
+    {
+      "operation": "llm.generate",
+      "count": 1,
+      "mean": 87223.903,
+      "p50": 87223.903,
+      "p95": 87223.903,
+      "max": 87223.903
+    },
+    {
+      "operation": "rerank",
+      "count": 3,
+      "mean": 4277.711666666667,
+      "p50": 4279.108,
+      "p95": 4311.912,
+      "max": 4311.912
+    },
+    {
+      "operation": "query.embedding",
+      "count": 12,
+      "mean": 477.5215,
+      "p50": 61.084,
+      "p95": 4971.588,
+      "max": 4971.588
+    }
+  ]
+}

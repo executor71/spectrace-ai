@@ -1,0 +1,12 @@
+[
+  {
+    "case": "NOT_EXECUTABLE",
+    "traceId": "e2603cbbda98b8640b582e2dbc10b545",
+    "synthetic": true
+  },
+  {
+    "case": "FIXTURE_NOT_READY",
+    "traceId": "35d21c3d13f5966fa45631b4c18bfd4a",
+    "synthetic": true
+  }
+]

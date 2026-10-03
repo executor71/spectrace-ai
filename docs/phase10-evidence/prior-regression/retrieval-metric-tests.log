@@ -1,0 +1,18 @@
+test_all_relevant (test_metrics.MetricTests.test_all_relevant) ... ok
+test_duplicates_rejected (test_metrics.MetricTests.test_duplicates_rejected) ... ok
+test_empty_results (test_metrics.MetricTests.test_empty_results) ... ok
+test_empty_truth_not_perfect (test_metrics.MetricTests.test_empty_truth_not_perfect) ... ok
+test_graded_dcg (test_metrics.MetricTests.test_graded_dcg) ... ok
+test_macro_average (test_metrics.MetricTests.test_macro_average) ... ok
+test_miss (test_metrics.MetricTests.test_miss) ... ok
+test_percentile (test_metrics.MetricTests.test_percentile) ... ok
+test_rank_two (test_metrics.MetricTests.test_rank_two) ... ok
+test_recall_denominator (test_metrics.MetricTests.test_recall_denominator) ... ok
+test_truncated_at_five (test_metrics.MetricTests.test_truncated_at_five) ... ok
+test_unknown_chunk (test_metrics.MetricTests.test_unknown_chunk) ... ok
+test_unknown_query_id (test_metrics.MetricTests.test_unknown_query_id) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.000s
+
+OK

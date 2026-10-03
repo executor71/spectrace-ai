@@ -1,0 +1,111 @@
+[
+  {
+    "case": "A_HYBRID",
+    "traceId": "2e4df2040e8c58c37f0818906b27a65f"
+  },
+  {
+    "case": "C_MCP",
+    "traceId": "4554d39f1a4fea1b232d93e5c2643172"
+  },
+  {
+    "case": "D_PASS",
+    "traceId": "8e30586b197705f10b22615288a952b2",
+    "executionId": "42c8fdb6-949e-4da5-9804-ea3640071927"
+  },
+  {
+    "case": "E_FAIL",
+    "traceId": "cd088862b51b396283975c40c31d5526",
+    "executionId": "743f85d5-1271-41e4-ad64-551c783f5a4f"
+  },
+  {
+    "case": "F_NOT_APPROVED",
+    "traceId": "2cd97e571780e423a43bc92aff0318b3"
+  },
+  {
+    "case": "F_API_NOT_ALLOWED",
+    "traceId": "f1308ee314ea50da86e23e0b67aa04a5"
+  },
+  {
+    "case": "RAG_NO_RESULT",
+    "traceId": "5e2eb2e97107320a0221ec26d01b1b9a"
+  },
+  {
+    "case": "VALIDATION_FAILED",
+    "traceId": "715ab355aa1e12a0aa42700f9cd48ed6"
+  },
+  {
+    "case": "MCP_TOOL_REJECTED",
+    "traceId": "9416ba9ba173fdcf0389d8e4a463cbb0"
+  },
+  {
+    "case": "EVALUATION",
+    "traceId": "73a59955ff26ce61ac148a3229688e1c",
+    "evaluationId": "b6f54f3e-c7ff-4486-ba2c-cd6881aed359"
+  },
+  {
+    "case": "WARMUP_VECTOR",
+    "traceId": "ad137d691121fbe48fec137e501d3fbe"
+  },
+  {
+    "case": "MEASURE_VECTOR",
+    "traceId": "3c6101f08f15f0a9523a3eb2f384d10a",
+    "iteration": 0,
+    "serverLatencyMs": 76.44775700100581
+  },
+  {
+    "case": "MEASURE_VECTOR",
+    "traceId": "cefc71c5be17fe43b845cef0d9e266f3",
+    "iteration": 1,
+    "serverLatencyMs": 72.251926001627
+  },
+  {
+    "case": "MEASURE_VECTOR",
+    "traceId": "51b3dca9e31ac9d91e12455f19782fac",
+    "iteration": 2,
+    "serverLatencyMs": 70.3555990003224
+  },
+  {
+    "case": "WARMUP_HYBRID",
+    "traceId": "29abd184a6f5905c8c69372840dd909d"
+  },
+  {
+    "case": "MEASURE_HYBRID",
+    "traceId": "75280c73a33f3a4728721add0e7ef2dc",
+    "iteration": 0,
+    "serverLatencyMs": 68.59019799958332
+  },
+  {
+    "case": "MEASURE_HYBRID",
+    "traceId": "c6d9aabafd85c538fd25d11b34dc1a7f",
+    "iteration": 1,
+    "serverLatencyMs": 70.46568400255637
+  },
+  {
+    "case": "MEASURE_HYBRID",
+    "traceId": "63a8e84601e9513519e7d0f53dc6fe0a",
+    "iteration": 2,
+    "serverLatencyMs": 69.74369000090519
+  },
+  {
+    "case": "WARMUP_HYBRID_RERANK",
+    "traceId": "7f639c776e96d754dd2f4625723f6469"
+  },
+  {
+    "case": "MEASURE_HYBRID_RERANK",
+    "traceId": "6e6f0b2d250fc1c99470237099bc09b4",
+    "iteration": 0,
+    "serverLatencyMs": 4383.7472980012535
+  },
+  {
+    "case": "MEASURE_HYBRID_RERANK",
+    "traceId": "ff09e9e8f8a3b327f479f1e8499e211a",
+    "iteration": 1,
+    "serverLatencyMs": 4314.764375001687
+  },
+  {
+    "case": "MEASURE_HYBRID_RERANK",
+    "traceId": "f5ad3366f0fcb6bbc799d8431346e3d9",
+    "iteration": 2,
+    "serverLatencyMs": 4349.51326800001
+  }
+]
