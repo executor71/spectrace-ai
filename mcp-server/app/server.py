@@ -55,7 +55,8 @@ async def call_tool(name, arguments):
     stamp = datetime.now(timezone.utc).isoformat()
     status, code, downstream = "SUCCESS", None, {"search_knowledge": "ai/retrieval",
         "analyze_requirement": "backend", "get_test_cases": "backend", "get_evaluation_result": "evaluation",
-        "execute_approved_test": "backend"}.get(name)
+        "execute_approved_test": "backend", "find_requirement_context": "graph",
+        "find_impacted_tests": "graph", "trace_test_case_origin": "graph"}.get(name)
     try:
         if name not in INPUTS:
             raise GatewayError("UNKNOWN_TOOL")

@@ -11,3 +11,6 @@ INPUTS = {
 for name in ("analyze_requirement", "get_test_cases", "get_evaluation_result"):
     INPUTS[name] = strict({"requirementId": UUID}, ["requirementId"])
 INPUTS["execute_approved_test"] = strict({"testCaseId": UUID}, ["testCaseId"])
+INPUTS["find_requirement_context"] = strict({"requirementId": UUID}, ["requirementId"])
+INPUTS["find_impacted_tests"] = strict({"businessRuleId": UUID}, ["businessRuleId"])
+INPUTS["trace_test_case_origin"] = strict({"testCaseId": UUID}, ["testCaseId"])

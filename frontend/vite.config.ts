@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+      '/api/graph': 'http://graph-service:8030',
       '^/api/evaluations(?:/|$)': 'http://evaluation-service:8090',
       '^/api/requirements/[^/]+/evaluations$': 'http://evaluation-service:8090',
       '/api': 'http://backend:8080',

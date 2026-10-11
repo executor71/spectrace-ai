@@ -2,7 +2,8 @@
 import httpx
 
 DESTINATIONS = {"backend": "http://backend:8080", "ai": "http://ai-service:8000",
-                "retrieval": "http://retrieval-service:8010", "evaluation": "http://evaluation-service:8090"}
+                "retrieval": "http://retrieval-service:8010", "evaluation": "http://evaluation-service:8090",
+                "graph": "http://graph-service:8030"}
 
 class GatewayError(Exception):
     def __init__(self, code, service=None):
@@ -16,6 +17,7 @@ class Services:
     async def request(self, service, method, path, body=None, missing=False):
         try:
             kwargs = {"json": body} if body is not None else {}
+            if service == 'graph': kwargs['timeout'] = 8
             response = await self.client.request(method, DESTINATIONS[service] + path, **kwargs)
         except httpx.TimeoutException:
             raise GatewayError("DOWNSTREAM_TIMEOUT", service) from None

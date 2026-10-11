@@ -1,0 +1,29 @@
+{
+  "first": {
+    "nodeCount": 190,
+    "edgeCount": 220,
+    "traceId": "3197fd16589c3519ac4a12d36dbfb529",
+    "skipped": [
+      {
+        "testCaseId": "1f521e4c-458b-4c09-95f3-4e6d26ea112a",
+        "reason": "NO_CANONICAL_API_MATCH"
+      }
+    ],
+    "scope": "configured requirements + frozen Phase2 corpus",
+    "atomic": true
+  },
+  "second": {
+    "nodeCount": 190,
+    "edgeCount": 220,
+    "traceId": "a73c80b848498f0b8493f15dcc4503e5",
+    "skipped": [
+      {
+        "testCaseId": "1f521e4c-458b-4c09-95f3-4e6d26ea112a",
+        "reason": "NO_CANONICAL_API_MATCH"
+      }
+    ],
+    "scope": "configured requirements + frozen Phase2 corpus",
+    "atomic": true
+  },
+  "idempotent": true
+}

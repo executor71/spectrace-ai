@@ -1,0 +1,17 @@
+[
+  {
+    "name": "/master-graph-service-1",
+    "noPostgresCredentials": true,
+    "noEvaluationMount": true
+  },
+  {
+    "name": "/master-mcp-server-1",
+    "noPostgresCredentials": true,
+    "noEvaluationMount": true
+  },
+  {
+    "name": "/master-neo4j-1",
+    "noPostgresCredentials": true,
+    "noEvaluationMount": true
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "_meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"errorCode\": \"NOT_APPROVED\", \"requestId\": \"142eb539-5089-4ade-92ef-5acfe2ba2230\"}",
+      "annotations": null,
+      "_meta": null
+    }
+  ],
+  "structuredContent": {
+    "errorCode": "NOT_APPROVED",
+    "requestId": "142eb539-5089-4ade-92ef-5acfe2ba2230"
+  },
+  "isError": true
+}

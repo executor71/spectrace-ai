@@ -1,0 +1,90 @@
+[
+  {
+    "test": "Neo4j health",
+    "result": "PASS"
+  },
+  {
+    "test": "Repeated sync exact nodes and edges",
+    "result": "PASS"
+  },
+  {
+    "test": "Original IDs, properties, edges",
+    "result": "PASS"
+  },
+  {
+    "test": "Stale nodes and edges removed atomically",
+    "result": "PASS"
+  },
+  {
+    "test": "Failed sync rolls back whole projection",
+    "result": "PASS"
+  },
+  {
+    "test": "Concurrent sync does not duplicate nodes or edges",
+    "result": "PASS"
+  },
+  {
+    "test": "Requirement 1-hop",
+    "result": "PASS"
+  },
+  {
+    "test": "find_requirement_context",
+    "result": "PASS"
+  },
+  {
+    "test": "find_requirement_context multi-hop",
+    "result": "PASS"
+  },
+  {
+    "test": "find_impacted_tests",
+    "result": "PASS"
+  },
+  {
+    "test": "find_impacted_tests multi-hop",
+    "result": "PASS"
+  },
+  {
+    "test": "trace_test_case_origin",
+    "result": "PASS"
+  },
+  {
+    "test": "trace_test_case_origin multi-hop",
+    "result": "PASS"
+  },
+  {
+    "test": "Missing entity 404",
+    "result": "PASS"
+  },
+  {
+    "test": "Injection rejected MATCH (n) DETACH DELETE n",
+    "result": "PASS"
+  },
+  {
+    "test": "Injection rejected http://outside.example",
+    "result": "PASS"
+  },
+  {
+    "test": "Injection rejected ../admin/reset",
+    "result": "PASS"
+  },
+  {
+    "test": "Extra Cypher field rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "No arbitrary query route",
+    "result": "PASS"
+  },
+  {
+    "test": "No public sync route",
+    "result": "PASS"
+  },
+  {
+    "test": "Graph context retains five text hits",
+    "result": "PASS"
+  },
+  {
+    "test": "Graph annotations grounded in retrieved text",
+    "result": "PASS"
+  }
+]

@@ -1,0 +1,332 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-1",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-2",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-3",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-4",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-5",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-6",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-7",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "phase2-8",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-01",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-02",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-03",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-04",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-05",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-06",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-07",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-08",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-09",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-10",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-11",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-12",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-13",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-14",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-15",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-16",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-17",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-18",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-19",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-20",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-21",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-22",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-23",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "VECTOR",
+      "queryId": "synthetic-24",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-1",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-2",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-3",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-4",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-5",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-6",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-7",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "phase2-8",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-01",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-02",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-03",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-04",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-05",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-06",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-07",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-08",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-09",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-10",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-11",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-12",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-13",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-14",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-15",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-16",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-17",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-18",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-19",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-20",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-21",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-22",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-23",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID",
+      "queryId": "synthetic-24",
+      "sameRankAndScores": true
+    },
+    {
+      "strategy": "HYBRID_RERANK",
+      "queryId": "phase2-1",
+      "sameRankAndScores": true
+    }
+  ],
+  "lexicalTolerance": 1e-12,
+  "reason": "Pre-existing floating summation roundoff documented in Phase10; all other fields exact."
+}

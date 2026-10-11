@@ -1,0 +1,1386 @@
+{
+  "frozenAt": "2026-10-11T11:33:54.867201+00:00",
+  "sourceSha256": "add37e2a4e111bfbe77970253aad416e40a2d26a3b9793addc57b9647bc5d0d6",
+  "method": "Source-reviewed ID/path assertions frozen before graph schema or sync. No graph imports or graph responses. API scope is the two existing Phase7 registry IDs.",
+  "queries": [
+    {
+      "id": "GQ01",
+      "question": "대여 승인 테스트 c53be0ea-3157-49be-a922-efa378d6ca11의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "c53be0ea-3157-49be-a922-efa378d6ca11"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c53be0ea-3157-49be-a922-efa378d6ca11"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ02",
+      "question": "대여 승인 테스트 c0dca00f-7a4c-4861-ba42-06c7588235b1의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ03",
+      "question": "대여 승인 테스트 0cdd544d-a755-412a-88e5-78f570c427c2의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "0cdd544d-a755-412a-88e5-78f570c427c2"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "0cdd544d-a755-412a-88e5-78f570c427c2"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ04",
+      "question": "대여 승인 테스트 4b357887-da03-4295-9399-78b5ae5a587d의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "4b357887-da03-4295-9399-78b5ae5a587d"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4b357887-da03-4295-9399-78b5ae5a587d"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ05",
+      "question": "대여 승인 테스트 f25fc98b-f047-4799-88dc-7fa77dd579b1의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ06",
+      "question": "대여 승인 테스트 d4723cf0-56bd-46ff-b572-7ca83c586e29의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ07",
+      "question": "대여 승인 테스트 4611bca5-0d0c-45dd-9793-75566c432c89의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ08",
+      "question": "대여 승인 테스트 e35a6d9c-e7f2-4546-9f34-d597e9ae9627의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "Requirement",
+          "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ09",
+      "question": "자기 승인 금지 요구사항 b5270f71-c92c-48ae-8530-8946f1cfce62에서 승인 규칙과 API를 거쳐 생성된 테스트까지 추적한다.",
+      "tool": "find_requirement_context",
+      "arguments": {
+        "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "TestCase",
+          "id": "0cdd544d-a755-412a-88e5-78f570c427c2"
+        },
+        {
+          "type": "TestCase",
+          "id": "4b357887-da03-4295-9399-78b5ae5a587d"
+        },
+        {
+          "type": "TestCase",
+          "id": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+        },
+        {
+          "type": "TestCase",
+          "id": "c53be0ea-3157-49be-a922-efa378d6ca11"
+        },
+        {
+          "type": "TestCase",
+          "id": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c53be0ea-3157-49be-a922-efa378d6ca11"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "0cdd544d-a755-412a-88e5-78f570c427c2"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4b357887-da03-4295-9399-78b5ae5a587d"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "b5270f71-c92c-48ae-8530-8946f1cfce62"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "BusinessRule",
+        "Api",
+        "TestCase"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ10",
+      "question": "자기 승인 금지 요구사항 80e2d374-0825-4811-a11e-03ade256b6e8에서 승인 규칙과 API를 거쳐 생성된 테스트까지 추적한다.",
+      "tool": "find_requirement_context",
+      "arguments": {
+        "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        },
+        {
+          "type": "TestCase",
+          "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+        },
+        {
+          "type": "TestCase",
+          "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+        },
+        {
+          "type": "TestCase",
+          "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "BusinessRule",
+        "Api",
+        "TestCase"
+      ],
+      "negative": false,
+      "hops": 3
+    },
+    {
+      "id": "GQ11",
+      "question": "업무규칙 7cea4fe7-6b00-56c9-be35-3194aeecb923 변경 시 승인 API를 거쳐 영향받는 테스트는?",
+      "tool": "find_impacted_tests",
+      "arguments": {
+        "businessRuleId": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "TestCase",
+          "id": "0cdd544d-a755-412a-88e5-78f570c427c2"
+        },
+        {
+          "type": "TestCase",
+          "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+        },
+        {
+          "type": "TestCase",
+          "id": "4b357887-da03-4295-9399-78b5ae5a587d"
+        },
+        {
+          "type": "TestCase",
+          "id": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+        },
+        {
+          "type": "TestCase",
+          "id": "c53be0ea-3157-49be-a922-efa378d6ca11"
+        },
+        {
+          "type": "TestCase",
+          "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+        },
+        {
+          "type": "TestCase",
+          "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+        },
+        {
+          "type": "TestCase",
+          "id": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c53be0ea-3157-49be-a922-efa378d6ca11"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "0cdd544d-a755-412a-88e5-78f570c427c2"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4b357887-da03-4295-9399-78b5ae5a587d"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Api",
+        "TestCase"
+      ],
+      "negative": false,
+      "hops": 2
+    },
+    {
+      "id": "GQ12",
+      "question": "가용 재고 판정 규칙 변경 시 대여 승인 API를 사용하는 테스트 영향 범위는?",
+      "tool": "find_impacted_tests",
+      "arguments": {
+        "businessRuleId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "TestCase",
+          "id": "0cdd544d-a755-412a-88e5-78f570c427c2"
+        },
+        {
+          "type": "TestCase",
+          "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+        },
+        {
+          "type": "TestCase",
+          "id": "4b357887-da03-4295-9399-78b5ae5a587d"
+        },
+        {
+          "type": "TestCase",
+          "id": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+        },
+        {
+          "type": "TestCase",
+          "id": "c53be0ea-3157-49be-a922-efa378d6ca11"
+        },
+        {
+          "type": "TestCase",
+          "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+        },
+        {
+          "type": "TestCase",
+          "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+        },
+        {
+          "type": "TestCase",
+          "id": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c53be0ea-3157-49be-a922-efa378d6ca11"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "c0dca00f-7a4c-4861-ba42-06c7588235b1"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "0cdd544d-a755-412a-88e5-78f570c427c2"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4b357887-da03-4295-9399-78b5ae5a587d"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "f25fc98b-f047-4799-88dc-7fa77dd579b1"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        },
+        {
+          "path": [
+            {
+              "type": "BusinessRule",
+              "id": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            },
+            {
+              "type": "TestCase",
+              "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627"
+            }
+          ],
+          "relations": [
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Api",
+        "TestCase"
+      ],
+      "negative": false,
+      "hops": 2
+    },
+    {
+      "id": "GQ13",
+      "question": "반납 규칙에서 현재 등록된 대표 API와 테스트까지 영향 경로가 존재하는가?",
+      "tool": "find_impacted_tests",
+      "arguments": {
+        "businessRuleId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429"
+      },
+      "expectedEntities": [],
+      "expectedPaths": [],
+      "targetTypes": [
+        "Api",
+        "TestCase"
+      ],
+      "negative": true,
+      "hops": 2
+    },
+    {
+      "id": "GQ14",
+      "question": "변조 Endpoint 테스트를 승인 API 검증 테스트로 오인하지 않는가?",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "1f521e4c-458b-4c09-95f3-4e6d26ea112a"
+      },
+      "expectedEntities": [],
+      "expectedPaths": [],
+      "targetTypes": [
+        "Api"
+      ],
+      "negative": true,
+      "hops": 2
+    },
+    {
+      "id": "GQ15",
+      "question": "자산 조회로 수정된 테스트의 생성 근거를 승인 업무 검증 관계로 오인하지 않는가?",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "889ea853-67f3-49a0-b2b3-2ff94520f094"
+      },
+      "expectedEntities": [],
+      "expectedPaths": [],
+      "targetTypes": [
+        "BusinessRule"
+      ],
+      "negative": true,
+      "hops": 2
+    },
+    {
+      "id": "GQ16",
+      "question": "Phase 10의 저장된 자기 승인 금지 분석에서 규칙과 API까지 추적한다.",
+      "tool": "find_requirement_context",
+      "arguments": {
+        "requirementId": "438c6b1b-e41e-4083-93da-72c0be1597bf"
+      },
+      "expectedEntities": [
+        {
+          "type": "Api",
+          "id": "API-LOAN-APPROVE"
+        },
+        {
+          "type": "BusinessRule",
+          "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "438c6b1b-e41e-4083-93da-72c0be1597bf"
+            },
+            {
+              "type": "BusinessRule",
+              "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+            },
+            {
+              "type": "Api",
+              "id": "API-LOAN-APPROVE"
+            }
+          ],
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "BusinessRule",
+        "Api"
+      ],
+      "negative": false,
+      "hops": 2
+    },
+    {
+      "id": "GQ17",
+      "question": "테스트 d4723cf0-56bd-46ff-b572-7ca83c586e29의 요구사항부터 저장된 PASS 실행 319ab74a-ff97-403e-abb9-45574d6b64e5까지 경로는?",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+      },
+      "expectedEntities": [
+        {
+          "type": "Execution",
+          "id": "319ab74a-ff97-403e-abb9-45574d6b64e5"
+        },
+        {
+          "type": "Requirement",
+          "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "TestCase",
+              "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29"
+            },
+            {
+              "type": "Execution",
+              "id": "319ab74a-ff97-403e-abb9-45574d6b64e5"
+            }
+          ],
+          "relations": [
+            "GENERATES",
+            "EXECUTED_AS"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "Execution"
+      ],
+      "negative": false,
+      "hops": 2
+    },
+    {
+      "id": "GQ18",
+      "question": "테스트 4611bca5-0d0c-45dd-9793-75566c432c89의 요구사항부터 저장된 FAIL 실행 9e56a6c9-3fb7-493f-b291-205021210918까지 경로는?",
+      "tool": "trace_test_case_origin",
+      "arguments": {
+        "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89"
+      },
+      "expectedEntities": [
+        {
+          "type": "Execution",
+          "id": "9e56a6c9-3fb7-493f-b291-205021210918"
+        },
+        {
+          "type": "Requirement",
+          "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+        }
+      ],
+      "expectedPaths": [
+        {
+          "path": [
+            {
+              "type": "Requirement",
+              "id": "80e2d374-0825-4811-a11e-03ade256b6e8"
+            },
+            {
+              "type": "TestCase",
+              "id": "4611bca5-0d0c-45dd-9793-75566c432c89"
+            },
+            {
+              "type": "Execution",
+              "id": "9e56a6c9-3fb7-493f-b291-205021210918"
+            }
+          ],
+          "relations": [
+            "GENERATES",
+            "EXECUTED_AS"
+          ]
+        }
+      ],
+      "targetTypes": [
+        "Requirement",
+        "Execution"
+      ],
+      "negative": false,
+      "hops": 2
+    },
+    {
+      "id": "GQ19",
+      "question": "존재하지 않는 요구사항의 관계를 추정하지 않는가?",
+      "tool": "find_requirement_context",
+      "arguments": {
+        "requirementId": "00000000-0000-4000-8000-000000000999"
+      },
+      "expectedEntities": [],
+      "expectedPaths": [],
+      "targetTypes": [
+        "BusinessRule",
+        "Api",
+        "TestCase"
+      ],
+      "negative": true,
+      "hops": 2
+    },
+    {
+      "id": "GQ20",
+      "question": "존재하지 않는 업무규칙의 영향 테스트를 추정하지 않는가?",
+      "tool": "find_impacted_tests",
+      "arguments": {
+        "businessRuleId": "00000000-0000-4000-8000-000000000998"
+      },
+      "expectedEntities": [],
+      "expectedPaths": [],
+      "targetTypes": [
+        "Api",
+        "TestCase"
+      ],
+      "negative": true,
+      "hops": 2
+    }
+  ]
+}

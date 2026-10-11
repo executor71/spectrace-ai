@@ -1,0 +1,30 @@
+services:
+  graph-service:
+    build:
+      context: .
+      dockerfile: graph-service/Dockerfile
+    environment:
+      NEO4J_PASSWORD: ${PHASE11_NEO4J_PASSWORD:-synthetic-graph-local-only}
+      APP_OTEL_ENABLED: "true"
+    ports:
+      - "127.0.0.1:8030:8030"
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  neo4j:
+    image: neo4j:5.26.0-community
+    environment:
+      NEO4J_AUTH: neo4j/${PHASE11_NEO4J_PASSWORD:-synthetic-graph-local-only}
+      NEO4J_server_memory_heap_initial__size: 256m
+      NEO4J_server_memory_heap_max__size: 512m
+      NEO4J_server_memory_pagecache_size: 256m
+    volumes:
+      - phase11-neo4j:/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:7474 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+volumes:
+  phase11-neo4j:

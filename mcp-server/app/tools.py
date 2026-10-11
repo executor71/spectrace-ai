@@ -22,6 +22,18 @@ class Gateway:
     def __init__(self, services):
         self.services = services
 
+    async def find_requirement_context(self, arguments):
+        return await self.services.request('graph', 'POST', '/api/graph/find_requirement_context',
+            {'requirementId': str(UUID(arguments['requirementId']))})
+
+    async def find_impacted_tests(self, arguments):
+        return await self.services.request('graph', 'POST', '/api/graph/find_impacted_tests',
+            {'businessRuleId': str(UUID(arguments['businessRuleId']))})
+
+    async def trace_test_case_origin(self, arguments):
+        return await self.services.request('graph', 'POST', '/api/graph/trace_test_case_origin',
+            {'testCaseId': str(UUID(arguments['testCaseId']))})
+
     async def search_knowledge(self, arguments):
         query, top_k, strategy = arguments["query"], arguments.get("topK", 5), arguments.get("strategy", "VECTOR")
         if strategy == "VECTOR":

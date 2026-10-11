@@ -1,0 +1,41 @@
+{
+  "services": [
+    {
+      "port": 8080,
+      "status": "UP"
+    },
+    {
+      "port": 8000,
+      "status": "UP"
+    },
+    {
+      "port": 8090,
+      "status": "UP"
+    },
+    {
+      "port": 8010,
+      "status": "UP"
+    },
+    {
+      "port": 8020,
+      "status": "UP"
+    },
+    {
+      "port": 8030,
+      "status": "UP"
+    }
+  ],
+  "frozenFiles": 717,
+  "changedFiles": [
+    "frontend/vite.config.ts",
+    "frontend/src/Requirements.tsx",
+    "ai-service/app/main.py",
+    "mcp-server/app/clients.py",
+    "mcp-server/app/schemas.py",
+    "mcp-server/app/server.py",
+    "mcp-server/app/tools.py",
+    "observability/python/workflow_otel/__init__.py"
+  ],
+  "unchangedFiles": 709,
+  "evaluationFreezePreserved": true
+}

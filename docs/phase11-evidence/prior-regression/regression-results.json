@@ -1,0 +1,148 @@
+{
+  "result": "PASS",
+  "backendTests": 84,
+  "newExecutionTests": 29,
+  "pythonTests": 61,
+  "evaluationTests": 40,
+  "totalAutomatedTests": 185,
+  "health": [
+    {
+      "url": "http://localhost:8080/actuator/health",
+      "body": {
+        "status": "UP",
+        "components": {
+          "db": {
+            "status": "UP",
+            "details": {
+              "database": "PostgreSQL",
+              "validationQuery": "isValid()"
+            }
+          },
+          "diskSpace": {
+            "status": "UP",
+            "details": {
+              "total": 1081101176832,
+              "free": 992612581376,
+              "threshold": 10485760,
+              "path": "/app/.",
+              "exists": true
+            }
+          },
+          "ping": {
+            "status": "UP"
+          },
+          "ssl": {
+            "status": "UP",
+            "details": {
+              "validChains": [],
+              "invalidChains": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "url": "http://localhost:8000/health",
+      "body": {
+        "status": "UP",
+        "database": "UP",
+        "schema": "rag",
+        "pgvector": "0.8.6"
+      }
+    },
+    {
+      "url": "http://localhost:8090/health",
+      "body": {
+        "status": "UP",
+        "metricVersion": "phase6-deterministic-v1"
+      }
+    }
+  ],
+  "phase2Retrieval": [
+    {
+      "number": 1,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 2,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 3,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 4,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 5,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 6,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 7,
+      "sameTop5AndScores": true
+    },
+    {
+      "number": 8,
+      "sameTop5AndScores": true
+    }
+  ],
+  "phase5ReviewPreserved": true,
+  "baselineFiles": 115,
+  "unchangedFiles": 105,
+  "changedFiles": [
+    "backend/pom.xml",
+    "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisClient.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseClient.java",
+    "frontend/vite.config.ts",
+    "frontend/src/Requirements.tsx",
+    "frontend/src/TestCaseReview.tsx",
+    "frontend/src/TestCases.tsx",
+    "ai-service/app/llm_provider.py",
+    "ai-service/app/main.py",
+    "evaluation-service/app/main.py"
+  ],
+  "evaluation": {
+    "result": "PASS",
+    "frozenGroundTruthCases": 3,
+    "savedRunsReplayed": 6,
+    "appAndRagDenied": true,
+    "groundTruthWritesDenied": true,
+    "runUpdateDeleteDenied": true,
+    "onlyEvaluationCredentials": true,
+    "modelCallsForReplay": 0
+  },
+  "generation": {
+    "result": "PASS",
+    "generationRole": "rag_reader",
+    "groundTruthAndEvaluationRunsDenied": true,
+    "evaluationCredentialsAbsent": true
+  },
+  "database": {
+    "migrations": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "appGroundTruthUsage": false,
+    "ragGroundTruthUsage": false,
+    "appCanRecordEvaluation": false,
+    "ragCanRecordEvaluation": false,
+    "documents": 9,
+    "chunks": 27
+  },
+  "executionHistoryImmutableAndRoleIsolated": true,
+  "noEvaluationMountOrCredentialsInRunner": true
+}

@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "browser": "155.0.8059.40",
+  "channel": "chrome",
+  "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+  "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+  "flow": [
+    "Requirement",
+    "stored Analysis",
+    "stored TestCases",
+    "Graph",
+    "Rule impact",
+    "Test origin",
+    "PASS/FAIL",
+    "reload",
+    "Graph persisted",
+    "Jaeger same trace"
+  ],
+  "consoleErrors": [],
+  "modelRequests": [],
+  "screenshots": [
+    "graph-overview.png",
+    "requirement-impact-path.png",
+    "testcase-origin-path.png",
+    "jaeger-graph-trace.png"
+  ]
+}

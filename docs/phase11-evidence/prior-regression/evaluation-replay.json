@@ -1,0 +1,1 @@
+{"result": "PASS", "frozenGroundTruthCases": 3, "savedRunsReplayed": 6, "appAndRagDenied": true, "groundTruthWritesDenied": true, "runUpdateDeleteDenied": true, "onlyEvaluationCredentials": true, "modelCallsForReplay": 0}

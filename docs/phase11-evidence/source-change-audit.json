@@ -1,0 +1,19 @@
+{
+  "frozenFiles": 552,
+  "changedTracingOnlyFiles": [
+    "ai-service/app/llm_provider.py",
+    "ai-service/app/main.py",
+    "backend/pom.xml",
+    "backend/src/main/java/com/example/legacyassistant/analysis/AnalysisClient.java",
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseClient.java",
+    "evaluation-service/app/main.py",
+    "frontend/src/Requirements.tsx",
+    "frontend/vite.config.ts",
+    "mcp-server/app/clients.py",
+    "mcp-server/app/schemas.py",
+    "mcp-server/app/server.py",
+    "mcp-server/app/tools.py",
+    "retrieval-service/retrieval/api.py"
+  ],
+  "unchangedFiles": 539
+}

@@ -1,0 +1,19 @@
+{
+  "nodes": {
+    "Api": 2,
+    "BusinessRule": 3,
+    "Evidence": 27,
+    "Execution": 145,
+    "Requirement": 3,
+    "TestCase": 10
+  },
+  "relations": {
+    "AFFECTS": 3,
+    "BASED_ON": 40,
+    "EXECUTED_AS": 145,
+    "GENERATES": 10,
+    "IMPLEMENTED_BY": 2,
+    "SUPPORTED_BY": 3,
+    "VERIFIED_BY": 17
+  }
+}

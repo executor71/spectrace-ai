@@ -1,6 +1,7 @@
 import Evaluations from './Evaluations'
 import RequirementAnalysis from './RequirementAnalysis'
 import TestCases from './TestCases'
+import KnowledgeGraph from './KnowledgeGraph'
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 
@@ -93,6 +94,7 @@ export default function Requirements() {
       {result && <RequirementAnalysis key={result.id} requirementId={result.id} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}
       {result && <TestCases key={result.id} requirementId={result.id} />}
       {result && <Evaluations key={result.id} requirementId={result.id} />}
+      {result && <KnowledgeGraph key={result.id} requirementId={result.id} />}
     </section>
   )
 }

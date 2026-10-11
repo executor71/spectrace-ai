@@ -1,0 +1,9 @@
+test_graph_cannot_create_ungrounded_fact (__main__.GraphAnalysisTests.test_graph_cannot_create_ungrounded_fact) ... ok
+test_graph_context_reaches_unchanged_grounding_validator (__main__.GraphAnalysisTests.test_graph_context_reaches_unchanged_grounding_validator) ... ok
+test_opt_in_http_route_does_not_persist (__main__.GraphAnalysisTests.test_opt_in_http_route_does_not_persist) ... ok
+test_opt_in_rejects_caller_graph_context (__main__.GraphAnalysisTests.test_opt_in_rejects_caller_graph_context) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.043s
+
+OK

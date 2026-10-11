@@ -1,0 +1,17 @@
+[
+  {
+    "case": "LLM_INVALID_OUTPUT",
+    "traceId": "4bbe914070a7f444478ed2a2f73429db",
+    "synthetic": true
+  },
+  {
+    "case": "TESTCASE_GENERATION_MOCK",
+    "traceId": "8fe0afdd3ef1665a377c91d000733204",
+    "synthetic": true
+  },
+  {
+    "case": "LLM_TIMEOUT",
+    "traceId": "8dff3ddb449e1dfef1a37704e483a6f5",
+    "synthetic": true
+  }
+]

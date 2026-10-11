@@ -25,6 +25,7 @@ propagator=TraceContextTextMapPropagator()
 service='unconfigured'
 configured=False
 ALLOWED={
+    'nodeCount','edgeCount','hopCount',
     'retrieval.strategy','topK','candidateCount','resultCount','latencyMs','durationMs',
     'embedding.model','inputLength','vectorDimension','model','provider','operation','success','retryCount','timeout',
     'inputTokens','outputTokens','totalTokens','generatedTestCaseCount','executableCandidateCount','evidenceCount',
@@ -158,10 +159,11 @@ def observed_tool(function):
     async def observed(name,arguments):
         from app.schemas import INPUTS
         safe=name if name in INPUTS else 'UNKNOWN_TOOL'
-        with span('mcp.tool',{'toolName':safe}) as current:
+        graph_tool=name in {'find_requirement_context','find_impacted_tests','trace_test_case_origin'}
+        with span('mcp.'+safe if graph_tool else 'mcp.tool',{'toolName':safe}) as current:
             result=await function(name,arguments)
             attrs(current,{'resultStatus':'ERROR' if result.isError else 'SUCCESS',
-                'downstreamService':'ai/retrieval' if name=='search_knowledge' else 'evaluation' if name=='get_evaluation_result' else 'backend'})
+                'downstreamService':'graph' if graph_tool else 'ai/retrieval' if name=='search_knowledge' else 'evaluation' if name=='get_evaluation_result' else 'backend'})
             if result.isError:
                 code=(result.structuredContent or {}).get('errorCode')
                 fail(current,code if code in {'NOT_APPROVED','NOT_EXECUTABLE','FIXTURE_NOT_READY','API_NOT_ALLOWED'} else 'MCP_TOOL_REJECTED')

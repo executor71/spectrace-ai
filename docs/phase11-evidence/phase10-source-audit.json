@@ -1,0 +1,14 @@
+{
+  "frozenFiles": 717,
+  "changedFiles": [
+    "ai-service/app/main.py",
+    "frontend/src/Requirements.tsx",
+    "frontend/vite.config.ts",
+    "mcp-server/app/clients.py",
+    "mcp-server/app/schemas.py",
+    "mcp-server/app/server.py",
+    "mcp-server/app/tools.py",
+    "observability/python/workflow_otel/__init__.py"
+  ],
+  "unchangedFiles": 709
+}

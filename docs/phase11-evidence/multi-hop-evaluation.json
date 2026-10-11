@@ -1,0 +1,1122 @@
+{
+  "groundTruthSha256": "b37c36e71d49f6e42468d6afa095492bc48cad042a7245577a6fa87f99319772",
+  "queries": [
+    {
+      "id": "GQ01",
+      "question": "대여 승인 테스트 c53be0ea-3157-49be-a922-efa378d6ca11의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            201.57560000006924,
+            189.97350000063307,
+            192.3750000023574
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            249.56880000172532,
+            235.49350000030245,
+            234.9434999996447
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ02",
+      "question": "대여 승인 테스트 c0dca00f-7a4c-4861-ba42-06c7588235b1의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            175.68499999833875,
+            166.85580000194022,
+            152.57930000007036
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            226.60960000212071,
+            200.31050000034156,
+            215.454299999692
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ03",
+      "question": "대여 승인 테스트 0cdd544d-a755-412a-88e5-78f570c427c2의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            185.76480000047013,
+            164.17449999789824,
+            219.53619999840157
+          ],
+          "retrievedChunkIds": [
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            181.7494999995688,
+            185.95170000116923,
+            200.3255999989051
+          ],
+          "retrievedChunkIds": [
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ04",
+      "question": "대여 승인 테스트 4b357887-da03-4295-9399-78b5ae5a587d의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            158.0037000021548,
+            195.8007000030193,
+            165.50610000194865
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            182.07430000256863,
+            179.29989999902318,
+            197.16839999819058
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ05",
+      "question": "대여 승인 테스트 f25fc98b-f047-4799-88dc-7fa77dd579b1의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            151.5880000006291,
+            199.34680000005756,
+            181.24100000204635
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            221.20820000054664,
+            171.53809999945224,
+            204.38260000082664
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ06",
+      "question": "대여 승인 테스트 d4723cf0-56bd-46ff-b572-7ca83c586e29의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            178.3945000024687,
+            158.02190000249539,
+            174.74910000237287
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            185.288099997706,
+            190.51529999705963,
+            258.40880000032485
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "fd0bfbe5-3b26-5dc2-9c17-2c7107a82f65"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ07",
+      "question": "대여 승인 테스트 4611bca5-0d0c-45dd-9793-75566c432c89의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            206.59779999914463,
+            167.77150000052643,
+            209.68949999951292
+          ],
+          "retrievedChunkIds": [
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            271.07990000149584,
+            203.77129999906174,
+            177.4942000010924
+          ],
+          "retrievedChunkIds": [
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ08",
+      "question": "대여 승인 테스트 e35a6d9c-e7f2-4546-9f34-d597e9ae9627의 원 요구사항, 업무규칙, API를 근거 경로로 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.6666666666666666,
+          "matchedEntities": 2,
+          "expectedEntities": 3,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            170.7114000018919,
+            218.12689999933355,
+            196.77929999670596
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "eb8499ff-e3dd-5724-b927-c928df48d1ec"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 3,
+          "expectedEntities": 3,
+          "returnedEntities": 3,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            269.028899998375,
+            217.50270000120508,
+            167.82189999867114
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "eb8499ff-e3dd-5724-b927-c928df48d1ec"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ09",
+      "question": "자기 승인 금지 요구사항 b5270f71-c92c-48ae-8530-8946f1cfce62에서 승인 규칙과 API를 거쳐 생성된 테스트까지 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.2857142857142857,
+          "matchedEntities": 2,
+          "expectedEntities": 7,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 5,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            191.40630000038072,
+            173.82850000285544,
+            146.11599999989267
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 7,
+          "expectedEntities": 7,
+          "returnedEntities": 7,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 5,
+          "expectedPaths": 5,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            200.94740000058664,
+            190.72260000029928,
+            212.04889999717125
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ10",
+      "question": "자기 승인 금지 요구사항 80e2d374-0825-4811-a11e-03ade256b6e8에서 승인 규칙과 API를 거쳐 생성된 테스트까지 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.4,
+          "matchedEntities": 2,
+          "expectedEntities": 5,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 3,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            156.9913000021188,
+            154.8700999992434,
+            150.17239999724552
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 5,
+          "expectedEntities": 5,
+          "returnedEntities": 7,
+          "entityPrecision": 0.7142857142857143,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 3,
+          "expectedPaths": 3,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            175.63460000019404,
+            174.7018999994907,
+            189.15610000112792
+          ],
+          "retrievedChunkIds": [
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "4f380a68-9148-5c58-86e2-760176ba6cf2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ11",
+      "question": "업무규칙 7cea4fe7-6b00-56c9-be35-3194aeecb923 변경 시 승인 API를 거쳐 영향받는 테스트는?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.1111111111111111,
+          "matchedEntities": 1,
+          "expectedEntities": 9,
+          "returnedEntities": 1,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 8,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            141.77620000191382,
+            137.1999999973923,
+            145.83639999909792
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 9,
+          "expectedEntities": 9,
+          "returnedEntities": 9,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 8,
+          "expectedPaths": 8,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            169.62060000150814,
+            187.82809999902383,
+            218.09639999992214
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ12",
+      "question": "가용 재고 판정 규칙 변경 시 대여 승인 API를 사용하는 테스트 영향 범위는?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.1111111111111111,
+          "matchedEntities": 1,
+          "expectedEntities": 9,
+          "returnedEntities": 1,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 8,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            117.16729999898234,
+            130.87520000044606,
+            119.63979999927687
+          ],
+          "retrievedChunkIds": [
+            "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "1d7a1273-78de-5c79-a276-ba300bf37c09",
+            "50c0a5ec-04da-5343-bc57-78c3dc29ed8b"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 9,
+          "expectedEntities": 9,
+          "returnedEntities": 9,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 8,
+          "expectedPaths": 8,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            154.74519999770564,
+            154.17789999992237,
+            292.9497999975865
+          ],
+          "retrievedChunkIds": [
+            "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "1d7a1273-78de-5c79-a276-ba300bf37c09",
+            "50c0a5ec-04da-5343-bc57-78c3dc29ed8b"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ13",
+      "question": "반납 규칙에서 현재 등록된 대표 API와 테스트까지 영향 경로가 존재하는가?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 1,
+          "entityPrecision": 0.0,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": false,
+          "negative": true,
+          "latencyMs": [
+            130.87300000188407,
+            125.85990000297897,
+            112.20179999872926
+          ],
+          "retrievedChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+            "566990a9-d4ea-5b39-a07a-c5464ce2e2b8",
+            "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+            "ea0e26ab-2b77-513a-a272-bb00467d2322"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 0,
+          "entityPrecision": null,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": true,
+          "negative": true,
+          "latencyMs": [
+            162.1287999987544,
+            146.23910000227625,
+            118.97299999691313
+          ],
+          "retrievedChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+            "566990a9-d4ea-5b39-a07a-c5464ce2e2b8",
+            "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+            "ea0e26ab-2b77-513a-a272-bb00467d2322"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ14",
+      "question": "변조 Endpoint 테스트를 승인 API 검증 테스트로 오인하지 않는가?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 1,
+          "entityPrecision": 0.0,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": false,
+          "negative": true,
+          "latencyMs": [
+            102.39979999823845,
+            123.6194000011892,
+            100.92589999840129
+          ],
+          "retrievedChunkIds": [
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "eb8499ff-e3dd-5724-b927-c928df48d1ec"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 0,
+          "entityPrecision": null,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": true,
+          "negative": true,
+          "latencyMs": [
+            135.9813999988546,
+            134.80630000049132,
+            130.87169999926118
+          ],
+          "retrievedChunkIds": [
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "7c7eda12-4b56-5ad1-a30d-627031666355",
+            "eb8499ff-e3dd-5724-b927-c928df48d1ec"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ15",
+      "question": "자산 조회로 수정된 테스트의 생성 근거를 승인 업무 검증 관계로 오인하지 않는가?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 2,
+          "entityPrecision": 0.0,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": false,
+          "negative": true,
+          "latencyMs": [
+            121.9716999985394,
+            121.65300000197021,
+            122.0560999972804
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 0,
+          "entityPrecision": null,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": true,
+          "negative": true,
+          "latencyMs": [
+            156.1820999995689,
+            130.23310000062338,
+            178.91059999965364
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ16",
+      "question": "Phase 10의 저장된 자기 승인 금지 분석에서 규칙과 API까지 추적한다.",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 1.0,
+          "matchedEntities": 2,
+          "expectedEntities": 2,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            121.97800000285497,
+            139.39360000222223,
+            176.0577999993984
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 2,
+          "expectedEntities": 2,
+          "returnedEntities": 2,
+          "entityPrecision": 1.0,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            198.04020000083256,
+            222.7907000014966,
+            165.78519999893615
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "29068730-5e86-57f1-bee2-ffaae1575a08",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ17",
+      "question": "테스트 d4723cf0-56bd-46ff-b572-7ca83c586e29의 요구사항부터 저장된 PASS 실행 319ab74a-ff97-403e-abb9-45574d6b64e5까지 경로는?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.0,
+          "matchedEntities": 0,
+          "expectedEntities": 2,
+          "returnedEntities": 0,
+          "entityPrecision": null,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            203.73980000294978,
+            234.61959999985993,
+            238.33290000038687
+          ],
+          "retrievedChunkIds": [
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "499bf89b-1a91-527a-b35f-a67e264475bf",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 2,
+          "expectedEntities": 2,
+          "returnedEntities": 6,
+          "entityPrecision": 0.3333333333333333,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            258.03930000256514,
+            274.9199999998382,
+            215.88139999948908
+          ],
+          "retrievedChunkIds": [
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "499bf89b-1a91-527a-b35f-a67e264475bf",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ18",
+      "question": "테스트 4611bca5-0d0c-45dd-9793-75566c432c89의 요구사항부터 저장된 FAIL 실행 9e56a6c9-3fb7-493f-b291-205021210918까지 경로는?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": 0.0,
+          "matchedEntities": 0,
+          "expectedEntities": 2,
+          "returnedEntities": 0,
+          "entityPrecision": null,
+          "pathAccuracy": 0.0,
+          "matchedPaths": 0,
+          "expectedPaths": 1,
+          "multiHopSuccess": false,
+          "negative": false,
+          "latencyMs": [
+            225.68510000201059,
+            179.06810000204132,
+            227.99250000025495
+          ],
+          "retrievedChunkIds": [
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": 1.0,
+          "matchedEntities": 2,
+          "expectedEntities": 2,
+          "returnedEntities": 11,
+          "entityPrecision": 0.18181818181818182,
+          "pathAccuracy": 1.0,
+          "matchedPaths": 1,
+          "expectedPaths": 1,
+          "multiHopSuccess": true,
+          "negative": false,
+          "latencyMs": [
+            202.13560000047437,
+            199.79680000324151,
+            195.6540999999561
+          ],
+          "retrievedChunkIds": [
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "2b53cfe3-370a-5355-9928-3f41d69ddeb2",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ19",
+      "question": "존재하지 않는 요구사항의 관계를 추정하지 않는가?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 3,
+          "entityPrecision": 0.0,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": false,
+          "negative": true,
+          "latencyMs": [
+            119.40900000263355,
+            117.5297000008868,
+            91.30709999953979
+          ],
+          "retrievedChunkIds": [
+            "566990a9-d4ea-5b39-a07a-c5464ce2e2b8",
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "1d7a1273-78de-5c79-a276-ba300bf37c09",
+            "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 0,
+          "entityPrecision": null,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": true,
+          "negative": true,
+          "latencyMs": [
+            113.66700000144192,
+            108.20529999909922,
+            173.226999999315
+          ],
+          "retrievedChunkIds": [
+            "566990a9-d4ea-5b39-a07a-c5464ce2e2b8",
+            "00e01630-a4af-5f57-b3ae-4142107d0edc",
+            "1d7a1273-78de-5c79-a276-ba300bf37c09",
+            "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        }
+      }
+    },
+    {
+      "id": "GQ20",
+      "question": "존재하지 않는 업무규칙의 영향 테스트를 추정하지 않는가?",
+      "results": {
+        "HYBRID_ONLY": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 1,
+          "entityPrecision": 0.0,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": false,
+          "negative": true,
+          "latencyMs": [
+            131.07210000089253,
+            102.16159999981755,
+            97.89369999998598
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+            "1d7a1273-78de-5c79-a276-ba300bf37c09"
+          ]
+        },
+        "HYBRID_GRAPH": {
+          "entityRecall": null,
+          "matchedEntities": 0,
+          "expectedEntities": 0,
+          "returnedEntities": 0,
+          "entityPrecision": null,
+          "pathAccuracy": null,
+          "matchedPaths": 0,
+          "expectedPaths": 0,
+          "multiHopSuccess": true,
+          "negative": true,
+          "latencyMs": [
+            129.54480000189506,
+            158.81810000064434,
+            135.83599999765283
+          ],
+          "retrievedChunkIds": [
+            "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+            "d7414dd9-9bee-5dbc-a7d8-a695fe5a1a02",
+            "d10c2901-6178-56c5-a019-c45bb1ce5520",
+            "de7ba8eb-bd7b-58a8-afa0-deb1962c8055",
+            "1d7a1273-78de-5c79-a276-ba300bf37c09"
+          ]
+        }
+      }
+    }
+  ],
+  "comparison": {
+    "HYBRID_ONLY": {
+      "entityRecall": 0.4,
+      "pathAccuracy": 0.0,
+      "multiHopSuccessRate": 0.0,
+      "negativeAccuracy": 0.0,
+      "positiveQueries": 15,
+      "negativeQueries": 5,
+      "latencyP50Ms": 158.0128000023251,
+      "latencyP95Ms": 225.8004700019228,
+      "samples": 60
+    },
+    "HYBRID_GRAPH": {
+      "entityRecall": 1.0,
+      "pathAccuracy": 1.0,
+      "multiHopSuccessRate": 1.0,
+      "negativeAccuracy": 1.0,
+      "positiveQueries": 15,
+      "negativeQueries": 5,
+      "latencyP50Ms": 188.49210000007588,
+      "latencyP95Ms": 269.131449998531,
+      "samples": 60
+    }
+  },
+  "methodology": {
+    "entityRecall": "Micro recall over positive expected typed IDs; precision per query is also reported.",
+    "pathAccuracy": "Exact ordered typed nodes AND relation labels matched / expected paths (path coverage, not returned-path precision).",
+    "multiHopSuccess": "All expected entities AND paths present on positive 2+ hop queries; negative abstention scored separately.",
+    "baseline": "Unchanged Hybrid top5 + deterministic entity/path extraction from retrieved chunk metadata; no runtime TestCase/Execution lookup. No LLM.",
+    "graph": "Same Hybrid top5 + fixed anchored Graph traversal over persisted runtime data. Retrieval ranks/scores unchanged.",
+    "limitations": [
+      "20 curated queries share a small synthetic domain; not independent broad-domain samples.",
+      "Graph has structured runtime relations unavailable in the text corpus; measures added relation access, not intrinsic search superiority.",
+      "No new LLM calls or answer-quality judging.",
+      "One cold request may affect latency; three sequential repetitions per query."
+    ]
+  }
+}

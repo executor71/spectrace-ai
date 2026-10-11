@@ -1,0 +1,25 @@
+{
+  "frozenFiles": 717,
+  "services": [
+    {
+      "port": 8080,
+      "status": "UP"
+    },
+    {
+      "port": 8000,
+      "status": "UP"
+    },
+    {
+      "port": 8090,
+      "status": "UP"
+    },
+    {
+      "port": 8010,
+      "status": "UP"
+    },
+    {
+      "port": 8020,
+      "status": "UP"
+    }
+  ]
+}

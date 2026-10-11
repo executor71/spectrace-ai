@@ -1,0 +1,70 @@
+{
+  "result": "PASS",
+  "realModelCalls": 0,
+  "checks": [
+    {
+      "name": "graph unavailable",
+      "status": 503
+    },
+    {
+      "name": "requirement",
+      "status": 200
+    },
+    {
+      "name": "saved analysis",
+      "status": 200
+    },
+    {
+      "name": "testcases and reviews",
+      "status": 200
+    },
+    {
+      "name": "evaluation",
+      "status": 200
+    },
+    {
+      "name": "dummy execution",
+      "status": 201
+    },
+    {
+      "name": "vector",
+      "status": 200
+    },
+    {
+      "name": "hybrid",
+      "status": 200
+    },
+    {
+      "name": "context degrades to text",
+      "status": 200
+    },
+    {
+      "name": "MCP search_knowledge",
+      "status": "PASS"
+    },
+    {
+      "name": "MCP analyze_requirement",
+      "status": "PASS"
+    },
+    {
+      "name": "MCP get_test_cases",
+      "status": "PASS"
+    },
+    {
+      "name": "MCP get_evaluation_result",
+      "status": "PASS"
+    },
+    {
+      "name": "MCP execute_approved_test",
+      "status": "PASS"
+    },
+    {
+      "name": "MCP graph failure isolated",
+      "status": "PASS",
+      "error": {
+        "errorCode": "DOWNSTREAM_ERROR",
+        "requestId": "44d4c8f7-594c-45c5-9cf8-6af8fc836faf"
+      }
+    }
+  ]
+}

@@ -10,6 +10,8 @@ app = FastAPI(title="Legacy Change Assistant AI Service", version="0.1.0")
 app.include_router(search_router)
 app.include_router(analysis_router)
 app.include_router(test_case_router)
+from app.graph_analysis_api import router as graph_analysis_router
+app.include_router(graph_analysis_router)
 
 if os.getenv('APP_OTEL_ENABLED') == 'true':
     from workflow_otel.install import ai
