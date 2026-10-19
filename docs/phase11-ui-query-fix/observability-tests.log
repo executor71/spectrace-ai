@@ -1,0 +1,170 @@
+test_exception_text_and_stack_are_not_recorded (__main__.ObservabilityTests.test_exception_text_and_stack_are_not_recorded) ... {"timestamp": "2026-10-19T10:35:02.844374+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "9c4dd1b5cc2d3be74de36b4e756b2fe3", "spanId": "a60898990c342c57", "requestId": "", "event": "fixture.exception", "durationMs": 0.38120799990792875}
+ok
+test_invalid_model_output_records_retry_without_reasoning (__main__.ObservabilityTests.test_invalid_model_output_records_retry_without_reasoning) ... {"timestamp": "2026-10-19T10:35:02.846259+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5e9966ba1105674b85aa7e955d374752", "spanId": "9265a7067d21fa6c", "requestId": "", "event": "llm.generate", "durationMs": 0.2368880000176432}
+{"timestamp": "2026-10-19T10:35:02.846533+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5e9966ba1105674b85aa7e955d374752", "spanId": "86bb5f55bf1919d0", "requestId": "", "event": "llm.generate", "durationMs": 0.13235599999461556}
+{"timestamp": "2026-10-19T10:35:02.846638+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5e9966ba1105674b85aa7e955d374752", "spanId": "3107e586257e3db2", "requestId": "", "event": "requirement.analysis", "durationMs": 1.518288000170287}
+{"timestamp": "2026-10-19T10:35:02.846751+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5e9966ba1105674b85aa7e955d374752", "spanId": "ef50816a29d0cdee", "requestId": "", "event": "fixture.llm_invalid", "durationMs": 1.9939789999625646}
+ok
+test_metadata_failure_does_not_change_business_result (__main__.ObservabilityTests.test_metadata_failure_does_not_change_business_result) ... {"timestamp": "2026-10-19T10:35:02.847017+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "d2138da77ac6516a72f67bda41360029", "spanId": "3a9b92c44b6591c2", "requestId": "", "event": "fixture.safe", "durationMs": 0.04687099999500788}
+ok
+test_missing_usage_is_not_estimated (__main__.ObservabilityTests.test_missing_usage_is_not_estimated) ... {"timestamp": "2026-10-19T10:35:02.847264+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "d31ffc34016d0e5daacc77d48483b168", "spanId": "458071fd8a330f39", "requestId": "", "event": "fixture.usage_absent", "durationMs": 0.057330999879923183}
+ok
+test_provider_tokens_are_actual_counts (__main__.ObservabilityTests.test_provider_tokens_are_actual_counts) ... {"timestamp": "2026-10-19T10:35:02.847430+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "4ad6cd7a817d273cd5263fa3bfb30fe7", "spanId": "0ea41ced82a8cc2c", "requestId": "", "event": "fixture.usage", "durationMs": 0.046179000037227524}
+ok
+test_sensitive_attributes_and_invalid_identifiers_are_rejected (__main__.ObservabilityTests.test_sensitive_attributes_and_invalid_identifiers_are_rejected) ... {"timestamp": "2026-10-19T10:35:02.847618+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "d2d71ad3c337a1e3bae752892cf2781e", "spanId": "d8517ec931358d96", "requestId": "", "event": "fixture.sensitive", "durationMs": 0.046800000291113975}
+ok
+test_testcase_generation_counts_without_real_model (__main__.ObservabilityTests.test_testcase_generation_counts_without_real_model) ... {"timestamp": "2026-10-19T10:35:02.848436+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "3e0daca07416790450a0cad7f3f79aa0", "spanId": "3c3e5c76c81f5d8f", "requestId": "", "event": "testcase.generate", "durationMs": 0.5320400000528025}
+{"timestamp": "2026-10-19T10:35:02.848518+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "3e0daca07416790450a0cad7f3f79aa0", "spanId": "ccc757980ee07802", "requestId": "", "event": "fixture.testcase_generation", "durationMs": 0.713881000137917}
+ok
+test_timeout_failure_has_safe_code (__main__.ObservabilityTests.test_timeout_failure_has_safe_code) ... {"timestamp": "2026-10-19T10:35:02.848870+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "2d93bcfd34e800161a6624994189172a", "spanId": "706c6b6438ea33de", "requestId": "", "event": "llm.generate", "durationMs": 0.0836019999042037}
+{"timestamp": "2026-10-19T10:35:02.848961+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "2d93bcfd34e800161a6624994189172a", "spanId": "f65409c8e5a19772", "requestId": "", "event": "fixture.llm_timeout", "durationMs": 0.3158310000799247}
+ok
+test_w3c_parent_and_tracestate_preserved (__main__.ObservabilityTests.test_w3c_parent_and_tracestate_preserved) ... {"timestamp": "2026-10-19T10:35:02.849265+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1234567890abcdef1234567890abcdef", "spanId": "ad4d100578df425e", "requestId": "", "event": "fixture.propagation", "durationMs": 0.06480499996541766}
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.006s
+
+OK
+Exception while exporting Span.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 567, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1141, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1085, in send
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 139, in _export
+    resp = self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 567, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1141, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1085, in send
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/_shared_internal/__init__.py", line 152, in _export
+    self._exporter.export(
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 204, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 174, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 147, in _export
+    resp = self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))

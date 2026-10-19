@@ -1,0 +1,413 @@
+test_concurrent_call_is_explicitly_busy (test_analysis.AnalysisApiTests.test_concurrent_call_is_explicitly_busy) ... {"timestamp": "2026-10-19T10:34:43.057767+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "788991988d49f8e3af03f5db41a3067a", "spanId": "14f0bfe3897369b1", "requestId": "ded736e4-e9cd-4e24-82a8-e2f9f8bb790b", "event": "http.server", "durationMs": 4.542148999917117}
+ok
+test_explicit_invalid_output_failure (test_analysis.AnalysisApiTests.test_explicit_invalid_output_failure) ... {"timestamp": "2026-10-19T10:34:43.062893+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a099e6fad196df648168692557510cbf", "spanId": "ae52884736dc9b6c", "requestId": "5ce2c901-3240-4c70-8cf4-076d033b8465", "event": "http.server", "durationMs": 1.1806380002781225}
+ok
+test_unavailable_model_is_not_success (test_analysis.AnalysisApiTests.test_unavailable_model_is_not_success) ... {"timestamp": "2026-10-19T10:34:43.066863+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "f88376c962b08108ee495c88be1e0767", "spanId": "8b0d03b4e04ac874", "requestId": "9caf89d0-4a3e-4c90-a8a5-46bec7e62e3e", "event": "http.server", "durationMs": 1.0730600001807034}
+ok
+test_unknown_schema_selector_rejected (test_analysis.AnalysisApiTests.test_unknown_schema_selector_rejected) ... {"timestamp": "2026-10-19T10:34:43.072074+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "e9abc26d34fe9fa18d2d656feb741131", "spanId": "1fc79f7a585d443d", "requestId": "32136f18-3bb4-42ec-9195-43016ca8163a", "event": "http.server", "durationMs": 1.096560999940266}
+ok
+test_empty_search_requires_missing_and_questions (test_analysis.AnalysisTests.test_empty_search_requires_missing_and_questions) ... {"timestamp": "2026-10-19T10:34:43.074486+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "68bd68ca70ff29e1f38ad4279e160c97", "spanId": "6a82fb83ee38004e", "requestId": "", "event": "requirement.analysis", "durationMs": 0.9655570001996239}
+ok
+test_exact_evidence_and_original_query (test_analysis.AnalysisTests.test_exact_evidence_and_original_query) ... {"timestamp": "2026-10-19T10:34:43.075151+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "694e71ac3706c8f214505f8f3fb2911a", "spanId": "92a60a2a095c1ed9", "requestId": "", "event": "requirement.analysis", "durationMs": 0.46263000012913835}
+ok
+test_existing_ambiguity_is_not_duplicated (test_analysis.AnalysisTests.test_existing_ambiguity_is_not_duplicated) ... {"timestamp": "2026-10-19T10:34:43.075743+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a5ffaa31dcd30ce6076f9a6861c756c4", "spanId": "68cb8dc0aa2ddacb", "requestId": "", "event": "requirement.analysis", "durationMs": 0.33825500031525735}
+ok
+test_full_sentence_preserves_negation (test_analysis.AnalysisTests.test_full_sentence_preserves_negation) ... ok
+test_input_qualifier_omitted_by_model_still_requires_clarification (test_analysis.AnalysisTests.test_input_qualifier_omitted_by_model_still_requires_clarification) ... {"timestamp": "2026-10-19T10:34:43.076411+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "b3ebf78b006d43bfcfc2773bbcda4cd1", "spanId": "e4af2b4ad9bf36d5", "requestId": "", "event": "requirement.analysis", "durationMs": 0.4248220002409653}
+ok
+test_invalid_schema_retried_once_then_fails (test_analysis.AnalysisTests.test_invalid_schema_retried_once_then_fails) ... {"timestamp": "2026-10-19T10:34:43.076946+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "db576d334c5d155f65b42b6539c41b92", "spanId": "71bbedd78d4ee371", "requestId": "", "event": "requirement.analysis", "durationMs": 0.3589539996937674}
+ok
+test_invented_api_rejected (test_analysis.AnalysisTests.test_invented_api_rejected) ... {"timestamp": "2026-10-19T10:34:43.077439+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "ca3917650da5fa82845e537c44e80f37", "spanId": "de03bb5f307dea34", "requestId": "", "event": "requirement.analysis", "durationMs": 0.2973249997921812}
+ok
+test_invented_rule_id_rejected (test_analysis.AnalysisTests.test_invented_rule_id_rejected) ... {"timestamp": "2026-10-19T10:34:43.077926+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "9ef43be7f668a22d03dc31e1f2616c1e", "spanId": "766ca46f2280c978", "requestId": "", "event": "requirement.analysis", "durationMs": 0.3098689999205817}
+ok
+test_long_input_is_not_silently_truncated (test_analysis.AnalysisTests.test_long_input_is_not_silently_truncated) ... {"timestamp": "2026-10-19T10:34:43.078320+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "97f9e224744547ab6505cc1319c424e1", "spanId": "22c52f4278f251ff", "requestId": "", "event": "requirement.analysis", "durationMs": 0.1673540000410867}
+ok
+test_model_cannot_supply_forged_evidence_or_claim_text (test_analysis.AnalysisTests.test_model_cannot_supply_forged_evidence_or_claim_text) ... {"timestamp": "2026-10-19T10:34:43.079291+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "acab9c50a8aafa749f6d12df508f7fbb", "spanId": "fa6031c46aaeb943", "requestId": "", "event": "requirement.analysis", "durationMs": 0.6532329998663045}
+{"timestamp": "2026-10-19T10:34:43.080058+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "336ce9992a86b213d17a9bc1b4e5e741", "spanId": "cdfd7eb09187526b", "requestId": "", "event": "requirement.analysis", "durationMs": 0.5356100000426522}
+{"timestamp": "2026-10-19T10:34:43.080979+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "e08b513dfefe63c3fefb8a21ba5bc414", "spanId": "77528182c6743c17", "requestId": "", "event": "requirement.analysis", "durationMs": 0.6241070000214677}
+ok
+test_non_business_rule_cannot_be_reported_as_business_rule (test_analysis.AnalysisTests.test_non_business_rule_cannot_be_reported_as_business_rule) ... {"timestamp": "2026-10-19T10:34:43.081531+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "27fa6099756d7f7fa548bf1993adb912", "spanId": "03c757246a13213c", "requestId": "", "event": "requirement.analysis", "durationMs": 0.3364809999766294}
+ok
+test_none_cannot_select_unrelated_existing_facts (test_analysis.AnalysisTests.test_none_cannot_select_unrelated_existing_facts) ... {"timestamp": "2026-10-19T10:34:43.082346+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "6221d16876a9cdeb9db2dc810a7d1eb9", "spanId": "4f43659d01c85c97", "requestId": "", "event": "requirement.analysis", "durationMs": 0.6306549998953415}
+ok
+test_recover_after_single_invalid_response (test_analysis.AnalysisTests.test_recover_after_single_invalid_response) ... {"timestamp": "2026-10-19T10:34:43.083015+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "3dd362d377fc2a9e9bc7dcbe381eda92", "spanId": "8c9c59226b450d85", "requestId": "", "event": "requirement.analysis", "durationMs": 0.4262639999979001}
+ok
+test_silent_insufficient_evidence_fails (test_analysis.AnalysisTests.test_silent_insufficient_evidence_fails) ... {"timestamp": "2026-10-19T10:34:43.083806+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "e8397c17b7d1ead122c3877a13f01b33", "spanId": "459bee56997d02cf", "requestId": "", "event": "requirement.analysis", "durationMs": 0.42248699992342154}
+ok
+test_uncertainty_requires_questions (test_analysis.AnalysisTests.test_uncertainty_requires_questions) ... {"timestamp": "2026-10-19T10:34:43.084528+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "783cf7e1c3c4f492ce2a2fafa27c8b6c", "spanId": "04655c266359536c", "requestId": "", "event": "requirement.analysis", "durationMs": 0.43461600034788717}
+ok
+test_corpus_is_deterministic_and_complete (test_knowledge.KnowledgeTests.test_corpus_is_deterministic_and_complete) ... ok
+test_embedding_shape_and_values_are_validated (test_knowledge.KnowledgeTests.test_embedding_shape_and_values_are_validated) ... ok
+test_empty_duplicate_and_oversized_sections_are_rejected (test_knowledge.KnowledgeTests.test_empty_duplicate_and_oversized_sections_are_rejected) ... ok
+test_non_thinking_uses_json_schema_format (test_llm_provider.LlmProviderTests.test_non_thinking_uses_json_schema_format) ... {"timestamp": "2026-10-19T10:34:43.233011+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "b02b00d026350d6e9c0c369cefdfcb90", "spanId": "c5ef20ba3bfef8cc", "requestId": "", "event": "llm.generate", "durationMs": 0.637972999811609}
+ok
+test_thinking_does_not_use_incompatible_decoder_constraint (test_llm_provider.LlmProviderTests.test_thinking_does_not_use_incompatible_decoder_constraint) ... {"timestamp": "2026-10-19T10:34:43.233692+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a8b2f805a7f9511109759ac36c28c583", "spanId": "ed5180aa044ad05f", "requestId": "", "event": "llm.generate", "durationMs": 0.18930599981104024}
+ok
+test_transport_timeout_is_explicit_failure (test_llm_provider.LlmProviderTests.test_transport_timeout_is_explicit_failure) ... {"timestamp": "2026-10-19T10:34:43.234281+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "d61dec4cc9bc268cbc73a746e321644d", "spanId": "7fab7552ea3ec8b1", "requestId": "", "event": "llm.generate", "durationMs": 0.164087000030122}
+ok
+test_truncated_generation_is_explicit_failure (test_llm_provider.LlmProviderTests.test_truncated_generation_is_explicit_failure) ... {"timestamp": "2026-10-19T10:34:43.234721+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "735ae0279f9eb2e9b3e0da21411b951e", "spanId": "74ab00bf2eb9c466", "requestId": "", "event": "llm.generate", "durationMs": 0.1108949995796138}
+ok
+test_input_is_not_silently_truncated (test_local_embedding.LocalEmbeddingTests.test_input_is_not_silently_truncated) ... {"timestamp": "2026-10-19T10:34:43.235149+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "8f2abf8f092a3dab6c133ad568df3a3d", "spanId": "293aac20b236083d", "requestId": "", "event": "query.embedding", "durationMs": 0.08231899983002222}
+ok
+test_query_and_documents_share_dense_embedding_path (test_local_embedding.LocalEmbeddingTests.test_query_and_documents_share_dense_embedding_path) ... {"timestamp": "2026-10-19T10:34:43.235778+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a2c3c95573cb8565b77e280d6b2bbfae", "spanId": "91e55b68fda7991a", "requestId": "", "event": "query.embedding", "durationMs": 0.08594600012656883}
+ok
+test_settings_are_external_and_overridable (test_local_embedding.LocalEmbeddingTests.test_settings_are_external_and_overridable) ... ok
+test_wrong_dimension_is_rejected (test_local_embedding.LocalEmbeddingTests.test_wrong_dimension_is_rejected) ... Exception while exporting Span.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 567, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1141, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1085, in send
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 139, in _export
+    resp = self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 567, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1141, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1085, in send
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/_shared_internal/__init__.py", line 152, in _export
+    self._exporter.export(
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 204, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 174, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 147, in _export
+    resp = self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+{"timestamp": "2026-10-19T10:34:46.780202+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "bb922bcd2d21be76bfc212587d357d8e", "spanId": "c6be41f41147c442", "requestId": "", "event": "query.embedding", "durationMs": 0.7482370001525851}
+ok
+test_database_details_not_leaked (test_search_api.SearchApiTests.test_database_details_not_leaked) ... Vector search failed
+Traceback (most recent call last):
+  File "/app/app/search_api.py", line 19, in search
+    return engine.search(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+RuntimeError: private-database-host
+ok
+test_invalid_query_and_evaluation_override_rejected (test_search_api.SearchApiTests.test_invalid_query_and_evaluation_override_rejected) ... ok
+test_mismatched_profile_is_unavailable (test_search_api.SearchApiTests.test_mismatched_profile_is_unavailable) ... ok
+test_response_contract (test_search_api.SearchApiTests.test_response_contract) ... ok
+test_all_five_execution_gates_required (test_test_case_generation.TestCaseGenerationTest.test_all_five_execution_gates_required) ... ok
+test_ambiguous_deferred_without_model (test_test_case_generation.TestCaseGenerationTest.test_ambiguous_deferred_without_model) ... {"timestamp": "2026-10-19T10:34:46.807258+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "1b890a66869c1d4b488de4e4e53c0d5a", "spanId": "e7cc471d89819c5e", "requestId": "", "event": "testcase.generate", "durationMs": 0.32325600022886647}
+ok
+test_api_busy_is_429_and_never_calls_model (test_test_case_generation.TestCaseGenerationTest.test_api_busy_is_429_and_never_calls_model) ... ok
+test_api_maps_invalid_model_to_explicit_failure (test_test_case_generation.TestCaseGenerationTest.test_api_maps_invalid_model_to_explicit_failure) ... {"timestamp": "2026-10-19T10:34:46.815671+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "818ba5fbb7faa1a6be31d9f1dcc60d10", "spanId": "aaf0f19b879ff6c7", "requestId": "", "event": "testcase.generate", "durationMs": 0.8570680001867004}
+ok
+test_api_rejects_extra_input_fields (test_test_case_generation.TestCaseGenerationTest.test_api_rejects_extra_input_fields) ... ok
+test_api_unavailable_is_503_and_slot_released (test_test_case_generation.TestCaseGenerationTest.test_api_unavailable_is_503_and_slot_released) ... {"timestamp": "2026-10-19T10:34:46.823555+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "a8be3cb80fc6a948f56299ef09142aa3", "spanId": "6a43efd811dd850c", "requestId": "", "event": "testcase.generate", "durationMs": 0.5875259998902038}
+ok
+test_duplicate_or_omitted_candidate_rejected (test_test_case_generation.TestCaseGenerationTest.test_duplicate_or_omitted_candidate_rejected) ... {"timestamp": "2026-10-19T10:34:46.825263+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "ead8bf8b4f5fbb241006b654c3ff5941", "spanId": "fef57cee122b9118", "requestId": "", "event": "testcase.generate", "durationMs": 0.44399899979907786}
+{"timestamp": "2026-10-19T10:34:46.825939+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "9550847f3c1bc47cf5ad9cb2241cc38f", "spanId": "f3c7357fedd2b8fa", "requestId": "", "event": "testcase.generate", "durationMs": 0.42292799980714335}
+ok
+test_error_token_no_invented_response_path (test_test_case_generation.TestCaseGenerationTest.test_error_token_no_invented_response_path) ... ok
+test_fabricated_api_or_expected_result_extra_field_rejected (test_test_case_generation.TestCaseGenerationTest.test_fabricated_api_or_expected_result_extra_field_rejected) ... {"timestamp": "2026-10-19T10:34:46.826939+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "29f86dc68a920886c39187c41fe59577", "spanId": "3419a8daadf300fe", "requestId": "", "event": "testcase.generate", "durationMs": 0.7151079998948262}
+{"timestamp": "2026-10-19T10:34:46.827793+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "804f40d7bd48de236a29e6ec96e4191f", "spanId": "98816d95f695cf83", "requestId": "", "event": "testcase.generate", "durationMs": 0.5812950003019068}
+{"timestamp": "2026-10-19T10:34:46.828648+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "921721c1ee3396ff141852acf8aede0b", "spanId": "08f6b734e6f76437", "requestId": "", "event": "testcase.generate", "durationMs": 0.5792599999949744}
+ok
+test_fabricated_candidate_bounded_retry (test_test_case_generation.TestCaseGenerationTest.test_fabricated_candidate_bounded_retry) ... {"timestamp": "2026-10-19T10:34:46.829548+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "086f31470d4686d17645706bd2eddc95", "spanId": "ba51143b495951c1", "requestId": "", "event": "testcase.generate", "durationMs": 0.5827460004184104}
+ok
+test_five_types_full_contract_and_original_evidence (test_test_case_generation.TestCaseGenerationTest.test_five_types_full_contract_and_original_evidence) ... {"timestamp": "2026-10-19T10:34:46.830768+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "0b2de7831cd4f85cc778ad6079fcc131", "spanId": "37b9513ba1bca4ce", "requestId": "", "event": "testcase.generate", "durationMs": 0.8369689999199181}
+ok
+test_forged_condition_rejected (test_test_case_generation.TestCaseGenerationTest.test_forged_condition_rejected) ... {"timestamp": "2026-10-19T10:34:46.831310+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "342f7a6aebe16fafc8118cadaab67611", "spanId": "3be8a3b4de9082e1", "requestId": "", "event": "testcase.generate", "durationMs": 0.12597300019479007}
+ok
+test_forged_evidence_id_rejected (test_test_case_generation.TestCaseGenerationTest.test_forged_evidence_id_rejected) ... {"timestamp": "2026-10-19T10:34:46.831656+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "eeb824a4bc9ff9a3246b96030c4a30c0", "spanId": "8cf420b28e62789b", "requestId": "", "event": "testcase.generate", "durationMs": 0.07846100015740376}
+ok
+test_identity_mismatch_rejected (test_test_case_generation.TestCaseGenerationTest.test_identity_mismatch_rejected) ... {"timestamp": "2026-10-19T10:34:46.831970+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "0f0199628ba1d3fad54883a28343ee4e", "spanId": "949287a27580c6bd", "requestId": "", "event": "testcase.generate", "durationMs": 0.06518600002891617}
+ok
+test_injection_cannot_change_materialized_results (test_test_case_generation.TestCaseGenerationTest.test_injection_cannot_change_materialized_results) ... {"timestamp": "2026-10-19T10:34:46.833310+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "23a1cecebd84c02094621959c70ba66c", "spanId": "cb8d539be603fe71", "requestId": "", "event": "testcase.generate", "durationMs": 0.6497019999187614}
+ok
+test_missing_deferred_without_model (test_test_case_generation.TestCaseGenerationTest.test_missing_deferred_without_model) ... {"timestamp": "2026-10-19T10:34:46.833683+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "98213ad2f1932348e194ff05820dc9d5", "spanId": "2acf1ceef449353c", "requestId": "", "event": "testcase.generate", "durationMs": 0.09308000016972073}
+ok
+test_no_confirmed_fact_deferred (test_test_case_generation.TestCaseGenerationTest.test_no_confirmed_fact_deferred) ... {"timestamp": "2026-10-19T10:34:46.834097+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "9edc614b5c29bc37249e5753c84e9d9a", "spanId": "12d3e09feb7088b9", "requestId": "", "event": "testcase.generate", "durationMs": 0.17927199996847776}
+ok
+test_no_database_or_search_dependency (test_test_case_generation.TestCaseGenerationTest.test_no_database_or_search_dependency) ... ok
+test_pure_assertions_pass_and_fail (test_test_case_generation.TestCaseGenerationTest.test_pure_assertions_pass_and_fail) ... ok
+test_quote_missing_never_uses_outside_corpus (test_test_case_generation.TestCaseGenerationTest.test_quote_missing_never_uses_outside_corpus) ... {"timestamp": "2026-10-19T10:34:46.862485+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "83f2275372012949e445a789a2d90ac7", "spanId": "0d3417b0946bfe70", "requestId": "", "event": "testcase.generate", "durationMs": 0.3127949998997792}
+ok
+test_retry_can_recover (test_test_case_generation.TestCaseGenerationTest.test_retry_can_recover) ... {"timestamp": "2026-10-19T10:34:46.863353+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "d4a5aa66288db9e561388c30fed66b82", "spanId": "e28bcf913b1a589d", "requestId": "", "event": "testcase.generate", "durationMs": 0.583657999868592}
+ok
+test_strict_result_schema_rejects_unrecognized_type (test_test_case_generation.TestCaseGenerationTest.test_strict_result_schema_rejects_unrecognized_type) ... {"timestamp": "2026-10-19T10:34:46.864021+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "5b44523c15d3f32553cdb88cdb342f84", "spanId": "afd6940014cfa297", "requestId": "", "event": "testcase.generate", "durationMs": 0.4434869997567148}
+ok
+test_unchanged_requires_both_observations (test_test_case_generation.TestCaseGenerationTest.test_unchanged_requires_both_observations) ... ok
+test_unrelated_confirmed_condition_cannot_create_approval (test_test_case_generation.TestCaseGenerationTest.test_unrelated_confirmed_condition_cannot_create_approval) ... {"timestamp": "2026-10-19T10:34:46.864446+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "cd49d8667812c1d78c8720c623793976", "spanId": "6aed52d69b57aa7e", "requestId": "", "event": "testcase.generate", "durationMs": 0.08389200002056896}
+ok
+test_only_rag_is_queried_and_parameters_are_bound (test_vector_search.VectorSearchTests.test_only_rag_is_queried_and_parameters_are_bound) ... {"timestamp": "2026-10-19T10:34:46.865795+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "28b0c5547cb0ff93e75d9351b4f28e0b", "spanId": "877e9a2e2c54d9a4", "requestId": "", "event": "rag.search", "durationMs": 0.40863999993234756}
+ok
+test_profile_mismatch_fails_before_embedding (test_vector_search.VectorSearchTests.test_profile_mismatch_fails_before_embedding) ... {"timestamp": "2026-10-19T10:34:46.867526+00:00", "service": "legacy-assistant-ai", "level": "INFO", "traceId": "79a9af9e4e5a2cc22ff33ecc6124dcae", "spanId": "ef4e318349f8756d", "requestId": "", "event": "rag.search", "durationMs": 0.6675609997728316}
+ok
+test_query_validation_rejects_empty_and_schema_override (test_vector_search.VectorSearchTests.test_query_validation_rejects_empty_and_schema_override) ... ok
+
+----------------------------------------------------------------------
+Ran 61 tests in 3.825s
+
+OK
+Exception while exporting Span.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 567, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1141, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1085, in send
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 139, in _export
+    resp = self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 499, in _make_request
+    conn.request(
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 567, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1141, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1085, in send
+    self.connect()
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 398, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 254, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/_shared_internal/__init__.py", line 152, in _export
+    self._exporter.export(
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 204, in export
+    return self._export_serialized_spans(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 174, in _export_serialized_spans
+    resp = self._export(serialized_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/opentelemetry/exporter/otlp/proto/http/trace_exporter/__init__.py", line 147, in _export
+    resp = self._session.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/requests/adapters.py", line 729, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [Errno 111] Connection refused"))

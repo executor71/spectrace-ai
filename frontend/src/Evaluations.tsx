@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+type EvaluationTarget = { requirementId: string; datasetVersion: string; caseId: string; split: string }
 type Ratio = { numerator: number; denominator: number; value: number | null; status: string }
 type Scenario = { scenarioId: string; category: string; description: string; covered: boolean; matchedTestCaseIds: string[] }
 type Evaluation = {
@@ -15,14 +16,43 @@ type Evaluation = {
 }
 const percentage = (m: Ratio) => m.value === null ? `N/A (${m.numerator}/${m.denominator})` : `${(m.value * 100).toFixed(1)}% (${m.numerator}/${m.denominator})`
 
-export default function Evaluations({ requirementId }: { requirementId: string }) {
+export default function Evaluations({ requirementId, requirementBusy, onSelectRequirement }: { requirementId: string; requirementBusy: boolean; onSelectRequirement: (id: string) => Promise<void> }) {
   const [runs, setRuns] = useState<Evaluation[]>([])
   const [selected, setSelected] = useState<Evaluation | null>(null)
   const [mode, setMode] = useState('GENERATED')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  const [targets, setTargets] = useState<EvaluationTarget[] | null>(null)
+  const [targetsError, setTargetsError] = useState('')
+  const [targetsAttempt, setTargetsAttempt] = useState(0)
+  const [sampleId, setSampleId] = useState('')
+  useEffect(() => {
+    const controller = new AbortController()
+    setTargets(null); setTargetsError('')
+    async function loadTargets() {
+      try {
+        const response = await fetch('/api/evaluations/targets', { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15000)]) })
+        const body = await response.json().catch(() => null)
+        if (!response.ok) throw new Error(body?.message || body?.detail || '평가 대상 목록을 불러오지 못했습니다.')
+        if (body?.datasetVersion !== 'phase6-v1' || !Array.isArray(body.requirements) || !body.requirements.every((target: EvaluationTarget) => typeof target.requirementId === 'string' && target.datasetVersion === body.datasetVersion && typeof target.caseId === 'string' && typeof target.split === 'string')) throw new Error('평가 대상 목록의 응답 형식이 올바르지 않습니다.')
+        if (!controller.signal.aborted) setTargets(body.requirements)
+      } catch (err) {
+        if (!controller.signal.aborted) setTargetsError(err instanceof Error ? err.message : '평가 대상 조회에 실패했습니다.')
+      }
+    }
+    void loadTargets()
+    return () => controller.abort()
+  }, [targetsAttempt])
+  const target = targets?.find(item => item.requirementId === requirementId)
+  const eligible = !!target
+  async function loadSample() {
+    if (!sampleId || busy || requirementBusy) return
+    setBusy(true)
+    try { await onSelectRequirement(sampleId) }
+    finally { setBusy(false) }
+  }
   async function request(create: boolean) {
-    if (busy) return
+    if (busy || requirementBusy || !requirementId || (create && !eligible)) return
     setBusy(true); setError('')
     try {
       const response = await fetch(create ? '/api/evaluations' : `/api/requirements/${encodeURIComponent(requirementId)}/evaluations`, {
@@ -49,9 +79,24 @@ export default function Evaluations({ requirementId }: { requirementId: string }
   return <section className="evaluations" aria-labelledby="evaluations-title">
     <h2 id="evaluations-title">Ground Truth 평가</h2>
     <p>고정된 평가셋에 등록된 요구사항만 평가합니다. 검색 Top-5와 저장된 테스트를 비교하며 분석·생성을 다시 호출하지 않습니다.</p>
+    <label htmlFor="evaluation-sample">Frozen Evaluation 샘플 요구사항</label>
+    <div className="lookup-controls">
+      <select id="evaluation-sample" value={sampleId} disabled={busy || requirementBusy || !targets?.length} onChange={e => setSampleId(e.target.value)}>
+        <option value="">등록된 샘플을 선택하세요</option>
+        {targets?.map(item => <option key={item.requirementId} value={item.requirementId}>{item.caseId} · {item.split} · {item.requirementId}</option>)}
+      </select>
+      <button type="button" disabled={busy || requirementBusy || !sampleId} onClick={loadSample}>샘플 요구사항 조회</button>
+    </div>
+    <p>샘플을 조회하면 해당 요구사항으로 전환됩니다. 정답이나 평가셋 연결은 변경하지 않습니다.</p>
+    {targetsError ? <div role="alert" className="form-error">평가 대상 등록 여부를 확인하지 못했습니다. {targetsError} <button type="button" onClick={() => setTargetsAttempt(value => value + 1)}>평가 대상 다시 확인</button></div>
+      : targets === null ? <p role="status">평가 대상 등록 여부를 확인 중입니다.</p>
+      : !requirementId ? <p role="status">요구사항을 조회하거나 등록된 평가 샘플을 선택해 주세요.</p>
+      : !eligible ? <p role="status">현재 요구사항은 정량평가 대상에 등록되어 있지 않습니다</p>
+      : <p role="status">정량평가 대상: {target.caseId} · {target.split} · {target.datasetVersion}</p>}
+    {targets?.length === 0 && <p>등록된 평가 샘플이 없습니다.</p>}
     <label htmlFor="evaluation-mode">평가할 내용</label>
-    <select id="evaluation-mode" value={mode} disabled={busy} onChange={e => setMode(e.target.value)}><option value="GENERATED">AI 생성 원본</option><option value="REVIEWED">사용자 검토 현재값</option></select>
-    <div className="lookup-controls"><button disabled={busy} onClick={() => request(true)}>평가 실행</button><button disabled={busy} onClick={() => request(false)}>저장된 평가 조회</button></div>
+    <select id="evaluation-mode" value={mode} disabled={busy || requirementBusy || !eligible} onChange={e => setMode(e.target.value)}><option value="GENERATED">AI 생성 원본</option><option value="REVIEWED">사용자 검토 현재값</option></select>
+    <div className="lookup-controls"><button type="button" disabled={busy || requirementBusy || !eligible} onClick={() => request(true)}>평가 실행</button><button type="button" disabled={busy || requirementBusy || !requirementId} onClick={() => request(false)}>저장된 평가 조회</button></div>
     {busy && <p role="status">평가 처리 중…</p>}
     {error && <p role="alert" className="form-error">{error}</p>}
     <ul className="evaluation-history">{runs.map(run => <li key={run.id}><button disabled={busy} aria-pressed={selected?.id === run.id} onClick={() => select(run.id)}>{new Date(run.createdAt).toLocaleString('ko-KR')} · {run.dataset.split} · {run.contentMode} · {run.status}</button></li>)}</ul>

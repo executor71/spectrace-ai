@@ -1,0 +1,37 @@
+[
+  {
+    "suite": "ai",
+    "exitCode": 1,
+    "tail": "                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/contracts/test-case-policy.json'\n\n\n----------------------------------------------------------------------\nRan 38 tests in 4.431s\n\nFAILED (errors=2)\n"
+  },
+  {
+    "suite": "evaluation",
+    "exitCode": 0,
+    "tail": "red_match_does_not_coerce_boolean_to_integer (test_metrics.MetricsTests.test_structured_match_does_not_coerce_boolean_to_integer) ... ok\ntest_unknown_operator_fails_closed (test_metrics.MetricsTests.test_unknown_operator_fails_closed) ... ok\ntest_unsupported_assertion_is_unknown_not_pass (test_metrics.MetricsTests.test_unsupported_assertion_is_unknown_not_pass) ... ok\ntest_wrong_category_cannot_match (test_metrics.MetricsTests.test_wrong_category_cannot_match) ... ok\ntest_zero_testcases_not_perfect_validity (test_metrics.MetricsTests.test_zero_testcases_not_perfect_validity) ... ok\n\n----------------------------------------------------------------------\nRan 40 tests in 0.092s\n\nOK (skipped=8)\n"
+  },
+  {
+    "suite": "retrieval",
+    "exitCode": 0,
+    "tail": "_exact (test_retrieval.LexicalTests.test_bm25_exact) ... ok\ntest_bm25_math (test_retrieval.LexicalTests.test_bm25_math) ... ok\ntest_empty_corpus (test_retrieval.LexicalTests.test_empty_corpus) ... ok\ntest_exact_error_code (test_retrieval.LexicalTests.test_exact_error_code) ... ok\ntest_invalid_settings (test_retrieval.LexicalTests.test_invalid_settings) ... ok\ntest_korean_inflections (test_retrieval.LexicalTests.test_korean_inflections) ... ok\ntest_no_match (test_retrieval.LexicalTests.test_no_match) ... ok\ntest_tie_is_deterministic (test_retrieval.LexicalTests.test_tie_is_deterministic) ... ok\n\n----------------------------------------------------------------------\nRan 27 tests in 4.660s\n\nOK\n"
+  },
+  {
+    "suite": "mcp",
+    "exitCode": 0,
+    "tail": "esource_rejects_other_schemes) ... ok\ntest_runtime_eligibility_preserves_review_evidence (test_gateway.GatewayTests.test_runtime_eligibility_preserves_review_evidence) ... ok\ntest_unknown_tool (test_gateway.GatewayTests.test_unknown_tool) ... {\"timestamp\": \"2026-10-19T10:34:06.098246+00:00\", \"service\": \"legacy-assistant-mcp\", \"level\": \"INFO\", \"event\": \"mcp.tool\", \"toolName\": \"UNKNOWN_TOOL\", \"requestId\": \"4e58b3e1-94dc-4d5d-b33a-bffcd7e0c539\", \"startedAt\": \"2026-10-19T10:34:06.098246+00:00\", \"durationMs\": 0.041, \"resultStatus\": \"ERROR\", \"downstreamService\": null, \"errorCode\": \"UNKNOWN_TOOL\"}\nok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.043s\n\nOK\n"
+  },
+  {
+    "suite": "graph",
+    "exitCode": 0,
+    "tail": "..................                                                       [100%]\n18 passed in 0.92s\n"
+  },
+  {
+    "suite": "graph-analysis",
+    "exitCode": 0,
+    "tail": "test_graph_cannot_create_ungrounded_fact (__main__.GraphAnalysisTests.test_graph_cannot_create_ungrounded_fact) ... ok\ntest_graph_context_reaches_unchanged_grounding_validator (__main__.GraphAnalysisTests.test_graph_context_reaches_unchanged_grounding_validator) ... ok\ntest_opt_in_http_route_does_not_persist (__main__.GraphAnalysisTests.test_opt_in_http_route_does_not_persist) ... ok\ntest_opt_in_rejects_caller_graph_context (__main__.GraphAnalysisTests.test_opt_in_rejects_caller_graph_context) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.054s\n\nOK\n"
+  },
+  {
+    "suite": "observability",
+    "exitCode": 1,
+    "tail": "2, in <module>\n    POLICY = json.loads((ROOT/'contracts/test-case-policy.json').read_text(encoding='utf-8'))\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/contracts/test-case-policy.json'\n"
+  }
+]

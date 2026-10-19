@@ -51,17 +51,21 @@ export default function Requirements() {
     finally { setBusy(false) }
   }
 
-  async function lookup(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+  async function loadRequirement(id: string) {
     if (busy) return
-    setError(''); setNotice(''); setResult(null)
-    if (!lookupId.trim()) { setError('조회할 ID를 입력해 주세요.'); return }
+    setError(''); setNotice('')
+    if (!id.trim()) { setError('조회할 ID를 입력해 주세요.'); return }
     setBusy(true)
     try {
-      const saved = await requestRequirement(`/api/requirements/${encodeURIComponent(lookupId.trim())}`)
-      setResult(saved); setNotice('저장된 요구사항을 조회했습니다.')
-    } catch (err) { setError(errorMessage(err)) }
+      const saved = await requestRequirement(`/api/requirements/${encodeURIComponent(id.trim())}`)
+      setResult(saved); setLookupId(saved.id); setNotice('저장된 요구사항을 조회했습니다.')
+    } catch (err) { setResult(null); setError(errorMessage(err)) }
     finally { setBusy(false) }
+  }
+
+  async function lookup(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    await loadRequirement(lookupId)
   }
 
   return (
@@ -91,10 +95,10 @@ export default function Requirements() {
           <dt>등록 일시</dt><dd>{new Date(result.createdAt).toLocaleString('ko-KR')}</dd></dl>
         <p className="requirement-description">{result.description}</p>
       </article>}
-      {result && <RequirementAnalysis key={result.id} requirementId={result.id} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}
-      {result && <TestCases key={result.id} requirementId={result.id} />}
-      {result && <Evaluations key={result.id} requirementId={result.id} />}
-      {result && <KnowledgeGraph key={result.id} requirementId={result.id} />}
+      {result && <RequirementAnalysis key={`RequirementAnalysis:${result.id}`} requirementId={result.id} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}
+      {result && <TestCases key={`TestCases:${result.id}`} requirementId={result.id} />}
+      <Evaluations key={`Evaluations:${result?.id ?? "none"}`} requirementId={result?.id ?? ""} requirementBusy={busy} onSelectRequirement={loadRequirement} />
+      {result && <KnowledgeGraph key={`KnowledgeGraph:${result.id}`} requirementId={result.id} />}
     </section>
   )
 }

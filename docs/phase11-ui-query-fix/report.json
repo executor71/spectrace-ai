@@ -1,0 +1,67 @@
+{
+  "result": "PASS",
+  "date": "2026-10-19 Asia/Seoul",
+  "project": "D:\\MASTER과정",
+  "rootCauses": [
+    "Requirements.tsx used identical sibling keys for analysis/test/evaluation/graph. Chrome replay of original code showed duplicate-key errors and 3 retained analysis panels after switching requirements; fixed code shows 1 panel and no duplicate-key warning.",
+    "Parent requirement lookup cleared result before every fetch, unmounting child results even for the same requirement.",
+    "Recent requirement a8e38276-f033-4cb6-b1f4-b44811778a1b returns HTTP 200 analysis and HTTP 200 testCases:[] with explicit unsupported-template deferral; no existing TC list is present to render."
+  ],
+  "changedSourceFiles": [
+    "frontend/src/Requirements.tsx",
+    "frontend/src/RequirementAnalysis.tsx",
+    "frontend/src/TestCases.tsx"
+  ],
+  "changes": [
+    "Unique key per panel and requirement",
+    "Keep mounted result during same requirement lookup; reset on failure or new requirement key",
+    "Explicit success, HTTP 404 absence, HTTP 200 zero-TC and API-error status",
+    "Reject malformed JSON/top-level response arrays or mismatched requirementId before state update",
+    "Explicit type=button for test actions"
+  ],
+  "apiContract": "Live analysis and test response shapes match current TS interfaces; no response envelope mismatch found.",
+  "tests": {
+    "frontendBuild": "tsc -b && vite build PASS; image rebuilt and frontend recreated",
+    "backend": 84,
+    "ai": 61,
+    "evaluationIncludingIsolatedDatabase": 40,
+    "retrieval": 27,
+    "retrievalMetrics": 13,
+    "mcp": 18,
+    "graphProjection": 18,
+    "graphAnalysis": 4,
+    "observability": 9,
+    "total": 274,
+    "failures": 0,
+    "skipped": 0,
+    "chrome": [
+      "real HTTP 200: analysis/evidence + 5 TC/detail",
+      "same requirement parent lookup preserves results and selected TC",
+      "reload and GET persisted data",
+      "real HTTP 200 empty testCases explains generation deferral",
+      "real HTTP 404 no stored data for both GETs",
+      "intercepted HTTP 503 message and malformed HTTP 200 explicit error, no render crash"
+    ],
+    "browser": "155.0.8059.84"
+  },
+  "preservation": {
+    "liveGETResponsesIdenticalBeforeAfter": [
+      "http://localhost:5173/api/requirements/b5270f71-c92c-48ae-8530-8946f1cfce62/analysis",
+      "http://localhost:5173/api/requirements/b5270f71-c92c-48ae-8530-8946f1cfce62/test-cases",
+      "http://localhost:5173/api/requirements/a8e38276-f033-4cb6-b1f4-b44811778a1b/analysis",
+      "http://localhost:5173/api/requirements/a8e38276-f033-4cb6-b1f4-b44811778a1b/test-cases"
+    ],
+    "browserMutationRequests": [],
+    "productionLLMCalls": 0,
+    "productionDataOrModelRagGroundTruthKnowledgeGraphChanges": false
+  },
+  "scope": "ANALYSIS_BUSY left unchanged. Unit tests use fake providers; only saved GET data used for live browser checks. Empty recent generation is reported, not regenerated.",
+  "artifacts": [
+    "analysis-evidence.png",
+    "testcase-list-detail.png",
+    "empty-200.png",
+    "not-found-404.png",
+    "verification.json",
+    "key-reproduction.json"
+  ]
+}

@@ -84,6 +84,23 @@ def health():
     return {'status':'UP','metricVersion':VERSION}
 
 
+@app.get('/api/evaluations/targets')
+def evaluation_targets():
+    # Public registration metadata only. Never return truth, expected IDs, or labels.
+    with connection() as db:
+        rows = db.execute(
+            'SELECT b.requirement_id,g.dataset_version,g.case_id,g.split '
+            'FROM evaluation.requirement_binding b '
+            'JOIN evaluation.ground_truth g USING(dataset_version,case_id) '
+            'WHERE g.dataset_version=%s ORDER BY g.split,g.case_id,b.requirement_id',
+            ('phase6-v1',),
+        ).fetchall()
+    return {'datasetVersion':'phase6-v1', 'requirements':[
+        {'requirementId':str(row[0]), 'datasetVersion':row[1], 'caseId':row[2], 'split':row[3]}
+        for row in rows
+    ]}
+
+
 @app.post('/api/evaluations', status_code=201)
 def create_evaluation(request: EvaluationRequest):
     requirement_id = str(request.requirementId)

@@ -1,0 +1,1 @@
+{"services": {"backend-test": {"volumes": [{"type": "bind", "source": "C:\\Users\\sjlee\\Downloads\\08464_270_fa0d0d8d-7494-4f47-b71e-4f815e5c9308\\evaluation-guide-evidence\\backend-junit", "target": "/workspace/target/surefire-reports"}]}}}

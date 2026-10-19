@@ -47,3 +47,28 @@ class ApiTests(unittest.TestCase):
         self.batch=None;response=self.post();self.assertIn('NO_SAVED_GENERATION',response.json()['issues']);self.assertIsNone(response.json()['metrics']['testCaseValidity']['value'])
     def test_stale_snapshot_is_visible_not_silently_dropped(self):
         self.batch['stale']=True;self.assertIn('STALE_GENERATION_SNAPSHOT',self.post().json()['issues'])
+
+
+class EvaluationTargetsTests(unittest.TestCase):
+    def test_targets_expose_registration_metadata_only(self):
+        rid = uuid4()
+        with patch('app.main.connection') as connection, patch('app.main.backend') as backend, patch('app.main.search') as search, patch('app.main.save') as save:
+            db = connection.return_value.__enter__.return_value
+            db.execute.return_value.fetchall.return_value = [(rid, 'phase6-v1', 'access-development', 'development')]
+            response = TestClient(app).get('/api/evaluations/targets')
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.json(), {'datasetVersion':'phase6-v1', 'requirements':[
+                {'requirementId':str(rid), 'datasetVersion':'phase6-v1', 'caseId':'access-development', 'split':'development'}]})
+            sql, args = db.execute.call_args.args
+            self.assertEqual(args, ('phase6-v1',))
+            self.assertNotIn('truth_json', sql)
+            self.assertNotIn('evidence_catalog', sql)
+            self.assertTrue(sql.startswith('SELECT '))
+            backend.assert_not_called(); search.assert_not_called(); save.assert_not_called()
+
+    def test_no_registered_targets_is_an_empty_list(self):
+        with patch('app.main.connection') as connection:
+            connection.return_value.__enter__.return_value.execute.return_value.fetchall.return_value = []
+            response = TestClient(app).get('/api/evaluations/targets')
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.json()['requirements'], [])

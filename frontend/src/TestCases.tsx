@@ -11,6 +11,7 @@ export default function TestCases({ requirementId }: { requirementId: string }) 
   const [selected, setSelected] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  const [notice, setNotice] = useState('')
   async function reviewed(updated: TestCase) {
     setResult(previous => previous && ({ ...previous, testCases: previous.testCases.map(item => item.testCaseId === updated.testCaseId ? updated : item) }))
     try {
@@ -21,11 +22,14 @@ export default function TestCases({ requirementId }: { requirementId: string }) 
   }
   async function request(generate: boolean) {
     if (busy) return
-    setBusy(true); setError(''); setResult(null)
+    setBusy(true); setError(''); setNotice(''); setResult(null); setSelected('')
     try {
       const response = await fetch(`/api/requirements/${encodeURIComponent(requirementId)}/test-cases${generate ? '/generate' : ''}`, { method: generate ? 'POST' : 'GET', signal: AbortSignal.timeout(generate ? 660000 : 15000) })
-      const body = await response.json()
-      if (!response.ok) throw new Error(body.message || '테스트 요청에 실패했습니다.')
+      const body = await response.json().catch(() => null)
+      if (!generate && response.status === 404) { setNotice('저장된 테스트가 없습니다. (HTTP 404)'); return }
+      if (!response.ok) throw new Error(body?.message || `테스트 요청에 실패했습니다. (HTTP ${response.status})`)
+      if (!body || body.requirementId !== requirementId || !['testCases', 'clarificationRequired', 'uncoveredTypes', 'executionDecisions'].every(key => Array.isArray(body[key])) || !Array.isArray(body.sourceAnalysis?.evidence)) throw new Error('테스트 응답 형식이 올바르지 않습니다.')
+      setNotice(body.testCases.length ? `저장된 테스트 ${body.testCases.length}건을 조회했습니다.` : '조회는 성공했지만 저장된 테스트케이스가 0건입니다. 아래 생성 보류 사유와 미생성 유형을 확인해 주세요.')
       setResult(body); setSelected(body.testCases[0]?.testCaseId ?? '')
     } catch (err) { setError(err instanceof Error && err.name === 'TimeoutError' ? '응답 대기 시간이 초과되었습니다. 저장된 테스트 조회로 결과를 확인해 주세요.' : err instanceof Error ? err.message : '테스트 요청에 실패했습니다.') }
     finally { setBusy(false) }
@@ -36,11 +40,12 @@ export default function TestCases({ requirementId }: { requirementId: string }) 
     <h2 id="test-cases-heading">근거 기반 테스트 케이스</h2>
     <p>저장된 분석의 확정 조건과 근거를 사용합니다. 확인이 필요한 조건은 별도로 표시합니다.</p>
     <div className="lookup-controls">
-      <button disabled={busy} onClick={() => request(true)}>테스트 생성</button>
-      <button disabled={busy} onClick={() => request(false)}>저장된 테스트 조회</button>
+      <button type="button" disabled={busy} onClick={() => request(true)}>테스트 생성</button>
+      <button type="button" disabled={busy} onClick={() => request(false)}>저장된 테스트 조회</button>
     </div>
     {busy && <p role="status">테스트 요청 처리 중…</p>}
     {error && <p role="alert" className="form-error">{error}</p>}
+    {notice && <p role="status">{notice}</p>}
     {result && <div className="test-case-result">
       {result.stale && <p role="alert" className="form-error">분석 또는 정책이 변경되었습니다. 최신 분석으로 다시 생성해 주세요.</p>}
       <p>{result.testCases.length}개 테스트 · 생성 시간 {(result.generationLatencyMs / 1000).toFixed(1)}초</p>

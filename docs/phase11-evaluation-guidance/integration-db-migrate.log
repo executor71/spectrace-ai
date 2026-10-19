@@ -1,0 +1,165 @@
+ Container spectrace-evaluation-guide-tests-postgres-test-1 Running 
+ Image spectrace-evaluation-guide-tests-backend-test Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 602B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 358B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#3 ...
+
+#4 [auth] library/maven:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#3 DONE 1.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#6 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 5.82kB done
+#7 DONE 0.0s
+
+#8 [build 4/5] COPY src ./src
+#8 CACHED
+
+#9 [build 3/5] COPY pom.xml .
+#9 CACHED
+
+#10 [build 2/5] WORKDIR /workspace
+#10 CACHED
+
+#11 [build 5/5] RUN mvn -B -DskipTests package
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:1193f4a57cc741e332d7f0bcf47d7a140b986b710f20fec6a49488843065bbb2
+#12 exporting manifest sha256:1193f4a57cc741e332d7f0bcf47d7a140b986b710f20fec6a49488843065bbb2 0.0s done
+#12 exporting config sha256:7babda1e8142c13bd2594504ff1e03831ab4e8b66fb11b729e10078e21e74686 0.0s done
+#12 exporting attestation manifest sha256:8788a7393a46e1af7dda1f86ac1f0d87455d96a673f30f92af86126a64054cda 0.0s done
+#12 exporting manifest list sha256:226b53f031919283369beea6782e69077c7b516de60b262eeb1a10884a999983
+#12 exporting manifest list sha256:226b53f031919283369beea6782e69077c7b516de60b262eeb1a10884a999983 0.0s done
+#12 naming to docker.io/library/spectrace-evaluation-guide-tests-backend-test:latest done
+#12 unpacking to docker.io/library/spectrace-evaluation-guide-tests-backend-test:latest 0.0s done
+#12 DONE 0.2s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image spectrace-evaluation-guide-tests-backend-test Built 
+ Container spectrace-evaluation-guide-tests-postgres-test-1 Waiting 
+ Container spectrace-evaluation-guide-tests-postgres-test-1 Healthy 
+ Container spectrace-evaluation-guide-tests-backend-test-run-686234286a68 Creating 
+ Container spectrace-evaluation-guide-tests-backend-test-run-686234286a68 Created 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< com.example:legacy-change-assistant >-----------------
+[INFO] Building legacy-change-assistant 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ legacy-change-assistant ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 10 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ legacy-change-assistant ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ legacy-change-assistant ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ legacy-change-assistant ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ legacy-change-assistant ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.legacyassistant.requirement.RequirementIntegrationTest
+10:58:01.749 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.legacyassistant.requirement.RequirementIntegrationTest]: RequirementIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:58:01.845 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.legacyassistant.LegacyChangeAssistantApplication for test class com.example.legacyassistant.requirement.RequirementIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-10-19T10:58:02.154Z  INFO 106 --- [           main] c.e.l.r.RequirementIntegrationTest       : Starting RequirementIntegrationTest using Java 21.0.12.1 with PID 106 (started by root in /workspace)
+2026-10-19T10:58:02.155Z  INFO 106 --- [           main] c.e.l.r.RequirementIntegrationTest       : No active profile set, falling back to 1 default profile: "default"
+2026-10-19T10:58:03.381Z  INFO 106 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://postgres-test:5432/legacy_assistant_test?currentSchema=app (PostgreSQL 16.15)
+2026-10-19T10:58:03.441Z  INFO 106 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "app"."flyway_schema_history" does not exist yet
+2026-10-19T10:58:03.444Z  INFO 106 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.042s)
+2026-10-19T10:58:03.461Z  INFO 106 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "app"."flyway_schema_history" ...
+2026-10-19T10:58:03.508Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "app": << Empty Schema >>
+2026-10-19T10:58:03.522Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "1 - create initial tables"
+2026-10-19T10:58:03.549Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "2 - protect flyway history"
+2026-10-19T10:58:03.559Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "3 - validate requirement content"
+2026-10-19T10:58:03.574Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "4 - prepare synthetic knowledge"
+2026-10-19T10:58:03.629Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "5 - seed synthetic knowledge"
+2026-10-19T10:58:03.677Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "6 - store requirement analysis"
+2026-10-19T10:58:03.686Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "7 - store grounded test cases"
+2026-10-19T10:58:03.699Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "8 - test case review"
+2026-10-19T10:58:03.708Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "9 - isolated evaluation"
+2026-10-19T10:58:03.725Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "10 - dummy executions"
+2026-10-19T10:58:03.736Z  INFO 106 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 10 migrations to schema "app", now at version v10 (execution time 00:00.081s)
+2026-10-19T10:58:04.468Z  INFO 106 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-19T10:58:04.468Z  INFO 106 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-19T10:58:04.475Z  INFO 106 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-19T10:58:04.485Z  INFO 106 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 17 ms
+2026-10-19T10:58:04.545Z  INFO 106 --- [           main] c.e.l.r.RequirementIntegrationTest       : Started RequirementIntegrationTest in 2.606 seconds (process running for 3.381)
+2026-10-19T10:58:04.657Z  INFO 106 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-19T10:58:04.675Z  INFO 106 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a88d194
+2026-10-19T10:58:04.681Z  INFO 106 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.7/byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-19T10:58:05.187Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.185112856Z","spanId":"0000000000000000","requestId":"659d86e6-6470-40b0-bae3-006ad4158682","event":"backend.request","durationMs":38.061979}
+2026-10-19T10:58:05.276Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.276236562Z","spanId":"0000000000000000","requestId":"5e28f109-a953-43e9-9eb2-a339dbf121dc","event":"backend.request","durationMs":9.610221}
+2026-10-19T10:58:05.302Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.301715528Z","spanId":"0000000000000000","requestId":"d498d96e-9c0d-4e87-b187-dfb514f377f9","event":"backend.requirement","durationMs":12.369661}
+2026-10-19T10:58:05.304Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.304301759Z","spanId":"0000000000000000","requestId":"d498d96e-9c0d-4e87-b187-dfb514f377f9","event":"backend.request","durationMs":19.518527}
+2026-10-19T10:58:05.361Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.361134378Z","spanId":"0000000000000000","requestId":"b8aaa9d8-f65b-47d7-9c16-1146cfacb7b6","event":"backend.requirement","durationMs":4.676756}
+2026-10-19T10:58:05.372Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.371897839Z","spanId":"0000000000000000","requestId":"b8aaa9d8-f65b-47d7-9c16-1146cfacb7b6","event":"backend.request","durationMs":56.553942}
+2026-10-19T10:58:05.411Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.411545533Z","spanId":"0000000000000000","requestId":"eb661368-6595-4e59-90e7-e5e56c9c19df","event":"backend.request","durationMs":5.219565}
+2026-10-19T10:58:05.427Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.427609998Z","spanId":"0000000000000000","requestId":"12a7fe93-6037-4a1d-907c-e9704dd446a2","event":"backend.request","durationMs":1.839247}
+2026-10-19T10:58:05.436Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.436231033Z","spanId":"0000000000000000","requestId":"8f0d5102-0cae-4526-aa5a-5b3ab2fcde84","event":"backend.request","durationMs":1.767613}
+2026-10-19T10:58:05.443Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.443432602Z","spanId":"0000000000000000","requestId":"cbbe0be3-9b35-4884-a656-994c1606e05e","event":"backend.request","durationMs":1.167597}
+2026-10-19T10:58:05.450Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.450347680Z","spanId":"0000000000000000","requestId":"cc2c571c-91f3-4d1e-a097-c600a88eb8c1","event":"backend.request","durationMs":1.672773}
+2026-10-19T10:58:05.460Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.460059073Z","spanId":"0000000000000000","requestId":"dfbae72a-7764-492e-82a9-3dc725f541ae","event":"backend.request","durationMs":3.025044}
+2026-10-19T10:58:05.478Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.477841920Z","spanId":"0000000000000000","requestId":"d873da0e-4295-48c5-94d1-3a4a95e2a104","event":"backend.requirement","durationMs":0.576324}
+2026-10-19T10:58:05.478Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.478775643Z","spanId":"0000000000000000","requestId":"d873da0e-4295-48c5-94d1-3a4a95e2a104","event":"backend.request","durationMs":2.421117}
+2026-10-19T10:58:05.483Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.482777774Z","spanId":"0000000000000000","requestId":"881429a8-483c-4d8a-a8a0-5cb787373f0d","event":"backend.requirement","durationMs":0.500461}
+2026-10-19T10:58:05.484Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.484373983Z","spanId":"0000000000000000","requestId":"881429a8-483c-4d8a-a8a0-5cb787373f0d","event":"backend.request","durationMs":2.695459}
+2026-10-19T10:58:05.495Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.495078344Z","spanId":"0000000000000000","requestId":"11b011ec-74a4-406a-8ca9-f8fdcf94f50d","event":"backend.requirement","durationMs":0.72084}
+2026-10-19T10:58:05.496Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.496148177Z","spanId":"0000000000000000","requestId":"11b011ec-74a4-406a-8ca9-f8fdcf94f50d","event":"backend.request","durationMs":2.45104}
+2026-10-19T10:58:05.499Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.499373950Z","spanId":"0000000000000000","requestId":"0d91e8d2-f5e5-4263-8d8e-f866266d1f9c","event":"backend.requirement","durationMs":0.868426}
+2026-10-19T10:58:05.500Z  INFO 106 --- [           main] workflow                                 : {"traceId":"00000000000000000000000000000000","level":"INFO","service":"legacy-assistant-backend","timestamp":"2026-10-19T10:58:05.499931874Z","spanId":"0000000000000000","requestId":"0d91e8d2-f5e5-4263-8d8e-f866266d1f9c","event":"backend.request","durationMs":1.922823}
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.863 s -- in com.example.legacyassistant.requirement.RequirementIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.711 s
+[INFO] Finished at: 2026-10-19T10:58:05Z
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,23 @@
+{
+  "datasetVersion": "phase6-v1",
+  "requirements": [
+    {
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "datasetVersion": "phase6-v1",
+      "caseId": "access-development",
+      "split": "development"
+    },
+    {
+      "requirementId": "744dd838-dba6-449a-bc01-fe5c3669b048",
+      "datasetVersion": "phase6-v1",
+      "caseId": "concurrency-final",
+      "split": "final"
+    },
+    {
+      "requirementId": "3f209638-fddf-4c2d-bb10-919601da4df3",
+      "datasetVersion": "phase6-v1",
+      "caseId": "inspection-validation",
+      "split": "validation"
+    }
+  ]
+}

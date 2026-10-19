@@ -1,0 +1,108 @@
+ Container spectrace-ui-regression-postgres-test-1 Running 
+ Container spectrace-ui-regression-postgres-test-1 Waiting 
+ Container spectrace-ui-regression-postgres-test-1 Healthy 
+ Container spectrace-ui-regression-backend-test-run-ab0232ea975d Creating 
+ Container spectrace-ui-regression-backend-test-run-ab0232ea975d Created 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< com.example:legacy-change-assistant >-----------------
+[INFO] Building legacy-change-assistant 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ legacy-change-assistant ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 10 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ legacy-change-assistant ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ legacy-change-assistant ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ legacy-change-assistant ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ legacy-change-assistant ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.legacyassistant.requirement.RequirementIntegrationTest
+10:35:40.603 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.legacyassistant.requirement.RequirementIntegrationTest]: RequirementIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:35:40.712 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.legacyassistant.LegacyChangeAssistantApplication for test class com.example.legacyassistant.requirement.RequirementIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-10-19T10:35:41.051Z  INFO 103 --- [           main] c.e.l.r.RequirementIntegrationTest       : Starting RequirementIntegrationTest using Java 21.0.12.1 with PID 103 (started by root in /workspace)
+2026-10-19T10:35:41.052Z  INFO 103 --- [           main] c.e.l.r.RequirementIntegrationTest       : No active profile set, falling back to 1 default profile: "default"
+2026-10-19T10:35:42.419Z  INFO 103 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://postgres-test:5432/legacy_assistant_test?currentSchema=app (PostgreSQL 16.15)
+2026-10-19T10:35:42.478Z  INFO 103 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "app"."flyway_schema_history" does not exist yet
+2026-10-19T10:35:42.481Z  INFO 103 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.040s)
+2026-10-19T10:35:42.494Z  INFO 103 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "app"."flyway_schema_history" ...
+2026-10-19T10:35:42.549Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "app": << Empty Schema >>
+2026-10-19T10:35:42.563Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "1 - create initial tables"
+2026-10-19T10:35:42.588Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "2 - protect flyway history"
+2026-10-19T10:35:42.599Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "3 - validate requirement content"
+2026-10-19T10:35:42.612Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "4 - prepare synthetic knowledge"
+2026-10-19T10:35:42.691Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "5 - seed synthetic knowledge"
+2026-10-19T10:35:42.738Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "6 - store requirement analysis"
+2026-10-19T10:35:42.747Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "7 - store grounded test cases"
+2026-10-19T10:35:42.759Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "8 - test case review"
+2026-10-19T10:35:42.772Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "9 - isolated evaluation"
+2026-10-19T10:35:42.788Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "app" to version "10 - dummy executions"
+2026-10-19T10:35:42.800Z  INFO 103 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 10 migrations to schema "app", now at version v10 (execution time 00:00.075s)
+2026-10-19T10:35:43.634Z  INFO 103 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-19T10:35:43.635Z  INFO 103 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-19T10:35:43.644Z  INFO 103 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-19T10:35:43.654Z  INFO 103 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 19 ms
+2026-10-19T10:35:43.707Z  INFO 103 --- [           main] c.e.l.r.RequirementIntegrationTest       : Started RequirementIntegrationTest in 2.904 seconds (process running for 3.745)
+2026-10-19T10:35:43.817Z  INFO 103 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-19T10:35:43.834Z  INFO 103 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@780a91d0
+2026-10-19T10:35:43.843Z  INFO 103 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.7/byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-19T10:35:44.424Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.421622103Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":51.711601,"event":"backend.request","requestId":"d55c75d3-b677-4617-a49f-f10c60bdc1e0"}
+2026-10-19T10:35:44.486Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.486619254Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":6.483603,"event":"backend.request","requestId":"c18dd45e-8fa6-49e3-9708-9b4ca60ac653"}
+2026-10-19T10:35:44.526Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.526301420Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":21.928768,"event":"backend.requirement","requestId":"6d7b8b6d-1c71-4dea-97e1-83fc0bdf79bd"}
+2026-10-19T10:35:44.528Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.528712076Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":34.106758,"event":"backend.request","requestId":"6d7b8b6d-1c71-4dea-97e1-83fc0bdf79bd"}
+2026-10-19T10:35:44.587Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.587142918Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":3.675959,"event":"backend.requirement","requestId":"4a5dda5d-bf9b-4bde-8c93-9eb782d82b60"}
+2026-10-19T10:35:44.597Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.597294675Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":55.420541,"event":"backend.request","requestId":"4a5dda5d-bf9b-4bde-8c93-9eb782d82b60"}
+2026-10-19T10:35:44.660Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.660828105Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":5.167468,"event":"backend.request","requestId":"c183fc26-afe0-4afb-829d-ae9989901c2d"}
+2026-10-19T10:35:44.675Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.675034288Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":1.35507,"event":"backend.request","requestId":"1fee6c4a-4313-44ee-8325-aa6e035e2933"}
+2026-10-19T10:35:44.687Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.686846877Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":3.174823,"event":"backend.request","requestId":"10189039-349a-49e1-aec3-b7ee7df45169"}
+2026-10-19T10:35:44.697Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.697456976Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":1.753581,"event":"backend.request","requestId":"cb165cf1-52e9-4369-bf89-3eca5d6393ef"}
+2026-10-19T10:35:44.704Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.704287901Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":1.207485,"event":"backend.request","requestId":"dab3c439-1fb0-4332-9db5-c7505987f9d2"}
+2026-10-19T10:35:44.716Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.716019693Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":4.131244,"event":"backend.request","requestId":"5599e3bd-0cd0-4364-b40a-db40fb5dd559"}
+2026-10-19T10:35:44.740Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.740698644Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":1.015934,"event":"backend.requirement","requestId":"4ffe24d4-7270-4b15-9368-4c7cafe6e1c6"}
+2026-10-19T10:35:44.741Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.741741040Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":4.03339,"event":"backend.request","requestId":"4ffe24d4-7270-4b15-9368-4c7cafe6e1c6"}
+2026-10-19T10:35:44.748Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.748338584Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":0.62041,"event":"backend.requirement","requestId":"125328ed-31bb-4f13-891c-88e5670cce4f"}
+2026-10-19T10:35:44.750Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.750332435Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":3.741872,"event":"backend.request","requestId":"125328ed-31bb-4f13-891c-88e5670cce4f"}
+2026-10-19T10:35:44.766Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.765885893Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":0.941972,"event":"backend.requirement","requestId":"d9385980-df84-4912-b71c-2246b7716c56"}
+2026-10-19T10:35:44.768Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.767909100Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":4.404613,"event":"backend.request","requestId":"d9385980-df84-4912-b71c-2246b7716c56"}
+2026-10-19T10:35:44.771Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.770933389Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":0.611072,"event":"backend.requirement","requestId":"2e8313ac-1bb9-4178-b74f-d1b75ecc71b6"}
+2026-10-19T10:35:44.771Z  INFO 103 --- [           main] workflow                                 : {"spanId":"0000000000000000","timestamp":"2026-10-19T10:35:44.771434147Z","service":"legacy-assistant-backend","level":"INFO","traceId":"00000000000000000000000000000000","durationMs":1.562001,"event":"backend.request","requestId":"2e8313ac-1bb9-4178-b74f-d1b75ecc71b6"}
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.303 s -- in com.example.legacyassistant.requirement.RequirementIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.042 s
+[INFO] Finished at: 2026-10-19T10:35:45Z
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,69 @@
+{
+  "result": "PASS",
+  "date": "2026-10-19 Asia/Seoul",
+  "changes": [
+    {
+      "file": "frontend/src/Evaluations.tsx",
+      "description": "Fetch registration metadata; disable execution until registered; show exact unregistered guidance; offer Frozen sample selector and retry on catalog error."
+    },
+    {
+      "file": "frontend/src/Requirements.tsx",
+      "description": "Share requirement lookup with sample selection and show sample selector before requirement lookup; retain previous query UI fixes."
+    },
+    {
+      "file": "evaluation-service/app/main.py",
+      "description": "Add read-only GET /api/evaluations/targets returning registered requirement IDs, dataset version, case ID and split only; leave create_evaluation and load_truth guards unchanged."
+    },
+    {
+      "file": "evaluation-service/tests/test_api.py",
+      "description": "Cover metadata-only target listing and empty catalog."
+    },
+    {
+      "file": "evaluation-service/tests/test_database.py",
+      "description": "Cover real evaluation-role registration listing and unchanged truth hashes."
+    }
+  ],
+  "guidance": "현재 요구사항은 정량평가 대상에 등록되어 있지 않습니다",
+  "sampleWorkflow": "Ground Truth 평가 → Frozen Evaluation 샘플 요구사항 선택 → 샘플 요구사항 조회 → 평가 실행",
+  "verification": {
+    "frontend": "TypeScript + Vite build PASS; rebuilt images deployed",
+    "evaluationTests": 43,
+    "evaluationTestFailures": 0,
+    "evaluationTestSkipped": 0,
+    "backendRequirementTests": 14,
+    "chrome": [
+      "catalog available without selecting requirement; execution disabled",
+      "unregistered requirement exact guidance + disabled button; no evaluation POST",
+      "Frozen sample selector loads the existing requirement and enables evaluation",
+      "real HTTP 201 COMPLETED evaluation with KPI results for registered sample",
+      "sample lookup and saved evaluation work after reload",
+      "switching back to unregistered requirement removes old evaluation results and disables execution",
+      "catalog failure blocks execution and offers working retry"
+    ],
+    "browser": "155.0.8059.84",
+    "existingAnalysisTestCaseQueryRegression": "PASS"
+  },
+  "actualEvaluation": {
+    "httpStatus": 201,
+    "id": "4253d761-b743-4472-a8e7-a8e936f355e1",
+    "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+    "status": "COMPLETED",
+    "caseId": "access-development"
+  },
+  "preservation": {
+    "frozenTruthBindingsCatalogHashesIdentical": true,
+    "truthAutoGeneration": false,
+    "truthOrBindingChanges": false,
+    "evaluationMetricAlgorithmChanges": false,
+    "analysisOrTestGenerationRequests": 0,
+    "liveEvaluationRunsCreatedForVerification": 1
+  },
+  "artifacts": [
+    "unregistered-requirement.png",
+    "registered-evaluation-success.png",
+    "chrome-verification.json",
+    "evaluation-integration-tests.log",
+    "frozen-before.txt",
+    "frozen-after.txt"
+  ]
+}

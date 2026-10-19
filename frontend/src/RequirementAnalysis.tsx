@@ -12,19 +12,22 @@ export default function RequirementAnalysis({ requirementId, onSaved }: { requir
   const [result, setResult] = useState<Analysis | null>(null)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  const [notice, setNotice] = useState('')
   const active = useRef<AbortController | null>(null)
   useEffect(() => () => active.current?.abort(), [])
 
   async function request(method: 'POST' | 'GET') {
     if (busy) return
-    setBusy(true); setError('')
+    setBusy(true); setError(''); setNotice(''); setResult(null)
     const controller = new AbortController(); active.current = controller
     const timer = setTimeout(() => controller.abort(), 660000)
     try {
-      const response = await fetch(`/api/requirements/${requirementId}/analysis`, { method, signal: controller.signal })
-      const body = await response.json()
-      if (!response.ok) throw new Error(body.message ?? '분석 요청을 처리하지 못했습니다.')
-      setResult(body)
+      const response = await fetch(`/api/requirements/${encodeURIComponent(requirementId)}/analysis`, { method, signal: controller.signal })
+      const body = await response.json().catch(() => null)
+      if (method === 'GET' && response.status === 404) { setNotice('저장된 분석이 없습니다. (HTTP 404)'); return }
+      if (!response.ok) throw new Error(body?.message ?? `분석 요청에 실패했습니다. (HTTP ${response.status})`)
+      if (!body || body.requirementId !== requirementId || !['confirmedConditions', 'ambiguousExpressions', 'missingConditions', 'relatedBusinessRules', 'relatedApis', 'clarificationQuestions', 'evidence'].every(key => Array.isArray(body[key]))) throw new Error('분석 응답 형식이 올바르지 않습니다.')
+      setResult(body); setNotice('분석 조회에 성공했습니다.')
       if (method === 'POST') onSaved()
     } catch (err) {
       setError(err instanceof Error && err.name === 'AbortError'
@@ -46,6 +49,7 @@ export default function RequirementAnalysis({ requirementId, onSaved }: { requir
     </div>
     {busy && <p role="status">분석 요청을 처리 중입니다. 로컬 모델 실행에는 수 분이 걸릴 수 있습니다.</p>}
     {error && <p role="alert" className="form-error">{error}</p>}
+    {notice && <p role="status">{notice}</p>}
     {result && <div className="analysis-result">
       {facts('확인된 조건 · 근거 원문', result.confirmedConditions)}
       {strings('모호한 표현 · 확인 필요', result.ambiguousExpressions)}

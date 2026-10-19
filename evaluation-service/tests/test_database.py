@@ -57,3 +57,15 @@ class DatabaseTests(unittest.TestCase):
     def test_api_has_no_groundtruth_or_update_endpoint(self):
         self.assertEqual(self.client.get('/api/ground-truth').status_code,404)
         self.assertEqual(self.client.patch('/api/evaluations/'+str(uuid4()),json={}).status_code,405)
+
+    def test_target_catalog_uses_evaluation_role_and_only_registered_bindings(self):
+        with connection() as db:
+            before = db.execute('SELECT truth_hash FROM evaluation.ground_truth ORDER BY case_id').fetchall()
+        response = self.client.get('/api/evaluations/targets')
+        self.assertEqual(response.status_code, 200)
+        targets = response.json()['requirements']
+        self.assertIn(self.rid, [target['requirementId'] for target in targets])
+        self.assertTrue(all(set(target) == {'requirementId','datasetVersion','caseId','split'} for target in targets))
+        with connection() as db:
+            after = db.execute('SELECT truth_hash FROM evaluation.ground_truth ORDER BY case_id').fetchall()
+        self.assertEqual(before, after)
