@@ -1,0 +1,73 @@
+[
+  {
+    "name": "frontend",
+    "url": "http://localhost:5173",
+    "status": 200,
+    "body": "HTML"
+  },
+  {
+    "name": "backend",
+    "url": "http://localhost:8080/actuator/health",
+    "status": 200,
+    "body": {
+      "status": "UP",
+      "components": {
+        "db": {
+          "status": "UP",
+          "details": {
+            "database": "PostgreSQL",
+            "validationQuery": "isValid()"
+          }
+        },
+        "diskSpace": {
+          "status": "UP",
+          "details": {
+            "total": 1081101176832,
+            "free": 992581120000,
+            "threshold": 10485760,
+            "path": "/app/.",
+            "exists": true
+          }
+        },
+        "ping": {
+          "status": "UP"
+        },
+        "ssl": {
+          "status": "UP",
+          "details": {
+            "validChains": [],
+            "invalidChains": []
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "ai",
+    "url": "http://localhost:8000/health",
+    "status": 200,
+    "body": {
+      "status": "UP",
+      "database": "UP",
+      "schema": "rag",
+      "pgvector": "0.8.6"
+    }
+  },
+  {
+    "name": "evaluation",
+    "url": "http://localhost:8090/health",
+    "status": 200,
+    "body": {
+      "status": "UP",
+      "metricVersion": "phase6-deterministic-v1"
+    }
+  },
+  {
+    "name": "graph",
+    "url": "http://localhost:8030/health",
+    "status": 200,
+    "body": {
+      "status": "UP"
+    }
+  }
+]

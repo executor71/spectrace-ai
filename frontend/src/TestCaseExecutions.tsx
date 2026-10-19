@@ -36,24 +36,24 @@ export default function TestCaseExecutions({ current, dirty }: { current: TestCa
     finally { setBusy(false) }
   }
   return <section className="test-case-executions" aria-label="Dummy API 실행">
-    <h4>Dummy API 실행</h4>
+    <h4>실행 가능 여부</h4>
     {eligibility && <>
-      <p className="execution-eligibility">approvalStatus: {eligibility.approvalStatus} · executable: {String(eligibility.executable)} · fixtureReady: {String(eligibility.fixtureReady)} · executionEligible: {String(eligibility.executionEligible)}</p>
+      <div className="eligibility-grid"><span>승인 상태 <b className={`status-badge status-${eligibility.approvalStatus}`}>{eligibility.approvalStatus}</b></span><span>실행 정의 <b>{eligibility.executable ? '충족' : '미충족'}</b></span><span>Fixture 준비 <b>{eligibility.fixtureReady ? '준비됨' : '준비 안 됨'}</b></span><span>최종 실행 판정 <b>{eligibility.executionEligible ? '실행 가능' : '실행 불가'}</b></span></div>
       <p>대상 API: {eligibility.apiId ?? '허용되지 않음'}{eligibility.blockedReason && ` · 차단: ${eligibility.blockedReason}`}</p>
       {eligibility.syntheticDefect && <p role="note">합성 평가용 의도적 결함: 자기 승인 검사를 누락하는 fixture입니다.</p>}
     </>}
     <button type="button" disabled={busy || dirty || !eligibility?.executionEligible} onClick={execute}>Dummy 실행</button>
-    {busy && <p role="status">실행 중…</p>}
+    {busy && <p role="status"><span className="spinner" /> 실행 중…</p>}
     {error && <p role="alert">{error}</p>}
-    <ul className="execution-history">{history.map(run => <li key={run.executionId}><button type="button" onClick={() => setSelected(run)}>{run.result} · {new Date(run.executedAt).toLocaleString('ko-KR')} · revision {run.testCaseRevision}</button></li>)}</ul>
+    <h4>실행 이력</h4>{eligibility && !history.length && <p className="empty-hint">저장된 실행 이력이 없습니다.</p>}
+    <ul className="execution-history">{history.map(run => <li key={run.executionId}><button type="button" onClick={() => setSelected(run)}><span className={`status-badge status-${run.result}`}>{run.result}</span> · {new Date(run.executedAt).toLocaleString('ko-KR')} · revision {run.testCaseRevision}</button></li>)}</ul>
     {selected && <div className="execution-result">
-      <h4>실행 결과: <strong>{selected.result}</strong></h4>
+      <h4>실행 결과: <strong className={`status-badge status-${selected.result}`}>{selected.result}</strong></h4>
       <p>실행 ID: {selected.executionId}</p><p>실행시간: {selected.durationMs} ms · TC revision: {selected.testCaseRevision}</p>
       {selected.testCaseRevision !== current.reviewRevision && <p>현재 TC와 revision이 다른 과거 실행 결과입니다.</p>}
       {selected.syntheticDefect && <p>합성 테스트용 의도적 결함 fixture 실행</p>}
-      <h5>Expected</h5><pre>{JSON.stringify(selected.expected, null, 2)}</pre>
-      <h5>Actual</h5><pre>{JSON.stringify(selected.actual, null, 2)}</pre>
-      <h5>Mismatch</h5><pre>{JSON.stringify(selected.mismatches, null, 2)}</pre>
+      <div className="execution-comparison"><section><h5>Expected · 기대결과</h5><pre>{JSON.stringify(selected.expected, null, 2)}</pre></section><section><h5>Actual · 실제결과</h5><pre>{JSON.stringify(selected.actual, null, 2)}</pre></section></div>
+      <section className={`mismatch-panel ${selected.mismatches.length ? 'has-mismatch' : ''}`}><h5>Mismatch · 불일치 항목 <span className="count-chip">{selected.mismatches.length}</span></h5>{selected.mismatches.length ? <pre>{JSON.stringify(selected.mismatches, null, 2)}</pre> : <p>불일치 항목이 없습니다.</p>}</section>
       <details><summary>실행 당시 관련 evidence</summary><pre>{JSON.stringify({ apiSpecification: selected.apiSpecEvidence, references: selected.evidence, sources: selected.sourceEvidence }, null, 2)}</pre></details>
     </div>}
   </section>

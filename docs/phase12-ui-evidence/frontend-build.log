@@ -1,0 +1,75 @@
+ Image master-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.32kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 229B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-alpine
+#3 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 70B done
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402
+#5 resolve docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 7.69kB 0.0s done
+#6 DONE 0.0s
+
+#7 [2/7] WORKDIR /app
+#7 CACHED
+
+#8 [3/7] COPY package.json .
+#8 CACHED
+
+#9 [4/7] COPY package-lock.json .
+#9 CACHED
+
+#10 [5/7] RUN npm ci
+#10 CACHED
+
+#11 [6/7] COPY . .
+#11 DONE 0.1s
+
+#12 [7/7] RUN npm run build
+#12 0.520 
+#12 0.520 > legacy-change-assistant-frontend@0.1.0 build
+#12 0.520 > tsc -b && vite build
+#12 0.520 
+#12 3.167 vite v7.3.6 building client environment for production...
+#12 3.234 transforming...
+#12 4.151 ✓ 39 modules transformed.
+#12 4.300 rendering chunks...
+#12 4.308 computing gzip size...
+#12 4.316 dist/index.html                   0.66 kB │ gzip:  0.39 kB
+#12 4.316 dist/assets/index-DKmO_iQh.css   31.00 kB │ gzip:  7.13 kB
+#12 4.316 dist/assets/index-D46ssQF3.js   278.79 kB │ gzip: 84.96 kB
+#12 4.316 ✓ built in 1.12s
+#12 4.357 npm notice
+#12 4.357 npm notice New major version of npm available! 10.9.9 -> 12.2.0
+#12 4.357 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+#12 4.357 npm notice To update run: npm install -g npm@12.2.0
+#12 4.357 npm notice
+#12 DONE 4.4s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.3s done
+#13 exporting manifest sha256:96ce5eefbf021c1930144176419ef8446ce4a18ff77741aca4b6f11c86565249 0.0s done
+#13 exporting config sha256:1aca9af8a897543341565fee4ca34b28852822e5f1cb30c45d8fa3476bb0c8f0 0.0s done
+#13 exporting attestation manifest sha256:ec62e93d050b0ea98cdf9fedc3bce43f5e4098db62458cc305363b6d797e53e9 0.0s done
+#13 exporting manifest list sha256:fa5b35d523e79498ba3a4e13d9cd9ff6df5688085f73fcc7b4bdaff12ded1516
+#13 exporting manifest list sha256:fa5b35d523e79498ba3a4e13d9cd9ff6df5688085f73fcc7b4bdaff12ded1516 0.0s done
+#13 naming to docker.io/library/master-frontend:latest done
+#13 unpacking to docker.io/library/master-frontend:latest 0.1s done
+#13 DONE 0.5s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.0s
+ Image master-frontend Built 

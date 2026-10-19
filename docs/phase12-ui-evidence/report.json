@@ -1,0 +1,218 @@
+{
+  "phase": 12,
+  "result": "PASS",
+  "date": "2026-10-19 Asia/Seoul",
+  "url": "http://localhost:5173",
+  "branch": "phase12/ui-redesign",
+  "baselineCommit": "549dd74dd7251b593588dd0799196ef328b75739",
+  "baselineTag": "phase12-ui-baseline-20261019",
+  "changedSourceFiles": [
+    "frontend/index.html",
+    "frontend/public/favicon.svg",
+    "frontend/src/App.tsx",
+    "frontend/src/Evaluations.tsx",
+    "frontend/src/Icon.tsx",
+    "frontend/src/KnowledgeGraph.css",
+    "frontend/src/KnowledgeGraph.tsx",
+    "frontend/src/RequirementAnalysis.tsx",
+    "frontend/src/Requirements.tsx",
+    "frontend/src/TestCaseExecutions.tsx",
+    "frontend/src/TestCaseReview.tsx",
+    "frontend/src/TestCases.tsx",
+    "frontend/src/navigation.ts",
+    "frontend/src/style.css"
+  ],
+  "designSystem": {
+    "background": "#F8FAFC",
+    "sidebar": "#0F172A",
+    "card": "#FFFFFF",
+    "accent": "#059669",
+    "text": "#334155",
+    "border": "#E2E8F0",
+    "accessibleButtonBackground": "#047857",
+    "cardRadius": "12–16px",
+    "cardSpacing": "16–24px",
+    "font": "Pretendard when installed, otherwise system Korean fonts; no font CDN",
+    "motion": "Consistent hover/focus/loading/disabled states; reduced-motion support; no fabricated analysis progress"
+  },
+  "improvements": [
+    "8 persistent work views with responsive sidebar and mobile Drawer",
+    "Selected requirement and unsaved requirement/review text survive navigation",
+    "Title and status first; UUID lookup is shared context",
+    "Registration toast; analysis spinner, elapsed time, background status and Korean ANALYSIS_BUSY guidance",
+    "TC type/status tags, type filter, shared detail/review/execution context",
+    "Separated Expected/Actual, mismatch panel, history with recorded revision",
+    "Actual evaluation KPI cards/table and preserved Frozen sample eligibility",
+    "Existing Graph UI with node/edge color labels, actual stored paths including executions, empty/error states",
+    "Keyboard focus, field labels, skip link, Drawer focus trap and internal table scrolling"
+  ],
+  "tests": {
+    "productionBuild": "tsc -b + vite build PASS; image rebuilt and frontend running",
+    "frontendExistingTestScript": "No npm test script existed at baseline. Existing saved-query/evaluation browser checks were adapted and expanded for navigation.",
+    "backendRegression": {
+      "tests": 84,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "chromeLiveChecks": [
+      "requirement draft survives navigation",
+      "real saved analysis/evidence displayed; evidence anchor preserves active view",
+      "real TC list, typed tags, status, detail and filter",
+      "review edits survive navigation and dirty content blocks execution",
+      "existing real PASS/FAIL history and TC revisions; Expected/Actual and mismatch display",
+      "Frozen eligibility guidance and real saved evaluation KPI cards/table",
+      "real Knowledge Graph overview and rule impact paths",
+      "all 8 screens at 1024px and 390px: no document horizontal overflow; table scrolls internally",
+      "mobile drawer keyboard focus trap and Escape restoration",
+      "intercepted busy analysis: spinner/elapsed time persists during navigation; 429 Korean guidance; no real LLM call"
+    ],
+    "chromeIsolatedChecks": [
+      "real isolated HTTP 201 registration, toast, title/status and GET lookup",
+      "real isolated HTTP 404 analysis/test absence is explicit",
+      "server DRAFT execution gate remains disabled",
+      "real isolated approve/reject API transitions; REJECTED execution gate preserved",
+      "real isolated approved Dummy execution PASS with Expected/Actual comparison",
+      "real edit creates DRAFT/new revision and preserves historical execution revision",
+      "real isolated synthetic-defect Dummy execution FAIL and mismatch details",
+      "intercepted ERROR contract renders separately without backend fault injection"
+    ],
+    "chromeEdgeCases": [
+      "visible form fields have labels and keyboard focus has visible outline",
+      "intercepted API 503 message replaces stale analysis result",
+      "actual node/edge labels visually distinguished; stored execution paths exposed",
+      "intercepted Graph 404/503 produce a clear empty/error state without stale graph",
+      "other workflows remain available after graph error"
+    ],
+    "browser": "155.0.8059.84",
+    "normalConsoleErrors": [],
+    "runtimeErrors": [],
+    "viewportWidths": [
+      1440,
+      1024,
+      390
+    ],
+    "responsiveResults": [
+      {
+        "screen": "dashboard-1440",
+        "width": 1440,
+        "scroll": 1440
+      },
+      {
+        "screen": "dashboard-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "requirements-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "analysis-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "testcases-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "review-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "execution-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "evaluation-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "graph-1024",
+        "width": 1024,
+        "scroll": 1024
+      },
+      {
+        "screen": "dashboard-390",
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "screen": "requirements-390",
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "screen": "analysis-390",
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "screen": "testcases-390",
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "screen": "review-390",
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "screen": "execution-390",
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "screen": "evaluation-390",
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "screen": "graph-390",
+        "width": 390,
+        "scroll": 390
+      }
+    ]
+  },
+  "preservation": {
+    "productionTableCount": 11,
+    "allRowCountsAndContentHashesUnchanged": true,
+    "backendAiRagLlmContractsMigrationsMcpNeo4jSourceChanges": false,
+    "productionWriteRequests": 0,
+    "realLlmCalls": 0,
+    "approvalRejectEditCreateExecuteVerification": "Real unchanged Backend + temporary isolated DB, removed after verification",
+    "frozenGroundTruthBindingKnowledgeDataChanged": false
+  },
+  "scopeAndLimitations": [
+    "Only frontend files and Phase 12 evidence changed relative to the baseline. No new package dependencies.",
+    "429, extended analysis waiting, ERROR rendering, and Graph 404/503 were tested with intercepted responses. A live LLM analysis and deliberate production Neo4j outage were not triggered.",
+    "Live evaluation display uses existing saved reports; no evaluation records or answers were created or edited.",
+    "No remaining blocking UI issue observed in the tested flows. Initially stopped Phase 11 containers were restarted without configuration changes; cause of that pre-existing stop was not established."
+  ],
+  "screenshots": {
+    "beforeDesktop": "before-desktop.png",
+    "beforeMobile": "before-mobile.png",
+    "afterDesktop": "dashboard-desktop.png",
+    "afterLaptop": "dashboard-1024.png",
+    "afterMobile": "dashboard-390.png",
+    "mobileDrawer": "drawer-mobile.png",
+    "requirements": "requirements-desktop.png",
+    "analysis": "analysis-desktop.png",
+    "analysisWaiting": "analysis-loading.png",
+    "analysisBusy": "analysis-busy-429.png",
+    "testCases": "testcases-desktop.png",
+    "review": "review-desktop.png",
+    "executionPass": "isolated-execution-pass.png",
+    "executionFail": "isolated-execution-fail.png",
+    "executionFailMobile": "execution-fail-mobile.png",
+    "evaluation": "evaluation-desktop.png",
+    "graph": "graph-paths-desktop.png",
+    "graphUnavailable": "graph-unavailable.png"
+  }
+}

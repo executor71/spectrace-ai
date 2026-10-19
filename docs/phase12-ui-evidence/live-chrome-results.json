@@ -1,0 +1,122 @@
+{
+  "result": "PASS",
+  "browser": "155.0.8059.84",
+  "checks": [
+    "requirement draft survives navigation",
+    "real saved analysis/evidence displayed; evidence anchor preserves active view",
+    "real TC list, typed tags, status, detail and filter",
+    "review edits survive navigation and dirty content blocks execution",
+    "existing real PASS/FAIL history and TC revisions; Expected/Actual and mismatch display",
+    "Frozen eligibility guidance and real saved evaluation KPI cards/table",
+    "real Knowledge Graph overview and rule impact paths",
+    "all 8 screens at 1024px and 390px: no document horizontal overflow; table scrolls internally",
+    "mobile drawer keyboard focus trap and Escape restoration",
+    "intercepted busy analysis: spinner/elapsed time persists during navigation; 429 Korean guidance; no real LLM call"
+  ],
+  "errors": [],
+  "normalConsoleErrors": [],
+  "expectedHttpConsoleMessages": [
+    "Failed to load resource: the server responded with a status of 429 (Too Many Requests)"
+  ],
+  "mutationRequests": [
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/graph/find_requirement_context"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/graph/find_impacted_tests"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/requirements/b5270f71-c92c-48ae-8530-8946f1cfce62/analysis"
+    }
+  ],
+  "responsive": [
+    {
+      "screen": "dashboard-1440",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "screen": "dashboard-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "requirements-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "analysis-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "testcases-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "review-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "execution-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "evaluation-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "graph-1024",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "screen": "dashboard-390",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "screen": "requirements-390",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "screen": "analysis-390",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "screen": "testcases-390",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "screen": "review-390",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "screen": "execution-390",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "screen": "evaluation-390",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "screen": "graph-390",
+      "width": 390,
+      "scroll": 390
+    }
+  ]
+}

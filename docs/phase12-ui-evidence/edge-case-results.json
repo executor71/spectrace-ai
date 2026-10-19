@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "checks": [
+    "visible form fields have labels and keyboard focus has visible outline",
+    "intercepted API 503 message replaces stale analysis result",
+    "actual node/edge labels visually distinguished; stored execution paths exposed",
+    "intercepted Graph 404/503 produce a clear empty/error state without stale graph",
+    "other workflows remain available after graph error"
+  ],
+  "runtimeErrors": [],
+  "consoleMessagesDuringExpectedHttpFailures": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+  ]
+}

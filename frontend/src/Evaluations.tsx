@@ -77,9 +77,9 @@ export default function Evaluations({ requirementId, requirementBusy, onSelectRe
   }
   const metrics = selected?.metrics
   return <section className="evaluations" aria-labelledby="evaluations-title">
-    <h2 id="evaluations-title">Ground Truth 평가</h2>
+    <div className="panel-title"><span className="eyebrow">FROZEN EVALUATION</span><h2 id="evaluations-title">Ground Truth 평가</h2></div>
     <p>고정된 평가셋에 등록된 요구사항만 평가합니다. 검색 Top-5와 저장된 테스트를 비교하며 분석·생성을 다시 호출하지 않습니다.</p>
-    <label htmlFor="evaluation-sample">Frozen Evaluation 샘플 요구사항</label>
+    <div className="card evaluation-controls"><label htmlFor="evaluation-sample">Frozen Evaluation 샘플 요구사항</label>
     <div className="lookup-controls">
       <select id="evaluation-sample" value={sampleId} disabled={busy || requirementBusy || !targets?.length} onChange={e => setSampleId(e.target.value)}>
         <option value="">등록된 샘플을 선택하세요</option>
@@ -96,21 +96,22 @@ export default function Evaluations({ requirementId, requirementBusy, onSelectRe
     {targets?.length === 0 && <p>등록된 평가 샘플이 없습니다.</p>}
     <label htmlFor="evaluation-mode">평가할 내용</label>
     <select id="evaluation-mode" value={mode} disabled={busy || requirementBusy || !eligible} onChange={e => setMode(e.target.value)}><option value="GENERATED">AI 생성 원본</option><option value="REVIEWED">사용자 검토 현재값</option></select>
-    <div className="lookup-controls"><button type="button" disabled={busy || requirementBusy || !eligible} onClick={() => request(true)}>평가 실행</button><button type="button" disabled={busy || requirementBusy || !requirementId} onClick={() => request(false)}>저장된 평가 조회</button></div>
-    {busy && <p role="status">평가 처리 중…</p>}
+    <div className="lookup-controls"><button type="button" disabled={busy || requirementBusy || !eligible} onClick={() => request(true)}>평가 실행</button><button type="button" className="secondary" disabled={busy || requirementBusy || !requirementId} onClick={() => request(false)}>저장된 평가 조회</button></div>
+    </div>{busy && <p role="status" className="loading-panel"><span className="spinner" /> 평가 처리 중…</p>}
     {error && <p role="alert" className="form-error">{error}</p>}
     <ul className="evaluation-history">{runs.map(run => <li key={run.id}><button disabled={busy} aria-pressed={selected?.id === run.id} onClick={() => select(run.id)}>{new Date(run.createdAt).toLocaleString('ko-KR')} · {run.dataset.split} · {run.contentMode} · {run.status}</button></li>)}</ul>
-    {selected && <article className="evaluation-result" aria-label="평가 결과">
+    {selected && <article className="card evaluation-result" aria-label="평가 결과">
       <h3>{selected.dataset.split} · {selected.dataset.caseId}</h3>
       <p>상태: {selected.status} · 평가 대상: {selected.contentMode} · 기준: {selected.metricVersion}</p>
       <p>평가 ID: {selected.id}</p>
       {selected.issues.length > 0 && <ul aria-label="평가 주의 사항">{selected.issues.map((issue, i) => <li key={i}>{typeof issue === 'string' ? issue : issue.message}</li>)}</ul>}
       {metrics && <>
+        <div className="evaluation-metric-grid">{[{ name: 'Recall@5', value: metrics.recallAt5, hint: '검색 문서 재현율' }, { name: 'TestCase Coverage', value: metrics.scenarioCoverage, hint: '필수 시나리오 커버리지' }, { name: 'Validity', value: metrics.testCaseValidity, hint: '코드로 판정한 테스트 유효성' }].map(item => <article key={item.name} className="metric-card"><p>{item.name}</p><strong>{item.value.value === null ? 'N/A' : `${(item.value.value * 100).toFixed(1)}%`}</strong><small>{item.value.numerator} / {item.value.denominator} · {item.hint}</small></article>)}</div><div className="table-scroll" role="region" aria-label="평가 KPI 상세" tabIndex={0}>
         <table className="evaluation-kpis"><thead><tr><th>KPI</th><th>측정값 (분자/분모)</th></tr></thead><tbody>
           <tr><th>Recall@5</th><td>{percentage(metrics.recallAt5)}</td></tr>
           <tr><th>Test Scenario Coverage</th><td>{percentage(metrics.scenarioCoverage)}</td></tr>
           <tr><th>TestCase Validity (코드 판정)</th><td>{percentage(metrics.testCaseValidity)}</td></tr>
-        </tbody></table>
+        </tbody></table></div>
         <p>평가 대상: 검색 {metrics.counts.queries}건 · TC {metrics.counts.testCases}개 · 필수 시나리오 {metrics.counts.requiredScenarios}개 · 정답 문서 {metrics.counts.expectedDocuments}개</p>
         <p>Validity 실패 {metrics.testCaseValidity.failedCount}개 · 자동 미판정 {metrics.testCaseValidity.unknownCount}개. 자유 서술의 의미적 모순은 미평가이며 deterministic 점수에 혼합하지 않습니다. TC가 없으면 Validity는 N/A입니다.</p>
         <h4>누락된 Ground Truth 시나리오</h4>

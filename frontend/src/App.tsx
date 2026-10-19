@@ -1,105 +1,81 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import Requirements from './Requirements'
+import Icon from './Icon'
+import { screens } from './navigation'
+import type { Screen } from './navigation'
 
 type ServiceState = 'checking' | 'online' | 'offline'
-
-type ServiceStatus = {
-  name: string
-  detail: string
-  state: ServiceState
-}
-
-const initialServices: ServiceStatus[] = [
-  { name: 'Spring Boot', detail: '업무 API · :8080', state: 'checking' },
-  { name: 'AI Service', detail: 'RAG 연결 · :8000', state: 'checking' },
-]
-
-async function checkService(url: string): Promise<boolean> {
-  try {
-    const response = await fetch(url)
-    if (!response.ok) return false
-    const body = await response.json()
-    return body.status === 'UP'
-  } catch {
-    return false
-  }
-}
-
+const initialScreen = () => screens.find(item => item.id === window.location.hash.slice(1))?.id ?? 'dashboard'
 export default function App() {
-  const [services, setServices] = useState(initialServices)
-
+  const [view, setView] = useState<Screen>(initialScreen)
+  const [drawer, setDrawer] = useState(false)
+  const [analysisBusy, setAnalysisBusy] = useState(false)
+  const [services, setServices] = useState<ServiceState[]>(['checking', 'checking'])
+  const menu = useRef<HTMLButtonElement>(null)
+  const sidebar = useRef<HTMLElement>(null)
+  const heading = useRef<HTMLHeadingElement>(null)
+  const current = screens.find(item => item.id === view)!
   useEffect(() => {
-    let active = true
-    Promise.all([
-      checkService('/actuator/health'),
-      checkService('/ai-health/health'),
-    ]).then(([backendOnline, aiOnline]) => {
-      if (!active) return
-      setServices([
-        { ...initialServices[0], state: backendOnline ? 'online' : 'offline' },
-        { ...initialServices[1], state: aiOnline ? 'online' : 'offline' },
-      ])
-    })
-    return () => {
-      active = false
-    }
+    const change = () => { const next = screens.find(item => item.id === window.location.hash.slice(1)); if (next) setView(next.id) }
+    window.addEventListener('hashchange', change)
+    return () => window.removeEventListener('hashchange', change)
   }, [])
-
-  return (
-    <main className="shell">
-      <header className="topbar">
-        <a className="wordmark" href="#home" aria-label="Legacy Change Assistant 홈">
-          <span className="mark">LC</span>
-          <span>LEGACY CHANGE ASSISTANT</span>
-        </a>
-        <span className="environment"><span className="environment-dot" /> LOCAL POC</span>
+  useEffect(() => {
+    document.title = `${current.label} | SpecTrace AI`
+    heading.current?.focus({ preventScroll: true })
+  }, [current.label])
+  useEffect(() => {
+    if (drawer) sidebar.current?.querySelector<HTMLButtonElement>('button')?.focus()
+  }, [drawer])
+  useEffect(() => {
+    const controller = new AbortController()
+    async function check() {
+      const values = await Promise.all(['/actuator/health', '/ai-health/health'].map(async url => {
+        try {
+          const response = await fetch(url, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(10000)]) })
+          return response.ok && (await response.json()).status === 'UP' ? 'online' : 'offline'
+        } catch { return 'offline' }
+      }))
+      if (!controller.signal.aborted) setServices(values as ServiceState[])
+    }
+    void check(); const timer = setInterval(check, 30000)
+    return () => { clearInterval(timer); controller.abort() }
+  }, [])
+  function closeDrawer() { setDrawer(false); menu.current?.focus() }
+  function navigate(id: Screen) {
+    setView(id); window.history.pushState(null, '', `#${id}`)
+    if (drawer) closeDrawer()
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }
+  return <div className="app-shell">
+    <a className="skip-link" href="#main-content">본문으로 이동</a>
+    {drawer && <button className="drawer-backdrop" aria-label="메뉴 닫기" onClick={closeDrawer} />}
+    <aside id="app-sidebar" ref={sidebar} className={`sidebar ${drawer ? 'is-open' : ''}`} aria-label="워크스페이스 메뉴" role={drawer ? 'dialog' : undefined} aria-modal={drawer || undefined} onKeyDown={e => {
+      if (!drawer) return
+      if (e.key === 'Escape') { e.preventDefault(); closeDrawer() }
+      if (e.key === 'Tab') {
+        const buttons = sidebar.current?.querySelectorAll<HTMLButtonElement>('button')
+        if (!buttons?.length) return
+        if (e.shiftKey && document.activeElement === buttons[0]) { e.preventDefault(); buttons[buttons.length - 1].focus() }
+        else if (!e.shiftKey && document.activeElement === buttons[buttons.length - 1]) { e.preventDefault(); buttons[0].focus() }
+      }
+    }}>
+      <div className="brand"><span className="brand-mark"><Icon name="graph" size={25} /></span><span>SpecTrace <small>AI</small></span><button className="icon-button drawer-close" onClick={closeDrawer} aria-label="메뉴 닫기"><Icon name="close" /></button></div>
+      <div className="workspace-label"><span className="workspace-avatar">S</span><div>Engineering workspace<small>요구사항 검증 · Phase 12</small></div></div>
+      <p className="nav-label">WORKSPACE</p>
+      <nav aria-label="주 메뉴">{screens.map((item, i) => <button key={item.id} onClick={() => navigate(item.id)} aria-current={view === item.id ? 'page' : undefined}><Icon name={item.id} /><span>{item.label}</span><small>{String(i + 1).padStart(2, '0')}</small></button>)}</nav>
+      <div className="sidebar-footer"><span className="live-dot" /><div>Evidence, connected.<small>근거에서 검증까지</small></div></div>
+    </aside>
+    <div className="app-body">
+      <header className="app-header">
+        <div className="breadcrumb"><button ref={menu} className="icon-button mobile-menu" onClick={() => setDrawer(true)} aria-expanded={drawer} aria-controls="app-sidebar" aria-label="메뉴 열기"><Icon name="menu" /></button><span>SpecTrace AI</span><span className="breadcrumb-separator">/</span><strong>{current.path}</strong></div>
+        <div className="header-status">{['Spring Boot', 'AI Service'].map((name, i) => <span key={name} className={`connection connection-${services[i]}`}><span />{name}<span className="sr-only">{services[i] === 'online' ? ' 정상' : services[i] === 'offline' ? ' 연결 안 됨' : ' 확인 중'}</span></span>)}<span className={`analysis-indicator ${analysisBusy ? 'is-running' : ''}`} role="status">{analysisBusy ? <><span className="spinner" /> 분석 처리 중</> : <><span className="live-dot" /> 분석 대기</>}</span></div>
       </header>
-
-      <section className="intro" id="home">
-        <p className="eyebrow">ENGINEERING WORKBENCH <span> / </span> 01</p>
-        <h1>변경 요청을<br /><em>근거와 함께.</em></h1>
-        <p className="lede">업무 규칙과 API 명세를 찾아 요구사항을 분석하고, 검토할 테스트 초안을 준비합니다.</p>
-      </section>
-
-      <Requirements />
-
-      <section className="workspace" aria-labelledby="workspace-title">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">WORKSPACE STATUS</p>
-            <h2 id="workspace-title">서비스 연결</h2>
-          </div>
-          <span className="read-only">SKELETON</span>
-        </div>
-        <div className="service-list">
-          {services.map((service, index) => (
-            <article className="service-row" key={service.name}>
-              <span className="service-index">0{index + 1}</span>
-              <div className="service-name">
-                <h3>{service.name}</h3>
-                <p>{service.detail}</p>
-              </div>
-              <span className={`status status-${service.state}`}>
-                <span className="status-dot" />
-                {service.state === 'checking' ? '확인 중' : service.state === 'online' ? '정상' : '연결 안 됨'}
-              </span>
-            </article>
-          ))}
-          <article className="service-row database-row">
-            <span className="service-index">03</span>
-            <div className="service-name">
-              <h3>PostgreSQL + pgvector</h3>
-              <p>app · rag · evaluation schemas</p>
-            </div>
-            <span className="status status-managed"><span className="status-dot" /> AI health로 확인</span>
-          </article>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <span>LEGACY SYSTEMS / CHANGE ANALYSIS</span>
-        <span>01 — FOUNDATION</span>
-      </footer>
-    </main>
-  )
+      <main id="main-content" className="main-content" tabIndex={-1}>
+        <div className="page-heading"><div><p className="eyebrow">WORKSPACE / {current.path.toUpperCase()}</p><h1 tabIndex={-1} ref={heading}>{current.label}</h1><p>{current.description}</p></div><span className="environment-pill">LOCAL WORKSPACE</span></div>
+        <Requirements view={view} onNavigate={navigate} onAnalysisBusy={setAnalysisBusy} />
+        <footer className="page-footer"><span>SpecTrace AI <span>·</span> Evidence-based engineering</span><span>Phase 12 / UI workspace</span></footer>
+      </main>
+    </div>
+  </div>
 }

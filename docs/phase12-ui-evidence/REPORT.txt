@@ -1,0 +1,51 @@
+SpecTrace AI Phase 12 UI/UX 리디자인을 완료했습니다.
+접속 URL: http://localhost:5173
+브랜치: phase12/ui-redesign
+기준 커밋: 549dd74dd7251b593588dd0799196ef328b75739
+기준 태그: phase12-ui-baseline-20261019
+
+기존 Phase 11 수정과 증거를 기준 커밋으로 보존하고 작업했습니다. 이번 변경은 프런트엔드 UI·상태 관리와 검증 자료에 한정됩니다.
+
+밝은 회색 #F8FAFC, 네이비 #0F172A, 화이트 카드, 에메랄드 #059669, 본문 #334155, 테두리 #E2E8F0를 적용했습니다. 카드 반경은 12~16px, 내부 여백은 16~24px입니다. 흰 글자 버튼에는 대비를 위해 #047857을 사용합니다. Pretendard가 설치되어 있으면 사용하고 아니면 시스템 한글 폰트를 사용합니다. 외부 폰트 CDN, 그라데이션, 점무늬 배경을 제거했습니다.
+
+8개 화면으로 작업을 분리했습니다. 기존 React 컴포넌트와 HTTP 요청을 재사용하고, 화면 탐색 시 컴포넌트를 유지해 선택한 요구사항, 작성 중인 요구사항과 검토 입력값, 조회 결과 및 진행 중인 분석을 보존합니다. 요구사항은 제목과 상태를 우선 표시하며 등록 Toast를 제공합니다. 분석은 조건·불확실성·API·질문·Evidence 카드로 나눴고 Spinner와 실제 경과시간, 429 한국어 안내를 추가했습니다. TC 유형·승인 상태를 태그로 구분하고 필터와 상세 보기를 제공합니다. 실행 화면은 Expected/Actual을 비교하고 Mismatch와 실행 당시 Revision을 별도로 표시합니다. 평가는 실제 KPI 카드·표와 기존 Frozen 안내를 유지합니다. Graph는 기존 노드·경로를 재사용하고 실제 Node/Edge 유형과 Execution 경로를 구분합니다.
+
+TypeScript/Vite 프로덕션 빌드: 성공.
+기존 Backend 회귀: 84건, 실패 0, 오류 0, 건너뜀 0.
+기존 frontend/package.json에는 npm test 스크립트가 없습니다. 기존 조회/평가 브라우저 시나리오를 화면 구조에 맞춰 통합·확장하여 Chrome에서 검증했습니다.
+Chrome 핵심 흐름: 입력값 보존, 저장된 요구사항·분석·TC 조회, 검토 입력 보존, 실행 이력, Frozen 평가 안내/KPI, Graph 조회 및 영향 경로 표시 통과.
+분리된 Backend·임시 DB에서 실제 요구사항 등록/조회/Toast, 수정, 승인, 반려, DRAFT/REJECTED 차단, Dummy PASS/FAIL 및 과거 Revision 표시 통과.
+1440·1024·390px에서 핵심 화면과 가로 넘침을 확인했고, 모바일 표는 내부 가로 스크롤을 사용합니다. Drawer 키보드 포커스 및 Escape 복귀, Label, Focus 표시도 확인했습니다.
+정상 흐름의 브라우저 콘솔 오류와 애플리케이션 런타임 오류는 0건입니다. 의도적으로 주입한 HTTP 오류의 브라우저 로그는 별도로 기록했습니다.
+
+운영 11개 테이블의 행 수와 내용 해시가 전후 동일합니다. 기존 요구사항·분석·TC·실행·평가·Ground Truth·연결·Knowledge 데이터는 변경하지 않았습니다. 실제 LLM 호출도 하지 않았습니다. 승인·반려·실행 검증은 임시 DB에서만 수행했고 임시 환경은 정리했습니다. Backend/Python/RAG/프롬프트/DB Migration/정답 기준/보안 조건/MCP/Neo4j 처리/API 계약은 변경하지 않았습니다.
+
+남은 기능상 차단 문제는 관찰되지 않았습니다. 실제 LLM 장시간 분석이나 운영 Neo4j를 의도적으로 중단하지는 않았으며, 429·대기 상태·ERROR·Graph 장애 표시는 모의 응답으로 검증했습니다. 검증 초기에 기존 Phase 11 컨테이너가 중지된 상태였으나 설정을 바꾸지 않고 재기동해 복구했습니다. 해당 중지의 외부 원인은 확정하지 못했습니다.
+
+변경 파일 전체 목록:
+  frontend/index.html
+  frontend/public/favicon.svg
+  frontend/src/App.tsx
+  frontend/src/Evaluations.tsx
+  frontend/src/Icon.tsx
+  frontend/src/KnowledgeGraph.css
+  frontend/src/KnowledgeGraph.tsx
+  frontend/src/RequirementAnalysis.tsx
+  frontend/src/Requirements.tsx
+  frontend/src/TestCaseExecutions.tsx
+  frontend/src/TestCaseReview.tsx
+  frontend/src/TestCases.tsx
+  frontend/src/navigation.ts
+  frontend/src/style.css
+
+개선 전후 및 주요 화면:
+  before-desktop.png → dashboard-desktop.png
+  before-mobile.png → dashboard-390.png
+  dashboard-1024.png / drawer-mobile.png
+  requirements-desktop.png / analysis-desktop.png / analysis-loading.png
+  testcases-desktop.png / review-desktop.png
+  isolated-execution-pass.png / isolated-execution-fail.png
+  evaluation-desktop.png / graph-paths-desktop.png / graph-unavailable.png
+
+상세 검증 기록: report.json, live-chrome-results.json, isolated-chrome-results.json, edge-case-results.json, backend-regression.log, frontend-build.log, production-before.json, production-after.json, final-health.json.
+프런트엔드와 기존 Phase 11 서비스는 실행 상태로 유지했습니다. Phase 12 UI 리디자인 범위에서 작업을 종료합니다.
