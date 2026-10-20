@@ -1,0 +1,400 @@
+--- before/frontend/src/App.tsx
++++ after/frontend/src/App.tsx
+@@ -61,20 +61,21 @@
+       }
+     }}>
+       <div className="brand"><span className="brand-mark"><Icon name="graph" size={25} /></span><span>SpecTrace <small>AI</small></span><button className="icon-button drawer-close" onClick={closeDrawer} aria-label="메뉴 닫기"><Icon name="close" /></button></div>
+-      <div className="workspace-label"><span className="workspace-avatar">S</span><div>Engineering workspace<small>요구사항 검증 · Phase 12</small></div></div>
++      <div className="workspace-label"><span className="workspace-avatar">S</span><div>Engineering workspace<small>변경 요청부터 테스트 검증까지</small></div></div>
+       <p className="nav-label">WORKSPACE</p>
+-      <nav aria-label="주 메뉴">{screens.map((item, i) => <button key={item.id} onClick={() => navigate(item.id)} aria-current={view === item.id ? 'page' : undefined}><Icon name={item.id} /><span>{item.label}</span><small>{String(i + 1).padStart(2, '0')}</small></button>)}</nav>
+-      <div className="sidebar-footer"><span className="live-dot" /><div>Evidence, connected.<small>근거에서 검증까지</small></div></div>
++      <nav aria-label="주 메뉴">{screens.filter(item => item.id !== 'evaluation').map((item, i) => <button key={item.id} onClick={() => navigate(item.id)} aria-current={view === item.id ? 'page' : undefined}><Icon name={item.id} /><span>{item.label}</span><small>{String(i + 1).padStart(2, '0')}</small></button>)}</nav>
++      <p className="nav-label technical-nav-label">기술 검증·관리</p><nav aria-label="기술 메뉴"><button onClick={() => navigate('evaluation')} aria-current={view === 'evaluation' ? 'page' : undefined}><Icon name="evaluation" /><span>기술 검증·관리</span></button></nav>
++      <div className="sidebar-footer"><span className="live-dot" /><div>근거에서 검증까지<small>개발자의 검토와 승인으로 완성합니다</small></div></div>
+     </aside>
+     <div className="app-body">
+       <header className="app-header">
+         <div className="breadcrumb"><button ref={menu} className="icon-button mobile-menu" onClick={() => setDrawer(true)} aria-expanded={drawer} aria-controls="app-sidebar" aria-label="메뉴 열기"><Icon name="menu" /></button><span>SpecTrace AI</span><span className="breadcrumb-separator">/</span><strong>{current.path}</strong></div>
+-        <div className="header-status">{['Spring Boot', 'AI Service'].map((name, i) => <span key={name} className={`connection connection-${services[i]}`}><span />{name}<span className="sr-only">{services[i] === 'online' ? ' 정상' : services[i] === 'offline' ? ' 연결 안 됨' : ' 확인 중'}</span></span>)}<span className={`analysis-indicator ${analysisBusy ? 'is-running' : ''}`} role="status">{analysisBusy ? <><span className="spinner" /> 분석 처리 중</> : <><span className="live-dot" /> 분석 대기</>}</span></div>
++        <div className="header-status">{['업무 서비스', '분석 서비스'].map((name, i) => <span key={name} className={`connection connection-${services[i]}`}><span />{name}<span className="sr-only">{services[i] === 'online' ? ' 정상' : services[i] === 'offline' ? ' 연결 안 됨' : ' 확인 중'}</span></span>)}<span className={`analysis-indicator ${analysisBusy ? 'is-running' : ''}`} role="status">{analysisBusy ? <><span className="spinner" /> 분석 처리 중</> : <><span className="live-dot" /> 분석 대기</>}</span></div>
+       </header>
+       <main id="main-content" className="main-content" tabIndex={-1}>
+-        <div className="page-heading"><div><p className="eyebrow">WORKSPACE / {current.path.toUpperCase()}</p><h1 tabIndex={-1} ref={heading}>{current.label}</h1><p>{current.description}</p></div><span className="environment-pill">LOCAL WORKSPACE</span></div>
++        <div className="page-heading"><div><p className="eyebrow">WORKSPACE / {current.path.toUpperCase()}</p><h1 tabIndex={-1} ref={heading}>{current.label}</h1><p className={view === 'dashboard' ? 'service-purpose' : undefined}>{current.description}</p></div><span className="environment-pill">LOCAL WORKSPACE</span></div>
+         <Requirements view={view} onNavigate={navigate} onAnalysisBusy={setAnalysisBusy} />
+-        <footer className="page-footer"><span>SpecTrace AI <span>·</span> Evidence-based engineering</span><span>Phase 12 / UI workspace</span></footer>
++        <footer className="page-footer"><span>SpecTrace AI <span>·</span> 변경 요청을 근거와 테스트로 검증</span><span>합성 업무 예제로 체험하는 로컬 환경</span></footer>
+       </main>
+     </div>
+   </div>
+--- before/frontend/src/Dashboard.tsx
++++ after/frontend/src/Dashboard.tsx
+@@ -1,3 +1,4 @@
++import { TechnicalGuide } from './GettingStarted'
+ import { useEffect, useState } from 'react'
+ import type { Screen } from './navigation'
+ 
+@@ -31,7 +32,7 @@
+     <div className="p13-heading"><div className="panel-title"><span className="eyebrow">SPECTRACE AI</span><h2>업무 현황</h2></div>
+     <div className="workflow-tabs"><button className={tab==='work'?'active':''} onClick={()=>setTab('work')}>업무 현황</button><button className={tab==='tech'?'active':''} onClick={()=>setTab('tech')}>기술 검증 결과</button></div></div>
+     {tab==='tech'?<TechnicalResults/>:<>
+-      <div className="card p13-toolbar"><label className="p13-scope"><span>요구사항 범위</span><select value={scope} onChange={e=>setScope(e.target.value)}><option value="">전체 요구사항</option>{data?.requirements.map(r=><option key={r.id} value={r.id}>{r.title}</option>)}</select></label><button className="secondary" disabled={busy} onClick={()=>void load()}>새로고침</button><button onClick={()=>onNavigate('requirements')}>새 요구사항 등록</button><small>마지막 조회: {data?new Date(data.queriedAt).toLocaleString('ko-KR'):'—'}</small></div>
++      <div className="card p13-toolbar"><label className="p13-scope"><span>요구사항 범위</span><select value={scope} onChange={e=>setScope(e.target.value)}><option value="">전체 요구사항</option>{data?.requirements.map(r=><option key={r.id} value={r.id}>{r.title}</option>)}</select></label><button className="secondary" disabled={busy} onClick={()=>void load()}>새로고침</button><button onClick={()=>onNavigate('requirements')}>새 변경 요청 입력</button><small>마지막 조회: {data?new Date(data.queriedAt).toLocaleString('ko-KR'):'—'}</small></div>
+       {busy&&<p role="status">업무 현황 조회 중…</p>}{error&&<p className="form-error" role="alert">{error} <button disabled={busy} onClick={()=>void load()}>다시 조회</button></p>}
+       {data&&!busy&&!error&&<>
+         <div className="p13-summary"><div className="metric-grid">{[['등록 요구사항','requirements','REQUIREMENTS'],['현재 생성 TC','total','ALL'],['검토 대기 TC','DRAFT','DRAFT'],['최근 일반 실행 FAIL TC','FAIL','FAIL']].map(([label,key,target])=><button className="metric-card p13-metric" key={key} onClick={()=>target==='REQUIREMENTS'?document.getElementById('dashboard-requirements')?.scrollIntoView():focus(target)}><p>{label}</p><strong>{counts[key]}<small>건</small></strong><small>{key==='requirements'?'선택한 범위':'현재 batch · 현재 검토본 기준'}</small></button>)}</div>
+@@ -67,5 +68,5 @@
+ function TechnicalResults(){
+   const [data,setData]=useState<any>(null),[error,setError]=useState('')
+   useEffect(()=>{fetch('/technical-results.json').then(r=>{if(!r.ok)throw new Error('저장 실험 자료 조회 실패');return r.json()}).then(setData).catch(e=>setError(e.message))},[])
+-  return <section className="card"><h3>기술 검증 결과</h3><p>과거 소규모 합성 환경 실험이며 현재 업무 지표와 별개입니다. 업무시간 절감률: 미측정</p>{error?<p role="alert">{error}</p>:!data?<p role="status">저장 자료 조회 중…</p>:<><p>측정일: {data.measuredAt} · 평가 질의: {data.queryCount}개 · corpus: {data.corpusSize}개 chunk</p><p>모델: {data.models} · 평가셋: {data.datasetHash}</p><p>출처: {data.source} · 지연시간은 같은 실험의 warm 실행입니다.</p><div className="p13-table-wrap"><table className="p13-table"><thead><tr><th>검색 방식</th><th>Recall@5</th><th>MRR@5</th><th>nDCG@5</th><th>평균 지연(ms)</th><th>P95(ms)</th></tr></thead><tbody>{data.rows.map((r:any)=><tr key={r.strategy}><th>{r.strategy}</th><td>{r.recallAt5.toFixed(4)}</td><td>{r.mrrAt5.toFixed(4)}</td><td>{r.ndcgAt5.toFixed(4)}</td><td>{r.latencyMs.mean.toFixed(1)}</td><td>{r.latencyMs.p95.toFixed(1)}</td></tr>)}</tbody></table></div></>}</section>
++  return <section className="card"><h3>기술 검증 결과</h3><TechnicalGuide/><p>과거 소규모 합성 환경 실험이며 현재 업무 지표와 별개입니다. 업무시간 절감률: 미측정</p>{error?<p role="alert">{error}</p>:!data?<p role="status">저장 자료 조회 중…</p>:<><p>측정일: {data.measuredAt} · 평가 질의: {data.queryCount}개 · corpus: {data.corpusSize}개 chunk</p><p>모델: {data.models} · 평가셋: {data.datasetHash}</p><p>출처: {data.source} · 지연시간은 같은 실험의 warm 실행입니다.</p><div className="p13-table-wrap"><table className="p13-table"><thead><tr><th>검색 방식</th><th>Recall@5</th><th>MRR@5</th><th>nDCG@5</th><th>평균 지연(ms)</th><th>P95(ms)</th></tr></thead><tbody>{data.rows.map((r:any)=><tr key={r.strategy}><th>{r.strategy}</th><td>{r.recallAt5.toFixed(4)}</td><td>{r.mrrAt5.toFixed(4)}</td><td>{r.ndcgAt5.toFixed(4)}</td><td>{r.latencyMs.mean.toFixed(1)}</td><td>{r.latencyMs.p95.toFixed(1)}</td></tr>)}</tbody></table></div></>}</section>
+ }
+--- before/frontend/src/Evaluations.tsx
++++ after/frontend/src/Evaluations.tsx
+@@ -1,3 +1,4 @@
++import { TechnicalGuide } from './GettingStarted'
+ import { useEffect, useState } from 'react'
+ 
+ type EvaluationTarget = { requirementId: string; datasetVersion: string; caseId: string; split: string }
+@@ -79,9 +80,10 @@
+   }
+   const metrics = selected?.metrics
+   return <section className="evaluations" aria-labelledby="evaluations-title">
+-    <div className="panel-title"><span className="eyebrow">FROZEN EVALUATION</span><h2 id="evaluations-title">Ground Truth 평가</h2></div>
++    <div className="panel-title"><span className="eyebrow">기술 검증</span><h2 id="evaluations-title">기술 검증·관리</h2></div>
+     <p>고정된 평가셋에 등록된 요구사항만 평가합니다. 검색 Top-5와 저장된 테스트를 비교하며 분석·생성을 다시 호출하지 않습니다.</p>
+-    <div className="card evaluation-controls"><label htmlFor="evaluation-sample">Frozen Evaluation 샘플 요구사항</label>
++    <TechnicalGuide />
++    <div className="card evaluation-controls"><label htmlFor="evaluation-sample">등록된 품질 검증 예제</label>
+     <div className="lookup-controls">
+       <select id="evaluation-sample" value={sampleId} disabled={busy || requirementBusy || !targets?.length} onChange={e => setSampleId(e.target.value)}>
+         <option value="">등록된 샘플을 선택하세요</option>
+@@ -93,7 +95,7 @@
+     {targetsError ? <div role="alert" className="form-error">평가 대상 등록 여부를 확인하지 못했습니다. {targetsError} <button type="button" onClick={() => setTargetsAttempt(value => value + 1)}>평가 대상 다시 확인</button></div>
+       : targets === null ? <p role="status">평가 대상 등록 여부를 확인 중입니다.</p>
+       : !requirementId ? <p role="status">요구사항을 조회하거나 등록된 평가 샘플을 선택해 주세요.</p>
+-      : !eligible ? <p role="status">현재 요구사항은 정량평가 대상에 등록되어 있지 않습니다</p>
++      : !eligible ? <p role="status">평가셋 미등록: 이 변경 요청은 고정된 품질 검증 예제에 연결되지 않아 점수를 계산할 수 없습니다. 일반 테스트 검토·승인과 실행은 계속 사용할 수 있습니다. 점수 비교가 필요하면 위에서 등록된 품질 검증 예제를 선택해 주세요.</p>
+       : <p role="status">정량평가 대상: {target.caseId} · {target.split} · {target.datasetVersion}</p>}
+     {targets?.length === 0 && <p>등록된 평가 샘플이 없습니다.</p>}
+     <label htmlFor="evaluation-mode">평가할 내용</label>
+@@ -101,7 +103,7 @@
+     <div className="lookup-controls"><button type="button" disabled={busy || requirementBusy || !eligible} onClick={() => request(true)}>평가 실행</button><button type="button" className="secondary" disabled={busy || requirementBusy || !requirementId} onClick={() => request(false)}>저장된 평가 조회</button></div>
+     </div>{busy && <p role="status" className="loading-panel"><span className="spinner" /> 평가 처리 중…</p>}
+     {error && <p role="alert" className="form-error">{error}</p>}
+-    {eligible && loaded && !runs.length && !busy && !error && <p role="status">미평가: 저장된 평가 결과가 없습니다.</p>}
++    {eligible && loaded && !runs.length && !busy && !error && <p role="status">미평가: 등록된 예제지만 저장된 평가 결과가 없습니다. 평가할 내용의 원본·검토본을 선택한 뒤 ‘평가 실행’을 눌러 주세요.</p>}
+     <ul className="evaluation-history">{runs.map(run => <li key={run.id}><button disabled={busy} aria-pressed={selected?.id === run.id} onClick={() => select(run.id)}>{new Date(run.createdAt).toLocaleString('ko-KR')} · {run.dataset.split} · {run.contentMode} · {run.status}</button></li>)}</ul>
+     {selected && <article className="card evaluation-result" aria-label="평가 결과">
+       <h3>{selected.dataset.split} · {selected.dataset.caseId}</h3>
+@@ -117,7 +119,7 @@
+         </tbody></table></div>
+         <p>평가 대상: 검색 {metrics.counts.queries}건 · TC {metrics.counts.testCases}개 · 필수 시나리오 {metrics.counts.requiredScenarios}개 · 정답 문서 {metrics.counts.expectedDocuments}개</p>
+         <p>Validity 실패 {metrics.testCaseValidity.failedCount}개 · 자동 미판정 {metrics.testCaseValidity.unknownCount}개. 자유 서술의 의미적 모순은 미평가이며 deterministic 점수에 혼합하지 않습니다. TC가 없으면 Validity는 N/A입니다.</p>
+-        <h4>누락된 Ground Truth 시나리오</h4>
++        <h4>기준 대비 누락된 시나리오</h4>
+         <ul className="evaluation-missing-scenarios">{metrics.scenarioCoverage.missingScenarios.map(s => <li key={s.scenarioId}>{s.scenarioId} · {s.category} · {s.description}</li>)}</ul>
+         {!metrics.scenarioCoverage.missingScenarios.length && <p>필수 시나리오 누락 없음</p>}
+         <h4>검색 실패 문서</h4>
+--- before/frontend/src/GettingStarted.tsx
++++ after/frontend/src/GettingStarted.tsx
+@@ -0,0 +1,29 @@
++import type { Screen } from './navigation'
++
++export const exampleRequest = {
++  title: '부서장 대여 승인 및 자기 승인 금지 검증',
++  description: '요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있다.\n\n대여 신청자가 본인의 신청을 직접 승인하는 것은 허용하지 않는다.\n\n승인 권한이 없는 사용자의 요청은 거부되어야 한다.\n\n동일 자산에 대한 중복 승인도 허용하지 않는다.',
++}
++
++export default function GettingStarted({ onExample, onNavigate, next, selectedTitle, disabled }: {
++  onExample: () => void; onNavigate: (screen: Screen) => void; next: Screen; selectedTitle?: string; disabled: boolean
++}) {
++  const nextLabels: Partial<Record<Screen,string>> = {
++    requirements: '변경 요청 입력하기', analysis: '변경 요청 분석하기', testcases: '테스트 자동 생성으로 이동',
++    review: '테스트 검토·승인으로 이동', execution: '테스트 실행·결과 확인으로 이동',
++  }
++  return <section className="getting-started" aria-labelledby="getting-started-title">
++    <div className="guide-heading"><div><p className="eyebrow">처음 사용하는 분을 위한 안내</p><h2 id="getting-started-title">변경 요청부터 검증까지, 네 단계</h2></div><span className="guide-synthetic">합성 IT 자산관리 체험</span></div>
++    <ol className="guide-steps" aria-label="4단계 업무 흐름">
++      <li><span>1</span><div><strong>변경 요청 입력</strong><small>바꾸려는 업무조건을 적고 저장합니다.</small></div></li>
++      <li><span>2</span><div><strong>AI 분석 및 테스트 생성</strong><small>관련 업무규칙을 분석한 뒤 테스트를 생성합니다.</small></div></li>
++      <li><span>3</span><div><strong>개발자 검토·승인</strong><small>조건과 기대결과를 검토하고 승인합니다.</small></div></li>
++      <li><span>4</span><div><strong>테스트 실행·결과 확인</strong><small>승인된 테스트를 실행하고 기대결과와 비교합니다.</small></div></li>
++    </ol>
++    <div className="guide-bottom"><div><p>{selectedTitle ? `현재 선택: ${selectedTitle}` : '무엇을 입력할지 막막하다면, 대여 승인 권한 예제로 시작하세요.'}</p><small>예제 불러오기는 입력폼만 채웁니다. 저장·분석·생성·실행은 각 단계에서 직접 시작합니다.</small></div><div className="guide-actions"><button className="secondary" disabled={disabled} onClick={onExample}>예제 불러오기</button><button disabled={disabled} onClick={() => onNavigate(next)}>다음: {nextLabels[next] ?? '변경 요청 입력하기'} <span aria-hidden="true">→</span></button></div></div>
++  </section>
++}
++
++export function TechnicalGuide() {
++  return <details className="technical-guide"><summary>기술 용어와 검증 범위 알아보기</summary><p>이 영역은 개발·관리자를 위한 기술 검증입니다. 일반 변경 요청의 분석·검토·실행과 별도로 확인할 수 있습니다.</p><dl><dt>RAG · 관련 자료 검색</dt><dd>저장된 업무규칙과 API 자료를 찾아 AI 분석의 근거로 사용합니다.</dd><dt>Ground Truth · 고정 비교 기준</dt><dd>등록된 합성 예제의 기준 답안과 저장 결과를 비교합니다. 모든 변경 요청에 점수를 매기는 기능은 아닙니다.</dd><dt>MCP · 도구 연결 규약</dt><dd>외부 개발 도구가 허용된 조회 기능을 사용할 때의 연결 규약입니다.</dd><dt>OTel · 처리 과정 추적</dt><dd>요청 처리 시간과 서비스 간 흐름을 추적하는 운영 도구입니다.</dd></dl><p>테스트 실행은 합성 API 환경에서 수행합니다. 실제 운영 시스템을 변경하거나 실제 업무시간 절감률을 측정한 결과는 아닙니다.</p></details>
++}
+--- before/frontend/src/KnowledgeGraph.tsx
++++ after/frontend/src/KnowledgeGraph.tsx
+@@ -14,7 +14,7 @@
+     setBusy(true); setError(''); if (overview) { setGraph(null); setDetail(null) } else setDetail(null)
+     try {
+       const r = await fetch(`/api/graph/${tool}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: AbortSignal.timeout(10000) })
+-      if (!r.ok) throw new Error(r.status === 404 ? '동기화된 관계가 없습니다.' : 'Graph 기능을 사용할 수 없습니다. 기존 분석과 테스트 기능은 계속 사용할 수 있습니다.')
++      if (!r.ok) throw new Error(r.status === 404 ? '아직 준비된 관계 자료가 없습니다. 분석과 테스트를 저장한 뒤 관리자에게 관계 동기화 상태를 확인해 주세요.' : '관계 조회 서비스에 연결하지 못했습니다. 잠시 후 다시 조회하세요. 분석과 테스트 검토·실행은 계속 사용할 수 있습니다.')
+       const value: Graph = await r.json()
+       if (overview) { setGraph(value); setDetail(null) } else setDetail(value)
+     } catch (e) { setError(e instanceof Error ? e.message : 'Graph 조회 실패') }
+@@ -33,8 +33,8 @@
+       {n.type === 'TestCase' && <button disabled={busy} onClick={() => load('trace_test_case_origin', { testCaseId: n.id })}>생성 근거 추적</button>}
+     </div>
+   }
+-  return <section className="knowledge-graph" aria-label="Knowledge Graph">
+-    <div className="section-heading"><div><p className="eyebrow">RELATIONSHIP EXPLORER</p><h3>요구사항 관계 추적</h3></div><button disabled={busy} onClick={() => load('find_requirement_context', { requirementId }, true)}>{busy ? '관계 조회 중…' : '관계 그래프 조회'}</button></div>
++  return <section className="knowledge-graph" aria-label="변경 영향 관계 확인">
++    <div className="section-heading"><div><p className="eyebrow">RELATIONSHIP EXPLORER</p><h3>변경 영향 관계 확인</h3></div><button disabled={busy} onClick={() => load('find_requirement_context', { requirementId }, true)}>{busy ? '관계 조회 중…' : '변경 영향 관계 조회'}</button></div>
+     <div className="graph-legend" aria-label="노드 유형">{['Requirement', 'BusinessRule', 'Api', 'TestCase', 'Execution'].map((kind, i) => <span key={kind}><b className={`node-type node-${kind}`}>{kind}</b>{i < 4 && <i aria-hidden="true">→</i>}</span>)}</div><p>명시적 동기화 시점의 관계입니다. 실행 결과는 실행 당시 revision과 함께 표시합니다.</p>
+     {busy && <p className="loading-panel" role="status"><span className="spinner" /> 관계 경로를 조회하고 있습니다.</p>}
+     {error && <p role="alert" className="form-error">{error}</p>}
+--- before/frontend/src/navigation.ts
++++ after/frontend/src/navigation.ts
+@@ -1,11 +1,11 @@
+ ﻿export const screens = [
+-  { id: 'dashboard', label: '대시보드', path: 'Overview', description: '요구사항부터 실행 결과까지, 근거로 연결하는 검증 워크스페이스' },
+-  { id: 'requirements', label: '요구사항 관리', path: 'Requirements', description: '변경할 업무를 정의하고, 검증의 시작점을 만드세요.' },
+-  { id: 'analysis', label: 'AI 요구사항 분석', path: 'AI Analysis', description: '업무조건과 불확실성을 구분하고 원문 Evidence를 확인하세요.' },
+-  { id: 'testcases', label: '테스트케이스', path: 'Test Cases', description: '근거에서 도출한 테스트 시나리오를 한눈에 확인하세요.' },
+-  { id: 'review', label: '검토 및 승인', path: 'Review & Approval', description: '테스트의 내용을 검토하고 실행 전 승인 상태를 관리하세요.' },
+-  { id: 'execution', label: '실행 및 검증', path: 'Execution', description: '승인된 테스트를 실행하고 Expected와 Actual을 비교하세요.' },
+-  { id: 'evaluation', label: 'Ground Truth 평가', path: 'Evaluation', description: 'Frozen 평가셋을 기준으로 검색과 테스트의 품질을 측정하세요.' },
+-  { id: 'graph', label: 'Knowledge Graph', path: 'Knowledge Graph', description: '요구사항, 업무규칙, API와 테스트의 연결을 추적하세요.' },
++  { id: 'dashboard', label: '대시보드', path: '업무 현황', description: '프로그램 변경 요청을 입력하면 AI가 관련 업무규칙을 찾아 분석하고, 필요한 테스트를 생성하며, 승인된 테스트를 실행해 결과까지 검증하는 개발자용 업무 지원 시스템' },
++  { id: 'requirements', label: '변경 요청 입력', path: '변경 요청', description: '변경할 업무를 정의하고, 검증의 시작점을 만드세요.' },
++  { id: 'analysis', label: '변경 요청 분석', path: '변경 요청 분석', description: '업무조건과 불확실성을 구분하고 업무규칙 원문을 확인하세요.' },
++  { id: 'testcases', label: '테스트 자동 생성', path: '테스트 생성', description: '근거에서 도출한 테스트 시나리오를 한눈에 확인하세요.' },
++  { id: 'review', label: '테스트 검토·승인', path: '검토·승인', description: '테스트의 내용을 검토하고 실행 전 승인 상태를 관리하세요.' },
++  { id: 'execution', label: '테스트 실행·결과 확인', path: '실행·결과', description: '승인된 테스트를 실행하고 Expected와 Actual을 비교하세요.' },
++  { id: 'evaluation', label: '기술 검증·관리', path: '기술 검증', description: '등록된 합성 예제로 품질을 비교하고, 기술 용어와 검증 범위를 확인하세요.' },
++  { id: 'graph', label: '변경 영향 관계 확인', path: '변경 영향 관계', description: '요구사항, 업무규칙, API와 테스트의 연결을 추적하세요.' },
+ ] as const
+ export type Screen = typeof screens[number]['id']
+--- before/frontend/src/onboarding.css
++++ after/frontend/src/onboarding.css
+@@ -0,0 +1,6 @@
++.getting-started{padding:20px;border:1px solid #cfe5db;border-radius:14px;background:#f0f8f4;margin:0 0 20px;min-width:0}.guide-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.guide-heading .eyebrow{margin:0 0 5px;color:#047857}.guide-heading h2{margin:0;font-size:18px}.guide-synthetic{color:#47695a;font-size:11px}.guide-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;margin:18px 0;padding:0}.guide-steps li{position:relative;display:flex;align-items:flex-start;gap:9px;margin:0;min-width:0}.guide-steps li>span{display:grid;place-items:center;flex-shrink:0;width:25px;height:25px;border-radius:50%;background:#d9eee3;color:#047857;font-size:12px;font-weight:700}.guide-steps li:not(:last-child)::after{content:'→';position:absolute;right:-16px;top:3px;color:#6c9582}.guide-steps strong{display:block;color:#183d2c;font-size:12px;line-height:1.6}.guide-steps small{display:block;margin-top:4px;color:#527263;font-size:11px;line-height:1.6}.guide-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;border-top:1px solid #d3e7dc}.guide-bottom p{margin:0;color:#345542;font-size:12px}.guide-bottom small{display:block;margin-top:5px;line-height:1.6;font-size:11px;color:#527263}.guide-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}.guide-actions button{font-size:12px}.guide-next{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f0fdf4;border:1px solid #a7f3d0;border-radius:10px;padding:14px 16px;margin:18px 0}.guide-next p{margin:0;color:#345542}.example-form-guide{padding:12px 14px;background:#f0f8f4;border:1px solid #d3e7dc;border-radius:8px;margin-bottom:16px}.example-form-guide p{margin:0 0 8px;font-size:12px}.example-form-guide small{display:block;margin-top:7px;font-size:11px;color:#527263}.technical-guide{background:#f8fafc;border:1px solid #e2e8f0;border-radius:9px;padding:14px 16px;margin:16px 0;max-width:100%;overflow-wrap:anywhere}.technical-guide dl{font-size:12px;line-height:1.8}.technical-guide dt{font-weight:650;color:#334155;margin-top:10px}.technical-guide dd{margin:3px 0 0;color:#64748b}.service-purpose{max-width:1080px;line-height:1.8}.sidebar .technical-nav-label{margin-top:18px}.sidebar nav button{white-space:normal}.sidebar nav button>span{min-width:0;line-height:1.5}.sidebar nav button>svg{flex-shrink:0}.page-heading>div{min-width:0}.getting-started button{white-space:normal;text-align:center}
++@media(max-width:1180px){.guide-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}.guide-steps li:nth-child(2)::after{content:none}.guide-bottom{align-items:flex-start;flex-direction:column}.guide-actions{width:100%}}
++@media(max-width:700px){.getting-started{padding:16px}.guide-heading h2{font-size:16px}.guide-steps{gap:16px 20px}.guide-steps strong{font-size:11px}.guide-steps small{font-size:10px}.guide-actions{flex-direction:column;align-items:stretch}.guide-actions button{width:100%}.guide-heading{gap:8px}.guide-synthetic{font-size:10px}.guide-steps li>span{width:22px;height:22px}.guide-next{align-items:stretch}.guide-next button{width:100%}.guide-next p{font-size:12px}}
++.page-heading .service-purpose{font-size:14px;line-height:1.8;color:#475569;max-width:1040px}
++@media(max-width:700px){.page-heading .service-purpose{font-size:12px}}
++@media(max-width:700px){.getting-started{display:flex;flex-direction:column}.guide-bottom{order:1;margin-top:14px;border-top:0;padding-top:0}.guide-steps{order:2;margin-bottom:0;padding-top:16px;border-top:1px solid #d3e7dc}.guide-actions button:not(.secondary){order:0}.guide-actions .secondary{order:1}}
+--- before/frontend/src/RequirementAnalysis.tsx
++++ after/frontend/src/RequirementAnalysis.tsx
+@@ -1,3 +1,4 @@
++import type { Screen } from './navigation'
+ import { useEffect, useRef, useState } from 'react'
+ 
+ type Fact = { text: string; chunkId: string }
+@@ -8,7 +9,7 @@
+   clarificationQuestions: string[]; evidence: Evidence[];
+ }
+ 
+-export default function RequirementAnalysis({ requirementId, onSaved, onBusyChange, onSummary }: { requirementId: string; onSaved: () => void; onBusyChange: (busy: boolean) => void; onSummary: (value: { conditions: number; evidence: number }) => void }) {
++export default function RequirementAnalysis({ requirementId, onSaved, onBusyChange, onSummary, onNavigate }: { onNavigate: (screen: Screen) => void; requirementId: string; onSaved: () => void; onBusyChange: (busy: boolean) => void; onSummary: (value: { conditions: number; evidence: number }) => void }) {
+   const [result, setResult] = useState<Analysis | null>(null)
+   const [busy, setBusy] = useState(false)
+   const [error, setError] = useState('')
+@@ -34,11 +35,11 @@
+     try {
+       const response = await fetch(`/api/requirements/${encodeURIComponent(requirementId)}/analysis`, { method, signal: controller.signal })
+       const body = await response.json().catch(() => null)
+-      if (method === 'GET' && response.status === 404) { setNotice('저장된 분석이 없습니다. (HTTP 404)'); return }
+-      if (response.status === 429 && body?.code === 'ANALYSIS_BUSY') throw new Error('다른 AI 분석이 진행 중입니다. 잠시 후 다시 시도하거나 저장된 분석을 조회해 주세요.')
++      if (method === 'GET' && response.status === 404) { setNotice('AI 분석 결과가 아직 없습니다. 변경 요청을 저장한 것만으로는 분석되지 않습니다. ‘변경 요청 분석 시작’을 눌러 관련 업무규칙을 확인하세요.'); return }
++      if (response.status === 429 && body?.code === 'ANALYSIS_BUSY') throw new Error('다른 분석이 진행 중이라 새 분석을 시작하지 못했습니다. 진행 중인 분석이 끝난 뒤 ‘변경 요청 분석 시작’을 다시 누르거나 ‘저장된 분석 조회’로 완료 여부를 확인하세요.')
+       if (!response.ok) throw new Error(body?.message ?? `분석 요청에 실패했습니다. (HTTP ${response.status})`)
+       if (!body || body.requirementId !== requirementId || !['confirmedConditions', 'ambiguousExpressions', 'missingConditions', 'relatedBusinessRules', 'relatedApis', 'clarificationQuestions', 'evidence'].every(key => Array.isArray(body[key]))) throw new Error('분석 응답 형식이 올바르지 않습니다.')
+-      setResult(body); onSummary({ conditions: body.confirmedConditions.length, evidence: body.evidence.length }); setNotice(method === 'GET' ? '저장된 분석을 불러왔습니다.' : '요구사항 분석을 완료했습니다.')
++      setResult(body); onSummary({ conditions: body.confirmedConditions.length, evidence: body.evidence.length }); setNotice(method === 'GET' ? '저장된 분석을 불러왔습니다.' : '변경 요청 분석을 완료했습니다. 확인된 조건과 질문을 읽은 뒤 테스트 자동 생성으로 진행하세요.')
+       if (method === 'POST') onSaved()
+     } catch (err) {
+       setError(err instanceof Error && err.name === 'AbortError'
+@@ -51,17 +52,18 @@
+   const facts = (title: string, values: Fact[]) => <section className="card analysis-card"><h4>{title}</h4>{values.length
+     ? <ul>{values.map((item, i) => <li key={i}>{item.text} <a href={`#evidence-${item.chunkId}`}>근거</a></li>)}</ul>
+     : <p>확정 가능한 근거 없음</p>}</section>
+-  return <section className="analysis-panel" aria-busy={busy} aria-label="요구사항 분석">
+-    <div className="panel-title"><span className="eyebrow">EVIDENCE-BASED ANALYSIS</span><h2>근거 기반 요구사항 분석</h2></div>
++  return <section className="analysis-panel" aria-busy={busy} aria-label="변경 요청 분석">
++    <div className="panel-title"><span className="eyebrow">EVIDENCE-BASED ANALYSIS</span><h2>변경 요청 분석</h2></div>
+     <p>검색 근거에서 확인된 문장과 추가 확인이 필요한 조건을 구분합니다.</p>
+     <div className="analysis-actions">
+-      <button type="button" disabled={busy} onClick={() => request('POST')}>요구사항 분석</button>
++      <button type="button" disabled={busy} onClick={() => request('POST')}>변경 요청 분석 시작</button>
+       <button type="button" className="secondary" disabled={busy} onClick={() => request('GET')}>저장된 분석 조회</button>
+     </div>
+-    {busy && <div className="loading-panel" role="status"><span className="spinner" /><div><strong>분석 요청을 처리하고 있습니다</strong><p>경과시간 {Math.floor(elapsed / 60)}분 {elapsed % 60}초 · 로컬 모델 분석에는 수 분이 걸릴 수 있습니다.</p><small>다른 화면에서도 작업을 계속할 수 있습니다. 완료되면 결과를 확인하세요.</small></div></div>}
++    {busy && <div className="loading-panel" role="status"><span className="spinner" /><div><strong>관련 업무규칙을 찾아 AI가 분석하고 있습니다</strong><p>경과시간 {Math.floor(elapsed / 60)}분 {elapsed % 60}초 · 로컬 모델 분석에는 수 분이 걸릴 수 있습니다.</p><small>중복 요청하지 않고 기다려 주세요. 다른 화면으로 이동해도 분석은 계속되며, 돌아와 결과를 확인할 수 있습니다.</small></div></div>}
+     {error && <p role="alert" className="form-error">{error}</p>}
+     {notice && <p role="status">{notice}</p>}
+-    {!result && !busy && !notice && !error && <div className="card empty-state"><h3>근거와 함께 요구사항을 이해하세요</h3><p>새 분석을 실행하거나 저장된 분석을 조회하면 조건과 Evidence가 표시됩니다.</p></div>}
++    {!result && !busy && !notice && !error && <div className="card empty-state"><h3>AI 분석 결과를 먼저 확인하세요</h3><p>아직 이 화면에 분석을 불러오지 않았습니다. 처음이면 ‘변경 요청 분석 시작’, 이전에 분석했다면 ‘저장된 분석 조회’를 누르세요.</p></div>}
++    {result && <div className="guide-next"><p>확인된 조건과 확인 질문을 검토한 뒤 테스트를 생성하세요.</p><button onClick={() => onNavigate('testcases')}>다음: 테스트 자동 생성</button></div>}
+     {result && <div className="analysis-result">
+       {facts('확인된 업무조건', result.confirmedConditions)}
+       {strings('모호한 표현', result.ambiguousExpressions)}
+@@ -70,7 +72,7 @@
+       <section className="card analysis-card"><h4>관련 API</h4>{result.relatedApis.length ? <ul>{result.relatedApis.map((item, i) =>
+         <li key={i}><code>{item.api}</code> <a href={`#evidence-${item.chunkId}`}>근거</a></li>)}</ul> : <p>확인된 API 없음</p>}</section>
+       {strings('확인 질문', result.clarificationQuestions)}
+-      <section className="card evidence-section"><div className="card-heading"><h4>검색된 Evidence</h4><span className="count-chip">Top-{result.evidence.length}</span></div>{result.evidence.map(item => <article className="analysis-evidence" id={`evidence-${item.chunkId}`} key={item.chunkId}>
++      <section className="card evidence-section"><div className="card-heading"><h4>분석에 사용한 업무규칙과 근거 자료</h4><span className="count-chip">Top-{result.evidence.length}</span></div>{result.evidence.map(item => <article className="analysis-evidence" id={`evidence-${item.chunkId}`} key={item.chunkId}>
+         <h5>{item.section}</h5><p>{item.documentType} · 유사도 {item.score.toFixed(4)}</p>
+         <dl><dt>Document ID</dt><dd>{item.documentId}</dd><dt>Chunk ID</dt><dd>{item.chunkId}</dd></dl>
+         <blockquote>{item.contentSnippet}</blockquote>
+--- before/frontend/src/Requirements.tsx
++++ after/frontend/src/Requirements.tsx
+@@ -1,3 +1,5 @@
++import GettingStarted, { exampleRequest } from './GettingStarted'
++import './onboarding.css'
+ import Dashboard, { ExportButton } from './Dashboard'
+ import './dashboard.css'
+ import Evaluations from './Evaluations'
+@@ -53,6 +55,13 @@
+     return () => clearTimeout(timer)
+   }, [toast])
+ 
++  function loadExample() {
++    if (busy) return
++    setTitle(exampleRequest.title); setDescription(exampleRequest.description)
++    setError(''); setNotice('예제를 입력폼에 불러왔습니다. 아직 저장되지 않았습니다. 내용을 확인한 뒤 변경 요청 저장을 눌러 주세요.')
++    onNavigate('requirements')
++  }
++  const nextStep: Screen = !result ? 'requirements' : !analysisSummary ? 'analysis' : !testSummary?.total ? 'testcases' : testSummary.approved ? 'execution' : 'review'
+   async function create(event: FormEvent<HTMLFormElement>) {
+     event.preventDefault()
+     if (busy) return
+@@ -88,21 +97,22 @@
+   }
+   const needsRequirement = !result && ['analysis', 'testcases', 'review', 'execution', 'graph'].includes(view)
+   return <div className="requirements">
+-    <section className="context-bar" aria-label="현재 요구사항">
++    {view === 'dashboard' && <GettingStarted onExample={loadExample} onNavigate={onNavigate} next={nextStep} selectedTitle={result?.title} disabled={busy} />}
++    <section hidden={view === 'dashboard' && !result} className="context-bar" aria-label="현재 요구사항">
+       <div className="context-identity"><span className="context-icon"><Icon name="requirements" /></span><div><small>현재 요구사항</small><strong>{result?.title ?? '선택된 요구사항이 없습니다'}</strong>{result && <span className={`status-badge status-${result.status}`}>{result.status}</span>}</div></div>
+-      <form onSubmit={lookup} className="lookup-form" aria-label="요구사항 조회"><label htmlFor="requirement-id" className="sr-only">요구사항 ID</label><div className="lookup-controls"><input id="requirement-id" value={lookupId} onChange={e => setLookupId(e.target.value)} required disabled={busy} placeholder="Requirement ID로 조회" /><button type="submit" className="secondary" disabled={busy}>{busy ? '조회 중…' : '조회'}</button></div></form>
++      <form onSubmit={lookup} className="lookup-form" aria-label="요구사항 조회"><label htmlFor="requirement-id" className="sr-only">요구사항 ID</label><div className="lookup-controls"><input id="requirement-id" value={lookupId} onChange={e => setLookupId(e.target.value)} required disabled={busy} placeholder="저장된 요청 ID로 조회" /><button type="submit" className="secondary" disabled={busy}>{busy ? '조회 중…' : '조회'}</button></div></form>
+     </section>
+     {result && <p className="metadata">선택 상태: {result.status} · 조회한 분석 조건 {analysisSummary?.conditions ?? '—'}건 · 조회한 TC {testSummary?.total ?? '—'}건</p>}
+-    {result && <nav className="p13-context-actions" aria-label="요구사항 상세 탐색">{(['requirements','analysis','testcases','review','execution','evaluation','graph'] as const).map((next,i) => <button key={next} className="secondary" onClick={() => onNavigate(next)}>{['상세','분석','테스트','검토','실행','평가','관계 그래프'][i]}</button>)}<ExportButton id={result.id}/></nav>}
++    {result && <nav className="p13-context-actions" aria-label="요구사항 상세 탐색">{(['requirements','analysis','testcases','review','execution','evaluation','graph'] as const).map((next,i) => <button key={next} className="secondary" onClick={() => onNavigate(next)}>{['상세','변경 요청 분석','테스트 자동 생성','테스트 검토·승인','테스트 실행·결과 확인','기술 검증','변경 영향 관계 확인'][i]}</button>)}<ExportButton id={result.id}/></nav>}
+     {error && <p className="form-error" role="alert">{error}</p>}
+     <p className="form-notice" role="status">{notice}</p>
+     <div hidden={view !== 'dashboard'}><Dashboard onSelect={selectFromDashboard} onNavigate={onNavigate} /></div>
+     <div hidden={view !== 'requirements'} className="requirement-layout">
+-      <section className="card requirement-form-card"><div className="card-heading"><div><p className="eyebrow">NEW REQUIREMENT</p><h2>새 요구사항 등록</h2></div><Icon name="requirements" /></div><form onSubmit={create} aria-label="요구사항 등록"><label htmlFor="requirement-title-input">제목 <span>최대 200자</span></label><input id="requirement-title-input" value={title} onChange={e => setTitle(e.target.value)} required maxLength={200} disabled={busy} placeholder="예: 대여 승인 권한 검증" /><div className="label-row"><label htmlFor="requirement-description">상세 내용</label><span>{description.length.toLocaleString()} / 10,000</span></div><textarea id="requirement-description" value={description} onChange={e => setDescription(e.target.value)} required maxLength={10000} rows={9} disabled={busy} placeholder="업무의 목적과 조건, 예외 상황을 구체적으로 작성해 주세요." /><p className="field-hint">명확한 업무조건은 분석과 테스트의 출발점이 됩니다.</p><div className="form-footer"><span>등록 후 AI 분석을 시작할 수 있습니다.</span><button type="submit" disabled={busy}>{busy ? <><span className="spinner" /> 저장 중…</> : '요구사항 저장'}</button></div></form></section>
+-      <section className="card requirement-summary"><p className="eyebrow">REQUIREMENT DETAILS</p>{result ? <article className="requirement-result" aria-label="요구사항 상세"><span className={`status-badge status-${result.status}`}>{result.status}</span><h3>{result.title}</h3><p className="requirement-description">{result.description}</p><dl><dt>등록 일시</dt><dd>{new Date(result.createdAt).toLocaleString('ko-KR')}</dd><dt>Requirement ID</dt><dd><code>{result.id}</code></dd></dl><button onClick={() => onNavigate('analysis')}>AI 분석으로 이동 <Icon name="arrow" size={17} /></button></article> : <div className="empty-state"><Icon name="requirements" size={34} /><h3>요구사항을 기다리고 있습니다</h3><p>새 요구사항을 등록하거나<br />상단 ID 조회로 상세 내용을 확인하세요.</p></div>}</section>
++      <section className="card requirement-form-card"><div className="card-heading"><div><p className="eyebrow">NEW REQUIREMENT</p><h2>새 변경 요청 입력</h2></div><Icon name="requirements" /></div><div className="example-form-guide"><p>입력이 처음이라면 합성 IT 자산관리 예제를 사용해 보세요.</p><button type="button" className="secondary" disabled={busy} onClick={loadExample}>예제 불러오기</button><small>입력폼만 채우며 저장·AI 분석·테스트 실행은 자동으로 수행하지 않습니다.</small></div><form onSubmit={create} aria-label="변경 요청 등록"><label htmlFor="requirement-title-input">제목 <span>최대 200자</span></label><input id="requirement-title-input" value={title} onChange={e => setTitle(e.target.value)} required maxLength={200} disabled={busy} placeholder="예: 대여 승인 권한 검증" /><div className="label-row"><label htmlFor="requirement-description">상세 내용</label><span>{description.length.toLocaleString()} / 10,000</span></div><textarea id="requirement-description" value={description} onChange={e => setDescription(e.target.value)} required maxLength={10000} rows={9} disabled={busy} placeholder="업무의 목적과 조건, 예외 상황을 구체적으로 작성해 주세요." /><p className="field-hint">명확한 업무조건은 분석과 테스트의 출발점이 됩니다.</p><div className="form-footer"><span>저장 → 변경 요청 분석 → 테스트 생성 순서로 진행합니다.</span><button type="submit" disabled={busy}>{busy ? <><span className="spinner" /> 저장 중…</> : '변경 요청 저장'}</button></div></form></section>
++      <section className="card requirement-summary"><p className="eyebrow">REQUIREMENT DETAILS</p>{result ? <article className="requirement-result" aria-label="요구사항 상세"><span className={`status-badge status-${result.status}`}>{result.status}</span><h3>{result.title}</h3><p className="requirement-description">{result.description}</p><dl><dt>등록 일시</dt><dd>{new Date(result.createdAt).toLocaleString('ko-KR')}</dd><dt>요청 ID</dt><dd><code>{result.id}</code></dd></dl><button onClick={() => onNavigate('analysis')}>다음: 변경 요청 분석 <Icon name="arrow" size={17} /></button></article> : <div className="empty-state"><Icon name="requirements" size={34} /><h3>아직 저장한 변경 요청이 없습니다</h3><p>왼쪽에 변경 요청을 입력하거나 예제를 불러온 뒤 저장하세요. 저장 후 분석을 직접 시작할 수 있습니다.</p></div>}</section>
+     </div>
+-    {needsRequirement && <section className="card empty-state"><span className="empty-icon"><Icon name="requirements" size={28} /></span><h2>먼저 요구사항을 선택해 주세요</h2><p>상단에서 Requirement ID를 조회하거나 요구사항 관리에서 새 요구사항을 등록하세요.</p><button onClick={() => onNavigate('requirements')}>요구사항 관리로 이동 <Icon name="arrow" size={16} /></button><button className="text-button" onClick={() => onNavigate('evaluation')}>Frozen 평가 샘플 찾아보기</button></section>}
+-    <div hidden={view !== 'analysis'}>{result && <RequirementAnalysis key={`analysis:${result.id}`} requirementId={result.id} onBusyChange={onAnalysisBusy} onSummary={setAnalysisSummary} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}</div>
++    {needsRequirement && <section className="card empty-state"><span className="empty-icon"><Icon name="requirements" size={28} /></span><h2>먼저 요구사항을 선택해 주세요</h2><p>대시보드 목록에서 저장된 요청을 선택하거나, 변경 요청 입력에서 예제를 불러와 저장하세요.</p><button onClick={() => onNavigate('requirements')}>변경 요청 입력로 이동 <Icon name="arrow" size={16} /></button><button className="text-button" onClick={() => onNavigate('evaluation')}>기술 검증 예제 찾아보기</button></section>}
++    <div hidden={view !== 'analysis'}>{result && <RequirementAnalysis key={`analysis:${result.id}`} requirementId={result.id} onBusyChange={onAnalysisBusy} onSummary={setAnalysisSummary} onNavigate={onNavigate} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}</div>
+     <div hidden={!['testcases', 'review', 'execution'].includes(view)}>{result && <TestCases key={`tests:${result.id}`} requirementId={result.id} initialTc={targetTc} view={view} onNavigate={onNavigate} onSummary={setTestSummary} />}</div>
+     <div hidden={view !== 'evaluation'}><Evaluations key={`evaluation:${result?.id ?? 'none'}`} requirementId={result?.id ?? ''} requirementBusy={busy} onSelectRequirement={async id => { await loadRequirement(id) }} /></div>
+     <div hidden={view !== 'graph'}>{result && <KnowledgeGraph key={`graph:${result.id}`} requirementId={result.id} />}</div>
+--- before/frontend/src/TestCaseExecutions.tsx
++++ after/frontend/src/TestCaseExecutions.tsx
+@@ -35,14 +35,14 @@
+     } catch (e) { setError(e instanceof Error ? e.message : '실행 실패. 저장된 결과는 다시 조회할 수 있습니다.') }
+     finally { setBusy(false) }
+   }
+-  return <section className="test-case-executions" aria-label="Dummy API 실행">
+-    <h4>실행 가능 여부</h4>
++  return <section className="test-case-executions" aria-label="합성 API 테스트 실행">
++    <h4>실행 가능 여부</h4><p>승인된 테스트를 합성 API 환경에서 실행해 기대결과와 실제결과를 비교합니다. 실제 운영 데이터는 변경하지 않습니다.</p>
+     {eligibility && <>
+-      <div className="eligibility-grid"><span>승인 상태 <b className={`status-badge status-${eligibility.approvalStatus}`}>{eligibility.approvalStatus}</b></span><span>실행 정의 <b>{eligibility.executable ? '충족' : '미충족'}</b></span><span>Fixture 준비 <b>{eligibility.fixtureReady ? '준비됨' : '준비 안 됨'}</b></span><span>최종 실행 판정 <b>{eligibility.executionEligible ? '실행 가능' : '실행 불가'}</b></span></div>
++      <div className="eligibility-grid"><span>승인 상태 <b className={`status-badge status-${eligibility.approvalStatus}`}>{eligibility.approvalStatus}</b></span><span>실행 정의 <b>{eligibility.executable ? '충족' : '미충족'}</b></span><span>합성 실행 데이터 <b>{eligibility.fixtureReady ? '준비됨' : '준비 안 됨'}</b></span><span>최종 실행 판정 <b>{eligibility.executionEligible ? '실행 가능' : '실행 불가'}</b></span></div>
+       <p>대상 API: {eligibility.apiId ?? '허용되지 않음'}{eligibility.blockedReason && ` · 차단: ${eligibility.blockedReason}`}</p>
+-      {eligibility.syntheticDefect && <p role="note">합성 평가용 의도적 결함: 자기 승인 검사를 누락하는 fixture입니다.</p>}
++      {eligibility.syntheticDefect && <p role="note">합성 평가용 의도적 결함: 자기 승인 검사를 누락하는 합성 실행 데이터입니다.</p>}
+     </>}
+-    <button type="button" disabled={busy || dirty || !eligibility?.executionEligible} onClick={execute}>Dummy 실행</button>
++    <button type="button" disabled={busy || dirty || !eligibility?.executionEligible} onClick={execute}>테스트 실행</button>
+     {busy && <p role="status"><span className="spinner" /> 실행 중…</p>}
+     {error && <p role="alert">{error}</p>}
+     <h4>실행 이력</h4>{eligibility && !history.length && <p className="empty-hint">저장된 실행 이력이 없습니다.</p>}
+@@ -54,7 +54,7 @@
+       {selected.syntheticDefect && <p>합성 테스트용 의도적 결함 fixture 실행</p>}
+       <div className="execution-comparison"><section><h5>Expected · 기대결과</h5><pre>{JSON.stringify(selected.expected, null, 2)}</pre></section><section><h5>Actual · 실제결과</h5><pre>{JSON.stringify(selected.actual, null, 2)}</pre></section></div>
+       <section className={`mismatch-panel ${selected.mismatches.length ? 'has-mismatch' : ''}`}><h5>Mismatch · 불일치 항목 <span className="count-chip">{selected.mismatches.length}</span></h5>{selected.mismatches.length ? <pre>{JSON.stringify(selected.mismatches, null, 2)}</pre> : <p>불일치 항목이 없습니다.</p>}</section>
+-      <details><summary>실행 당시 관련 evidence</summary><pre>{JSON.stringify({ apiSpecification: selected.apiSpecEvidence, references: selected.evidence, sources: selected.sourceEvidence }, null, 2)}</pre></details>
++      <details><summary>실행 당시 관련 근거</summary><pre>{JSON.stringify({ apiSpecification: selected.apiSpecEvidence, references: selected.evidence, sources: selected.sourceEvidence }, null, 2)}</pre></details>
+     </div>}
+   </section>
+ }
+--- before/frontend/src/TestCaseReview.tsx
++++ after/frontend/src/TestCaseReview.tsx
+@@ -27,9 +27,9 @@
+     <p role="status">승인 상태: <strong className={`status-badge status-${current.approvalStatus}`}>{current.approvalStatus}</strong> · {current.modified ? '사용자 수정본' : 'AI 원본'}</p>
+     <p>검토자: {current.reviewer ?? '미검토'} · 검토 시각: {current.reviewedAt ? new Date(current.reviewedAt).toLocaleString('ko-KR') : '—'}</p>
+     {current.reviewComment && <p>검토 의견: {current.reviewComment}</p>}
+-    <p>내용을 저장하면 DRAFT가 되어 다시 승인이 필요합니다. Evidence와 요구사항 연결은 변경할 수 없습니다.</p>
++    <p>내용을 저장하면 DRAFT가 되어 다시 승인이 필요합니다. 연결된 근거와 변경 요청은 그대로 보존됩니다.</p>
+     <fieldset disabled={busy}>
+-      <legend>검토 및 승인</legend><details className="review-editor"><summary>테스트 내용 수정</summary><div className="review-fields">
++      <legend>테스트 검토·승인</legend><details className="review-editor"><summary>테스트 내용 수정</summary><div className="review-fields">
+       <label htmlFor="review-type">Test Type</label>
+       <select id="review-type" value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}>{['NORMAL', 'EXCEPTION', 'AUTHORIZATION', 'BOUNDARY', 'BUSINESS_RULE'].map(type => <option key={type}>{type}</option>)}</select>
+       {(['scenario', 'preconditions', 'input', 'steps', 'expectedResult'] as const).map(key => <div key={key}>
+--- before/frontend/src/TestCases.tsx
++++ after/frontend/src/TestCases.tsx
+@@ -31,10 +31,10 @@
+     try {
+       const response = await fetch(`/api/requirements/${encodeURIComponent(requirementId)}/test-cases${generate ? '/generate' : ''}`, { method: generate ? 'POST' : 'GET', signal: AbortSignal.timeout(generate ? 660000 : 15000) })
+       const body = await response.json().catch(() => null)
+-      if (!generate && response.status === 404) { setNotice('저장된 테스트가 없습니다. (HTTP 404)'); return }
++      if (!generate && response.status === 404) { setNotice('아직 생성된 테스트가 없습니다. 먼저 변경 요청 분석을 완료한 뒤 ‘테스트 자동 생성’을 눌러 주세요.'); return }
+       if (!response.ok) throw new Error(body?.message || `테스트 요청에 실패했습니다. (HTTP ${response.status})`)
+       if (!body || body.requirementId !== requirementId || !['testCases', 'clarificationRequired', 'uncoveredTypes', 'executionDecisions'].every(key => Array.isArray(body[key])) || !Array.isArray(body.sourceAnalysis?.evidence)) throw new Error('테스트 응답 형식이 올바르지 않습니다.')
+-      setNotice(body.testCases.length ? `저장된 테스트 ${body.testCases.length}건을 조회했습니다.` : '조회는 성공했지만 저장된 테스트케이스가 0건입니다. 아래 생성 보류 사유와 미생성 유형을 확인해 주세요.')
++      setNotice(body.testCases.length ? `저장된 테스트 ${body.testCases.length}건을 조회했습니다.` : '테스트 생성을 보류했습니다. 확정 조건·근거 또는 지원되는 테스트 유형이 부족합니다. 아래 사유를 읽고 요청 내용을 구체화해 새 변경 요청으로 저장한 뒤 다시 분석해 주세요.')
+       setResult(body); setSelected(body.testCases.some((c: TestCase) => c.testCaseId === initialTc) ? initialTc ?? '' : body.testCases[0]?.testCaseId ?? '')
+     } catch (err) { setError(err instanceof Error && err.name === 'TimeoutError' ? '응답 대기 시간이 초과되었습니다. 저장된 테스트 조회로 결과를 확인해 주세요.' : err instanceof Error ? err.message : '테스트 요청에 실패했습니다.') }
+     finally { setBusy(false) }
+@@ -44,22 +44,25 @@
+   const current = result?.testCases.find(item => item.testCaseId === selected)
+   const decision = result?.executionDecisions.find(item => item.testCaseId === selected)
+   return <section className="test-cases" aria-labelledby="test-cases-heading">
+-    <div className="panel-title"><span className="eyebrow">TEST WORKBENCH</span><h2 id="test-cases-heading">{view === 'review' ? '테스트 검토 및 승인' : view === 'execution' ? '테스트 실행 및 검증' : '근거 기반 테스트케이스'}</h2></div>
++    <div className="panel-title"><span className="eyebrow">TEST WORKBENCH</span><h2 id="test-cases-heading">{view === 'review' ? '테스트 검토·승인' : view === 'execution' ? '테스트 실행·결과 확인' : '테스트 자동 생성'}</h2></div>
+     <p>저장된 분석의 확정 조건과 근거를 사용합니다. 확인이 필요한 조건은 별도로 표시합니다.</p>
+     <div className="lookup-controls">
+-      <button type="button" disabled={busy} onClick={() => request(true)}>테스트 생성</button>
++      <button type="button" disabled={busy} onClick={() => request(true)}>테스트 자동 생성</button>
+       <button type="button" className="secondary" disabled={busy} onClick={() => request(false)}>저장된 테스트 조회</button>
+     </div>
+     {busy && <p role="status" className="loading-panel"><span className="spinner" /> 테스트 요청 처리 중…</p>}
+     {error && <p role="alert" className="form-error">{error}</p>}
+     {notice && <p role="status">{notice}</p>}
+     {!result && !busy && !notice && !error && <div className="card empty-state"><h3>저장된 테스트를 불러오세요</h3><p>테스트를 조회하면 시나리오 확인, 검토와 실행을 이어서 진행할 수 있습니다.</p></div>}
++    {result && result.testCases.length > 0 && view === 'testcases' && <div className="guide-next"><p>생성된 시나리오와 기대결과를 확인한 뒤 개발자가 승인해야 실행할 수 있습니다.</p><button onClick={() => onNavigate('review')}>다음: 테스트 검토·승인</button></div>}
++    {result && view === 'review' && result.testCases.some(tc => tc.approvalStatus === 'APPROVED') && <div className="guide-next"><p>승인된 테스트가 있습니다. 실행 가능 조건을 확인하고 직접 실행하세요.</p><button onClick={() => onNavigate('execution')}>다음: 테스트 실행·결과 확인</button></div>}
++    {result && !result.testCases.length && <div className="guide-next"><p>근거가 부족하거나 확인할 조건이 남아 자동 생성을 진행할 수 없습니다. 분석의 확인 질문과 아래 사유를 확인하세요.</p><button className="secondary" onClick={() => onNavigate('analysis')}>변경 요청 분석으로 돌아가기</button></div>}
+     {result && <div className="test-case-result">
+       {result.stale && <p role="alert" className="form-error">분석 또는 정책이 변경되었습니다. 최신 분석으로 다시 생성해 주세요.</p>}
+       <p>{result.testCases.length}개 테스트 · 생성 시간 {(result.generationLatencyMs / 1000).toFixed(1)}초</p>
+-      {!!result.clarificationRequired.length && <section aria-label="사용자 확인 필요"><h3>사용자 확인 필요 · 생성 보류</h3><ul>{result.clarificationRequired.map((text, i) => <li key={i}>{text}</li>)}</ul></section>}
++      {!!result.clarificationRequired.length && <section aria-label="사용자 확인 필요"><h3>조건 확인이 필요하여 테스트 생성 보류</h3><ul>{result.clarificationRequired.map((text, i) => <li key={i}>{text}</li>)}</ul></section>}
+       {!!result.uncoveredTypes.length && <p>생성되지 않은 유형: {result.uncoveredTypes.join(', ')}</p>}
+-      <div className="workflow-tabs" aria-label="테스트 작업 단계">{([{ id: 'testcases', label: '시나리오' }, { id: 'review', label: '검토 및 승인' }, { id: 'execution', label: '실행 및 검증' }] as const).map(tab => <button type="button" key={tab.id} className={view === tab.id ? 'active' : ''} aria-current={view === tab.id ? 'page' : undefined} onClick={() => onNavigate(tab.id)}>{tab.label}</button>)}</div>
++      <div className="workflow-tabs" aria-label="테스트 작업 단계">{([{ id: 'testcases', label: '시나리오' }, { id: 'review', label: '테스트 검토·승인' }, { id: 'execution', label: '테스트 실행·결과 확인' }] as const).map(tab => <button type="button" key={tab.id} className={view === tab.id ? 'active' : ''} aria-current={view === tab.id ? 'page' : undefined} onClick={() => onNavigate(tab.id)}>{tab.label}</button>)}</div>
+       <div className="test-workbench"><div className="card test-list-card"><div className="card-heading"><h3>테스트 목록</h3><span className="count-chip">{result.testCases.length}</span></div><label htmlFor="test-type-filter" className="sr-only">테스트 유형 필터</label><select id="test-type-filter" value={filter} onChange={e => setFilter(e.target.value)}><option value="ALL">모든 유형</option>{['NORMAL', 'EXCEPTION', 'AUTHORIZATION', 'BOUNDARY', 'BUSINESS_RULE'].map(type => <option key={type}>{type}</option>)}</select><ul className="test-case-list">{result.testCases.filter(item => filter === 'ALL' || item.type === filter).map(item => <li key={item.testCaseId}><button type="button" aria-pressed={selected === item.testCaseId} onClick={() => setSelected(item.testCaseId)}><span className={`type-tag type-${item.type}`}>{item.type}</span><strong>{item.scenario}</strong><span className="test-row-meta"><span className={`status-badge status-${item.approvalStatus}`}>{item.approvalStatus}</span><small>Revision {item.reviewRevision}</small></span></button></li>)}</ul>{!result.testCases.filter(item => filter === 'ALL' || item.type === filter).length && <p className="empty-hint">해당 유형의 테스트가 없습니다.</p>}</div>
+       {current && <article className="card test-case-detail" aria-label="테스트 상세">
+         <span className={`type-tag type-${current.type}`}>{current.type}</span><h3>{current.scenario}</h3><span className={`status-badge status-${current.approvalStatus}`}>{current.approvalStatus}</span>
+@@ -74,7 +77,7 @@
+         <h4>분석 근거</h4><div className="test-case-evidence">{current.evidence.map(ref => {
+           const source = result.sourceAnalysis.evidence.find(e => e.documentId === ref.documentId && e.chunkId === ref.chunkId)
+           return <details key={ref.chunkId}><summary>{source?.documentType} · {source?.section}</summary><p>documentId: {ref.documentId}<br />chunkId: {ref.chunkId}<br />score: {source?.score}</p><p>{source?.contentSnippet ?? '저장된 근거를 확인할 수 없습니다.'}</p></details>
+-        })}</div><div className="detail-actions"><button type="button" onClick={() => onNavigate('review')}>검토 및 승인으로 이동</button><button type="button" className="secondary" onClick={() => onNavigate('execution')}>실행 결과 보기</button></div></div>
++        })}</div><div className="detail-actions"><button type="button" onClick={() => onNavigate('review')}>테스트 검토·승인으로 이동</button><button type="button" className="secondary" onClick={() => onNavigate('execution')}>실행 결과 보기</button></div></div>
+       </article>}
+       </div>
+     </div>}

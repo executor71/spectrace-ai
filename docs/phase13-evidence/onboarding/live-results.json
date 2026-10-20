@@ -1,0 +1,109 @@
+{
+  "kind": "real Chrome; real existing backend/AI; no intercepted responses",
+  "steps": [
+    {
+      "stage": "landing purpose and four steps visible",
+      "elapsedSeconds": 2.5
+    },
+    {
+      "stage": "example fills form only; zero mutating requests",
+      "elapsedSeconds": 2.7
+    },
+    {
+      "stage": "saved real example",
+      "elapsedSeconds": 2.9,
+      "requirementId": "eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a"
+    },
+    {
+      "stage": "analysis started",
+      "elapsedSeconds": 2.9
+    },
+    {
+      "stage": "local LLM progress indicator visible",
+      "elapsedSeconds": 3.1
+    },
+    {
+      "stage": "analysis complete",
+      "elapsedSeconds": 106.4,
+      "counts": {
+        "confirmedConditions": 4,
+        "ambiguousExpressions": 0,
+        "missingConditions": 0,
+        "clarificationQuestions": 0,
+        "evidence": 5
+      }
+    },
+    {
+      "stage": "test generation complete",
+      "elapsedSeconds": 243.0,
+      "count": 5,
+      "clarificationRequired": [],
+      "generationId": "ed38a600-5777-44b2-a4bb-3da660f6c1d9",
+      "llmCalls": 1
+    },
+    {
+      "stage": "review and approval saved",
+      "elapsedSeconds": 243.5
+    },
+    {
+      "stage": "real synthetic API execution complete",
+      "elapsedSeconds": 244.0,
+      "executionId": "08d9c55b-b01d-400e-a770-ae7c714ddb12",
+      "result": "PASS",
+      "testCaseRevision": 1,
+      "syntheticDefect": false
+    },
+    {
+      "stage": "report downloaded",
+      "elapsedSeconds": 244.5
+    }
+  ],
+  "requirementId": "eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a",
+  "analysisHTTP": 200,
+  "analysisCounts": {
+    "confirmedConditions": 4,
+    "ambiguousExpressions": 0,
+    "missingConditions": 0,
+    "clarificationQuestions": 0,
+    "evidence": 5
+  },
+  "generationHTTP": 200,
+  "generation": {
+    "count": 5,
+    "clarificationRequired": [],
+    "generationId": "ed38a600-5777-44b2-a4bb-3da660f6c1d9",
+    "llmCalls": 1
+  },
+  "testCaseId": "4aa03dad-8379-4832-a921-42c77c754746",
+  "execution": {
+    "executionId": "08d9c55b-b01d-400e-a770-ae7c714ddb12",
+    "result": "PASS",
+    "testCaseRevision": 1,
+    "syntheticDefect": false
+  },
+  "xlsx": "SpecTrace_AI_eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a_검증보고서_20261020_214237.xlsx",
+  "success": true,
+  "consoleErrors": [],
+  "mutatingRequests": [
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/requirements"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/requirements/eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a/analysis"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/requirements/eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a/test-cases/generate"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/test-cases/4aa03dad-8379-4832-a921-42c77c754746/approve"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/test-cases/4aa03dad-8379-4832-a921-42c77c754746/executions"
+    }
+  ]
+}

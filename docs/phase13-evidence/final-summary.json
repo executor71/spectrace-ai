@@ -1,0 +1,762 @@
+{
+  "queriedAt": "2026-10-20T10:54:33.527636532Z",
+  "requirements": [
+    {
+      "id": "7036d112-25d2-4d14-9aea-ef7acb7da1d0",
+      "title": "동일 장비 중복 승인 방지",
+      "createdAt": "2026-10-19T14:41:02.797139Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "a97289bf-139d-4488-951e-0228ab180da9",
+      "title": "일반 사용자 승인 권한 제한",
+      "createdAt": "2026-10-19T14:36:13.161965Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "634d8136-194f-4553-b9f3-8e7988e971a6",
+      "title": "자기 승인 금지",
+      "createdAt": "2026-10-19T14:35:58.945587Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "e5c9bfb2-1e58-480a-882a-b57f7e752316",
+      "title": "대여 승인 권한 변경",
+      "createdAt": "2026-10-19T14:35:43.645353Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "11909582-8c90-4d76-8ed8-de45cd7f325a",
+      "title": "가짜 API 생성 유도",
+      "createdAt": "2026-10-19T11:01:36.728029Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "2d9afa69-0068-480d-8e2e-80e754d5e6ed",
+      "title": "업무 도메인 밖의 정산 요구",
+      "createdAt": "2026-10-19T11:01:27.731946Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "0f2951a8-9823-4e38-8735-c63ae81d1a90",
+      "title": "근거 없는 임원 특혜 정책",
+      "createdAt": "2026-10-19T11:01:18.544312Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "3418f1c8-ea21-4e48-ae07-add631af2bfe",
+      "title": "모호한 승인 처리 요구사항",
+      "createdAt": "2026-10-19T11:01:08.625165Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "d4d2c338-1701-4166-983b-b5fc04a79b23",
+      "title": "반납 후 검사 대기",
+      "createdAt": "2026-10-19T11:00:59.753775Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "280778ec-2516-45ef-a6a3-2402247e585e",
+      "title": "대여 불가능 자산 처리",
+      "createdAt": "2026-10-19T11:00:47.391824Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "4915ee72-9dc4-4006-b730-9f8b68f3ba51",
+      "title": "동일 장비 중복 승인 방지",
+      "createdAt": "2026-10-19T11:00:37.905895Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "2141ad40-e93d-4bb0-bb0e-87ba6207bc74",
+      "title": "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다",
+      "createdAt": "2026-10-19T10:40:08.909690Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 5,
+        "DRAFT": 5,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 5,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "df315eb4-e6fd-4f97-a92c-565e1ba999f0",
+      "title": "자기 승인 금지",
+      "createdAt": "2026-10-19T10:23:08.592195Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "a8e38276-f033-4cb6-b1f4-b44811778a1b",
+      "title": "대여 승인 권한 검증",
+      "createdAt": "2026-10-19T10:22:49.559086Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "438c6b1b-e41e-4083-93da-72c0be1597bf",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "createdAt": "2026-10-02T17:07:21.696098Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "4ee9824c-4a5f-4c4e-8e30-0a99e9bcc660",
+      "title": "대여 승인 권한 변경",
+      "createdAt": "2026-10-02T16:48:24.717587Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+      "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증",
+      "createdAt": "2026-10-02T11:20:26.739616Z",
+      "status": "DRAFT",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 5,
+        "DRAFT": 1,
+        "APPROVED": 4,
+        "REJECTED": 0,
+        "PASS": 2,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 3,
+        "SYNTHETIC": 1,
+        "passRatio": 1.0,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "744dd838-dba6-449a-bc01-fe5c3669b048",
+      "title": "[Phase 6 final] 한 장비에 대한 경합 승인",
+      "createdAt": "2026-09-30T10:44:35.082571Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "3f209638-fddf-4c2d-bb10-919601da4df3",
+      "title": "[Phase 6 validation] 반납 검사 결과와 필수 증빙",
+      "createdAt": "2026-09-30T10:42:35.848564Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "79dd9d87-57e8-4b11-8cea-846b00fc2acb",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "createdAt": "2026-09-29T14:23:54.317917Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "82c0c825-c976-4ae0-9c69-257c1747c3e9",
+      "title": "[Phase 3 검증] 긴 입력 제한",
+      "createdAt": "2026-09-29T14:22:34.216961Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "90c41e3f-a46d-455d-bda3-3b437e76b2a6",
+      "title": "[Phase 3 검증] 승인 검증",
+      "createdAt": "2026-09-29T13:45:53.758503Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "e1009c78-97b0-42df-93cc-ed1f41dec571",
+      "title": "[Phase 3 검증] 임원 대여 예외와 자동 승인",
+      "createdAt": "2026-09-29T13:43:56.770442Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "d7a38712-89ac-4858-89a9-633eb780930f",
+      "title": "[Phase 3 검증] 해외 배송료 정산",
+      "createdAt": "2026-09-29T13:42:08.970747Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "e2b5a1f0-8894-48dc-a77d-41a47c2ff1ff",
+      "title": "[Phase 3 검증] 빠른 대여 승인",
+      "createdAt": "2026-09-29T13:40:16.218798Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "createdAt": "2026-09-29T13:38:24.239194Z",
+      "status": "ANALYZED",
+      "hasAnalysis": true,
+      "stale": false,
+      "counts": {
+        "total": 5,
+        "DRAFT": 3,
+        "APPROVED": 1,
+        "REJECTED": 1,
+        "PASS": 1,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 4,
+        "SYNTHETIC": 0,
+        "passRatio": 1.0,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "6f1fd8bb-b9c2-4be9-a095-879a30447376",
+      "title": "Phase 1 화면 검증 샘플",
+      "createdAt": "2026-09-29T12:37:02.038Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    },
+    {
+      "id": "9fe79a4c-54ce-4810-8a99-2d5c9b3f1203",
+      "title": "Phase 1 API 검증 샘플",
+      "createdAt": "2026-09-29T12:37:00.053440Z",
+      "status": "DRAFT",
+      "hasAnalysis": false,
+      "stale": false,
+      "counts": {
+        "total": 0,
+        "DRAFT": 0,
+        "APPROVED": 0,
+        "REJECTED": 0,
+        "PASS": 0,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0,
+        "SYNTHETIC": 0,
+        "passRatio": null,
+        "blocked": "미조회: 실행 차단은 결과 FAIL에 포함하지 않음"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "testCaseId": "28f56148-cd8a-4815-a38e-0cd3ef96dffc",
+      "requirementId": "2141ad40-e93d-4bb0-bb0e-87ba6207bc74",
+      "title": "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다",
+      "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "f807005a-fce6-45ab-9dd2-3e1e3f4bbe51",
+      "requirementId": "2141ad40-e93d-4bb0-bb0e-87ba6207bc74",
+      "title": "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다",
+      "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "4af23bcc-145e-4292-b482-8289964a164d",
+      "requirementId": "2141ad40-e93d-4bb0-bb0e-87ba6207bc74",
+      "title": "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다",
+      "scenario": "일반 직원이 승인 권한 없이 다른 직원의 신청을 승인한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "f36b075c-c5d1-4edb-86c3-6346ebcb8a41",
+      "requirementId": "2141ad40-e93d-4bb0-bb0e-87ba6207bc74",
+      "title": "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다",
+      "scenario": "승인 권한의 부서 범위 경계: 타 부서 부서장의 승인을 거부한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "84d95c06-7c24-4d1f-8623-b3d8a8bed1b0",
+      "requirementId": "2141ad40-e93d-4bb0-bb0e-87ba6207bc74",
+      "title": "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다",
+      "scenario": "자기 승인 거부 시 신청 및 자산 상태를 보존한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+      "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+      "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증",
+      "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+      "approvalStatus": "APPROVED",
+      "reviewRevision": 1,
+      "executionStatus": "PASS",
+      "syntheticExecution": false,
+      "executedAt": "2026-10-02T17:13:30.155051828Z"
+    },
+    {
+      "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+      "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+      "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증",
+      "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+      "approvalStatus": "APPROVED",
+      "reviewRevision": 4,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": true
+    },
+    {
+      "testCaseId": "889ea853-67f3-49a0-b2b3-2ff94520f094",
+      "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+      "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증",
+      "scenario": "[합성 수동 검토 TC] 자산 상세 조회",
+      "approvalStatus": "APPROVED",
+      "reviewRevision": 4,
+      "executionStatus": "PASS",
+      "syntheticExecution": false,
+      "executedAt": "2026-10-02T11:27:41.953275142Z"
+    },
+    {
+      "testCaseId": "1f521e4c-458b-4c09-95f3-4e6d26ea112a",
+      "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+      "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증",
+      "scenario": "승인 권한의 부서 범위 경계: 타 부서 부서장의 승인을 거부한다.",
+      "approvalStatus": "APPROVED",
+      "reviewRevision": 24,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627",
+      "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+      "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증",
+      "scenario": "자기 승인 거부 시 신청 및 자산 상태를 보존한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "c53be0ea-3157-49be-a922-efa378d6ca11",
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "scenario": "같은 부서 직원의 신청을 부서장이 승인한다. [Phase 5 사용자 검토 완료]",
+      "approvalStatus": "APPROVED",
+      "reviewRevision": 2,
+      "executionStatus": "PASS",
+      "syntheticExecution": false,
+      "executedAt": "2026-10-11T11:42:42.240629921Z"
+    },
+    {
+      "testCaseId": "c0dca00f-7a4c-4861-ba42-06c7588235b1",
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+      "approvalStatus": "REJECTED",
+      "reviewRevision": 1,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "0cdd544d-a755-412a-88e5-78f570c427c2",
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "scenario": "일반 직원이 승인 권한 없이 다른 직원의 신청을 승인한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 2,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "4b357887-da03-4295-9399-78b5ae5a587d",
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "scenario": "승인 권한의 부서 범위 경계: 타 부서 부서장의 승인을 거부한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    },
+    {
+      "testCaseId": "f25fc98b-f047-4799-88dc-7fa77dd579b1",
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "title": "[Phase 3 검증] 부서장 대여 승인",
+      "scenario": "자기 승인 거부 시 신청 및 자산 상태를 보존한다.",
+      "approvalStatus": "DRAFT",
+      "reviewRevision": 0,
+      "executionStatus": "NOT_RUN",
+      "syntheticExecution": false
+    }
+  ],
+  "counts": {
+    "total": 15,
+    "DRAFT": 9,
+    "APPROVED": 5,
+    "REJECTED": 1,
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "NOT_RUN": 12,
+    "SYNTHETIC": 1,
+    "requirements": 28,
+    "passRatio": 1.0
+  },
+  "basis": "현재 생성 batch·현재 검토본 / 현재 revision의 최신 일반 실행. 의도적 결함은 별도 집계·PASS 비율에서 제외. 차단은 미조회이며 FAIL 아님."
+}

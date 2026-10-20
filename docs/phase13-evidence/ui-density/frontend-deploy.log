@@ -1,0 +1,5 @@
+time="2026-10-20T20:12:34+09:00" level=warning msg="Found orphan containers (master-graph-service-1, master-mcp-server-1, master-neo4j-1, master-jaeger-1, master-otel-collector-1, master-retrieval-service-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container master-frontend-1 Recreate 
+ Container master-frontend-1 Recreated 
+ Container master-frontend-1 Starting 
+ Container master-frontend-1 Started 

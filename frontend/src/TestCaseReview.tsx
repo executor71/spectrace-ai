@@ -27,9 +27,9 @@ export default function TestCaseReview({ current, stale, onSaved, reviewVisible,
     <p role="status">승인 상태: <strong className={`status-badge status-${current.approvalStatus}`}>{current.approvalStatus}</strong> · {current.modified ? '사용자 수정본' : 'AI 원본'}</p>
     <p>검토자: {current.reviewer ?? '미검토'} · 검토 시각: {current.reviewedAt ? new Date(current.reviewedAt).toLocaleString('ko-KR') : '—'}</p>
     {current.reviewComment && <p>검토 의견: {current.reviewComment}</p>}
-    <p>내용을 저장하면 DRAFT가 되어 다시 승인이 필요합니다. Evidence와 요구사항 연결은 변경할 수 없습니다.</p>
+    <p>내용을 저장하면 DRAFT가 되어 다시 승인이 필요합니다. 연결된 근거와 변경 요청은 그대로 보존됩니다.</p>
     <fieldset disabled={busy}>
-      <legend>검토 및 승인</legend><details className="review-editor"><summary>테스트 내용 수정</summary><div className="review-fields">
+      <legend>테스트 검토·승인</legend><details className="review-editor"><summary>테스트 내용 수정</summary><div className="review-fields">
       <label htmlFor="review-type">Test Type</label>
       <select id="review-type" value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}>{['NORMAL', 'EXCEPTION', 'AUTHORIZATION', 'BOUNDARY', 'BUSINESS_RULE'].map(type => <option key={type}>{type}</option>)}</select>
       {(['scenario', 'preconditions', 'input', 'steps', 'expectedResult'] as const).map(key => <div key={key}>

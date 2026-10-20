@@ -1,0 +1,95 @@
+{
+  "protectedSourceUnchanged": [
+    "ai-service",
+    "retrieval-service",
+    "evaluation-service",
+    "mcp-server",
+    "graph-service",
+    "contracts",
+    "backend/src/main/resources/db/migration",
+    "backend/src/main/java/com/example/legacyassistant/testcase",
+    "backend/src/main/java/com/example/legacyassistant/analysis"
+  ],
+  "ollamaChatGenerateCallsSinceBaseline": 0,
+  "sinceUTC": "2026-10-20T10:41:44.759962+00:00",
+  "tests": [
+    {
+      "name": "com.example.legacyassistant.analysis.AnalysisIntegrationTest",
+      "tests": "9",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.dashboard.DashboardIntegrationTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.dashboard.ReportPublicEvaluationTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.dashboard.ReportTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.requirement.RequirementIntegrationTest",
+      "tests": "14",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.requirement.RequirementServiceTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.ExecutionComparatorTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.ExecutionIntegrationTest",
+      "tests": "21",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.TestCaseIntegrationTest",
+      "tests": "13",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.TestCaseReviewIntegrationTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.example.legacyassistant.testcase.TestCaseReviewUnitTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "gitStatus": " M backend/pom.xml\n M frontend/src/Evaluations.tsx\n M frontend/src/Requirements.tsx\n M frontend/src/TestCases.tsx\n?? backend/src/main/java/com/example/legacyassistant/dashboard/\n?? backend/src/test/java/com/example/legacyassistant/dashboard/\n?? frontend/public/technical-results.json\n?? frontend/src/Dashboard.tsx\n?? frontend/src/dashboard.css\n"
+}

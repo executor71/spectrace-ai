@@ -14,7 +14,7 @@ export default function KnowledgeGraph({ requirementId }: { requirementId: strin
     setBusy(true); setError(''); if (overview) { setGraph(null); setDetail(null) } else setDetail(null)
     try {
       const r = await fetch(`/api/graph/${tool}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: AbortSignal.timeout(10000) })
-      if (!r.ok) throw new Error(r.status === 404 ? '동기화된 관계가 없습니다.' : 'Graph 기능을 사용할 수 없습니다. 기존 분석과 테스트 기능은 계속 사용할 수 있습니다.')
+      if (!r.ok) throw new Error(r.status === 404 ? '아직 준비된 관계 자료가 없습니다. 분석과 테스트를 저장한 뒤 관리자에게 관계 동기화 상태를 확인해 주세요.' : '관계 조회 서비스에 연결하지 못했습니다. 잠시 후 다시 조회하세요. 분석과 테스트 검토·실행은 계속 사용할 수 있습니다.')
       const value: Graph = await r.json()
       if (overview) { setGraph(value); setDetail(null) } else setDetail(value)
     } catch (e) { setError(e instanceof Error ? e.message : 'Graph 조회 실패') }
@@ -33,8 +33,8 @@ export default function KnowledgeGraph({ requirementId }: { requirementId: strin
       {n.type === 'TestCase' && <button disabled={busy} onClick={() => load('trace_test_case_origin', { testCaseId: n.id })}>생성 근거 추적</button>}
     </div>
   }
-  return <section className="knowledge-graph" aria-label="Knowledge Graph">
-    <div className="section-heading"><div><p className="eyebrow">RELATIONSHIP EXPLORER</p><h3>요구사항 관계 추적</h3></div><button disabled={busy} onClick={() => load('find_requirement_context', { requirementId }, true)}>{busy ? '관계 조회 중…' : '관계 그래프 조회'}</button></div>
+  return <section className="knowledge-graph" aria-label="변경 영향 관계 확인">
+    <div className="section-heading"><div><p className="eyebrow">RELATIONSHIP EXPLORER</p><h3>변경 영향 관계 확인</h3></div><button disabled={busy} onClick={() => load('find_requirement_context', { requirementId }, true)}>{busy ? '관계 조회 중…' : '변경 영향 관계 조회'}</button></div>
     <div className="graph-legend" aria-label="노드 유형">{['Requirement', 'BusinessRule', 'Api', 'TestCase', 'Execution'].map((kind, i) => <span key={kind}><b className={`node-type node-${kind}`}>{kind}</b>{i < 4 && <i aria-hidden="true">→</i>}</span>)}</div><p>명시적 동기화 시점의 관계입니다. 실행 결과는 실행 당시 revision과 함께 표시합니다.</p>
     {busy && <p className="loading-panel" role="status"><span className="spinner" /> 관계 경로를 조회하고 있습니다.</p>}
     {error && <p role="alert" className="form-error">{error}</p>}

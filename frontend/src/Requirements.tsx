@@ -1,3 +1,7 @@
+import GettingStarted, { exampleRequest } from './GettingStarted'
+import './onboarding.css'
+import Dashboard, { ExportButton } from './Dashboard'
+import './dashboard.css'
 import Evaluations from './Evaluations'
 import RequirementAnalysis from './RequirementAnalysis'
 import TestCases from './TestCases'
@@ -28,6 +32,11 @@ function errorMessage(error: unknown) {
 }
 
 export default function Requirements({ view, onNavigate, onAnalysisBusy }: { view: Screen; onNavigate: (view: Screen) => void; onAnalysisBusy: (busy: boolean) => void }) {
+  const [targetTc, setTargetTc] = useState('')
+  async function selectFromDashboard(id: string, next: Screen, tc = '') {
+    const loaded = await loadRequirement(id)
+    if (loaded) { setTargetTc(tc); onNavigate(next) }
+  }
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [lookupId, setLookupId] = useState('')
@@ -46,6 +55,13 @@ export default function Requirements({ view, onNavigate, onAnalysisBusy }: { vie
     return () => clearTimeout(timer)
   }, [toast])
 
+  function loadExample() {
+    if (busy) return
+    setTitle(exampleRequest.title); setDescription(exampleRequest.description)
+    setError(''); setNotice('예제를 입력폼에 불러왔습니다. 아직 저장되지 않았습니다. 내용을 확인한 뒤 변경 요청 저장을 눌러 주세요.')
+    onNavigate('requirements')
+  }
+  const nextStep: Screen = !result ? 'requirements' : !analysisSummary ? 'analysis' : !testSummary?.total ? 'testcases' : testSummary.approved ? 'execution' : 'review'
   async function create(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (busy) return
@@ -70,8 +86,8 @@ export default function Requirements({ view, onNavigate, onAnalysisBusy }: { vie
     setBusy(true)
     try {
       const saved = await requestRequirement(`/api/requirements/${encodeURIComponent(id.trim())}`)
-      setResult(saved); setLookupId(saved.id); setNotice('저장된 요구사항을 조회했습니다.')
-    } catch (err) { setResult(null); setError(errorMessage(err)) }
+      setResult(saved); setLookupId(saved.id); setNotice('저장된 요구사항을 조회했습니다.'); return true
+    } catch (err) { setError(errorMessage(err)); return false }
     finally { setBusy(false) }
   }
 
@@ -81,25 +97,24 @@ export default function Requirements({ view, onNavigate, onAnalysisBusy }: { vie
   }
   const needsRequirement = !result && ['analysis', 'testcases', 'review', 'execution', 'graph'].includes(view)
   return <div className="requirements">
-    <section className="context-bar" aria-label="현재 요구사항">
+    {view === 'dashboard' && <GettingStarted onExample={loadExample} onNavigate={onNavigate} next={nextStep} selectedTitle={result?.title} disabled={busy} />}
+    <section hidden={view === 'dashboard' && !result} className="context-bar" aria-label="현재 요구사항">
       <div className="context-identity"><span className="context-icon"><Icon name="requirements" /></span><div><small>현재 요구사항</small><strong>{result?.title ?? '선택된 요구사항이 없습니다'}</strong>{result && <span className={`status-badge status-${result.status}`}>{result.status}</span>}</div></div>
-      <form onSubmit={lookup} className="lookup-form" aria-label="요구사항 조회"><label htmlFor="requirement-id" className="sr-only">요구사항 ID</label><div className="lookup-controls"><input id="requirement-id" value={lookupId} onChange={e => setLookupId(e.target.value)} required disabled={busy} placeholder="Requirement ID로 조회" /><button type="submit" className="secondary" disabled={busy}>{busy ? '조회 중…' : '조회'}</button></div></form>
+      <form onSubmit={lookup} className="lookup-form" aria-label="요구사항 조회"><label htmlFor="requirement-id" className="sr-only">요구사항 ID</label><div className="lookup-controls"><input id="requirement-id" value={lookupId} onChange={e => setLookupId(e.target.value)} required disabled={busy} placeholder="저장된 요청 ID로 조회" /><button type="submit" className="secondary" disabled={busy}>{busy ? '조회 중…' : '조회'}</button></div></form>
     </section>
+    {result && <p className="metadata">선택 상태: {result.status} · 조회한 분석 조건 {analysisSummary?.conditions ?? '—'}건 · 조회한 TC {testSummary?.total ?? '—'}건</p>}
+    {result && <nav className="p13-context-actions" aria-label="요구사항 상세 탐색">{(['requirements','analysis','testcases','review','execution','evaluation','graph'] as const).map((next,i) => <button key={next} className="secondary" onClick={() => onNavigate(next)}>{['상세','변경 요청 분석','테스트 자동 생성','테스트 검토·승인','테스트 실행·결과 확인','기술 검증','변경 영향 관계 확인'][i]}</button>)}<ExportButton id={result.id}/></nav>}
     {error && <p className="form-error" role="alert">{error}</p>}
     <p className="form-notice" role="status">{notice}</p>
-    <div hidden={view !== 'dashboard'} className="dashboard-view">
-      <section className="welcome-card"><div><span className="eyebrow">FROM REQUIREMENTS TO CONFIDENCE</span><h2>모든 검증에,<br />명확한 근거를.</h2><p>요구사항을 분석하고, 테스트를 검토하고,<br className="desktop-break" /> 실행 결과까지 하나의 흐름으로 연결하세요.</p><button onClick={() => onNavigate('requirements')}>요구사항 관리 <Icon name="arrow" size={17} /></button></div><div className="welcome-diagram" aria-label="요구사항에서 검증까지"><span className="diagram-caption">TRACEABLE BY DESIGN</span><div><span><Icon name="requirements" />요구사항</span><i>→</i><span><Icon name="analysis" />AI 분석</span></div><div className="diagram-connector">↓</div><div><span><Icon name="execution" />검증 결과</span><i>←</i><span><Icon name="testcases" />테스트케이스</span></div><small><span className="live-dot" /> Evidence로 연결된 검증 과정</small></div></section>
-      <div className="metric-grid"><article className="metric-card"><span className="metric-icon"><Icon name="requirements" /></span><p>선택한 요구사항</p><strong>{result ? '1' : '—'}</strong><small>{result ? result.status : '요구사항을 조회해 시작하세요'}</small></article><article className="metric-card"><span className="metric-icon blue"><Icon name="analysis" /></span><p>검색된 Evidence</p><strong>{analysisSummary?.evidence ?? '—'}<small>건</small></strong><small>{analysisSummary ? `확인된 조건 ${analysisSummary.conditions}건` : '저장된 분석 조회 후 표시'}</small></article><article className="metric-card"><span className="metric-icon violet"><Icon name="testcases" /></span><p>테스트케이스</p><strong>{testSummary?.total ?? '—'}<small>건</small></strong><small>현재 요구사항의 저장된 테스트</small></article><article className="metric-card"><span className="metric-icon amber"><Icon name="review" /></span><p>승인된 테스트</p><strong>{testSummary?.approved ?? '—'}<small>건</small></strong><small>서버의 승인 상태 기준</small></article></div>
-      <div className="dashboard-columns"><section className="card workflow-card"><div className="card-heading"><div><p className="eyebrow">YOUR WORKFLOW</p><h3>검증 워크플로</h3></div><span className="subtle-label">4 STEPS</span></div>{([{ id: 'analysis', name: '요구사항 분석', text: '확정 조건과 원문 Evidence 확인' }, { id: 'testcases', name: '테스트케이스', text: '유형별 시나리오와 기대결과 확인' }, { id: 'review', name: '검토 및 승인', text: '사람의 판단으로 테스트 품질 보완' }, { id: 'execution', name: '실행 및 검증', text: '승인된 테스트의 실제 결과 비교' }] as const).map((item, i) => <button className="workflow-row" key={item.id} onClick={() => onNavigate(item.id)}><span className="step-number">0{i + 1}</span><span><strong>{item.name}</strong><small>{item.text}</small></span><Icon name="arrow" size={17} /></button>)}</section><div className="insight-stack"><section className="card selected-card"><p className="eyebrow">CURRENT CONTEXT</p><h3>{result?.title ?? '첫 번째 요구사항을 선택하세요'}</h3><p>{result ? '선택한 요구사항은 모든 작업 화면에서 동일하게 유지됩니다.' : '상단에서 저장된 ID를 조회하거나 새로운 요구사항을 등록하세요.'}</p><button className="secondary" onClick={() => onNavigate('requirements')}>{result ? '요구사항 상세 보기' : '요구사항 등록하기'} <Icon name="arrow" size={16} /></button></section><button className="graph-shortcut" onClick={() => onNavigate('graph')}><span className="metric-icon"><Icon name="graph" /></span><span><strong>Knowledge Graph</strong><small>업무규칙부터 실행까지, 관계를 추적하세요</small></span><Icon name="arrow" size={18} /></button></div></div>
-    </div>
+    <div hidden={view !== 'dashboard'}><Dashboard onSelect={selectFromDashboard} onNavigate={onNavigate} /></div>
     <div hidden={view !== 'requirements'} className="requirement-layout">
-      <section className="card requirement-form-card"><div className="card-heading"><div><p className="eyebrow">NEW REQUIREMENT</p><h2>새 요구사항 등록</h2></div><Icon name="requirements" /></div><form onSubmit={create} aria-label="요구사항 등록"><label htmlFor="requirement-title-input">제목 <span>최대 200자</span></label><input id="requirement-title-input" value={title} onChange={e => setTitle(e.target.value)} required maxLength={200} disabled={busy} placeholder="예: 대여 승인 권한 검증" /><div className="label-row"><label htmlFor="requirement-description">상세 내용</label><span>{description.length.toLocaleString()} / 10,000</span></div><textarea id="requirement-description" value={description} onChange={e => setDescription(e.target.value)} required maxLength={10000} rows={9} disabled={busy} placeholder="업무의 목적과 조건, 예외 상황을 구체적으로 작성해 주세요." /><p className="field-hint">명확한 업무조건은 분석과 테스트의 출발점이 됩니다.</p><div className="form-footer"><span>등록 후 AI 분석을 시작할 수 있습니다.</span><button type="submit" disabled={busy}>{busy ? <><span className="spinner" /> 저장 중…</> : '요구사항 저장'}</button></div></form></section>
-      <section className="card requirement-summary"><p className="eyebrow">REQUIREMENT DETAILS</p>{result ? <article className="requirement-result" aria-label="요구사항 상세"><span className={`status-badge status-${result.status}`}>{result.status}</span><h3>{result.title}</h3><p className="requirement-description">{result.description}</p><dl><dt>등록 일시</dt><dd>{new Date(result.createdAt).toLocaleString('ko-KR')}</dd><dt>Requirement ID</dt><dd><code>{result.id}</code></dd></dl><button onClick={() => onNavigate('analysis')}>AI 분석으로 이동 <Icon name="arrow" size={17} /></button></article> : <div className="empty-state"><Icon name="requirements" size={34} /><h3>요구사항을 기다리고 있습니다</h3><p>새 요구사항을 등록하거나<br />상단 ID 조회로 상세 내용을 확인하세요.</p></div>}</section>
+      <section className="card requirement-form-card"><div className="card-heading"><div><p className="eyebrow">NEW REQUIREMENT</p><h2>새 변경 요청 입력</h2></div><Icon name="requirements" /></div><div className="example-form-guide"><p>입력이 처음이라면 합성 IT 자산관리 예제를 사용해 보세요.</p><button type="button" className="secondary" disabled={busy} onClick={loadExample}>예제 불러오기</button><small>입력폼만 채우며 저장·AI 분석·테스트 실행은 자동으로 수행하지 않습니다.</small></div><form onSubmit={create} aria-label="변경 요청 등록"><label htmlFor="requirement-title-input">제목 <span>최대 200자</span></label><input id="requirement-title-input" value={title} onChange={e => setTitle(e.target.value)} required maxLength={200} disabled={busy} placeholder="예: 대여 승인 권한 검증" /><div className="label-row"><label htmlFor="requirement-description">상세 내용</label><span>{description.length.toLocaleString()} / 10,000</span></div><textarea id="requirement-description" value={description} onChange={e => setDescription(e.target.value)} required maxLength={10000} rows={9} disabled={busy} placeholder="업무의 목적과 조건, 예외 상황을 구체적으로 작성해 주세요." /><p className="field-hint">명확한 업무조건은 분석과 테스트의 출발점이 됩니다.</p><div className="form-footer"><span>저장 → 변경 요청 분석 → 테스트 생성 순서로 진행합니다.</span><button type="submit" disabled={busy}>{busy ? <><span className="spinner" /> 저장 중…</> : '변경 요청 저장'}</button></div></form></section>
+      <section className="card requirement-summary"><p className="eyebrow">REQUIREMENT DETAILS</p>{result ? <article className="requirement-result" aria-label="요구사항 상세"><span className={`status-badge status-${result.status}`}>{result.status}</span><h3>{result.title}</h3><p className="requirement-description">{result.description}</p><dl><dt>등록 일시</dt><dd>{new Date(result.createdAt).toLocaleString('ko-KR')}</dd><dt>요청 ID</dt><dd><code>{result.id}</code></dd></dl><button onClick={() => onNavigate('analysis')}>다음: 변경 요청 분석 <Icon name="arrow" size={17} /></button></article> : <div className="empty-state"><Icon name="requirements" size={34} /><h3>아직 저장한 변경 요청이 없습니다</h3><p>왼쪽에 변경 요청을 입력하거나 예제를 불러온 뒤 저장하세요. 저장 후 분석을 직접 시작할 수 있습니다.</p></div>}</section>
     </div>
-    {needsRequirement && <section className="card empty-state"><span className="empty-icon"><Icon name="requirements" size={28} /></span><h2>먼저 요구사항을 선택해 주세요</h2><p>상단에서 Requirement ID를 조회하거나 요구사항 관리에서 새 요구사항을 등록하세요.</p><button onClick={() => onNavigate('requirements')}>요구사항 관리로 이동 <Icon name="arrow" size={16} /></button><button className="text-button" onClick={() => onNavigate('evaluation')}>Frozen 평가 샘플 찾아보기</button></section>}
-    <div hidden={view !== 'analysis'}>{result && <RequirementAnalysis key={`analysis:${result.id}`} requirementId={result.id} onBusyChange={onAnalysisBusy} onSummary={setAnalysisSummary} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}</div>
-    <div hidden={!['testcases', 'review', 'execution'].includes(view)}>{result && <TestCases key={`tests:${result.id}`} requirementId={result.id} view={view} onNavigate={onNavigate} onSummary={setTestSummary} />}</div>
-    <div hidden={view !== 'evaluation'}><Evaluations key={`evaluation:${result?.id ?? 'none'}`} requirementId={result?.id ?? ''} requirementBusy={busy} onSelectRequirement={loadRequirement} /></div>
+    {needsRequirement && <section className="card empty-state"><span className="empty-icon"><Icon name="requirements" size={28} /></span><h2>먼저 요구사항을 선택해 주세요</h2><p>대시보드 목록에서 저장된 요청을 선택하거나, 변경 요청 입력에서 예제를 불러와 저장하세요.</p><button onClick={() => onNavigate('requirements')}>변경 요청 입력로 이동 <Icon name="arrow" size={16} /></button><button className="text-button" onClick={() => onNavigate('evaluation')}>기술 검증 예제 찾아보기</button></section>}
+    <div hidden={view !== 'analysis'}>{result && <RequirementAnalysis key={`analysis:${result.id}`} requirementId={result.id} onBusyChange={onAnalysisBusy} onSummary={setAnalysisSummary} onNavigate={onNavigate} onSaved={() => setResult(current => current && current.status === 'DRAFT' ? { ...current, status: 'ANALYZED' } : current)} />}</div>
+    <div hidden={!['testcases', 'review', 'execution'].includes(view)}>{result && <TestCases key={`tests:${result.id}`} requirementId={result.id} initialTc={targetTc} view={view} onNavigate={onNavigate} onSummary={setTestSummary} />}</div>
+    <div hidden={view !== 'evaluation'}><Evaluations key={`evaluation:${result?.id ?? 'none'}`} requirementId={result?.id ?? ''} requirementBusy={busy} onSelectRequirement={async id => { await loadRequirement(id) }} /></div>
     <div hidden={view !== 'graph'}>{result && <KnowledgeGraph key={`graph:${result.id}`} requirementId={result.id} />}</div>
     {toast && <div className="toast" role="status"><span className="toast-icon"><Icon name="check" /></span><div><strong>등록 완료</strong><span>{toast}</span></div><button className="icon-button" aria-label="알림 닫기" onClick={() => setToast('')}><Icon name="close" size={17} /></button></div>}
   </div>

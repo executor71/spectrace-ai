@@ -1,0 +1,74 @@
+{
+  "kind": "real Chrome; real existing backend/AI; no intercepted responses",
+  "steps": [
+    {
+      "stage": "landing purpose and four steps visible",
+      "elapsedSeconds": 2.6
+    },
+    {
+      "stage": "example fills form only; zero mutating requests",
+      "elapsedSeconds": 2.8
+    },
+    {
+      "stage": "saved real example",
+      "elapsedSeconds": 3.0,
+      "requirementId": "c80d168d-18d3-4609-a4e1-852f2872ca5d"
+    },
+    {
+      "stage": "analysis started",
+      "elapsedSeconds": 3.1
+    },
+    {
+      "stage": "local LLM progress indicator visible",
+      "elapsedSeconds": 3.2
+    },
+    {
+      "stage": "analysis complete",
+      "elapsedSeconds": 122.6,
+      "counts": {
+        "confirmedConditions": 1,
+        "ambiguousExpressions": 0,
+        "missingConditions": 1,
+        "clarificationQuestions": 1,
+        "evidence": 5
+      }
+    },
+    {
+      "stage": "test generation complete",
+      "elapsedSeconds": 122.8,
+      "count": 0,
+      "clarificationRequired": [
+        "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다.",
+        "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다. 이 조건에 대한 추가 명세가 필요합니다."
+      ],
+      "generationId": "b2f6aca0-7d0b-4800-8705-fdf1582988f6",
+      "llmCalls": 0
+    },
+    {
+      "stage": "flow stopped at existing error or safety gate",
+      "elapsedSeconds": 122.9,
+      "error": "Existing generation policy held this example; see saved clarification reasons. No approval or execution bypassed."
+    }
+  ],
+  "requirementId": "c80d168d-18d3-4609-a4e1-852f2872ca5d",
+  "analysisHTTP": 200,
+  "analysisCounts": {
+    "confirmedConditions": 1,
+    "ambiguousExpressions": 0,
+    "missingConditions": 1,
+    "clarificationQuestions": 1,
+    "evidence": 5
+  },
+  "generationHTTP": 200,
+  "generation": {
+    "count": 0,
+    "clarificationRequired": [
+      "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다.",
+      "요청자 소속 부서의 부서장만 대여 신청을 승인할 수 있으며, 본인이 작성한 신청은 본인이 승인할 수 없다. 이 조건에 대한 추가 명세가 필요합니다."
+    ],
+    "generationId": "b2f6aca0-7d0b-4800-8705-fdf1582988f6",
+    "llmCalls": 0
+  },
+  "success": false,
+  "error": "Existing generation policy held this example; see saved clarification reasons. No approval or execution bypassed."
+}

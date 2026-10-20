@@ -1,0 +1,40 @@
+﻿{
+    "sheets":  [
+                   {
+                       "columns":  3,
+                       "name":  "요약",
+                       "rows":  23
+                   },
+                   {
+                       "columns":  4,
+                       "name":  "요구사항 분석",
+                       "rows":  6
+                   },
+                   {
+                       "columns":  16,
+                       "name":  "테스트케이스",
+                       "rows":  6
+                   },
+                   {
+                       "columns":  13,
+                       "name":  "실행결과",
+                       "rows":  21
+                   },
+                   {
+                       "columns":  7,
+                       "name":  "근거 연결",
+                       "rows":  26
+                   },
+                   {
+                       "columns":  12,
+                       "name":  "평가결과",
+                       "rows":  2
+                   }
+               ],
+    "version":  "16.0",
+    "sheetCount":  6,
+    "success":  true,
+    "application":  "Microsoft Excel",
+    "openedReadOnly":  true,
+    "file":  "SpecTrace_AI_80e2d374-0825-4811-a11e-03ade256b6e8_검증보고서_20261020_195439.xlsx"
+}

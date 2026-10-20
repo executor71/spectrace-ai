@@ -1,0 +1,224 @@
+{
+  "scope": "React UI only; existing API routes, backend/AI/DB/evaluation rules unchanged",
+  "changedFiles": [
+    "frontend/src/App.tsx",
+    "frontend/src/Dashboard.tsx",
+    "frontend/src/Evaluations.tsx",
+    "frontend/src/GettingStarted.tsx",
+    "frontend/src/KnowledgeGraph.tsx",
+    "frontend/src/RequirementAnalysis.tsx",
+    "frontend/src/Requirements.tsx",
+    "frontend/src/TestCaseExecutions.tsx",
+    "frontend/src/TestCaseReview.tsx",
+    "frontend/src/TestCases.tsx",
+    "frontend/src/navigation.ts",
+    "frontend/src/onboarding.css"
+  ],
+  "features": [
+    "Exact requested one-sentence service purpose on landing page",
+    "Four numbered visual workflow steps; explicit next-step CTAs",
+    "Natural-language synthetic IT asset example fills title/description only; saving/analysis/generation/review/execution remain explicit user actions",
+    "Task-oriented navigation and screen titles; technical terms explained separately under technical validation/management",
+    "Korean cause-and-action guidance for absent analysis, held generation, unregistered evaluation, concurrent analysis",
+    "Elapsed-time progress and duplicate-request prevention for local LLM analysis",
+    "Existing dashboard, TC review, execution, saved evaluation, report download and graph lookup retained"
+  ],
+  "build": "TypeScript/Vite build passed",
+  "protectedSourceFilesMatched": 149,
+  "APIRequestExpressionsUnchanged": true,
+  "realChromeFlow": {
+    "kind": "real Chrome; real existing backend/AI; no intercepted responses",
+    "steps": [
+      {
+        "stage": "landing purpose and four steps visible",
+        "elapsedSeconds": 2.5
+      },
+      {
+        "stage": "example fills form only; zero mutating requests",
+        "elapsedSeconds": 2.7
+      },
+      {
+        "stage": "saved real example",
+        "elapsedSeconds": 2.9,
+        "requirementId": "eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a"
+      },
+      {
+        "stage": "analysis started",
+        "elapsedSeconds": 2.9
+      },
+      {
+        "stage": "local LLM progress indicator visible",
+        "elapsedSeconds": 3.1
+      },
+      {
+        "stage": "analysis complete",
+        "elapsedSeconds": 106.4,
+        "counts": {
+          "confirmedConditions": 4,
+          "ambiguousExpressions": 0,
+          "missingConditions": 0,
+          "clarificationQuestions": 0,
+          "evidence": 5
+        }
+      },
+      {
+        "stage": "test generation complete",
+        "elapsedSeconds": 243.0,
+        "count": 5,
+        "clarificationRequired": [],
+        "generationId": "ed38a600-5777-44b2-a4bb-3da660f6c1d9",
+        "llmCalls": 1
+      },
+      {
+        "stage": "review and approval saved",
+        "elapsedSeconds": 243.5
+      },
+      {
+        "stage": "real synthetic API execution complete",
+        "elapsedSeconds": 244.0,
+        "executionId": "08d9c55b-b01d-400e-a770-ae7c714ddb12",
+        "result": "PASS",
+        "testCaseRevision": 1,
+        "syntheticDefect": false
+      },
+      {
+        "stage": "report downloaded",
+        "elapsedSeconds": 244.5
+      }
+    ],
+    "requirementId": "eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a",
+    "analysisHTTP": 200,
+    "analysisCounts": {
+      "confirmedConditions": 4,
+      "ambiguousExpressions": 0,
+      "missingConditions": 0,
+      "clarificationQuestions": 0,
+      "evidence": 5
+    },
+    "generationHTTP": 200,
+    "generation": {
+      "count": 5,
+      "clarificationRequired": [],
+      "generationId": "ed38a600-5777-44b2-a4bb-3da660f6c1d9",
+      "llmCalls": 1
+    },
+    "testCaseId": "4aa03dad-8379-4832-a921-42c77c754746",
+    "execution": {
+      "executionId": "08d9c55b-b01d-400e-a770-ae7c714ddb12",
+      "result": "PASS",
+      "testCaseRevision": 1,
+      "syntheticDefect": false
+    },
+    "xlsx": "SpecTrace_AI_eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a_검증보고서_20261020_214237.xlsx",
+    "success": true,
+    "consoleErrors": [],
+    "mutatingRequests": [
+      {
+        "method": "POST",
+        "url": "http://localhost:5173/api/requirements"
+      },
+      {
+        "method": "POST",
+        "url": "http://localhost:5173/api/requirements/eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a/analysis"
+      },
+      {
+        "method": "POST",
+        "url": "http://localhost:5173/api/requirements/eea0e8c7-e645-42af-b3aa-5a5a4b2f2c1a/test-cases/generate"
+      },
+      {
+        "method": "POST",
+        "url": "http://localhost:5173/api/test-cases/4aa03dad-8379-4832-a921-42c77c754746/approve"
+      },
+      {
+        "method": "POST",
+        "url": "http://localhost:5173/api/test-cases/4aa03dad-8379-4832-a921-42c77c754746/executions"
+      }
+    ]
+  },
+  "stateAndResponsiveChecks": {
+    "viewports": [
+      {
+        "width": 1920,
+        "overflow": false,
+        "fourSteps": true
+      },
+      {
+        "width": 1440,
+        "overflow": false,
+        "fourSteps": true
+      },
+      {
+        "width": 1024,
+        "overflow": false,
+        "fourSteps": true
+      },
+      {
+        "width": 390,
+        "overflow": false,
+        "fourSteps": true
+      }
+    ],
+    "states": {
+      "noAnalysisCauseAndNextAction": true,
+      "analysisBusyCauseAndManualNextAction": true,
+      "generationHeldCauseAndNextAction": true,
+      "evaluationNotRegisteredExplained": true
+    },
+    "interceptedOnly": [
+      "POST analysis returns 429; never forwarded to backend",
+      "POST test generation returns zero cases; never forwarded to backend"
+    ],
+    "technicalTermsInManagementArea": true,
+    "graphReadHTTP": 200,
+    "consoleErrors": [],
+    "protectedSourceFilesUnchanged": 149
+  },
+  "mobileSafariSizedWebKitCheck": {
+    "engine": "Playwright WebKit",
+    "device": "iPhone 13 emulation",
+    "viewport": {
+      "width": 390,
+      "height": 664
+    },
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1",
+    "realIPhoneSafari": false,
+    "overflow": false,
+    "fourStepsVisible": true,
+    "exampleFillsFormOnly": true,
+    "mobileMenuAndTechnicalNavigation": true,
+    "consoleErrors": [],
+    "mutatingRequests": []
+  },
+  "savedEvaluation": {
+    "existingEvaluationResultsDisplay": true,
+    "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+    "newEvaluationRunTriggered": false
+  },
+  "progressAndRetryCheck": {
+    "fixture": "intercepted POST delays four seconds and returns 429; no actual analysis request forwarded",
+    "elapsedTimerAdvances": true,
+    "duplicateStartDisabled": true,
+    "noAutomaticRetry": true,
+    "requestCount": 1
+  },
+  "limits": [
+    "Desktop Chrome and WebKit iPhone emulation were tested; physical iPhone Safari was not tested",
+    "No human usability study was conducted; tests verify visible purpose, steps and next actions",
+    "Local LLM output and existing source/template guards can hold generation. Earlier actual attempts and reasons are preserved; no guard or evaluation standard was changed",
+    "Validation uses existing API operations to create three synthetic demonstration requests and retained test records; no schema, data seeding, direct DB writes, or production system changes were performed"
+  ],
+  "attempts": [
+    {
+      "directory": "short-example-attempt",
+      "summary": "Short initial example: related approval API source missing; generation safely held"
+    },
+    {
+      "directory": "extended-example-attempt",
+      "summary": "API-heavy draft: local analysis retained a clarification question; generation safely held"
+    },
+    {
+      "directory": ".",
+      "summary": "Final natural-language synthetic example uses the same request as an existing generated demonstration; actual result recorded in live-results.json"
+    }
+  ]
+}

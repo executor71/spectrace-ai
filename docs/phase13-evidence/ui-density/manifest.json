@@ -1,0 +1,130 @@
+{
+  "after-1024-viewport.png": {
+    "bytes": 64382,
+    "sha256": "a568aeecc4df0f879cbfca05b8a7cfb861feacc1030d5acf2cf918fe165f988a"
+  },
+  "after-1024.png": {
+    "bytes": 210592,
+    "sha256": "e7f5d9386db19207f0e066e7c0c90c7ee24a81163fb73a646e2cf060dee818f6"
+  },
+  "after-1440-viewport.png": {
+    "bytes": 71126,
+    "sha256": "49b9a240960b9d6b118cf2fe352bc6c77c5d49c0bac04c19eb3a45e980b29a97"
+  },
+  "after-1440.png": {
+    "bytes": 229043,
+    "sha256": "5fd096484824597ff678d12fbed27688aa477cf112575985e55c00db9a980ab3"
+  },
+  "after-1920-viewport.png": {
+    "bytes": 85515,
+    "sha256": "b92abb1f3b6509e8775d7862b9bd8403369e39d1531fdec8d676a9c55a86fe8a"
+  },
+  "after-1920.png": {
+    "bytes": 219608,
+    "sha256": "4e3da8e1f97772cf4dc664cf60ce49365f48475d13b83e01eb6e6ef9faeedbfa"
+  },
+  "after-390-viewport.png": {
+    "bytes": 31309,
+    "sha256": "f2a83399ddde516c05bbcb6463b830d83d8ddaa405a5f5b57dc2c8d6de0d0895"
+  },
+  "after-390.png": {
+    "bytes": 146691,
+    "sha256": "207b8dfb02fe4d7e398cb35ff52331b894a3e4cbc1d1a1758a8f534f74aa9e00"
+  },
+  "after-measurements.json": {
+    "bytes": 11944,
+    "sha256": "d70a0e1ad3b8853fc50bbfabbd1f2020a7284a2202cb5e042109641f54d26ee2"
+  },
+  "before-1024-viewport.png": {
+    "bytes": 56531,
+    "sha256": "5e7f6721751a1233fe4a75ac41f86fa8ac1f87d8a0e0f303f9a4f204f1dc568a"
+  },
+  "before-1024.png": {
+    "bytes": 215485,
+    "sha256": "7f677b1a84b2963dc2ad1c9b2fe59e6f89f580b8788005816e6c6442f56c8a9c"
+  },
+  "before-1440-viewport.png": {
+    "bytes": 67299,
+    "sha256": "261772fae9b31ee19fee60157a79dc6bbbae8563eb38dca56dd8db7423b49f44"
+  },
+  "before-1440.png": {
+    "bytes": 231484,
+    "sha256": "b9caa33a6002b1fcd176375dcac7f45b2c101392243bb51ffb09c8874e21f0ac"
+  },
+  "before-1920-viewport.png": {
+    "bytes": 75425,
+    "sha256": "c3f55cd998122b6110b48b0a7bfb568880d840227ff4ca7560d36975900a2489"
+  },
+  "before-1920.png": {
+    "bytes": 228795,
+    "sha256": "09a7f9abe3a83b283850a0d0c07f7bd4efbed7ec1fff7593540a62cd0c44a9d0"
+  },
+  "before-390-viewport.png": {
+    "bytes": 28329,
+    "sha256": "b023479a5202c48fc64754a568e370222d4b49496cccbd02dcb895d541d09974"
+  },
+  "before-390.png": {
+    "bytes": 153052,
+    "sha256": "2200443c61ef3cab2aa594b515d8ab9a50a44e06980e422adf2bf9819122e4cb"
+  },
+  "before-dashboard.css": {
+    "bytes": 2694,
+    "sha256": "284f3631e404dd3e0496af624908bc0c91ccb077a2805414cd19247863fa7b57"
+  },
+  "before-Dashboard.tsx": {
+    "bytes": 10967,
+    "sha256": "5a3dc544fa13f7308779a2faba5be6aeab830e3c0655f28b4bd56445b1039287"
+  },
+  "before-measurements.json": {
+    "bytes": 11977,
+    "sha256": "25ec22aa9b6a30ba7b0f5875ea76c831a027722ee5fcf76389ac3009bc6fbc99"
+  },
+  "dashboard.css": {
+    "bytes": 5680,
+    "sha256": "62adc5aae400cfed43d88140a16eaf31524764bef3209fd35453427e2cb45276"
+  },
+  "Dashboard.tsx": {
+    "bytes": 11154,
+    "sha256": "f2ac380824b36e718e6dbf0bca5506c3e87ad44b3c7445438caf013f21cd2fbf"
+  },
+  "frontend-build.log": {
+    "bytes": 2570,
+    "sha256": "b519df3e245f6c78b1789f2d381109081bc409bc472268ca690a82afcf7e926b"
+  },
+  "frontend-deploy.log": {
+    "bytes": 516,
+    "sha256": "9a0f72e65302419119e3d61a39167a1588eb89071f2bcbc722bf26ceba29b4fc"
+  },
+  "functional-check.json": {
+    "bytes": 465,
+    "sha256": "2df9ff5f923446c6eca4c5e06bb1cc52bb5ea6c71d5d25bae74ad5938dbcbc23"
+  },
+  "phase13-density-check.py": {
+    "bytes": 2026,
+    "sha256": "dc69e1fdf140495e118f7e26730485086f085e36572bc42957f9adc674c6d36d"
+  },
+  "phase13-density-finish.py": {
+    "bytes": 3944,
+    "sha256": "c3b0434be06c63565005617ea084923bba1ffd669e6baf85cee9afd8ff2b8400"
+  },
+  "phase13-density-functional.py": {
+    "bytes": 4866,
+    "sha256": "479cf2b141d6cc94ff5f363d177779938a685d34d22087d698721113f8579c29"
+  },
+  "result.json": {
+    "bytes": 3661,
+    "sha256": "b44f76a555806a1ed6cff11cf7dafaee7969544d76fa03e4749f018aa2457da2"
+  },
+  "source-baseline.json": {
+    "bytes": 20163,
+    "sha256": "a8706cf12add6079ad53bf70f11e0dd9d77d876459bc81148bdd6024d80ec1a4"
+  },
+  "SpecTrace_AI_80e2d374-0825-4811-a11e-03ade256b6e8_검증보고서_20261020_201312.xlsx": {
+    "bytes": 14934,
+    "sha256": "cd36dc5bc3648b665038a4933e52fa7d6dd6866456a7a5ae4327d98e4f895f1d"
+  },
+  "ui-only.diff": {
+    "bytes": 17810,
+    "sha256": "2551147b61975c00622cd6ef6b326609d5640eead9c7fa15d91661c8d835548f"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "fixture": "intercepted POST delays four seconds and returns 429; no actual analysis request forwarded",
+  "elapsedTimerAdvances": true,
+  "duplicateStartDisabled": true,
+  "noAutomaticRetry": true,
+  "requestCount": 1
+}

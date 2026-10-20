@@ -1,0 +1,106 @@
+{
+  "scope": "Phase 13 dashboard presentation only",
+  "changedSourceFiles": [
+    "frontend/src/dashboard.css",
+    "frontend/src/Dashboard.tsx"
+  ],
+  "changes": [
+    "Dashboard-local selectors override inherited card padding, paragraph margins and button grid alignment without !important",
+    "Heading and tabs share one flex row with wrapping",
+    "Toolbar uses Grid; controls align on one row on desktop/tablet; timestamp stays inline on desktop and compact on a second row below 1180px",
+    "Sections use 20px gap; cards use 16–20px padding; KPI titles and numbers use 8px spacing",
+    "KPI content height is intrinsic, uniform across all grid rows; four columns desktop, two tablet/mobile, one below 360px",
+    "Chart/card/table padding and row spacing reduced; table scrolling and handlers preserved"
+  ],
+  "measurements": [
+    {
+      "width": 1920,
+      "KPIColumns": 4,
+      "toolbarHeightBefore": 148,
+      "toolbarHeightAfter": 77,
+      "KPIHeightBefore": 140.875,
+      "KPIHeightAfter": 121.5,
+      "chartsTopBefore": 836.84375,
+      "chartsTopAfter": 661.0625,
+      "chartsHeightBefore": 296.578125,
+      "chartsHeightAfter": 239.28125,
+      "pageOverflow": false,
+      "equalCardHeights": true
+    },
+    {
+      "width": 1440,
+      "KPIColumns": 4,
+      "toolbarHeightBefore": 148,
+      "toolbarHeightAfter": 77,
+      "KPIHeightBefore": 140.875,
+      "KPIHeightAfter": 121.5,
+      "chartsTopBefore": 828.84375,
+      "chartsTopAfter": 653.0625,
+      "chartsHeightBefore": 296.578125,
+      "chartsHeightAfter": 239.28125,
+      "pageOverflow": false,
+      "equalCardHeights": true
+    },
+    {
+      "width": 1024,
+      "KPIColumns": 2,
+      "toolbarHeightBefore": 142,
+      "toolbarHeightAfter": 100,
+      "KPIHeightBefore": 140.875,
+      "KPIHeightAfter": 121.5,
+      "chartsTopBefore": 1024.359375,
+      "chartsTopAfter": 858.203125,
+      "chartsHeightBefore": 290.578125,
+      "chartsHeightAfter": 239.28125,
+      "pageOverflow": false,
+      "equalCardHeights": true
+    },
+    {
+      "width": 390,
+      "KPIColumns": 2,
+      "toolbarHeightBefore": 194,
+      "toolbarHeightAfter": 154,
+      "KPIHeightBefore": 140.09375,
+      "KPIHeightAfter": 115.09375,
+      "chartsTopBefore": 1055.5625,
+      "chartsTopAfter": 895.75,
+      "chartsHeightBefore": 597.15625,
+      "chartsHeightAfter": 490.5625,
+      "pageOverflow": false,
+      "equalCardHeights": true
+    }
+  ],
+  "verification": {
+    "refreshReadOnly": true,
+    "KPIFilter": true,
+    "chartFilters": true,
+    "pagination": true,
+    "scopeAndSearch": true,
+    "excelDownload": "SpecTrace_AI_80e2d374-0825-4811-a11e-03ade256b6e8_검증보고서_20261020_201312.xlsx",
+    "detailNavigation": true,
+    "createNavigation": true,
+    "tabs": true,
+    "mobileRefresh": true,
+    "consoleErrors": [],
+    "mutatingRequests": [],
+    "protectedFilesUnchanged": 149,
+    "dataLogicAndExportUnchanged": true
+  },
+  "build": "npm run build (tsc -b && vite build) passed via existing frontend Docker build",
+  "environment": "Installed Chrome, desktop viewport emulation; no real iPhone Safari test",
+  "screenshots": {
+    "before": [
+      "before-1920.png",
+      "before-1440.png",
+      "before-1024.png",
+      "before-390.png"
+    ],
+    "after": [
+      "after-1920.png",
+      "after-1440.png",
+      "after-1024.png",
+      "after-390.png"
+    ]
+  },
+  "unchanged": "149 backend/AI/RAG/evaluation/MCP/Graph/contracts/docker files hash matched; no service or DB modifications; existing uncommitted Phase 13 work preserved"
+}

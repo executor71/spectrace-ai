@@ -1,0 +1,42 @@
+{
+  "independentDBCounts": {
+    "requirements": 28,
+    "total": 15,
+    "DRAFT": 9,
+    "APPROVED": 5,
+    "REJECTED": 1,
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "NOT_RUN": 12
+  },
+  "existingAPIReviewCounts": {
+    "total": 15,
+    "DRAFT": 9,
+    "APPROVED": 5,
+    "REJECTED": 1
+  },
+  "appDataUnchanged": {
+    "requirements": 28,
+    "currentTCs": 15,
+    "executions": 145
+  },
+  "evaluationTargets": [
+    {
+      "requirementId": "b5270f71-c92c-48ae-8530-8946f1cfce62",
+      "caseId": "access-development",
+      "runCount": 6
+    },
+    {
+      "requirementId": "744dd838-dba6-449a-bc01-fe5c3669b048",
+      "caseId": "concurrency-final",
+      "runCount": 2
+    },
+    {
+      "requirementId": "3f209638-fddf-4c2d-bb10-919601da4df3",
+      "caseId": "inspection-validation",
+      "runCount": 1
+    }
+  ],
+  "matched": true
+}

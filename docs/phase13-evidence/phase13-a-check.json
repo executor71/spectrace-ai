@@ -1,0 +1,18 @@
+{
+  "counts": {
+    "total": 15,
+    "DRAFT": 9,
+    "APPROVED": 5,
+    "REJECTED": 1,
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "NOT_RUN": 12,
+    "SYNTHETIC": 1,
+    "requirements": 28,
+    "passRatio": 1.0
+  },
+  "cardFilter": true,
+  "selectionWithoutUUID": true,
+  "errors": []
+}

@@ -1,3 +1,4 @@
+import { TechnicalGuide } from './GettingStarted'
 import { useEffect, useState } from 'react'
 
 type EvaluationTarget = { requirementId: string; datasetVersion: string; caseId: string; split: string }
@@ -17,6 +18,8 @@ type Evaluation = {
 const percentage = (m: Ratio) => m.value === null ? `N/A (${m.numerator}/${m.denominator})` : `${(m.value * 100).toFixed(1)}% (${m.numerator}/${m.denominator})`
 
 export default function Evaluations({ requirementId, requirementBusy, onSelectRequirement }: { requirementId: string; requirementBusy: boolean; onSelectRequirement: (id: string) => Promise<void> }) {
+  const [loaded,setLoaded] = useState(false)
+  useEffect(() => { setLoaded(false); setRuns([]); setSelected(null) }, [requirementId])
   const [runs, setRuns] = useState<Evaluation[]>([])
   const [selected, setSelected] = useState<Evaluation | null>(null)
   const [mode, setMode] = useState('GENERATED')
@@ -62,7 +65,7 @@ export default function Evaluations({ requirementId, requirementBusy, onSelectRe
       const body = await response.json()
       if (!response.ok) throw new Error(body.message || body.detail || '평가 요청에 실패했습니다.')
       if (create) { setRuns(previous => [body, ...previous]); setSelected(body) }
-      else { setRuns(body); setSelected(body[0] ?? null) }
+      else { setRuns(body); setSelected(body[0] ?? null); setLoaded(true) }
     } catch (err) { setError(err instanceof Error ? err.message : '평가 요청에 실패했습니다.') }
     finally { setBusy(false) }
   }
@@ -77,9 +80,10 @@ export default function Evaluations({ requirementId, requirementBusy, onSelectRe
   }
   const metrics = selected?.metrics
   return <section className="evaluations" aria-labelledby="evaluations-title">
-    <div className="panel-title"><span className="eyebrow">FROZEN EVALUATION</span><h2 id="evaluations-title">Ground Truth 평가</h2></div>
+    <div className="panel-title"><span className="eyebrow">기술 검증</span><h2 id="evaluations-title">기술 검증·관리</h2></div>
     <p>고정된 평가셋에 등록된 요구사항만 평가합니다. 검색 Top-5와 저장된 테스트를 비교하며 분석·생성을 다시 호출하지 않습니다.</p>
-    <div className="card evaluation-controls"><label htmlFor="evaluation-sample">Frozen Evaluation 샘플 요구사항</label>
+    <TechnicalGuide />
+    <div className="card evaluation-controls"><label htmlFor="evaluation-sample">등록된 품질 검증 예제</label>
     <div className="lookup-controls">
       <select id="evaluation-sample" value={sampleId} disabled={busy || requirementBusy || !targets?.length} onChange={e => setSampleId(e.target.value)}>
         <option value="">등록된 샘플을 선택하세요</option>
@@ -91,7 +95,7 @@ export default function Evaluations({ requirementId, requirementBusy, onSelectRe
     {targetsError ? <div role="alert" className="form-error">평가 대상 등록 여부를 확인하지 못했습니다. {targetsError} <button type="button" onClick={() => setTargetsAttempt(value => value + 1)}>평가 대상 다시 확인</button></div>
       : targets === null ? <p role="status">평가 대상 등록 여부를 확인 중입니다.</p>
       : !requirementId ? <p role="status">요구사항을 조회하거나 등록된 평가 샘플을 선택해 주세요.</p>
-      : !eligible ? <p role="status">현재 요구사항은 정량평가 대상에 등록되어 있지 않습니다</p>
+      : !eligible ? <p role="status">평가셋 미등록: 이 변경 요청은 고정된 품질 검증 예제에 연결되지 않아 점수를 계산할 수 없습니다. 일반 테스트 검토·승인과 실행은 계속 사용할 수 있습니다. 점수 비교가 필요하면 위에서 등록된 품질 검증 예제를 선택해 주세요.</p>
       : <p role="status">정량평가 대상: {target.caseId} · {target.split} · {target.datasetVersion}</p>}
     {targets?.length === 0 && <p>등록된 평가 샘플이 없습니다.</p>}
     <label htmlFor="evaluation-mode">평가할 내용</label>
@@ -99,6 +103,7 @@ export default function Evaluations({ requirementId, requirementBusy, onSelectRe
     <div className="lookup-controls"><button type="button" disabled={busy || requirementBusy || !eligible} onClick={() => request(true)}>평가 실행</button><button type="button" className="secondary" disabled={busy || requirementBusy || !requirementId} onClick={() => request(false)}>저장된 평가 조회</button></div>
     </div>{busy && <p role="status" className="loading-panel"><span className="spinner" /> 평가 처리 중…</p>}
     {error && <p role="alert" className="form-error">{error}</p>}
+    {eligible && loaded && !runs.length && !busy && !error && <p role="status">미평가: 등록된 예제지만 저장된 평가 결과가 없습니다. 평가할 내용의 원본·검토본을 선택한 뒤 ‘평가 실행’을 눌러 주세요.</p>}
     <ul className="evaluation-history">{runs.map(run => <li key={run.id}><button disabled={busy} aria-pressed={selected?.id === run.id} onClick={() => select(run.id)}>{new Date(run.createdAt).toLocaleString('ko-KR')} · {run.dataset.split} · {run.contentMode} · {run.status}</button></li>)}</ul>
     {selected && <article className="card evaluation-result" aria-label="평가 결과">
       <h3>{selected.dataset.split} · {selected.dataset.caseId}</h3>
@@ -114,7 +119,7 @@ export default function Evaluations({ requirementId, requirementBusy, onSelectRe
         </tbody></table></div>
         <p>평가 대상: 검색 {metrics.counts.queries}건 · TC {metrics.counts.testCases}개 · 필수 시나리오 {metrics.counts.requiredScenarios}개 · 정답 문서 {metrics.counts.expectedDocuments}개</p>
         <p>Validity 실패 {metrics.testCaseValidity.failedCount}개 · 자동 미판정 {metrics.testCaseValidity.unknownCount}개. 자유 서술의 의미적 모순은 미평가이며 deterministic 점수에 혼합하지 않습니다. TC가 없으면 Validity는 N/A입니다.</p>
-        <h4>누락된 Ground Truth 시나리오</h4>
+        <h4>기준 대비 누락된 시나리오</h4>
         <ul className="evaluation-missing-scenarios">{metrics.scenarioCoverage.missingScenarios.map(s => <li key={s.scenarioId}>{s.scenarioId} · {s.category} · {s.description}</li>)}</ul>
         {!metrics.scenarioCoverage.missingScenarios.length && <p>필수 시나리오 누락 없음</p>}
         <h4>검색 실패 문서</h4>

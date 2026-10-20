@@ -1,0 +1,38 @@
+{
+  "viewports": [
+    {
+      "width": 1920,
+      "overflow": false,
+      "fourSteps": true
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "fourSteps": true
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "fourSteps": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "fourSteps": true
+    }
+  ],
+  "states": {
+    "noAnalysisCauseAndNextAction": true,
+    "analysisBusyCauseAndManualNextAction": true,
+    "generationHeldCauseAndNextAction": true,
+    "evaluationNotRegisteredExplained": true
+  },
+  "interceptedOnly": [
+    "POST analysis returns 429; never forwarded to backend",
+    "POST test generation returns zero cases; never forwarded to backend"
+  ],
+  "technicalTermsInManagementArea": true,
+  "graphReadHTTP": 200,
+  "consoleErrors": [],
+  "protectedSourceFilesUnchanged": 149
+}

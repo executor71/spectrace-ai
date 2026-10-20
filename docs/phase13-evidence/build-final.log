@@ -1,0 +1,143 @@
+ Image master-frontend Building 
+ Image master-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.34kB 0.0s done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 229B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 358B done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#4 ...
+
+#5 [frontend internal] load metadata for docker.io/library/node:22-alpine
+#5 DONE 0.4s
+
+#4 [backend internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#4 DONE 0.4s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 70B done
+#6 DONE 0.0s
+
+#7 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#7 DONE 0.4s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 DONE 0.0s
+
+#10 [frontend 1/7] FROM docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402
+#10 resolve docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 0.0s done
+#10 DONE 0.0s
+
+#11 [frontend internal] load build context
+#11 transferring context: 13.19kB 0.0s done
+#11 DONE 0.0s
+
+#12 [frontend 4/7] COPY package-lock.json .
+#12 CACHED
+
+#13 [frontend 3/7] COPY package.json .
+#13 CACHED
+
+#14 [frontend 2/7] WORKDIR /app
+#14 CACHED
+
+#15 [frontend 5/7] RUN npm ci
+#15 CACHED
+
+#16 [backend stage-1 1/3] FROM docker.io/library/eclipse-temurin:21-jre@sha256:227118764cccd3c3294617061aaa93a08309c63a395eefa83e6b35032992ea99
+#16 resolve docker.io/library/eclipse-temurin:21-jre@sha256:227118764cccd3c3294617061aaa93a08309c63a395eefa83e6b35032992ea99 0.1s done
+#16 DONE 0.1s
+
+#17 [backend build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#17 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.1s done
+#17 DONE 0.1s
+
+#9 [backend internal] load build context
+#9 transferring context: 6.62kB done
+#9 DONE 0.0s
+
+#18 [backend build 5/5] RUN mvn -B -DskipTests package
+#18 CACHED
+
+#19 [backend build 3/5] COPY pom.xml .
+#19 CACHED
+
+#20 [backend build 4/5] COPY src ./src
+#20 CACHED
+
+#21 [backend build 2/5] WORKDIR /workspace
+#21 CACHED
+
+#22 [backend stage-1 2/3] WORKDIR /app
+#22 CACHED
+
+#23 [backend stage-1 3/3] COPY --from=build /workspace/target/legacy-change-assistant-0.1.0-SNAPSHOT.jar app.jar
+#23 CACHED
+
+#24 [frontend 6/7] COPY . .
+#24 DONE 0.1s
+
+#25 [backend] exporting to image
+#25 exporting layers done
+#25 exporting manifest sha256:599ff803d1645e12f037c20f113385ebfec65b067514dc4dcd52f8f790b8610e done
+#25 exporting config sha256:01c5ca1acb165de20b2368ba5fd0ab5c70154b77c11d59b475bb07b6bce18c15 done
+#25 exporting attestation manifest sha256:ed8281dbbd30243a32a55f94c1b8b9695c71a847a5c49c5c78c172324e59a550
+#25 exporting attestation manifest sha256:ed8281dbbd30243a32a55f94c1b8b9695c71a847a5c49c5c78c172324e59a550 0.0s done
+#25 exporting manifest list sha256:ed5ffeea7e2eab263de62120741f7d38db60ea6e0a7d0a91a40d8f3334ea6a11 0.0s done
+#25 naming to docker.io/library/master-backend:latest done
+#25 unpacking to docker.io/library/master-backend:latest 0.0s done
+#25 DONE 0.2s
+
+#26 [frontend 7/7] RUN npm run build
+#26 ...
+
+#27 [backend] resolving provenance for metadata file
+#27 DONE 0.0s
+
+#26 [frontend 7/7] RUN npm run build
+#26 0.539 
+#26 0.539 > legacy-change-assistant-frontend@0.1.0 build
+#26 0.539 > tsc -b && vite build
+#26 0.539 
+#26 2.816 vite v7.3.6 building client environment for production...
+#26 2.871 transforming...
+#26 3.767 ✓ 41 modules transformed.
+#26 3.898 rendering chunks...
+#26 3.904 computing gzip size...
+#26 3.911 dist/index.html                   0.66 kB │ gzip:  0.39 kB
+#26 3.911 dist/assets/index-Ba36e192.css   33.67 kB │ gzip:  7.70 kB
+#26 3.911 dist/assets/index-DasIV75d.js   285.52 kB │ gzip: 87.28 kB
+#26 3.911 ✓ built in 1.07s
+#26 3.944 npm notice
+#26 3.944 npm notice New major version of npm available! 10.9.9 -> 12.2.0
+#26 3.944 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+#26 3.944 npm notice To update run: npm install -g npm@12.2.0
+#26 3.944 npm notice
+#26 DONE 4.0s
+
+#28 [frontend] exporting to image
+#28 exporting layers 0.2s done
+#28 exporting manifest sha256:4ed4e51a3deadc885598da959114bb856987c70fb3347b271062266e531eba45 0.0s done
+#28 exporting config sha256:c8edb87a4adaa9e56bd74502b10de645758d66144fb17fb370f442bf9cf295e4 0.0s done
+#28 exporting attestation manifest sha256:8131486a559a206b7b5c7a0dc55e439008ae91ef5a7db281fdf673cb8b9b4fe4 0.0s done
+#28 exporting manifest list sha256:d360cbc8855bc030d06291e6896d9baa6babc9c25c8fd1a1a733ae6f517c06c0
+#28 exporting manifest list sha256:d360cbc8855bc030d06291e6896d9baa6babc9c25c8fd1a1a733ae6f517c06c0 0.0s done
+#28 naming to docker.io/library/master-frontend:latest done
+#28 unpacking to docker.io/library/master-frontend:latest 0.1s done
+#28 DONE 0.5s
+
+#29 [frontend] resolving provenance for metadata file
+#29 DONE 0.0s
+ Image master-frontend Built 
+ Image master-backend Built 

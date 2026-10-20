@@ -1,0 +1,53 @@
+{
+  "responsive": [
+    1440,
+    1024,
+    390
+  ],
+  "cardAndChartFilters": true,
+  "download": {
+    "filename": "SpecTrace_AI_80e2d374-0825-4811-a11e-03ade256b6e8_검증보고서_20261020_195439.xlsx",
+    "status": 200,
+    "contentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "size": 14933,
+    "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8"
+  },
+  "xlsxReopen": {
+    "library": "openpyxl 3.1.5",
+    "sheets": {
+      "요약": {
+        "rows": 23,
+        "columns": 3
+      },
+      "요구사항 분석": {
+        "rows": 6,
+        "columns": 4
+      },
+      "테스트케이스": {
+        "rows": 6,
+        "columns": 16
+      },
+      "실행결과": {
+        "rows": 21,
+        "columns": 13
+      },
+      "근거 연결": {
+        "rows": 26,
+        "columns": 7
+      },
+      "평가결과": {
+        "rows": 2,
+        "columns": 12
+      }
+    },
+    "summaryMatchesUI": true,
+    "noFormulasOrExternalLinks": true
+  },
+  "specificTCNavigation": true,
+  "technicalResults": true,
+  "emptyState": true,
+  "errorState": true,
+  "errorJsonNotSavedAsXlsx": true,
+  "consoleErrors": [],
+  "mutatingBrowserRequests": []
+}

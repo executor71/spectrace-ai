@@ -1,0 +1,16 @@
+{
+  "refreshReadOnly": true,
+  "KPIFilter": true,
+  "chartFilters": true,
+  "pagination": true,
+  "scopeAndSearch": true,
+  "excelDownload": "SpecTrace_AI_80e2d374-0825-4811-a11e-03ade256b6e8_검증보고서_20261020_201312.xlsx",
+  "detailNavigation": true,
+  "createNavigation": true,
+  "tabs": true,
+  "mobileRefresh": true,
+  "consoleErrors": [],
+  "mutatingRequests": [],
+  "protectedFilesUnchanged": 149,
+  "dataLogicAndExportUnchanged": true
+}

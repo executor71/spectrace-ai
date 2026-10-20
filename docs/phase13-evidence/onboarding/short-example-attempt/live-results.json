@@ -1,0 +1,87 @@
+{
+  "kind": "real Chrome; real existing backend/AI; no intercepted responses",
+  "steps": [
+    {
+      "stage": "landing purpose and four steps visible",
+      "elapsedSeconds": 2.4
+    },
+    {
+      "stage": "example fills form only; zero mutating requests",
+      "elapsedSeconds": 2.5
+    },
+    {
+      "stage": "saved real example",
+      "elapsedSeconds": 2.7,
+      "requirementId": "c230f9b5-eec8-4395-b985-3a335086fe24"
+    },
+    {
+      "stage": "analysis started",
+      "elapsedSeconds": 2.7
+    },
+    {
+      "stage": "local LLM progress indicator visible",
+      "elapsedSeconds": 2.8
+    },
+    {
+      "stage": "analysis complete",
+      "elapsedSeconds": 127.7,
+      "counts": {
+        "confirmedConditions": 1,
+        "ambiguousExpressions": 0,
+        "missingConditions": 0,
+        "clarificationQuestions": 0,
+        "evidence": 5
+      }
+    },
+    {
+      "stage": "test generation complete",
+      "elapsedSeconds": 127.9,
+      "count": 0,
+      "clarificationRequired": [
+        "확정 조건을 지원하는 근거 검증 테스트 템플릿이 없습니다. 테스트 절차와 판정 기준을 확인해 주세요."
+      ],
+      "generationId": "fadeef7a-1f6a-401d-85db-1f09daf52f1d",
+      "llmCalls": 0
+    },
+    {
+      "stage": "flow stopped at existing error or safety gate",
+      "elapsedSeconds": 128.0,
+      "error": "Existing generation policy held this example; see saved clarification reasons. No approval or execution bypassed."
+    }
+  ],
+  "requirementId": "c230f9b5-eec8-4395-b985-3a335086fe24",
+  "analysisHTTP": 200,
+  "analysisCounts": {
+    "confirmedConditions": 1,
+    "ambiguousExpressions": 0,
+    "missingConditions": 0,
+    "clarificationQuestions": 0,
+    "evidence": 5
+  },
+  "generationHTTP": 200,
+  "generation": {
+    "count": 0,
+    "clarificationRequired": [
+      "확정 조건을 지원하는 근거 검증 테스트 템플릿이 없습니다. 테스트 절차와 판정 기준을 확인해 주세요."
+    ],
+    "generationId": "fadeef7a-1f6a-401d-85db-1f09daf52f1d",
+    "llmCalls": 0
+  },
+  "success": false,
+  "error": "Existing generation policy held this example; see saved clarification reasons. No approval or execution bypassed.",
+  "consoleErrors": [],
+  "mutatingRequests": [
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/requirements"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/requirements/c230f9b5-eec8-4395-b985-3a335086fe24/analysis"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5173/api/requirements/c230f9b5-eec8-4395-b985-3a335086fe24/test-cases/generate"
+    }
+  ]
+}

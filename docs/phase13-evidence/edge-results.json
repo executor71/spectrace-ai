@@ -1,0 +1,12 @@
+{
+  "unregisteredDisplay": true,
+  "notEvaluatedDisplay": {
+    "verified": true,
+    "fixture": "intercepted GET returns [] for registered requirement; DB unchanged"
+  },
+  "registeredEvaluationReport": {
+    "rows": 20,
+    "scoresPresent": true,
+    "hiddenStructuresExcluded": true
+  }
+}
