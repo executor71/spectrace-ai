@@ -3,7 +3,7 @@ from threading import BoundedSemaphore
 from fastapi import APIRouter, Depends, HTTPException
 from app.analysis_models import AnalysisRequest, AnalysisResult
 from app.analysis_service import AnalysisInputError, AnalysisService, InvalidAnalysisError
-from app.llm_provider import LocalLlmProvider, LlmUnavailableError
+from app.llm_provider import LocalLlmProvider, LlmUnavailableError, LlmTimeoutError
 from app.local_embedding import EmbeddingInputTooLongError
 from app.search_api import get_search
 
@@ -26,10 +26,20 @@ def analyze(request: AnalysisRequest, service=Depends(get_analysis_service)):
         raise HTTPException(422, detail={'code':'ANALYSIS_INPUT_TOO_LONG','message':'Input must fit the unchanged vector search limits (2000 characters and 512 tokens)'}) from error
     except InvalidAnalysisError as error:
         raise HTTPException(502, detail={'code':'INVALID_ANALYSIS_OUTPUT','message':'Model output failed schema or grounding validation'}) from error
+    except LlmTimeoutError as error:
+        raise HTTPException(504, detail={'code':'LLM_TIMEOUT','message':'Local model timeout'}) from error
     except LlmUnavailableError as error:
         raise HTTPException(503, detail={'code':'ANALYSIS_MODEL_UNAVAILABLE','message':'Local analysis model is unavailable or timed out'}) from error
     except Exception as error:
         LOG.exception('Requirement analysis failed')
-        raise HTTPException(503, detail={'code':'ANALYSIS_UNAVAILABLE','message':'Analysis or evidence search is unavailable'}) from error
+        raise HTTPException(503, detail={'code':'RAG_RETRIEVAL_ERROR','message':'Analysis or evidence search is unavailable'}) from error
     finally:
         slot.release()
+
+
+@router.get('/internal/v1/analysis-capacity')
+def analysis_capacity():
+    available = slot.acquire(blocking=False)
+    if available:
+        slot.release()
+    return {'available': available}

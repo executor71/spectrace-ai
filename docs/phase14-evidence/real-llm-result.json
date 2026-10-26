@@ -1,0 +1,67 @@
+{
+  "jobId": "957e5e4b-8809-408e-a1a2-6fd8d1577d61",
+  "requirementId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+  "httpStatus": 202,
+  "creationHttpMs": 21.766,
+  "clickToResponseMs": 65.82889999845065,
+  "created": {
+    "jobId": "957e5e4b-8809-408e-a1a2-6fd8d1577d61",
+    "stage": "WAITING",
+    "status": "QUEUED",
+    "createdAt": "2026-10-20T15:29:49.084163+00:00",
+    "errorCode": null,
+    "startedAt": null,
+    "updatedAt": "2026-10-20T15:29:49.084163+00:00",
+    "completedAt": null,
+    "attemptCount": 0,
+    "errorMessage": null,
+    "queuePosition": 1,
+    "requirementId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+    "resultAvailable": false,
+    "analysisResultId": null,
+    "elapsedSeconds": 0,
+    "totalDurationMs": 3,
+    "message": "분석 요청이 접수되어 순서를 기다립니다."
+  },
+  "realModelAnalysisRequests": 1,
+  "navigationRestored": true,
+  "reloadRestored": true,
+  "job": {
+    "jobId": "957e5e4b-8809-408e-a1a2-6fd8d1577d61",
+    "stage": "COMPLETED",
+    "status": "SUCCEEDED",
+    "createdAt": "2026-10-20T15:29:49.084163+00:00",
+    "errorCode": null,
+    "startedAt": "2026-10-20T15:29:49.737654+00:00",
+    "updatedAt": "2026-10-20T15:32:02.322096+00:00",
+    "completedAt": "2026-10-20T15:32:02.322096+00:00",
+    "attemptCount": 1,
+    "errorMessage": null,
+    "queuePosition": null,
+    "requirementId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+    "resultAvailable": true,
+    "analysisResultId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+    "elapsedSeconds": 133,
+    "queueWaitMs": 653,
+    "executionDurationMs": 132584,
+    "totalDurationMs": 133237,
+    "resultUrl": "/api/requirements/8d9be176-b84a-494f-ab8f-a41159e1dbd7/analysis",
+    "message": "분석과 저장이 완료되었습니다."
+  },
+  "savedAnalysisFetched": true,
+  "testGenerationScreenReached": true,
+  "testGenerationButtons": [
+    {
+      "text": "테스트 자동 생성\n04",
+      "enabled": true
+    },
+    {
+      "text": "테스트 자동 생성",
+      "enabled": true
+    },
+    {
+      "text": "테스트 자동 생성",
+      "enabled": true
+    }
+  ]
+}

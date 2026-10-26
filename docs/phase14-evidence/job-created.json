@@ -1,0 +1,19 @@
+{
+  "jobId": "d2b5b024-5d1c-465f-bd0d-0c494b61eee7",
+  "stage": "WAITING",
+  "status": "QUEUED",
+  "createdAt": "2026-10-20T15:23:19.878817+00:00",
+  "errorCode": null,
+  "startedAt": null,
+  "updatedAt": "2026-10-20T15:23:19.878817+00:00",
+  "completedAt": null,
+  "attemptCount": 0,
+  "errorMessage": null,
+  "queuePosition": 1,
+  "requirementId": "bfb2d3e1-b693-4028-8655-364bc624b94f",
+  "resultAvailable": false,
+  "analysisResultId": null,
+  "elapsedSeconds": 0,
+  "totalDurationMs": 1,
+  "message": "분석 요청이 접수되어 순서를 기다립니다."
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "suite": "ai-unit",
+    "exitCode": 0
+  },
+  {
+    "suite": "retrieval-unit",
+    "exitCode": 0
+  },
+  {
+    "suite": "evaluation-metrics",
+    "exitCode": 0
+  },
+  {
+    "suite": "evaluation-api",
+    "exitCode": 0
+  },
+  {
+    "suite": "mcp-unit",
+    "exitCode": 0
+  },
+  {
+    "suite": "mcp-e2e",
+    "exitCode": 0
+  },
+  {
+    "suite": "graph-unit",
+    "exitCode": 0
+  },
+  {
+    "suite": "graph-analysis",
+    "exitCode": 0
+  },
+  {
+    "suite": "observability",
+    "exitCode": 0
+  },
+  {
+    "suite": "backend",
+    "exitCode": 0,
+    "tests": 111,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "evaluation-database",
+    "exitCode": 0,
+    "tests": 9
+  },
+  {
+    "suite": "frontend-typescript-vite",
+    "exitCode": 0
+  },
+  {
+    "suite": "rag-frozen-baseline",
+    "exitCode": 0,
+    "queries": 8
+  },
+  {
+    "suite": "fake-provider-two-workers",
+    "exitCode": 0
+  },
+  {
+    "suite": "chrome-fake-and-real",
+    "exitCode": 0
+  }
+]

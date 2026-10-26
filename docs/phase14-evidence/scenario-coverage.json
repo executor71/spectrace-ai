@@ -1,0 +1,62 @@
+[
+  {
+    "scenario": "202 즉시 응답 / QUEUED 저장",
+    "evidence": "JobStoreTest + job-created.json + real-llm-result.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "RUNNING / SUCCEEDED / FAILED / TIMED_OUT",
+    "evidence": "JobWorkerTest + fake-provider-results.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "중복 클릭 및 다른 요청 대기 / Queue 초과",
+    "evidence": "duplicate-request.json + queue-limit.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "동시 실행 1 / 두 Worker / 동기·비동기 배제",
+    "evidence": "fake-provider-results.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "QUEUED 재시작 / 고아 RUNNING / 늦은 결과 방지",
+    "evidence": "restart-recovery.json + JobStoreTest + JobWorkerTest",
+    "result": "PASS"
+  },
+  {
+    "scenario": "Timeout 후 다음 작업 / 실제 종료 확인",
+    "evidence": "job-timeout.json + JobWorkerTest + fake-provider-results.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "새로고침 및 재진입 / Polling 연결 오류",
+    "evidence": "real-llm-result.json + extra-ux-results.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "기존 정상 결과 보존 / 저장 조회",
+    "evidence": "fake-provider-results.json + real-saved-analysis.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "기존 동기 API / MCP / 승인·실행",
+    "evidence": "backend-junit + mcp-e2e-results.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "RAG/Evidence / Ground Truth 경계",
+    "evidence": "rag-baseline-regression.json + evaluation-database.log + protection-audit.json",
+    "result": "PASS"
+  },
+  {
+    "scenario": "모델 연결 불가 / 잘못된 출력 / RAG 장애",
+    "evidence": "fake-provider-results.json + JobWorkerTest",
+    "result": "PASS"
+  },
+  {
+    "scenario": "대시보드 / Excel / 반응형 / Jaeger",
+    "evidence": "final-browser-results.json + phase14-real-report.xlsx + trace-summary.json",
+    "result": "PASS"
+  }
+]

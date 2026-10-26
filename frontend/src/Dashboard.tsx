@@ -1,3 +1,4 @@
+import { AnalysisJobOverview } from './AnalysisJob'
 import { TechnicalGuide } from './GettingStarted'
 import { useEffect, useState } from 'react'
 import type { Screen } from './navigation'
@@ -7,7 +8,7 @@ type Row = { id: string; title: string; createdAt: string; hasAnalysis: boolean;
 type Case = { testCaseId: string; requirementId: string; title: string; scenario: string; approvalStatus: string; executionStatus: string; reviewRevision: number; syntheticExecution: boolean }
 type Data = { queriedAt: string; requirements: Row[]; cases: Case[]; counts: Counts; basis: string }
 const names: Record<string,string> = { DRAFT: '검토 대기', APPROVED: '승인', REJECTED: '반려', PASS: 'PASS', FAIL: 'FAIL', ERROR: 'ERROR', NOT_RUN: '미실행' }
-export default function Dashboard({ onSelect, onNavigate }: { onSelect: (id: string, view: Screen, tc?: string) => Promise<void>; onNavigate: (view: Screen) => void }) {
+export default function Dashboard({ onSelect, onNavigate, active = true }: { active?: boolean; onSelect: (id: string, view: Screen, tc?: string) => Promise<void>; onNavigate: (view: Screen) => void }) {
   const [data,setData]=useState<Data|null>(null), [busy,setBusy]=useState(false), [error,setError]=useState('')
   const [page,setPage]=useState(0)
   const [scope,setScope]=useState(''), [filter,setFilter]=useState('ATTENTION'), [search,setSearch]=useState(''), [tab,setTab]=useState('work')
@@ -33,6 +34,7 @@ export default function Dashboard({ onSelect, onNavigate }: { onSelect: (id: str
     <div className="workflow-tabs"><button className={tab==='work'?'active':''} onClick={()=>setTab('work')}>업무 현황</button><button className={tab==='tech'?'active':''} onClick={()=>setTab('tech')}>기술 검증 결과</button></div></div>
     {tab==='tech'?<TechnicalResults/>:<>
       <div className="card p13-toolbar"><label className="p13-scope"><span>요구사항 범위</span><select value={scope} onChange={e=>setScope(e.target.value)}><option value="">전체 요구사항</option>{data?.requirements.map(r=><option key={r.id} value={r.id}>{r.title}</option>)}</select></label><button className="secondary" disabled={busy} onClick={()=>void load()}>새로고침</button><button onClick={()=>onNavigate('requirements')}>새 변경 요청 입력</button><small>마지막 조회: {data?new Date(data.queriedAt).toLocaleString('ko-KR'):'—'}</small></div>
+      <AnalysisJobOverview enabled={active && tab === 'work'} requirementId={scope} refreshKey={data?.queriedAt} onSelect={id => { void onSelect(id,'analysis') }} />
       {busy&&<p role="status">업무 현황 조회 중…</p>}{error&&<p className="form-error" role="alert">{error} <button disabled={busy} onClick={()=>void load()}>다시 조회</button></p>}
       {data&&!busy&&!error&&<>
         <div className="p13-summary"><div className="metric-grid">{[['등록 요구사항','requirements','REQUIREMENTS'],['현재 생성 TC','total','ALL'],['검토 대기 TC','DRAFT','DRAFT'],['최근 일반 실행 FAIL TC','FAIL','FAIL']].map(([label,key,target])=><button className="metric-card p13-metric" key={key} onClick={()=>target==='REQUIREMENTS'?document.getElementById('dashboard-requirements')?.scrollIntoView():focus(target)}><p>{label}</p><strong>{counts[key]}<small>건</small></strong><small>{key==='requirements'?'선택한 범위':'현재 batch · 현재 검토본 기준'}</small></button>)}</div>

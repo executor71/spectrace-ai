@@ -1,3 +1,4 @@
+import AnalysisJob from './AnalysisJob'
 import type { Screen } from './navigation'
 import { useEffect, useRef, useState } from 'react'
 
@@ -14,15 +15,16 @@ export default function RequirementAnalysis({ requirementId, onSaved, onBusyChan
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
+  const [jobActive,setJobActive] = useState(false)
   const [elapsed, setElapsed] = useState(0)
   useEffect(() => {
-    onBusyChange(busy)
+    onBusyChange(busy || jobActive)
     if (!busy) return
     setElapsed(0)
     const start = Date.now()
     const timer = setInterval(() => setElapsed(Math.floor((Date.now() - start) / 1000)), 1000)
     return () => clearInterval(timer)
-  }, [busy, onBusyChange])
+  }, [busy, jobActive, onBusyChange])
   useEffect(() => () => onBusyChange(false), [onBusyChange])
   const active = useRef<AbortController | null>(null)
   useEffect(() => () => active.current?.abort(), [])
@@ -35,7 +37,7 @@ export default function RequirementAnalysis({ requirementId, onSaved, onBusyChan
     try {
       const response = await fetch(`/api/requirements/${encodeURIComponent(requirementId)}/analysis`, { method, signal: controller.signal })
       const body = await response.json().catch(() => null)
-      if (method === 'GET' && response.status === 404) { setNotice('AI 분석 결과가 아직 없습니다. 변경 요청을 저장한 것만으로는 분석되지 않습니다. ‘변경 요청 분석 시작’을 눌러 관련 업무규칙을 확인하세요.'); return }
+      if (method === 'GET' && response.status === 404) { setNotice('AI 분석 결과가 아직 없습니다. 변경 요청을 저장한 것만으로는 분석되지 않습니다. ‘변경 요청 분석 시작’을 눌러 분석 Job을 접수하세요.'); return }
       if (response.status === 429 && body?.code === 'ANALYSIS_BUSY') throw new Error('다른 분석이 진행 중이라 새 분석을 시작하지 못했습니다. 진행 중인 분석이 끝난 뒤 ‘변경 요청 분석 시작’을 다시 누르거나 ‘저장된 분석 조회’로 완료 여부를 확인하세요.')
       if (!response.ok) throw new Error(body?.message ?? `분석 요청에 실패했습니다. (HTTP ${response.status})`)
       if (!body || body.requirementId !== requirementId || !['confirmedConditions', 'ambiguousExpressions', 'missingConditions', 'relatedBusinessRules', 'relatedApis', 'clarificationQuestions', 'evidence'].every(key => Array.isArray(body[key]))) throw new Error('분석 응답 형식이 올바르지 않습니다.')
@@ -56,10 +58,11 @@ export default function RequirementAnalysis({ requirementId, onSaved, onBusyChan
     <div className="panel-title"><span className="eyebrow">EVIDENCE-BASED ANALYSIS</span><h2>변경 요청 분석</h2></div>
     <p>검색 근거에서 확인된 문장과 추가 확인이 필요한 조건을 구분합니다.</p>
     <div className="analysis-actions">
-      <button type="button" disabled={busy} onClick={() => request('POST')}>변경 요청 분석 시작</button>
+
       <button type="button" className="secondary" disabled={busy} onClick={() => request('GET')}>저장된 분석 조회</button>
     </div>
-    {busy && <div className="loading-panel" role="status"><span className="spinner" /><div><strong>관련 업무규칙을 찾아 AI가 분석하고 있습니다</strong><p>경과시간 {Math.floor(elapsed / 60)}분 {elapsed % 60}초 · 로컬 모델 분석에는 수 분이 걸릴 수 있습니다.</p><small>중복 요청하지 않고 기다려 주세요. 다른 화면으로 이동해도 분석은 계속되며, 돌아와 결과를 확인할 수 있습니다.</small></div></div>}
+    <AnalysisJob requirementId={requirementId} onBusyChange={setJobActive} onComplete={() => { onSaved(); void request('GET') }} onShowResult={() => void request('GET')} />
+    {busy && <p className="loading-panel" role="status"><span className="spinner" />저장된 분석 결과 조회 중… ({elapsed}초)</p>}
     {error && <p role="alert" className="form-error">{error}</p>}
     {notice && <p role="status">{notice}</p>}
     {!result && !busy && !notice && !error && <div className="card empty-state"><h3>AI 분석 결과를 먼저 확인하세요</h3><p>아직 이 화면에 분석을 불러오지 않았습니다. 처음이면 ‘변경 요청 분석 시작’, 이전에 분석했다면 ‘저장된 분석 조회’를 누르세요.</p></div>}

@@ -1,0 +1,21 @@
+{
+  "jobId": "173ee50a-821a-44b4-9b86-36e0bae55436",
+  "stage": "LLM_ANALYSIS",
+  "status": "FAILED",
+  "createdAt": "2026-10-20T15:23:42.809115+00:00",
+  "errorCode": "LLM_UNAVAILABLE",
+  "startedAt": "2026-10-20T15:23:42.913199+00:00",
+  "updatedAt": "2026-10-20T15:23:44.929985+00:00",
+  "completedAt": "2026-10-20T15:23:44.929985+00:00",
+  "attemptCount": 1,
+  "errorMessage": "분석 서비스 또는 로컬 모델에 연결하지 못했습니다. 서비스 상태를 확인한 뒤 다시 시도해 주세요.",
+  "queuePosition": null,
+  "requirementId": "06bef0d7-0ab1-45f9-b84a-6d63aedc6c59",
+  "resultAvailable": false,
+  "analysisResultId": null,
+  "elapsedSeconds": 2,
+  "queueWaitMs": 104,
+  "executionDurationMs": 2016,
+  "totalDurationMs": 2120,
+  "message": "분석 서비스 또는 로컬 모델에 연결하지 못했습니다. 서비스 상태를 확인한 뒤 다시 시도해 주세요."
+}

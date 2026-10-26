@@ -10,6 +10,10 @@ class LlmUnavailableError(RuntimeError):
     pass
 
 
+class LlmTimeoutError(LlmUnavailableError):
+    pass
+
+
 class LlmProvider(Protocol):
     def generate(self, messages: list[dict], schema: dict) -> str: ...
 
@@ -45,5 +49,11 @@ class LocalLlmProvider:
             if not isinstance(content, str):
                 raise ValueError('Invalid provider response')
             return content
-        except (URLError, OSError, ValueError, KeyError) as error:
+        except TimeoutError as error:
+            raise LlmTimeoutError('Local model timeout') from error
+        except URLError as error:
+            if isinstance(error.reason, TimeoutError):
+                raise LlmTimeoutError('Local model timeout') from error
+            raise LlmUnavailableError('Local analysis model unavailable') from error
+        except (OSError, ValueError, KeyError) as error:
             raise LlmUnavailableError('Local analysis model is unavailable or did not finish') from error

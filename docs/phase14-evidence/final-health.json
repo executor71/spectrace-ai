@@ -1,0 +1,99 @@
+{
+  "8080": {
+    "status": "UP",
+    "components": {
+      "db": {
+        "status": "UP",
+        "details": {
+          "database": "PostgreSQL",
+          "validationQuery": "isValid()"
+        }
+      },
+      "diskSpace": {
+        "status": "UP",
+        "details": {
+          "total": 1081101176832,
+          "free": 987934089216,
+          "threshold": 10485760,
+          "path": "/app/.",
+          "exists": true
+        }
+      },
+      "ping": {
+        "status": "UP"
+      },
+      "ssl": {
+        "status": "UP",
+        "details": {
+          "validChains": [],
+          "invalidChains": []
+        }
+      }
+    }
+  },
+  "8000": {
+    "status": "UP",
+    "database": "UP",
+    "schema": "rag",
+    "pgvector": "0.8.6"
+  },
+  "8010": {
+    "status": "UP"
+  },
+  "8090": {
+    "status": "UP",
+    "metricVersion": "phase6-deterministic-v1"
+  },
+  "realJobAfterFinalBackendRestart": {
+    "jobId": "957e5e4b-8809-408e-a1a2-6fd8d1577d61",
+    "stage": "COMPLETED",
+    "status": "SUCCEEDED",
+    "createdAt": "2026-10-20T15:29:49.084163+00:00",
+    "errorCode": null,
+    "startedAt": "2026-10-20T15:29:49.737654+00:00",
+    "updatedAt": "2026-10-20T15:32:02.322096+00:00",
+    "completedAt": "2026-10-20T15:32:02.322096+00:00",
+    "attemptCount": 1,
+    "errorMessage": null,
+    "queuePosition": null,
+    "requirementId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+    "resultAvailable": true,
+    "analysisResultId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+    "elapsedSeconds": 133,
+    "queueWaitMs": 653,
+    "executionDurationMs": 132584,
+    "totalDurationMs": 133237,
+    "resultUrl": "/api/requirements/8d9be176-b84a-494f-ab8f-a41159e1dbd7/analysis",
+    "message": "분석과 저장이 완료되었습니다."
+  },
+  "jobSummary": {
+    "failed": 0,
+    "queued": 0,
+    "running": 0,
+    "succeeded": 1,
+    "jobs": [
+      {
+        "jobId": "957e5e4b-8809-408e-a1a2-6fd8d1577d61",
+        "stage": "COMPLETED",
+        "status": "SUCCEEDED",
+        "createdAt": "2026-10-20T15:29:49.084163+00:00",
+        "errorCode": null,
+        "startedAt": "2026-10-20T15:29:49.737654+00:00",
+        "updatedAt": "2026-10-20T15:32:02.322096+00:00",
+        "completedAt": "2026-10-20T15:32:02.322096+00:00",
+        "attemptCount": 1,
+        "errorMessage": null,
+        "queuePosition": null,
+        "requirementId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+        "resultAvailable": true,
+        "analysisResultId": "8d9be176-b84a-494f-ab8f-a41159e1dbd7",
+        "elapsedSeconds": 133,
+        "queueWaitMs": 653,
+        "executionDurationMs": 132584,
+        "totalDurationMs": 133237,
+        "resultUrl": "/api/requirements/8d9be176-b84a-494f-ab8f-a41159e1dbd7/analysis",
+        "message": "분석과 저장이 완료되었습니다."
+      }
+    ]
+  }
+}

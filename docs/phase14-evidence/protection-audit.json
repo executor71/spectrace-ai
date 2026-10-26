@@ -1,0 +1,24 @@
+{
+  "protectedFilesChecked": 59,
+  "changedProtectedFiles": [],
+  "before": {
+    "requirements": 32,
+    "analyses": 21,
+    "tests": 25,
+    "executions": 148
+  },
+  "after": {
+    "requirements": 33,
+    "analyses": 22,
+    "tests": 25,
+    "executions": 174,
+    "jobs": 1
+  },
+  "branch": "phase14/analysis-job-queue",
+  "backend": {
+    "tests": 111,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "jobId": "9bab1eac-68ad-4b99-9ea7-a64e1d88cc68",
+  "stage": "COMPLETED",
+  "status": "SUCCEEDED",
+  "createdAt": "2026-10-20T15:23:20.165416+00:00",
+  "errorCode": null,
+  "startedAt": "2026-10-20T15:23:32.072254+00:00",
+  "updatedAt": "2026-10-20T15:23:34.095772+00:00",
+  "completedAt": "2026-10-20T15:23:34.095772+00:00",
+  "attemptCount": 1,
+  "errorMessage": null,
+  "queuePosition": null,
+  "requirementId": "eb0c97ce-db1d-4f4c-9700-051b33ba8194",
+  "resultAvailable": true,
+  "analysisResultId": "eb0c97ce-db1d-4f4c-9700-051b33ba8194",
+  "elapsedSeconds": 13,
+  "queueWaitMs": 11906,
+  "executionDurationMs": 2023,
+  "totalDurationMs": 13930,
+  "resultUrl": "/api/requirements/eb0c97ce-db1d-4f4c-9700-051b33ba8194/analysis",
+  "message": "분석과 저장이 완료되었습니다."
+}

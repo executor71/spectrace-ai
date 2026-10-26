@@ -1,0 +1,21 @@
+{
+  "jobId": "d2b5b024-5d1c-465f-bd0d-0c494b61eee7",
+  "stage": "LLM_ANALYSIS",
+  "status": "TIMED_OUT",
+  "createdAt": "2026-10-20T15:23:19.878817+00:00",
+  "errorCode": "LLM_TIMEOUT",
+  "startedAt": "2026-10-20T15:23:19.979348+00:00",
+  "updatedAt": "2026-10-20T15:23:31.98501+00:00",
+  "completedAt": "2026-10-20T15:23:31.98501+00:00",
+  "attemptCount": 1,
+  "errorMessage": "분석 제한시간을 초과했습니다. 기존 저장 결과는 유지됩니다. 다시 시도할 수 있습니다.",
+  "queuePosition": null,
+  "requirementId": "bfb2d3e1-b693-4028-8655-364bc624b94f",
+  "resultAvailable": false,
+  "analysisResultId": null,
+  "elapsedSeconds": 12,
+  "queueWaitMs": 100,
+  "executionDurationMs": 12005,
+  "totalDurationMs": 12106,
+  "message": "분석 제한시간을 초과했습니다. 기존 저장 결과는 유지됩니다. 다시 시도할 수 있습니다."
+}
