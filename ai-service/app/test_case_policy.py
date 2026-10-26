@@ -5,6 +5,7 @@ import os
 from copy import deepcopy
 from pathlib import Path
 from uuid import UUID
+from app.test_case_registry import validate_policy, plan_sources
 
 TYPES = ['NORMAL', 'EXCEPTION', 'AUTHORIZATION', 'BOUNDARY', 'BUSINESS_RULE']
 
@@ -12,7 +13,9 @@ TYPES = ['NORMAL', 'EXCEPTION', 'AUTHORIZATION', 'BOUNDARY', 'BUSINESS_RULE']
 def load_policy():
     path = Path(os.getenv('TEST_CASE_POLICY', '/contracts/test-case-policy.json'))
     raw = path.read_bytes()
-    return json.loads(raw), hashlib.sha256(raw).hexdigest()
+    policy = json.loads(raw)
+    validate_policy(policy)
+    return policy, hashlib.sha256(raw).hexdigest()
 
 
 def execution_gates(case, policy):
@@ -51,6 +54,7 @@ def compile_candidates(request, policy):
         anchors = [c for c in analysis['confirmedConditions'] if c['text'] == plan['confirmedCondition']]
         if not anchors:
             continue
+        sources = plan_sources(analysis, policy, plan)
         refs = [sources[anchors[0]['chunkId']]]
         for requirement in plan['sources']:
             source = next((s for s in sources.values() if s['documentType'] == requirement['documentType']
@@ -60,8 +64,11 @@ def compile_candidates(request, policy):
             refs.append(source)
         else:
             route = plan['case']['input']['method'] + ' ' + plan['case']['input']['endpoint']
-            if not any(a['api'] == route and a['chunkId'] in sources and route in sources[a['chunkId']]['contentSnippet']
-                       for a in analysis['relatedApis']):
+            api_supported = any(a['api'] == route and a['chunkId'] in sources and route in sources[a['chunkId']]['contentSnippet']
+                                for a in analysis['relatedApis'])
+            if 'coveredConditions' in plan:
+                api_supported |= any(s['documentType'] == 'API_SPEC' and route in s['contentSnippet'] for s in sources.values())
+            if not api_supported:
                 continue
             case = deepcopy(plan['case'])
             case['requirementId'] = request.requirementId
@@ -70,7 +77,10 @@ def compile_candidates(request, policy):
             case['executable'] = all(execution_gates(case, policy).values())
             candidates[plan['id']] = case
     if not candidates:
-        pending = ['확정 조건을 지원하는 근거 검증 테스트 템플릿이 없습니다. 테스트 절차와 판정 기준을 확인해 주세요.']
+        known = any(condition['text'] in plan.get('coveredConditions', [plan['confirmedCondition']])
+                    for condition in analysis['confirmedConditions'] for plan in policy['plans'])
+        pending = ['테스트에 필요한 업무규칙 또는 API 근거가 부족합니다.' if known else
+                   '확정 조건을 지원하는 근거 검증 테스트 템플릿이 없습니다. 테스트 절차와 판정 기준을 확인해 주세요.']
     return candidates, pending
 
 

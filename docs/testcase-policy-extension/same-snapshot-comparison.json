@@ -1,0 +1,16 @@
+{
+  "confirmedConditions": 4,
+  "beforeCount": 0,
+  "afterCount": 4,
+  "supportedConditions": 3,
+  "supportRatio": 0.75,
+  "unsupportedConditions": [
+    "본체, 충전기, 부속품의 반납 여부를 기록하며 접수일과 담당자를 보관한다."
+  ],
+  "templateIds": [
+    "return-normal",
+    "return-duplicate",
+    "return-authorization",
+    "return-inspection-pending"
+  ]
+}

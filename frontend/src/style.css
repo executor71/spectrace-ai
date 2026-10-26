@@ -12,3 +12,8 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.spinner{border-style:dotted}}
 
 button.secondary:disabled,button.danger:disabled{background:#E2E8F0;color:#64748B;border-color:#E2E8F0}
+
+/* Evidence-grounded testcase policy presentation. */
+.generation-summary { margin: 16px 0; border-left: 3px solid var(--primary); }
+.condition-coverage td:first-child { min-width: 220px; max-width: 500px; }
+.condition-coverage td small { display: block; color: var(--muted); }

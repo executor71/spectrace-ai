@@ -34,6 +34,7 @@ public class TestCaseService {
         decorate(result);return result;
     }
     private void decorate(ObjectNode result) {
+        policy.describe(result);
         var decisions=result.putArray("executionDecisions");
         boolean stale=result.path("stale").asBoolean();
         for(var item:result.get("testCases")) {

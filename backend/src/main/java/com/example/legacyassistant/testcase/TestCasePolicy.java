@@ -16,7 +16,7 @@ public class TestCasePolicy {
     private final JsonNode policy;
     public final String hash;
     public TestCasePolicy(ObjectMapper json, @Value("${TEST_CASE_POLICY:/contracts/test-case-policy.json}") String path) throws Exception {
-        this.json=json; byte[] raw=Files.readAllBytes(Path.of(path)); policy=json.readTree(raw); hash=digest(raw);
+        this.json=json; byte[] raw=Files.readAllBytes(Path.of(path)); policy=json.readTree(raw); PolicyRegistry.validate(policy,json); hash=digest(raw);
     }
     public static String digest(byte[] bytes) {
         try { return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(bytes)); }
@@ -33,12 +33,13 @@ public class TestCasePolicy {
         Map<String,ObjectNode> result=new LinkedHashMap<>();
         if(!pending(analysis).isEmpty()) return result;
         Map<String,JsonNode> sources=new LinkedHashMap<>();
-        analysis.get("evidence").forEach(s -> sources.put(s.get("chunkId").asText(),s));
+        for(var source:analysis.get("evidence"))sources.put(source.get("chunkId").asText(),source);
         for(var plan:policy.get("plans")) {
             JsonNode anchor=null;
             for(var condition:analysis.get("confirmedConditions"))
                 if(condition.get("text").equals(plan.get("confirmedCondition"))) { anchor=condition; break; }
             if(anchor==null) continue;
+            sources=PolicyRegistry.sources(analysis,policy,plan);
             Map<String,JsonNode> refs=new LinkedHashMap<>();
             String anchorId=anchor.get("chunkId").asText();refs.put(anchorId,sources.get(anchorId));
             boolean supported=true;
@@ -60,6 +61,7 @@ public class TestCasePolicy {
                 JsonNode source=sources.get(api.get("chunkId").asText());
                 if(api.get("api").asText().equals(route) && source!=null && source.get("contentSnippet").asText().contains(route)) apiSupported=true;
             }
+            if(plan.has("coveredConditions"))for(var source:sources.values())if(source.path("documentType").asText().equals("API_SPEC") && source.path("contentSnippet").asText().contains(route))apiSupported=true;
             if(!apiSupported) continue;
             value.put("requirementId",id.toString());
             ArrayNode evidence=value.putArray("evidence");
@@ -68,6 +70,41 @@ public class TestCasePolicy {
             result.put(plan.get("id").asText(),value);
         }
         return result;
+    }
+    /** Additive public metadata; internal model selection and original snapshot remain unchanged. */
+    public void describe(ObjectNode result) {
+        JsonNode analysis=result.path("sourceAnalysis");
+        UUID id=UUID.fromString(analysis.path("requirementId").asText());
+        var eligible=candidates(id,analysis);var coverage=result.putArray("conditionCoverage");
+        boolean clarification=!pending(analysis).isEmpty() && !analysis.path("confirmedConditions").isEmpty();
+        boolean insufficient=analysis.path("confirmedConditions").isEmpty();
+        int supported=0;
+        for(var condition:analysis.path("confirmedConditions")) {
+            var row=coverage.addObject();row.setAll(Map.of("text",condition.path("text"),"chunkId",condition.path("chunkId")));
+            List<String> registered=new ArrayList<>(),matched=new ArrayList<>();
+            for(var plan:policy.path("plans")) {
+                boolean covers=plan.path("confirmedCondition").equals(condition.path("text"));
+                for(var text:plan.path("coveredConditions"))covers|=text.equals(condition.path("text"));
+                if(covers){registered.add(plan.path("id").asText());if(eligible.containsKey(plan.path("id").asText()))matched.add(plan.path("id").asText());}
+            }
+            String status=clarification?"CLARIFICATION_REQUIRED":!matched.isEmpty()?"SUPPORTED":registered.isEmpty()?"UNSUPPORTED_TEMPLATE":"INSUFFICIENT_EVIDENCE";
+            if(status.equals("SUPPORTED"))supported++;if(status.equals("INSUFFICIENT_EVIDENCE"))insufficient=true;
+            row.put("status",status);row.set("templateIds",json.valueToTree(matched));
+            var tcIds=row.putArray("testCaseIds");
+            for(var tc:result.path("testCases"))for(String planId:matched)if(tc.path("scenario").equals(eligible.get(planId).path("scenario")) && tc.path("expectedResult").equals(eligible.get(planId).path("expectedResult")))tcIds.add(tc.path("testCaseId").asText());
+        }
+        String status=clarification?"BLOCKED_CLARIFICATION_REQUIRED":result.path("testCases").isEmpty()?(insufficient?"BLOCKED_INSUFFICIENT_EVIDENCE":"BLOCKED_UNSUPPORTED_TEMPLATE"):
+            supported<analysis.path("confirmedConditions").size()?"PARTIALLY_GENERATED":"GENERATED";
+        result.put("generationStatus",status);
+        // Public generation context includes only API specs used by grounded cases. The DB comparison snapshot stays original.
+        ObjectNode context=analysis.deepCopy();var evidence=(ArrayNode)context.path("evidence");
+        Set<String> present=new HashSet<>(),used=new HashSet<>();evidence.forEach(s->present.add(s.path("chunkId").asText()));
+        result.path("testCases").forEach(tc->tc.path("evidence").forEach(ref->used.add(ref.path("chunkId").asText())));
+        var added=result.putArray("policyEvidence");
+        for(var source:policy.path("apiEvidence"))if(used.contains(source.path("chunkId").asText()) && present.add(source.path("chunkId").asText())) {
+            ObjectNode copy=source.deepCopy();copy.remove(List.of("relatedApis","sourceName"));evidence.add(copy);added.add(copy);
+        }
+        result.set("sourceAnalysis",context);
     }
     public Map<String,Boolean> gates(JsonNode value) {
         var input=value.get("input");
@@ -86,7 +123,14 @@ public class TestCasePolicy {
     }
     public List<String> clarification(JsonNode analysis, Map<String,ObjectNode> candidates) {
         var pending=pending(analysis);
-        if(pending.isEmpty() && candidates.isEmpty()) pending.add("확정 조건을 지원하는 근거 검증 테스트 템플릿이 없습니다. 테스트 절차와 판정 기준을 확인해 주세요.");
+        if(pending.isEmpty() && candidates.isEmpty()) {
+            boolean known=false;
+            for(var condition:analysis.path("confirmedConditions"))for(var plan:policy.path("plans")) {
+                known|=plan.path("confirmedCondition").equals(condition.path("text"));
+                for(var covered:plan.path("coveredConditions"))known|=covered.equals(condition.path("text"));
+            }
+            pending.add(known?"테스트에 필요한 업무규칙 또는 API 근거가 부족합니다.":"확정 조건을 지원하는 근거 검증 테스트 템플릿이 없습니다. 테스트 절차와 판정 기준을 확인해 주세요.");
+        }
         return pending;
     }
     public void validate(UUID id, JsonNode analysis, JsonNode response) {

@@ -1,0 +1,392 @@
+{
+  "version": "phase4-v1",
+  "allowList": [
+    "POST /loans/{loanId}/approve"
+  ],
+  "fixtureReady": false,
+  "assertionKinds": [
+    "HTTP_STATUS",
+    "RESPONSE_TOKEN",
+    "OBSERVATION_EQUALS",
+    "UNCHANGED"
+  ],
+  "plans": [
+    {
+      "id": "approval-normal",
+      "confirmedCondition": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+      "sources": [
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+            "대여 신청은 PENDING_APPROVAL로 생성된다."
+          ]
+        },
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다."
+          ]
+        },
+        {
+          "documentType": "API_SPEC",
+          "quotes": [
+            "POST /loans/{loanId}/approve",
+            "body의 comment는 선택 항목이다.",
+            "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+            "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+          ]
+        },
+        {
+          "documentType": "TEST_GUIDE",
+          "quotes": [
+            "부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다.",
+            "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+            "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다."
+          ]
+        }
+      ],
+      "case": {
+        "type": "NORMAL",
+        "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: same-department-manager",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "same-department-manager"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 200
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "loanStatus",
+              "value": "APPROVED"
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "assetStatus",
+              "value": "RESERVED"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "approval-self",
+      "confirmedCondition": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+      "sources": [
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+            "대여 신청은 PENDING_APPROVAL로 생성된다."
+          ]
+        },
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다."
+          ]
+        },
+        {
+          "documentType": "API_SPEC",
+          "quotes": [
+            "POST /loans/{loanId}/approve",
+            "body의 comment는 선택 항목이다.",
+            "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+            "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+          ]
+        },
+        {
+          "documentType": "TEST_GUIDE",
+          "quotes": [
+            "부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다.",
+            "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+            "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다."
+          ]
+        }
+      ],
+      "case": {
+        "type": "EXCEPTION",
+        "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "requester"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "SELF_APPROVAL_FORBIDDEN"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "approval-employee",
+      "confirmedCondition": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+      "sources": [
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+            "대여 신청은 PENDING_APPROVAL로 생성된다."
+          ]
+        },
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다."
+          ]
+        },
+        {
+          "documentType": "API_SPEC",
+          "quotes": [
+            "POST /loans/{loanId}/approve",
+            "body의 comment는 선택 항목이다.",
+            "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+            "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+          ]
+        },
+        {
+          "documentType": "TEST_GUIDE",
+          "quotes": [
+            "부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다.",
+            "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+            "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다."
+          ]
+        }
+      ],
+      "case": {
+        "type": "AUTHORIZATION",
+        "scenario": "일반 직원이 승인 권한 없이 다른 직원의 신청을 승인한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: ordinary-employee",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "ordinary-employee"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "approval-department-boundary",
+      "confirmedCondition": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+      "sources": [
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+            "대여 신청은 PENDING_APPROVAL로 생성된다."
+          ]
+        },
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다."
+          ]
+        },
+        {
+          "documentType": "API_SPEC",
+          "quotes": [
+            "POST /loans/{loanId}/approve",
+            "body의 comment는 선택 항목이다.",
+            "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+            "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+          ]
+        },
+        {
+          "documentType": "TEST_GUIDE",
+          "quotes": [
+            "부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다.",
+            "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+            "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다."
+          ]
+        }
+      ],
+      "case": {
+        "type": "BOUNDARY",
+        "scenario": "승인 권한의 부서 범위 경계: 타 부서 부서장의 승인을 거부한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: other-department-manager",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "other-department-manager"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "approval-no-mutation",
+      "confirmedCondition": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+      "sources": [
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+            "대여 신청은 PENDING_APPROVAL로 생성된다."
+          ]
+        },
+        {
+          "documentType": "BUSINESS_RULE",
+          "quotes": [
+            "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다."
+          ]
+        },
+        {
+          "documentType": "API_SPEC",
+          "quotes": [
+            "POST /loans/{loanId}/approve",
+            "body의 comment는 선택 항목이다.",
+            "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+            "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다."
+          ]
+        },
+        {
+          "documentType": "TEST_GUIDE",
+          "quotes": [
+            "부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다.",
+            "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+            "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다."
+          ]
+        }
+      ],
+      "case": {
+        "type": "BUSINESS_RULE",
+        "scenario": "자기 승인 거부 시 신청 및 자산 상태를 보존한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "requester"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "loanStatus"
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "assetStatus"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

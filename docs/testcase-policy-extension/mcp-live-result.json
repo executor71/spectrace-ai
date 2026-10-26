@@ -1,0 +1,11 @@
+{
+  "toolCount": 8,
+  "strictInputSchemas": true,
+  "getTestCases": "PASS",
+  "generationStatus": "PARTIALLY_GENERATED",
+  "testCases": 4,
+  "allExecutionBlocked": true,
+  "allEvidenceResolved": true,
+  "generationExecutable": false,
+  "runtimeExecutableIsSeparateAssessment": true
+}

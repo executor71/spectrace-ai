@@ -1,0 +1,1618 @@
+[
+  {
+    "id": 1,
+    "title": "부서장 대여 승인 및 자기 승인 금지 검증",
+    "retrieval": "REAL_VECTOR_TOP5",
+    "analysis": "FAKE_EXTRACTIVE_ANCHORS",
+    "selection": "FAKE_PROVIDER",
+    "ragHits": 5,
+    "confirmedConditions": 2,
+    "beforeTestCount": 5,
+    "testCount": 6,
+    "templateIds": [
+      "approval-normal",
+      "approval-self",
+      "approval-employee",
+      "approval-department-boundary",
+      "approval-no-mutation",
+      "duplicate-approval"
+    ],
+    "grounded": true,
+    "automaticallyExecutable": false,
+    "clarificationRequired": [],
+    "analysisSnapshot": {
+      "requirementId": "5dda582f-706a-4b7f-990f-40713ec16524",
+      "confirmedConditions": [
+        {
+          "text": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        },
+        {
+          "text": "취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        }
+      ],
+      "ambiguousExpressions": [],
+      "missingConditions": [],
+      "relatedBusinessRules": [
+        {
+          "text": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        },
+        {
+          "text": "취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        }
+      ],
+      "relatedApis": [
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+        },
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        },
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+        }
+      ],
+      "clarificationQuestions": [],
+      "evidence": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "documentType": "BUSINESS_RULE",
+          "section": "부서장 승인과 자기 승인 금지",
+          "contentSnippet": "대여 신청은 PENDING_APPROVAL로 생성된다. 요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다. 자기 승인 대신 상위 조직의 지정 승인자에게 전달한다. 반려 시 사유는 필수다. 취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "score": 0.8575395941734375
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+          "documentType": "TEST_GUIDE",
+          "section": "대여 승인 권한 테스트",
+          "contentSnippet": "서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다.",
+          "score": 0.842492003143787
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "10b16630-ba17-5dd8-a15f-361a290ef1bf",
+          "documentType": "ERROR_CODE",
+          "section": "SELF_APPROVAL_FORBIDDEN 자기 승인",
+          "contentSnippet": "HTTP 403 SELF_APPROVAL_FORBIDDEN은 승인자와 신청자가 동일할 때 발생한다. 부서장 역할이 있어도 자기 신청을 승인할 수 없다. 상위 조직의 지정 승인자를 통해 진행한다. 로그인 실패가 아니라 업무 권한 위반이므로 신청이나 자산 상태는 변경하지 않는다.",
+          "score": 0.7279250946134216
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/approve 승인",
+          "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "score": 0.7234441802832986
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "score": 0.7188664413849781
+        }
+      ]
+    },
+    "testCases": [
+      {
+        "testCaseId": "f4c30903-ef1e-40c1-8a47-5cb31eaed4b6",
+        "requirementId": "5dda582f-706a-4b7f-990f-40713ec16524",
+        "type": "NORMAL",
+        "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: same-department-manager",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "same-department-manager"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 200
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "loanStatus",
+              "value": "APPROVED"
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "assetStatus",
+              "value": "RESERVED"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "7af865b5-aa78-4032-9c21-0cb191d05cbd",
+        "requirementId": "5dda582f-706a-4b7f-990f-40713ec16524",
+        "type": "EXCEPTION",
+        "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "requester"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "SELF_APPROVAL_FORBIDDEN"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "66187890-98eb-42eb-8f4f-1d65ae32c85f",
+        "requirementId": "5dda582f-706a-4b7f-990f-40713ec16524",
+        "type": "AUTHORIZATION",
+        "scenario": "일반 직원이 승인 권한 없이 다른 직원의 신청을 승인한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: ordinary-employee",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "ordinary-employee"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "1fbfd322-f67f-4dfd-b482-97a7bdca93fe",
+        "requirementId": "5dda582f-706a-4b7f-990f-40713ec16524",
+        "type": "BOUNDARY",
+        "scenario": "승인 권한의 부서 범위 경계: 타 부서 부서장의 승인을 거부한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: other-department-manager",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "other-department-manager"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "77edba37-7833-40d5-8529-bd743ba62abb",
+        "requirementId": "5dda582f-706a-4b7f-990f-40713ec16524",
+        "type": "BUSINESS_RULE",
+        "scenario": "자기 승인 거부 시 신청 및 자산 상태를 보존한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "requester"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "loanStatus"
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "assetStatus"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "d03c02bb-c7bf-4d39-b9b9-fc482655f46b",
+        "requirementId": "5dda582f-706a-4b7f-990f-40713ec16524",
+        "type": "EXCEPTION",
+        "scenario": "자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+        "preconditions": [
+          "승인 권한이 있는 부서장 계정과 이미 APPROVED인 대여 신청을 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {},
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 409
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "LOAN_STATE_CONFLICT"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          }
+        ],
+        "executable": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "자산 상태에 따른 대여 승인 제한",
+    "retrieval": "REAL_VECTOR_TOP5",
+    "analysis": "FAKE_EXTRACTIVE_ANCHORS",
+    "selection": "FAKE_PROVIDER",
+    "ragHits": 5,
+    "confirmedConditions": 1,
+    "beforeTestCount": 0,
+    "testCount": 1,
+    "templateIds": [
+      "inventory-unavailable"
+    ],
+    "grounded": true,
+    "automaticallyExecutable": false,
+    "clarificationRequired": [],
+    "analysisSnapshot": {
+      "requirementId": "9aa3e0db-26b5-48ff-8fdf-638ed41af4e3",
+      "confirmedConditions": [
+        {
+          "text": "RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다.",
+          "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e"
+        }
+      ],
+      "ambiguousExpressions": [],
+      "missingConditions": [],
+      "relatedBusinessRules": [
+        {
+          "text": "RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다.",
+          "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e"
+        }
+      ],
+      "relatedApis": [
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+        },
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+        },
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e"
+        }
+      ],
+      "clarificationQuestions": [],
+      "evidence": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "score": 0.8588017393586946
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+          "documentType": "BUSINESS_RULE",
+          "section": "대여 가능한 재고 판정",
+          "contentSnippet": "임직원에게 지급할 수 있는 재고는 자산 상태가 AVAILABLE이고 활성 대여 기록이 없는 장비다. RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다. 예약은 승인 완료부터 실물 지급까지 유효하다. 대여 화면의 재고 조회 결과만 신뢰하지 않고 승인 트랜잭션에서 최신 상태를 다시 확인한다.",
+          "score": 0.8131979815245892
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "50c0a5ec-04da-5343-bc57-78c3dc29ed8b",
+          "documentType": "ERROR_CODE",
+          "section": "ASSET_NOT_AVAILABLE 재고 충돌",
+          "contentSnippet": "HTTP 409 ASSET_NOT_AVAILABLE은 대여 승인 시 장비가 AVAILABLE이 아니거나 이미 다른 신청에 예약된 경우다. 사용자에게 최신 재고를 조회하고 다른 장비를 선택하도록 안내한다. 같은 승인 요청을 무조건 반복하면 성공을 보장할 수 없다. 단순 입력 누락인 VALIDATION_ERROR와 구분한다.",
+          "score": 0.8078274841411436
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "score": 0.8050862666913127
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/approve 승인",
+          "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "score": 0.7629955552223008
+        }
+      ]
+    },
+    "testCases": [
+      {
+        "testCaseId": "661699ca-f61e-4673-bc0b-20bd900326d0",
+        "requirementId": "9aa3e0db-26b5-48ff-8fdf-638ed41af4e3",
+        "type": "BUSINESS_RULE",
+        "scenario": "자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+        "preconditions": [
+          "승인 권한이 있는 부서장과 PENDING_APPROVAL 신청을 준비한다.",
+          "자산 상태는 AVAILABLE이 아닌 ON_LOAN으로 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {},
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 409
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "ASSET_NOT_AVAILABLE"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+            "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          }
+        ],
+        "executable": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "대여 자산 반납 및 상태 변경 검증",
+    "retrieval": "REAL_VECTOR_TOP5",
+    "analysis": "FAKE_EXTRACTIVE_ANCHORS",
+    "selection": "FAKE_PROVIDER",
+    "ragHits": 5,
+    "confirmedConditions": 4,
+    "beforeTestCount": 0,
+    "testCount": 6,
+    "templateIds": [
+      "return-normal",
+      "return-duplicate",
+      "return-authorization",
+      "return-inspection-pending",
+      "inspection-passed",
+      "inspection-damaged"
+    ],
+    "grounded": true,
+    "automaticallyExecutable": false,
+    "clarificationRequired": [],
+    "analysisSnapshot": {
+      "requirementId": "c4ecaa82-dc7b-4fef-b59b-92e97d427197",
+      "confirmedConditions": [
+        {
+          "text": "현재 대여자 또는 자산 담당자만 반납 접수를 할 수 있다.",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+        },
+        {
+          "text": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+        },
+        {
+          "text": "파손 또는 기능 이상이 있으면 검사 결과를 DAMAGED로 기록하고 자산 상태를 MAINTENANCE로 바꾼다.",
+          "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+        },
+        {
+          "text": "이상 없는 장비는 검사 결과 PASSED와 함께 AVAILABLE로 전환한다.",
+          "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+        }
+      ],
+      "ambiguousExpressions": [],
+      "missingConditions": [],
+      "relatedBusinessRules": [
+        {
+          "text": "현재 대여자 또는 자산 담당자만 반납 접수를 할 수 있다.",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+        },
+        {
+          "text": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+        },
+        {
+          "text": "파손 또는 기능 이상이 있으면 검사 결과를 DAMAGED로 기록하고 자산 상태를 MAINTENANCE로 바꾼다.",
+          "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+        },
+        {
+          "text": "이상 없는 장비는 검사 결과 PASSED와 함께 AVAILABLE로 전환한다.",
+          "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+        }
+      ],
+      "relatedApis": [
+        {
+          "api": "POST /loans/{loanId}/returns",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+        },
+        {
+          "api": "POST /returns/{returnId}/inspection",
+          "chunkId": "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43"
+        },
+        {
+          "api": "POST /returns/{returnId}/inspection",
+          "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+        }
+      ],
+      "clarificationQuestions": [],
+      "evidence": [
+        {
+          "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+          "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+          "documentType": "BUSINESS_RULE",
+          "section": "반납 접수와 검사 대기",
+          "contentSnippet": "현재 대여자 또는 자산 담당자만 반납 접수를 할 수 있다. 반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다. 반납 건은 INSPECTION_PENDING으로 생성되고 자산은 검사 완료 전까지 새로운 대여에서 제외한다. 본체, 충전기, 부속품의 반납 여부를 기록하며 접수일과 담당자를 보관한다.",
+          "score": 0.8906131386756897
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "dd4f1c1d-2846-5913-aad2-efe4f9cf7d43",
+          "documentType": "BUSINESS_RULE",
+          "section": "수리와 폐기 상태 전이",
+          "contentSnippet": "반납 검사에서 이상이 발견되면 자산을 MAINTENANCE로 전환한다. 수리 완료와 기능 점검 통과가 기록된 후에만 AVAILABLE로 복구한다. RETIRED로의 전이는 자산 관리자만 수행하며 폐기 사유를 남긴다. 활성 대여나 미완료 반납 검사가 있으면 폐기를 거부한다. 이미 폐기된 자산은 대여 가능 상태로 되돌릴 수 없다.",
+          "score": 0.821183443069458
+        },
+        {
+          "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+          "chunkId": "4175e617-06be-519d-afbd-b279688fb982",
+          "documentType": "BUSINESS_RULE",
+          "section": "파손 장비의 수리 전환",
+          "contentSnippet": "자산 담당자는 반납 장비의 외관과 작동 상태를 검사한다. 파손 또는 기능 이상이 있으면 검사 결과를 DAMAGED로 기록하고 자산 상태를 MAINTENANCE로 바꾼다. 사진과 파손 설명은 필수이며 정상 재고로 바로 돌릴 수 없다. 이상 없는 장비는 검사 결과 PASSED와 함께 AVAILABLE로 전환한다.",
+          "score": 0.7871639259359895
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "3e8c8b89-7feb-5089-ad27-a092afa3a27e",
+          "documentType": "BUSINESS_RULE",
+          "section": "대여 가능한 재고 판정",
+          "contentSnippet": "임직원에게 지급할 수 있는 재고는 자산 상태가 AVAILABLE이고 활성 대여 기록이 없는 장비다. RESERVED(예약), ON_LOAN(대여 중), MAINTENANCE(수리 중), LOST(분실), RETIRED(폐기) 상태는 대여할 수 없다. 예약은 승인 완료부터 실물 지급까지 유효하다. 대여 화면의 재고 조회 결과만 신뢰하지 않고 승인 트랜잭션에서 최신 상태를 다시 확인한다.",
+          "score": 0.7839648723602295
+        },
+        {
+          "documentId": "740cae54-6478-57e7-a4d5-4ccc8fa6655a",
+          "chunkId": "566990a9-d4ea-5b39-a07a-c5464ce2e2b8",
+          "documentType": "ERROR_CODE",
+          "section": "RETURN_ALREADY_REQUESTED 중복 반납",
+          "contentSnippet": "HTTP 409 RETURN_ALREADY_REQUESTED는 같은 대여에 반납 접수가 이미 존재하는 경우다. 새 반납 건을 생성하지 않고 기존 returnId의 진행 상태를 조회한다. 첫 요청의 응답을 받지 못한 재시도에서도 반납이 두 번 기록되지 않아야 한다. 검사 완료 후 재접수도 동일하게 거부한다.",
+          "score": 0.7345621148012821
+        }
+      ]
+    },
+    "testCases": [
+      {
+        "testCaseId": "b4ddca1a-09b7-4296-afe8-e4ab6f3a60c6",
+        "requirementId": "c4ecaa82-dc7b-4fef-b59b-92e97d427197",
+        "type": "NORMAL",
+        "scenario": "성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다.",
+        "preconditions": [
+          "현재 대여자 또는 자산 담당자 계정을 사용한다.",
+          "해당 대여에 기존 반납 접수가 없는 상태를 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/returns",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "accessoriesReturned": true,
+            "note": "합성 반납 검증"
+          },
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 201
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "returnStatus",
+              "value": "INSPECTION_PENDING"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+            "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          },
+          {
+            "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+            "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "06f1d5d5-3ba3-45f6-9b2d-df56d8c9f509",
+        "requirementId": "c4ecaa82-dc7b-4fef-b59b-92e97d427197",
+        "type": "EXCEPTION",
+        "scenario": "같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다.",
+        "preconditions": [
+          "같은 대여에 반납 접수가 이미 존재하는 상태를 준비한다.",
+          "현재 대여자 또는 자산 담당자 계정을 사용한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/returns",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "accessoriesReturned": true,
+            "note": "합성 중복 검증"
+          },
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 409
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "RETURN_ALREADY_REQUESTED"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+            "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          },
+          {
+            "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+            "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "5a4b4c6f-3180-43c0-a9d3-2b93c2c443e8",
+        "requirementId": "c4ecaa82-dc7b-4fef-b59b-92e97d427197",
+        "type": "AUTHORIZATION",
+        "scenario": "현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+        "preconditions": [
+          "현재 대여자도 자산 담당자도 아닌 합성 계정을 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/returns",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "accessoriesReturned": true
+          },
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "ACCESS_DENIED"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+            "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          },
+          {
+            "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+            "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "f0f4afab-34f2-46aa-8216-2a185b2ea68c",
+        "requirementId": "c4ecaa82-dc7b-4fef-b59b-92e97d427197",
+        "type": "BUSINESS_RULE",
+        "scenario": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+        "preconditions": [
+          "현재 대여자 또는 자산 담당자 계정과 반납 접수 전 ON_LOAN 자산을 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/returns",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "accessoriesReturned": true
+          },
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 201
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "returnStatus",
+              "value": "INSPECTION_PENDING"
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "assetStatus"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+            "chunkId": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          },
+          {
+            "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+            "chunkId": "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "0be17f8e-0a03-4fab-95a0-948304c67509",
+        "requirementId": "c4ecaa82-dc7b-4fef-b59b-92e97d427197",
+        "type": "BUSINESS_RULE",
+        "scenario": "PASSED는 AVAILABLE, DAMAGED는 MAINTENANCE로 자산 상태를 전환한다.",
+        "preconditions": [
+          "자산 담당자 계정과 미완료 반납 검사 건을 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/returns/{returnId}/inspection",
+          "pathParameters": {
+            "returnId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "result": "PASSED"
+          },
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "PASSED는 AVAILABLE, DAMAGED는 MAINTENANCE로 자산 상태를 전환한다.",
+          "assertions": [
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "assetStatus",
+              "value": "AVAILABLE"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+            "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+          },
+          {
+            "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+            "chunkId": "2b53cfe3-370a-5355-9928-3f41d69ddeb2"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "8cad99af-d4ec-478b-9cae-c5e28336b365",
+        "requirementId": "c4ecaa82-dc7b-4fef-b59b-92e97d427197",
+        "type": "BUSINESS_RULE",
+        "scenario": "PASSED는 AVAILABLE, DAMAGED는 MAINTENANCE로 자산 상태를 전환한다.",
+        "preconditions": [
+          "자산 담당자 계정과 미완료 반납 검사 건을 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/returns/{returnId}/inspection",
+          "pathParameters": {
+            "returnId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "result": "DAMAGED",
+            "damageDescription": "합성 파손",
+            "photoReferences": [
+              "synthetic-photo"
+            ]
+          },
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "PASSED는 AVAILABLE, DAMAGED는 MAINTENANCE로 자산 상태를 전환한다.",
+          "assertions": [
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "assetStatus",
+              "value": "MAINTENANCE"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+            "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+          },
+          {
+            "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149",
+            "chunkId": "2b53cfe3-370a-5355-9928-3f41d69ddeb2"
+          }
+        ],
+        "executable": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "IT 자산 등록 권한 및 필수값 검증",
+    "retrieval": "REAL_VECTOR_TOP5",
+    "analysis": "FAKE_EXTRACTIVE_ANCHORS",
+    "selection": "FAKE_PROVIDER",
+    "ragHits": 5,
+    "confirmedConditions": 1,
+    "beforeTestCount": 0,
+    "testCount": 1,
+    "templateIds": [
+      "asset-registration"
+    ],
+    "grounded": true,
+    "automaticallyExecutable": false,
+    "clarificationRequired": [],
+    "analysisSnapshot": {
+      "requirementId": "aacef996-8fbb-48ef-bedb-1d684ea770af",
+      "confirmedConditions": [
+        {
+          "text": "신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다.",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0"
+        }
+      ],
+      "ambiguousExpressions": [],
+      "missingConditions": [],
+      "relatedBusinessRules": [
+        {
+          "text": "신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다.",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0"
+        }
+      ],
+      "relatedApis": [
+        {
+          "api": "POST /assets",
+          "chunkId": "499bf89b-1a91-527a-b35f-a67e264475bf"
+        },
+        {
+          "api": "POST /assets",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0"
+        }
+      ],
+      "clarificationQuestions": [],
+      "evidence": [
+        {
+          "documentId": "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+          "chunkId": "499bf89b-1a91-527a-b35f-a67e264475bf",
+          "documentType": "API_SPEC",
+          "section": "POST /assets 자산 등록",
+          "contentSnippet": "POST /assets는 자산 관리자 전용이다. JSON 필드는 assetNumber, serialNumber, assetType, purchasedAt, departmentId다. 성공 시 HTTP 201과 Location: /assets/{assetId}를 반환한다. 자산번호 또는 일련번호가 이미 존재하면 HTTP 409와 DUPLICATE_ASSET 오류를 반환한다. 필수값 누락은 HTTP 400 VALIDATION_ERROR다.",
+          "score": 0.8157900085574398
+        },
+        {
+          "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+          "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0",
+          "documentType": "BUSINESS_RULE",
+          "section": "자산 등록과 관리번호",
+          "contentSnippet": "가상 자산관리 시스템의 자산 담당자는 노트북, 모니터, 휴대전화에 고유한 자산번호를 부여한다. 자산번호와 제조사 일련번호는 중복될 수 없다. 신규 등록 시 자산 상태는 AVAILABLE(대여 가능)이다. 분실 신고된 장비나 폐기된 장비를 신규 재고로 다시 등록하지 않는다. 구매일, 장비 종류, 관리 부서, 일련번호는 필수 입력이다.",
+          "score": 0.7518768158179269
+        },
+        {
+          "documentId": "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+          "chunkId": "ea0e26ab-2b77-513a-a272-bb00467d2322",
+          "documentType": "API_SPEC",
+          "section": "GET /assets/{assetId} 상세 조회",
+          "contentSnippet": "GET /assets/{assetId}는 UUID 자산 식별자로 상세 정보를 반환한다. 성공은 HTTP 200이며 status와 현재 대여 상태를 포함한다. 다른 조직 자산은 권한 정책에 따라 HTTP 403 ACCESS_DENIED다. UUID 형식 오류는 HTTP 400, 존재하지 않는 자산은 HTTP 404 ASSET_NOT_FOUND다. 직원 개인정보와 구입 금액은 일반 임직원 응답에서 제외한다.",
+          "score": 0.7059630926869469
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/approve 승인",
+          "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "score": 0.6850312539916495
+        },
+        {
+          "documentId": "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+          "chunkId": "4e3a8b43-b8c9-5f8c-9f6a-72fc485a4feb",
+          "documentType": "API_SPEC",
+          "section": "GET /assets 재고 조회",
+          "contentSnippet": "GET /assets는 가상 자산 목록 조회 API다. query parameter로 status, assetType, page, size를 받는다. size는 1부터 100까지이며 기본 20이다. status=AVAILABLE로 대여 가능 장비를 조회한다. 응답은 items 배열과 total을 포함하고 각 항목에 assetId, assetNumber, assetType, status를 반환한다. 임직원은 자기 조직의 재고만 볼 수 있다.",
+          "score": 0.6624438367817511
+        }
+      ]
+    },
+    "testCases": [
+      {
+        "testCaseId": "dc583d6c-6316-4352-9604-759b54e3328d",
+        "requirementId": "aacef996-8fbb-48ef-bedb-1d684ea770af",
+        "type": "NORMAL",
+        "scenario": "성공 시 HTTP 201과 Location: /assets/{assetId}를 반환한다.",
+        "preconditions": [
+          "자산 관리자 계정과 중복되지 않는 자산번호·일련번호 및 유효한 필수 입력을 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/assets",
+          "pathParameters": {},
+          "body": {
+            "assetNumber": "SYNTHETIC-NEW",
+            "serialNumber": "SYNTHETIC-SERIAL",
+            "assetType": "LAPTOP",
+            "purchasedAt": "2026-01-01",
+            "departmentId": "synthetic-department"
+          },
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "성공 시 HTTP 201과 Location: /assets/{assetId}를 반환한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 201
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "assetStatus",
+              "value": "AVAILABLE"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "ebe8e234-e065-5b9d-b9ba-b09cccbc3ec6",
+            "chunkId": "21c64a3f-f92b-5108-86e0-e6d30c4481d0"
+          },
+          {
+            "documentId": "9fc9f76d-9ded-50fc-96dd-153594c6d566",
+            "chunkId": "499bf89b-1a91-527a-b35f-a67e264475bf"
+          }
+        ],
+        "executable": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "대여 승인 요청 중복 처리 방지",
+    "retrieval": "REAL_VECTOR_TOP5",
+    "analysis": "FAKE_EXTRACTIVE_ANCHORS",
+    "selection": "FAKE_PROVIDER",
+    "ragHits": 5,
+    "confirmedConditions": 2,
+    "beforeTestCount": 5,
+    "testCount": 6,
+    "templateIds": [
+      "approval-normal",
+      "approval-self",
+      "approval-employee",
+      "approval-department-boundary",
+      "approval-no-mutation",
+      "duplicate-approval"
+    ],
+    "grounded": true,
+    "automaticallyExecutable": false,
+    "clarificationRequired": [],
+    "analysisSnapshot": {
+      "requirementId": "c0c1536f-a967-4494-a923-4203d914bf11",
+      "confirmedConditions": [
+        {
+          "text": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        },
+        {
+          "text": "취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        }
+      ],
+      "ambiguousExpressions": [],
+      "missingConditions": [],
+      "relatedBusinessRules": [
+        {
+          "text": "요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        },
+        {
+          "text": "취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        }
+      ],
+      "relatedApis": [
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+        },
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+        },
+        {
+          "api": "POST /loans/{loanId}/approve",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+        }
+      ],
+      "clarificationQuestions": [],
+      "evidence": [
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "documentType": "BUSINESS_RULE",
+          "section": "동시 승인과 자산 예약",
+          "contentSnippet": "대여 승인 시 신청 상태와 자산 AVAILABLE 상태를 한 트랜잭션에서 검증하고 자산 행 잠금을 획득한다. 동일 장비를 두 직원에게 동시에 승인할 수 없다. 먼저 승인된 요청이 자산을 RESERVED로 바꾸며 뒤 요청은 ASSET_NOT_AVAILABLE 오류로 실패한다. 승인만으로 ON_LOAN이 되지 않으며 담당자의 실물 지급 확인 후 활성 대여가 시작된다.",
+          "score": 0.7920628313980813
+        },
+        {
+          "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+          "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "documentType": "API_SPEC",
+          "section": "POST /loans/{loanId}/approve 승인",
+          "contentSnippet": "POST /loans/{loanId}/approve는 승인 권한이 있는 부서장만 호출한다. body의 comment는 선택 항목이다. 성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다. 본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다. 자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "score": 0.7630232572555542
+        },
+        {
+          "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+          "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "documentType": "BUSINESS_RULE",
+          "section": "부서장 승인과 자기 승인 금지",
+          "contentSnippet": "대여 신청은 PENDING_APPROVAL로 생성된다. 요청자 소속 부서의 부서장만 승인할 수 있으며 본인이 작성한 신청은 승인할 수 없다. 자기 승인 대신 상위 조직의 지정 승인자에게 전달한다. 반려 시 사유는 필수다. 취소되었거나 이미 승인된 신청을 다시 승인하면 상태 충돌 오류를 반환한다.",
+          "score": 0.7624217726243613
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520",
+          "documentType": "TEST_GUIDE",
+          "section": "대여 승인 권한 테스트",
+          "contentSnippet": "서로 다른 두 직원과 부서장을 합성 계정으로 준비한다. 부서장은 같은 부서 직원의 신청을 승인할 수 있어야 한다. 일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다. 거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다. 자기 승인 오류 코드는 SELF_APPROVAL_FORBIDDEN으로 확인한다.",
+          "score": 0.7261699005264116
+        },
+        {
+          "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+          "chunkId": "eb8499ff-e3dd-5724-b927-c928df48d1ec",
+          "documentType": "TEST_GUIDE",
+          "section": "동시 대여 승인 테스트",
+          "contentSnippet": "AVAILABLE 장비 한 대와 서로 다른 두 직원의 PENDING_APPROVAL 신청을 준비한다. 두 승인 요청을 동시에 전송한다. 정확히 하나는 HTTP 200으로 성공하고 다른 하나는 HTTP 409 ASSET_NOT_AVAILABLE이어야 한다. 최종 자산은 RESERVED이고 해당 장비의 승인된 신청은 한 건이어야 한다. 두 건 모두 성공하거나 장비가 AVAILABLE이면 실패다.",
+          "score": 0.7147963643074036
+        }
+      ]
+    },
+    "testCases": [
+      {
+        "testCaseId": "bfe9f85b-3515-49a4-a9f4-7470798c3ea7",
+        "requirementId": "c0c1536f-a967-4494-a923-4203d914bf11",
+        "type": "NORMAL",
+        "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: same-department-manager",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "same-department-manager"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "성공 시 HTTP 200과 status=APPROVED를 반환하고 자산은 RESERVED가 된다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 200
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "loanStatus",
+              "value": "APPROVED"
+            },
+            {
+              "kind": "OBSERVATION_EQUALS",
+              "field": "assetStatus",
+              "value": "RESERVED"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "2fc148a3-b455-492a-8adc-ac839f7366fb",
+        "requirementId": "c0c1536f-a967-4494-a923-4203d914bf11",
+        "type": "EXCEPTION",
+        "scenario": "신청자 본인이 자신의 신청을 승인하면 거부된다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "requester"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "본인 신청 승인 시 HTTP 403 SELF_APPROVAL_FORBIDDEN을 반환한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "SELF_APPROVAL_FORBIDDEN"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "893a064c-b71c-423d-9d20-e62e777ab79a",
+        "requirementId": "c0c1536f-a967-4494-a923-4203d914bf11",
+        "type": "AUTHORIZATION",
+        "scenario": "일반 직원이 승인 권한 없이 다른 직원의 신청을 승인한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: ordinary-employee",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "ordinary-employee"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "61ed835b-714a-4667-a075-6bd9ff3af34b",
+        "requirementId": "c0c1536f-a967-4494-a923-4203d914bf11",
+        "type": "BOUNDARY",
+        "scenario": "승인 권한의 부서 범위 경계: 타 부서 부서장의 승인을 거부한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: other-department-manager",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "other-department-manager"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "일반 직원, 타 부서 부서장, 신청자 본인의 승인은 HTTP 403으로 거부되어야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "afd004e2-d542-481d-a3dd-edd59917372d",
+        "requirementId": "c0c1536f-a967-4494-a923-4203d914bf11",
+        "type": "BUSINESS_RULE",
+        "scenario": "자기 승인 거부 시 신청 및 자산 상태를 보존한다.",
+        "preconditions": [
+          "합성 계정과 부서 관계를 시험 환경에 준비한다: requester",
+          "합성 대여 신청의 상태는 PENDING_APPROVAL이다.",
+          "해당 자산의 상태는 AVAILABLE이다.",
+          "상태 변경 비교를 위해 실행 전 신청 상태와 자산 상태를 기록한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {
+            "comment": "합성 검증"
+          },
+          "actorFixture": "requester"
+        },
+        "steps": [
+          "사전조건과 합성 계정의 역할 및 부서 관계를 확인한다.",
+          "지정 계정으로 input의 승인 요청을 보낸다.",
+          "응답과 실행 전후 상태를 expectedResult의 판정 기준과 비교한다."
+        ],
+        "expectedResult": {
+          "description": "거부된 요청은 신청 상태와 자산 상태를 변경하지 않아야 한다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 403
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "loanStatus"
+            },
+            {
+              "kind": "UNCHANGED",
+              "field": "assetStatus"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          },
+          {
+            "documentId": "34b91c10-3bd5-547e-97c2-18641d80eb14",
+            "chunkId": "d10c2901-6178-56c5-a019-c45bb1ce5520"
+          }
+        ],
+        "executable": false
+      },
+      {
+        "testCaseId": "5e20e1c3-6e26-4de8-ac1d-4e1c1c4c342d",
+        "requirementId": "c0c1536f-a967-4494-a923-4203d914bf11",
+        "type": "EXCEPTION",
+        "scenario": "자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+        "preconditions": [
+          "승인 권한이 있는 부서장 계정과 이미 APPROVED인 대여 신청을 준비한다."
+        ],
+        "input": {
+          "method": "POST",
+          "endpoint": "/loans/{loanId}/approve",
+          "pathParameters": {
+            "loanId": "00000000-0000-4000-8000-000000000041"
+          },
+          "body": {},
+          "actorFixture": ""
+        },
+        "steps": [
+          "문서에 명시된 권한과 상태를 확인하고 실행 전 관측값을 기록한다.",
+          "input의 명세 경로와 본문으로 요청한다. 자동 실행 미지원 시 검토용 절차로 사용한다.",
+          "응답과 상태를 원문 근거에 연결된 expectedResult와 비교한다."
+        ],
+        "expectedResult": {
+          "description": "자산 재고 충돌은 HTTP 409 ASSET_NOT_AVAILABLE, 신청 상태 충돌은 HTTP 409 LOAN_STATE_CONFLICT다.",
+          "assertions": [
+            {
+              "kind": "HTTP_STATUS",
+              "value": 409
+            },
+            {
+              "kind": "RESPONSE_TOKEN",
+              "value": "LOAN_STATE_CONFLICT"
+            }
+          ]
+        },
+        "evidence": [
+          {
+            "documentId": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "chunkId": "29068730-5e86-57f1-bee2-ffaae1575a08"
+          },
+          {
+            "documentId": "e7cb1b5c-9e68-5f36-b3cb-96c36d4f3520",
+            "chunkId": "7c7eda12-4b56-5ad1-a30d-627031666355"
+          }
+        ],
+        "executable": false
+      }
+    ]
+  }
+]

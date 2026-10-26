@@ -19,7 +19,7 @@ class TestCaseGenerationTest(unittest.TestCase):
 
     def generator(self, raw=None):
         model=Mock()
-        model.generate.return_value=raw or json.dumps({'candidateIds':[p['id'] for p in POLICY['plans']]})
+        model.generate.return_value=raw or json.dumps({'candidateIds':list(compile_candidates(self.request(), POLICY)[0])})
         return TestCaseGenerator(model,POLICY,'hash'), model
 
     def test_five_types_full_contract_and_original_evidence(self):

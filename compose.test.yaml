@@ -34,6 +34,7 @@ services:
     volumes:
       - ./docs/phase5-evidence/test-results:/workspace/target/surefire-reports
       - ./contracts:/contracts:ro
+      - ./knowledge:/knowledge:ro
     depends_on:
       postgres-test:
         condition: service_healthy

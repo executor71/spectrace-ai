@@ -24,6 +24,7 @@ services:
     build: ./backend
     volumes:
       - ./contracts:/contracts:ro
+      - ./knowledge:/knowledge:ro
     environment:
       AI_SERVICE_URL: http://ai-service:8000
       ANALYSIS_TIMEOUT_SECONDS: "630"
@@ -60,6 +61,7 @@ services:
     volumes:
       - embedding-model-cache:/models
       - ./contracts:/contracts:ro
+      - ./knowledge:/knowledge:ro
     ports:
       - "8000:8000"
     depends_on:
