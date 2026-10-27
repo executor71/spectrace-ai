@@ -1,0 +1,54 @@
+{
+  "java": {
+    "tests": 134,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pythonTests": 219,
+  "pythonSuites": [
+    {
+      "suite": "ai",
+      "exitCode": 0,
+      "tests": 99
+    },
+    {
+      "suite": "retrieval",
+      "exitCode": 0,
+      "tests": 27
+    },
+    {
+      "suite": "evaluation-metrics",
+      "exitCode": 0,
+      "tests": 22
+    },
+    {
+      "suite": "evaluation-api",
+      "exitCode": 0,
+      "tests": 12
+    },
+    {
+      "suite": "mcp",
+      "exitCode": 0,
+      "tests": 18
+    },
+    {
+      "suite": "graph-projection",
+      "exitCode": 0,
+      "tests": 28
+    },
+    {
+      "suite": "graph-analysis",
+      "exitCode": 0,
+      "tests": 4
+    },
+    {
+      "suite": "observability",
+      "exitCode": 0,
+      "tests": 9
+    }
+  ],
+  "frontendBuild": "PASS",
+  "runtime": "Isolated staged snapshot; Java 21; separate tmpfs PostgreSQL",
+  "scope": "Excludes pre-existing Java upgrade, enterprise UI redesign, return Dummy execution extension and random example changes"
+}

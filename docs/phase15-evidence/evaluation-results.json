@@ -1,0 +1,33 @@
+{
+  "scope": "Single author-draft synthetic fixture; human reference review pending; not a general accuracy estimate",
+  "cases": 1,
+  "humanApproved": false,
+  "rawModelRequiredClassCoverage": 0.5,
+  "finalAtomicClassificationConformity": 1.0,
+  "impactedApi": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "returned": 1,
+    "expected": 1
+  },
+  "impactedTcCandidateSet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "returned": 5,
+    "expected": 5
+  },
+  "evidenceCitationIdValidity": 1.0,
+  "unsupportedChangeDetected": true,
+  "realProviderCalls": 1,
+  "rawModelAnalysisDurationMs": 39612,
+  "reprocessingProviderCalls": 0,
+  "reprocessingDurationMs": 4838,
+  "developerReviewCorrectionRate": null,
+  "limitations": [
+    "One curated source fixture, no independent human approval",
+    "Model missed unchanged self-approval prohibition; narrow source-quoted guard reconciled cached output",
+    "TC candidate set conformity does not establish precise semantic impact relevance",
+    "Human correction rate not measured",
+    "Existing Phase11 metrics and Ground Truth remain separate"
+  ]
+}

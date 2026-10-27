@@ -1,0 +1,17 @@
+{
+  "passed": [
+    "기존 확정 조건 visible",
+    "조건 변경 비교 visible",
+    "관련 API 영향 후보 visible",
+    "기존 TC 영향 visible",
+    "신규 TC 필요성 제안 visible",
+    "API inclusion and TC candidate adjustment saved as append-only review revision 3",
+    "XLSX: 7 sheets, no formula cells",
+    "Saved analysis/review reload without model invocation",
+    "Mobile 390px: no document overflow"
+  ],
+  "browserErrors": [],
+  "postRequests": [
+    "http://localhost:5173/api/change-impacts/88a0794d-e08b-480f-b6cc-0599ba81b080/reviews"
+  ]
+}

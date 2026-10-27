@@ -1,0 +1,16 @@
+{
+  "scope": "Phase 15 only; not available to generation or LLM prompts",
+  "reviewStatus": "AUTHOR_DRAFT_REQUIRES_HUMAN_REVIEW",
+  "method": "Source-reviewed synthetic approval rule and actual stored baseline. Authored before the representative model run. No claim of independent human approval.",
+  "cases": [{
+    "id": "CI-APPROVAL-ROLE-001",
+    "baselineRequirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+    "proposal": "Department manager or asset manager may approve; self-approval remains forbidden.",
+    "requiredClassifications": ["ADDED", "UNCHANGED"],
+    "proposedRole": "자산관리 담당자",
+    "expectedApiIds": ["API-LOAN-APPROVE"],
+    "tcExpectation": "Existing baseline approval TCs are candidates for review; no TC/expected-result/approval writes",
+    "newPolicyExpectation": "TEMPLATE_UNSUPPORTED; expectedResult null; automaticExecutionSupported false",
+    "nonGoals": "Not a representative population or an approved evaluation Ground Truth"
+  }]
+}

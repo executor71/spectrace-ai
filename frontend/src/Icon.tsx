@@ -1,5 +1,6 @@
 ﻿import type { Screen } from './navigation'
 const paths: Record<Screen | 'arrow' | 'close' | 'menu' | 'check', string> = {
+  impact: 'M2 3h8v3H5v12h5v3H2V3zm12 0h8v18h-8v-3h5V6h-5V3zM8 10h8l-3-3 2-2 6 7-6 7-2-2 3-3H8v-4z',
   dashboard: 'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',
   requirements: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 12h8 M8 16h6',
   analysis: 'm12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z M20 2v4 M18 4h4',

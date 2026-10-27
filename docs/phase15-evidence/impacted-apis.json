@@ -1,0 +1,1144 @@
+[
+  {
+    "apiId": "API-LOAN-APPROVE",
+    "method": "POST",
+    "reason": "기준 요구사항의 실제 Graph 경로에 연결된 영향 후보; 영향 확정 아님",
+    "status": "REVIEW_REQUIRED",
+    "endpoint": "/loans/{loanId}/approve",
+    "changeIds": [
+      "C2"
+    ],
+    "confirmed": false,
+    "graphPaths": [
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "20ba09ae-5122-4e45-be66-b051a6051925",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 1,
+            "executedAt": "2026-10-20T15:29:50.507558903Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "a9d20181-7322-4ca5-b041-b7aa0f2d976e",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 0,
+            "executedAt": "2026-10-11T11:42:36.680155953Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "deaa727d-4766-4f4b-b47b-7e0dbbb94572",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 2,
+            "executedAt": "2026-10-02T16:06:09.578296Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "4b0d840a-c65f-4e95-bd66-311f1c67ae7b",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 2,
+            "executedAt": "2026-10-02T12:53:33.366804316Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "156edebb-18ab-4f0c-a5a7-a5e09779c130",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 2,
+            "executedAt": "2026-10-02T11:21:18.561081372Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 2
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "743f85d5-1271-41e4-ad64-551c783f5a4f",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T17:06:39.963343612Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "d8072271-8483-45fc-a211-608e26bc6d7d",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 2,
+            "executedAt": "2026-10-02T11:27:40.829101560Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "9e56a6c9-3fb7-493f-b291-205021210918",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 0,
+            "executedAt": "2026-10-02T17:14:39.038639407Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "3861815b-9edd-4bd2-bf1f-16136a4b2b27",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T11:27:41.787152223Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "02e53f2b-c626-416a-a96b-fa2d176deab1",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T17:13:30.336770865Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "af2238e4-59c3-425d-9aa6-d2dca4ba5e78",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T11:21:19.541220257Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 2
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          },
+          {
+            "id": "c4dcfaf4-600b-4a29-9b8e-80c6309ca46e",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "FAIL",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T16:08:06.897344006Z",
+            "testCaseId": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": true,
+            "testCaseRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "type": "TestCase",
+            "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 1
+          },
+          {
+            "id": "319ab74a-ff97-403e-abb9-45574d6b64e5",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "PASS",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T17:13:30.155051828Z",
+            "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": false,
+            "testCaseRevision": 1
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "type": "TestCase",
+            "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 1
+          },
+          {
+            "id": "7d8e347d-ad41-4a64-ae63-9fbcbeaf19f4",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "PASS",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T11:21:18.334102704Z",
+            "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": false,
+            "testCaseRevision": 1
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "type": "TestCase",
+            "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 1
+          },
+          {
+            "id": "2441692e-3407-4dce-bf5f-9eb2d9debe28",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "PASS",
+            "durationMs": 3,
+            "executedAt": "2026-10-02T12:53:33.174724813Z",
+            "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": false,
+            "testCaseRevision": 1
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "type": "TestCase",
+            "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 1
+          },
+          {
+            "id": "accdc64b-648b-4fc8-b9e7-eafe6e5c9d20",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "PASS",
+            "durationMs": 2,
+            "executedAt": "2026-10-02T16:08:06.696319501Z",
+            "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": false,
+            "testCaseRevision": 1
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "type": "TestCase",
+            "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 1
+          },
+          {
+            "id": "4f0aedab-0f6a-4814-a4eb-61d516fc8fc7",
+            "type": "Execution",
+            "apiId": "API-LOAN-APPROVE",
+            "result": "PASS",
+            "durationMs": 1,
+            "executedAt": "2026-10-02T11:27:40.621189020Z",
+            "testCaseId": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "syntheticDefect": false,
+            "testCaseRevision": 1
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY",
+          "EXECUTED_AS"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          }
+        ],
+        "relations": [
+          "AFFECTS"
+        ],
+        "evidenceChunkIds": [
+          "7c7eda12-4b56-5ad1-a30d-627031666355",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "4611bca5-0d0c-45dd-9793-75566c432c89",
+            "type": "TestCase",
+            "scenario": "[합성 의도적 결함] 자기 승인 검사가 누락되면 FAIL이어야 한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 4
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "d4723cf0-56bd-46ff-b572-7ca83c586e29",
+            "type": "TestCase",
+            "scenario": "같은 부서 직원의 신청을 부서장이 승인한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "APPROVED",
+            "reviewRevision": 1
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      },
+      {
+        "path": [
+          {
+            "id": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "type": "Requirement",
+            "title": "[Phase 7 synthetic fixture] 제한된 Dummy API 실행 검증"
+          },
+          {
+            "id": "7cea4fe7-6b00-56c9-be35-3194aeecb923",
+            "type": "BusinessRule",
+            "title": "loan-rules"
+          },
+          {
+            "id": "API-LOAN-APPROVE",
+            "type": "Api",
+            "method": "POST",
+            "pathTemplate": "/loans/{loanId}/approve",
+            "specificationChunkIds": [
+              "7c7eda12-4b56-5ad1-a30d-627031666355"
+            ]
+          },
+          {
+            "id": "e35a6d9c-e7f2-4546-9f34-d597e9ae9627",
+            "type": "TestCase",
+            "scenario": "자기 승인 거부 시 신청 및 자산 상태를 보존한다.",
+            "requirementId": "80e2d374-0825-4811-a11e-03ade256b6e8",
+            "approvalStatus": "DRAFT",
+            "reviewRevision": 0
+          }
+        ],
+        "relations": [
+          "SUPPORTED_BY",
+          "IMPLEMENTED_BY",
+          "VERIFIED_BY"
+        ],
+        "evidenceChunkIds": [
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "29068730-5e86-57f1-bee2-ffaae1575a08",
+          "fac8b9c8-cab2-54a6-a555-f938e47ec23a",
+          "7c7eda12-4b56-5ad1-a30d-627031666355"
+        ]
+      }
+    ],
+    "contractVersions": [
+      "UNKNOWN"
+    ],
+    "evidenceChunkIds": [
+      "29068730-5e86-57f1-bee2-ffaae1575a08",
+      "7c7eda12-4b56-5ad1-a30d-627031666355",
+      "fac8b9c8-cab2-54a6-a555-f938e47ec23a"
+    ],
+    "relatedBusinessRuleIds": [
+      "7cea4fe7-6b00-56c9-be35-3194aeecb923"
+    ]
+  }
+]

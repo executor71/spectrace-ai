@@ -1,0 +1,426 @@
+﻿{
+    "branch":  "appmod/java-upgrade-20261026122936",
+    "files":  [
+                  {
+                      "sha256":  "9DACF6112604ADCF070D9C5860565D524F41F7F015E2F960BE0A272B915CD571",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/ReturnExecutionAdapter.java"
+                  },
+                  {
+                      "sha256":  "9A7C9D64C66039A2DF4A6570B93365D930DA50B173A324904BDE7DB690070800",
+                      "path":  "backend/src/test/java/com/example/legacyassistant/testcase/ReturnExecutionAdapterTest.java"
+                  },
+                  {
+                      "sha256":  "C7ABA9CEEB2D63A75E4B25BBE6252A9EB6C7B8C7C9E854C1F9849ED6CC0D53C7",
+                      "path":  "backend/src/test/java/com/example/legacyassistant/testcase/ReturnExecutionIntegrationTest.java"
+                  },
+                  {
+                      "sha256":  "7331153BD176C096DA3FFFFCE4CA07D2DA4E45CAF1E6F113A67AFB355A2F100D",
+                      "path":  "backend/src/test/resources/return-execution-inspection.json"
+                  },
+                  {
+                      "sha256":  "60760B539239989F16EB0DED787C6BCC7C2B13822C29AA878C9D3C8649DCCCD0",
+                      "path":  "docs/graph-sync-repair/README.md"
+                  },
+                  {
+                      "sha256":  "449C42FD9AA67EF4A9D1B8EBECA42595194438C2C1938365E4DA1FB4AD6FD6C7",
+                      "path":  "docs/graph-sync-repair/browser-results.json"
+                  },
+                  {
+                      "sha256":  "EED8E7541771A8EEBCE4E829165CF3796946D28A25BE7A6F04143DC19F32C378",
+                      "path":  "docs/graph-sync-repair/browser.py"
+                  },
+                  {
+                      "sha256":  "B43A94AB6300CAA813F734CEBF059FD5B557C521074B431C43842EC86F9F23A8",
+                      "path":  "docs/graph-sync-repair/capture.py"
+                  },
+                  {
+                      "sha256":  "2A6F94E81299633A1A494888379115747236FA91C1150BEE5EA5257B7678161B",
+                      "path":  "docs/graph-sync-repair/diagnostic-results.json"
+                  },
+                  {
+                      "sha256":  "47F7757134D6FD386FE72ECF45CDF610FCD70666BF62C9B62A9C74F99D6889DA",
+                      "path":  "docs/graph-sync-repair/evaluate.py"
+                  },
+                  {
+                      "sha256":  "BAED82C7F6A18A2E840FD555451BB8E35A9CEC04B71A2E648D86CB860E9DA329",
+                      "path":  "docs/graph-sync-repair/hybrid-vs-graph-comparison.json"
+                  },
+                  {
+                      "sha256":  "F6C07938E051BDC9AE64F64EF1A6284906E28F8BE3F26FAAE52FC3D6BAD68B4B",
+                      "path":  "docs/graph-sync-repair/live-results.json"
+                  },
+                  {
+                      "sha256":  "827409C9AF160969BA1E7087646BB8D615FF0F2E2692CE6B3E47D61F0E793FF6",
+                      "path":  "docs/graph-sync-repair/multi-hop-evaluation.json"
+                  },
+                  {
+                      "sha256":  "927864EE1F87C52FA71F14008AB982DD4744352AE3FBA7AB6782089B1E58E9C0",
+                      "path":  "docs/graph-sync-repair/regression-results.json"
+                  },
+                  {
+                      "sha256":  "0E7BD091F56EE2AC6C251CBF86994B8214FBE2CD5EB68DF153EB24BD0DCD888D",
+                      "path":  "docs/graph-sync-repair/run-regression.py"
+                  },
+                  {
+                      "sha256":  "C34788001892DC99CC67E193932F74EA6377F58ACC6FC372BACCFE1EE107AF01",
+                      "path":  "docs/return-execution-extension/assertion-rules.md"
+                  },
+                  {
+                      "sha256":  "59B2474BCBD550ADA3138D58A32231C948BB77C738241961ADB1B218CA83546F",
+                      "path":  "docs/return-execution-extension/authorization-pass.json"
+                  },
+                  {
+                      "sha256":  "B5E827EC695972716AA2CD83FF93E7F78FD476F4D31258981B731C972E174B09",
+                      "path":  "docs/return-execution-extension/backend-results.json"
+                  },
+                  {
+                      "sha256":  "624AE04FA97DCC336CC898CB948E1D548CF2917157A292BD9874A9B9110E2D37",
+                      "path":  "docs/return-execution-extension/before-analysis-jobs.json"
+                  },
+                  {
+                      "sha256":  "1A39B3D53FC352C4CD0F8C228D11C7A53DCEFBF160D42B602FA625F7E6121777",
+                      "path":  "docs/return-execution-extension/before-analysis.json"
+                  },
+                  {
+                      "sha256":  "F6A89B615107DDC79058D7867861F9A8A638E62100B7987F9CDF4E1F97869288",
+                      "path":  "docs/return-execution-extension/before-test-cases.json"
+                  },
+                  {
+                      "sha256":  "5B8E6A2ABC44B83CF6A5E2F01AAA304183351322C3D77106ECFFA73C74046441",
+                      "path":  "docs/return-execution-extension/browser-results.json"
+                  },
+                  {
+                      "sha256":  "7135F5B76FAF3C11D8C653A71959F790E5E3E9FD86AB8667C8E894BCB7E1C21B",
+                      "path":  "docs/return-execution-extension/dashboard-return.png"
+                  },
+                  {
+                      "sha256":  "92A8A0AE12D1C419E5724BCC1FBC1D34D92B82D66C062CD2335C97297B5ABFD4",
+                      "path":  "docs/return-execution-extension/dashboard-summary.json"
+                  },
+                  {
+                      "sha256":  "681486291DEC38625BBCA715107AD0FB1C47B48CD67555832207AC41BE8F4BA0",
+                      "path":  "docs/return-execution-extension/demo-browser.py"
+                  },
+                  {
+                      "sha256":  "2211FFE05FABD2C0F90D08C2FA5E37A84B0409D00F2A0E95BFE41102030B399D",
+                      "path":  "docs/return-execution-extension/demo-guide.md"
+                  },
+                  {
+                      "sha256":  "37F56600FFC4BC92BCE29435C3C65B24701C363B5B122A335CEB32FB69B85EF2",
+                      "path":  "docs/return-execution-extension/demo-progress.json"
+                  },
+                  {
+                      "sha256":  "8CE9A917D3B96D54FA2D4BA4D6AF0280B3ABA49A4257F2BDBB73F3CF39BA379E",
+                      "path":  "docs/return-execution-extension/duplicate-pass.json"
+                  },
+                  {
+                      "sha256":  "F959282A66B77ABE94F2C4C147CD8509F868AD43917EF1CFE8B7E5CAF5FFECBE",
+                      "path":  "docs/return-execution-extension/evaluation-db-check.py"
+                  },
+                  {
+                      "sha256":  "FE2FD93070992DDEC7FD45633BF05D3054496FD78689C815B36A2E6EEC50457D",
+                      "path":  "docs/return-execution-extension/evaluation-db-result.json"
+                  },
+                  {
+                      "sha256":  "91D54CC227E35F1392D9440FE5FCF38E8897E46EB72FFF8AD8F82067EEA3237A",
+                      "path":  "docs/return-execution-extension/execution-history.json"
+                  },
+                  {
+                      "sha256":  "4BCF4495AE03D0819A86E851900444A4A3AAC40712A690A962D70E441DA585F4",
+                      "path":  "docs/return-execution-extension/execution-support-matrix.md"
+                  },
+                  {
+                      "sha256":  "0BF78BC6AF50FD96F06458094A7391E4E4C954AE4099AE89C0F45B16C0BACD0A",
+                      "path":  "docs/return-execution-extension/execution-support-results.json"
+                  },
+                  {
+                      "sha256":  "F84A559DB4C2F823EFFA17C53729BB1FD739E8CA8F4B99660F873C10E8E8B108",
+                      "path":  "docs/return-execution-extension/final-check.py"
+                  },
+                  {
+                      "sha256":  "453F6628B2206B91773E7A9220F8D0DF81BE7114556633D1945FB02689E7BE65",
+                      "path":  "docs/return-execution-extension/final-service-check.json"
+                  },
+                  {
+                      "sha256":  "61FE5C0E54CA73A56082B675D8DE7670463ABE425175ACB207DE2842FE9BFEAD",
+                      "path":  "docs/return-execution-extension/fixture-design.md"
+                  },
+                  {
+                      "sha256":  "3730B6C6237A81EDCE6E254B931132155582E6E4477020E422F888F0D83DA2E1",
+                      "path":  "docs/return-execution-extension/graph-check.py"
+                  },
+                  {
+                      "sha256":  "C0FF5D73455CB53757A012F36CE118FC599B25DEDA71CFBE5162B1B7C527AD5B",
+                      "path":  "docs/return-execution-extension/graph-results.json"
+                  },
+                  {
+                      "sha256":  "613F07FEE1457D741122073F022FCC914F036083FA9AEC10C0F319C631F3AA22",
+                      "path":  "docs/return-execution-extension/mcp-check.py"
+                  },
+                  {
+                      "sha256":  "C69B794C271CB216885D5B1D2B035B0D92D05A755472AEB42D66A3A9B4A59FDA",
+                      "path":  "docs/return-execution-extension/mcp-results.json"
+                  },
+                  {
+                      "sha256":  "20C58EDD08AAB084480AE924C3E4AE6B0C30104527CA8F0164679B9C8E9CDE51",
+                      "path":  "docs/return-execution-extension/protected-audit.json"
+                  },
+                  {
+                      "sha256":  "202042B8121BB195BB43A3A1C6E232EBC2C11CA0A8F02015F10FF7CA15D67014",
+                      "path":  "docs/return-execution-extension/protected-before.json"
+                  },
+                  {
+                      "sha256":  "9DFE90237D563EDD1A9E8565763C2C6C124F817872ECC950EBD8DCF066997F25",
+                      "path":  "docs/return-execution-extension/regression-results.json"
+                  },
+                  {
+                      "sha256":  "285B49280CEFB78A9BF560682A96F931431BDB19AFD6556B049AB27F51965579",
+                      "path":  "docs/return-execution-extension/regression-results.md"
+                  },
+                  {
+                      "sha256":  "97C91597151AF56D893F63105FCCBE5412A29312C1F96178C32290B133519324",
+                      "path":  "docs/return-execution-extension/return-api-contract.md"
+                  },
+                  {
+                      "sha256":  "2773459E9D01E76D39D0ACD9C94E459D59931FA0206AF9F5926F4E7726068855",
+                      "path":  "docs/return-execution-extension/return-blocked.png"
+                  },
+                  {
+                      "sha256":  "6F85D10698CC98631D8EB0374A35BA0F58ED0E09F4A5E49C9211F86D0779DD85",
+                      "path":  "docs/return-execution-extension/return-error-mobile.png"
+                  },
+                  {
+                      "sha256":  "976448E5ED4C028CB8BEB91E1A48828B870B7F9A49B5D0A82EF87E560390D530",
+                      "path":  "docs/return-execution-extension/return-error-trace.json"
+                  },
+                  {
+                      "sha256":  "1FCBBA91F902BACFA96C1E0C9DCB4470E235A1E1743408F793B9ED224C294A08",
+                      "path":  "docs/return-execution-extension/return-error.json"
+                  },
+                  {
+                      "sha256":  "511F3CF80D03DE73AC920B43853B8FFE94A1F454EAEA3FE978A25F6AE480696B",
+                      "path":  "docs/return-execution-extension/return-error.png"
+                  },
+                  {
+                      "sha256":  "1BC8396C5986E5EB744C6DE6C67791F78C0FA507F2CAD63A42B77FA119A3D8A0",
+                      "path":  "docs/return-execution-extension/return-fail-mobile.png"
+                  },
+                  {
+                      "sha256":  "246F9243B776303BC633CFEB101D5D39F062D186FA2CCF47E994969E575BCD01",
+                      "path":  "docs/return-execution-extension/return-fail-trace.json"
+                  },
+                  {
+                      "sha256":  "7C6F439E3D2AFEC70E63A357FC7E82F29C14B1833FA95EEF74E0161F0492C603",
+                      "path":  "docs/return-execution-extension/return-fail.json"
+                  },
+                  {
+                      "sha256":  "E8DFA2DB6CB5786FA22473C3539783C5B4B92905BA26E0D0F6DEFE4CD5ADD9EE",
+                      "path":  "docs/return-execution-extension/return-fail.png"
+                  },
+                  {
+                      "sha256":  "F16DF583AEDB178AF0D153747CE87CFEC2D0AB243E62B247CDFEEAF3C5A24ACA",
+                      "path":  "docs/return-execution-extension/return-pass-trace.json"
+                  },
+                  {
+                      "sha256":  "01A1BB2946369DADAF135C79BF99E8CA48166F3C0F60A35B886EEF78A526055E",
+                      "path":  "docs/return-execution-extension/return-pass.json"
+                  },
+                  {
+                      "sha256":  "95FAD2EE4466842D991020B02C524A0AC1579DFACB3856CE86C7032D955887EF",
+                      "path":  "docs/return-execution-extension/return-pass.png"
+                  },
+                  {
+                      "sha256":  "F069465169E5E11ABA9AEBEE867195F0141F63A246CFEDD42E475AE73264B2C5",
+                      "path":  "docs/return-execution-extension/return-report.xlsx"
+                  },
+                  {
+                      "sha256":  "E4E8DEA9FA0DAAE6657696FDCDEE17CCD5C1C383F7C567078F621E735043AFE8",
+                      "path":  "docs/return-execution-extension/return-restored-pass.json"
+                  },
+                  {
+                      "sha256":  "55A3355381577824ED9EB92EBD94C81B12EC29C2046B858D55A9D95FF0885958",
+                      "path":  "docs/return-execution-extension/run-regression.py"
+                  },
+                  {
+                      "sha256":  "D839E4FE9481F5EF87226D42FC8DC2BD2050C7DB1F83404168E0D71EE89F125D",
+                      "path":  "docs/return-execution-extension/security-and-hitl.md"
+                  },
+                  {
+                      "sha256":  "6053CFF0E353BD6AA980DF318E15055D7806D9FC785A54F2214F7581968AC9E2",
+                      "path":  "docs/return-execution-extension/trace-results.json"
+                  },
+                  {
+                      "sha256":  "552E6537D38612A3CFC409F8116DC00DAABE1928694B16176220CF0185D8A703",
+                      "path":  "docs/return-execution-extension/verify-traces.py"
+                  },
+                  {
+                      "sha256":  "1911CC93AC95ED6162AA72BA151C790A22484B147F789854457B3E4339BD3360",
+                      "path":  "docs/return-execution-extension/write-report.py"
+                  },
+                  {
+                      "sha256":  "25D749C9784A5E1A7B5C4A079C57A4AC9492FB5F1A0AAFAE7FBFFCD266175BF7",
+                      "path":  "docs/testcase-policy-extension/real-attempt.json"
+                  },
+                  {
+                      "sha256":  "0CF6745267BAFEF05F4CF8FD2D9006F508E41866AB7EE7C3FE4D971571146124",
+                      "path":  "frontend/src/requirementExamples.ts"
+                  },
+                  {
+                      "sha256":  "C99E4D065254CF4BC52366C088D80355C4910168B1E6BB10D522A1E5ACA5D052",
+                      "path":  "frontend/src/theme.css"
+                  },
+                  {
+                      "sha256":  "353B0F595337A6581F39E9567575F7DB9ACB7DACE1A0C71A878F9CC30C340984",
+                      "path":  "frontend/tests/enterpriseUi.browser.py"
+                  },
+                  {
+                      "sha256":  "BF8ED9983DA8670077AE548662AA259A36610750994942481033EC4DE9963B42",
+                      "path":  "frontend/tests/randomExamples.browser.py"
+                  },
+                  {
+                      "sha256":  "317C02A9622B28D621AA6410C374B8A3BFDFD4302A02EE9A5E1BB35E0C9B32C7",
+                      "path":  "frontend/tests/requirementExamples.test.mjs"
+                  },
+                  {
+                      "sha256":  "E89CAE1D0F612B250367F6AE79CA3859E45D13B69FC3095BF450EBE40A1069B0",
+                      "path":  "graph-service/app/refresh.py"
+                  },
+                  {
+                      "sha256":  "7E12F5AE3C71E533AE2D962516130C10C6FA05EAF7F354A08CFF9B734F66CFD4",
+                      "path":  "graph-service/tests/live_refresh.py"
+                  },
+                  {
+                      "sha256":  "6BE7907387B8DE10674A7FFCAE18EEDBC2D76CF2C23F18289EF20E74DFAB3E16",
+                      "path":  "graph-service/tests/test_refresh.py"
+                  },
+                  {
+                      "sha256":  "03A783B3B13726836EC4129A9C109F657C0FCEF8BA8ED4131F22F355D1A0CB2F",
+                      "path":  "backend/Dockerfile"
+                  },
+                  {
+                      "sha256":  "9D25333ADDD7887D647760632CE7BF3F7246860EBE220077B159D3284080CF3D",
+                      "path":  "backend/pom.xml"
+                  },
+                  {
+                      "sha256":  "060227B42F726FD58E3C419CE6659CD9960F25C189F9A90D9687AC3402FAD3FB",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/observability/Tracing.java"
+                  },
+                  {
+                      "sha256":  "C9AAA9D8AC9B6D5FC4FFAD11E3EFAA55CA757749F1968C8D8A7564D02BEC1F0C",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/observability/WorkflowAspect.java"
+                  },
+                  {
+                      "sha256":  "2A1BD00966928DDBE6D1A669E556A1896551A922C39B061394567B366DB9C8ED",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/DummyApiRegistry.java"
+                  },
+                  {
+                      "sha256":  "E78D77CFDF69CC73BDB6BBCC6CB5CC2837F677D729DBC73B4CBDD00305DFE88D",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionComparator.java"
+                  },
+                  {
+                      "sha256":  "A9EC92C3AB86B24DF9847F51B9AAE28C008E14B0E57B956C78FAADBB2E939D6D",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionController.java"
+                  },
+                  {
+                      "sha256":  "F1335A239F1D55E2F823C6B705218BAED618DA254F0FE33E1B6D466B3FA1EED2",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionService.java"
+                  },
+                  {
+                      "sha256":  "8D4B4AA871EF9EF3735866F57C41BA38F3AA1E27A8F68B9BE86F8FA6EF7F010E",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/TestCasePolicy.java"
+                  },
+                  {
+                      "sha256":  "FCA2DF5CC37748A3E0B605D26E33A4788A56789348CFA79DE95A01E70835756B",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseReviewController.java"
+                  },
+                  {
+                      "sha256":  "BC45723863B15E5349680F0B7ECDFAA5ABA1E32514889395A6DC1CAF7A7284D9",
+                      "path":  "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseReviewService.java"
+                  },
+                  {
+                      "sha256":  "16D08C55DBF6727C16A72EEC6C263C8AC3835EA65A1B164DE86790F2F7A1E89D",
+                      "path":  "frontend/index.html"
+                  },
+                  {
+                      "sha256":  "3ADF7083A973AEEA2B289587C2EB65C1317E6EB058468BBFCB5FD1C8B3CB6A3A",
+                      "path":  "frontend/public/favicon.svg"
+                  },
+                  {
+                      "sha256":  "3A8401CC50CBB43500B8AED7023D5EAF8B77AC26976D0E4DF84657EA24FF3891",
+                      "path":  "frontend/src/AnalysisJob.tsx"
+                  },
+                  {
+                      "sha256":  "83BF32677478B7EFD2EAAE26B631C3C911FA3AF14E7038CF126E7C0CFC1CB6BB",
+                      "path":  "frontend/src/App.tsx"
+                  },
+                  {
+                      "sha256":  "FD7520340CBB42ABF0CC97F371B6C83AE80F23FD90486ABB5183CBD94D0923A2",
+                      "path":  "frontend/src/Dashboard.tsx"
+                  },
+                  {
+                      "sha256":  "C136CC9E1197E2E9C5744D17C62CDE3D270E86E41EB1D29D2349D611C4421456",
+                      "path":  "frontend/src/GettingStarted.tsx"
+                  },
+                  {
+                      "sha256":  "E5B610C75B4DBEE399ACADB7E21C9F6CA34C9678F9D026CF987EC17044DE9175",
+                      "path":  "frontend/src/Icon.tsx"
+                  },
+                  {
+                      "sha256":  "D02341FB20F2C8AADF1AD1E6E75BC8F50ED514DDE843A4FC045EE7A6FB6301D3",
+                      "path":  "frontend/src/KnowledgeGraph.tsx"
+                  },
+                  {
+                      "sha256":  "1090DFFEAD1FE1A0A04DD15E3F94B89ED4181AF0F007FFE29490FDF3F55B4C2E",
+                      "path":  "frontend/src/RequirementAnalysis.tsx"
+                  },
+                  {
+                      "sha256":  "14CA498F9BA48ACA184C99B213E6D741ACB881DD574C5BF5D50BD66048148189",
+                      "path":  "frontend/src/Requirements.tsx"
+                  },
+                  {
+                      "sha256":  "3593936E5282F9B0F936787F9BD315BF6624717291B110D736CBE950F045698A",
+                      "path":  "frontend/src/TestCaseExecutions.tsx"
+                  },
+                  {
+                      "sha256":  "00B5E4466D929C751A6D6F97B5B89275C2AEE528A98F5CCA7037E6534A1968E2",
+                      "path":  "frontend/src/TestCaseReview.tsx"
+                  },
+                  {
+                      "sha256":  "4581A0C57BEBD4EF049FC12378940AD29028EEF2B51F6B733B47BAAF83D11342",
+                      "path":  "frontend/src/main.tsx"
+                  },
+                  {
+                      "sha256":  "BCE284CD78DA9ED9C69603965E323EE1D7344082DA4B074BF912562E40E1E9CB",
+                      "path":  "frontend/src/navigation.ts"
+                  },
+                  {
+                      "sha256":  "644B14EE4F3F8AAC0524069533A0006E327DFDD9A0E599BAB3C2D812273EE2C4",
+                      "path":  "frontend/src/style.css"
+                  },
+                  {
+                      "sha256":  "D3BE28F7A655CB05AB6A2C62DE0034F3850F31CD8993DAB34DDB231DA3793659",
+                      "path":  "graph-service/app/main.py"
+                  },
+                  {
+                      "sha256":  "A89F50041568D80F03E416ABE5D6D24A8E3D64EEB78881C0EEAC734076A35824",
+                      "path":  "graph-service/app/model.py"
+                  },
+                  {
+                      "sha256":  "521209BA7F3B2EE261FE3A3594D648E104BBB7F1C59662E99C24A51C8BE16FB5",
+                      "path":  "graph-service/app/queries.py"
+                  },
+                  {
+                      "sha256":  "7847B945B761EAB1E1E0D3940243C7A684D6A9C59A539688C9B0C69F6ECFFF1F",
+                      "path":  "graph-service/app/source.py"
+                  },
+                  {
+                      "sha256":  "F1760776FEBF6BB443F591ED6AE860501E1910662C665A265C55FBC03EE09384",
+                      "path":  "graph-service/app/store.py"
+                  },
+                  {
+                      "sha256":  "FCFAD403106BA1AA47AF793B8A1078A0670FA605C849D40714FB3F07BF6B3E1C",
+                      "path":  "graph-service/tests/test_projection.py"
+                  }
+              ],
+    "head":  "6e4a09587a0c470e2b23c2260dc39f7cabbde8bc"
+}

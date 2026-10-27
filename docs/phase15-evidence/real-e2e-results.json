@@ -1,0 +1,23 @@
+{
+  "jobId": "46e9d66e-8e97-4b1a-a122-60db300927d2",
+  "impactId": "88a0794d-e08b-480f-b6cc-0599ba81b080",
+  "observedStatuses": [
+    "QUEUED",
+    "RUNNING",
+    "SUCCEEDED"
+  ],
+  "providerCalls": 1,
+  "queueWaitMs": 868,
+  "executionDurationMs": 39658,
+  "analysisDurationMs": 39612,
+  "graphStatus": "AVAILABLE",
+  "conditionTypes": [
+    "ADDED",
+    "REMOVED"
+  ],
+  "apiIds": [
+    "API-LOAN-APPROVE"
+  ],
+  "testCases": 5,
+  "coreUnchanged": true
+}

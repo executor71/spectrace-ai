@@ -1,0 +1,13 @@
+{
+  "jobId": "ec5e37bb-3f83-4dab-a09b-43c11d5bed5b",
+  "modelCalls": 0,
+  "reusedModelAnalysisId": "46e9d66e-8e97-4b1a-a122-60db300927d2",
+  "conditionTypes": [
+    "UNCHANGED",
+    "ADDED",
+    "UNCHANGED"
+  ],
+  "queueWaitMs": 397,
+  "executionDurationMs": 4895,
+  "graphStatus": "AVAILABLE"
+}

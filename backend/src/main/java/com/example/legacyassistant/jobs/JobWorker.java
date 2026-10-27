@@ -18,6 +18,7 @@ import jakarta.annotation.PreDestroy;
 @Component @EnableScheduling
 @ConditionalOnProperty(name="analysis.jobs.enabled",havingValue="true",matchIfMissing=true)
 public class JobWorker {
+ @org.springframework.beans.factory.annotation.Autowired private com.example.legacyassistant.impact.ChangeImpactService impacts;
  private final JobStore store;private final AnalysisGate gate;private final AnalysisCapacity capacity;private final AnalysisClient client;
  private final AnalysisValidator validator;private final RequirementService requirements;private final Tracing tracing;private final long timeoutSeconds;
  private final String owner=UUID.randomUUID().toString();
@@ -38,6 +39,7 @@ public class JobWorker {
   UUID id=UUID.fromString(job.path("jobId").asText()),req=UUID.fromString(job.path("requirementId").asText()),token=UUID.fromString(job.path("executionToken").asText());
   Span span=tracing.tracer.spanBuilder("analysis.job.execute").setNoParent().addLink(Span.fromContext(linked(job)).getSpanContext()).startSpan();long start=System.nanoTime();
   span.setAttribute("jobId",id.toString()).setAttribute("requirementId",req.toString()).setAttribute("attemptCount",job.path("attemptCount").asLong());
+  span.setAttribute("jobType",job.path("jobType").asText("REQUIREMENT_ANALYSIS"));if(job.hasNonNull("impactId"))span.setAttribute("impactId",job.path("impactId").asText());
   var renewal=heartbeat.scheduleAtFixedRate(()->{try{if(lease.valid())store.heartbeat(id,token);}catch(Exception ignored){}},1,1,TimeUnit.SECONDS);
   try(var scope=span.makeCurrent()){
    span.setAttribute("queueWaitMs",Math.max(0,Duration.between(OffsetDateTime.parse(job.path("createdAt").asText()).toInstant(),OffsetDateTime.parse(job.path("startedAt").asText()).toInstant()).toMillis()));
@@ -46,7 +48,7 @@ public class JobWorker {
     com.fasterxml.jackson.databind.JsonNode output;int busyAttempts=0;
     while(true){
      if(expired(start))throw new AnalysisException(504,"LLM_TIMEOUT","Timeout");
-     try{output=client.analyze(requirements.get(req));break;}
+     try{output=job.path("jobType").asText().equals("CHANGE_IMPACT_ANALYSIS")?impacts.analyze(UUID.fromString(job.path("impactId").asText())):client.analyze(requirements.get(req));break;}
      catch(AnalysisException busy){if(!busy.code().equals("ANALYSIS_BUSY"))throw busy;
       if(++busyAttempts>=3)throw busy;
       // A sync/test generation caller may win the Python slot after the idle probe.
@@ -56,7 +58,7 @@ public class JobWorker {
     if(!lease.valid())throw new AnalysisException(503,"JOB_WORKER_ERROR","Ownership lost");
     if(expired(start))throw new AnalysisException(504,"LLM_TIMEOUT","Timeout");
     store.stage(id,token,"VALIDATING_OUTPUT");
-    try{validator.validate(req,output);}catch(AnalysisException invalid){throw new AnalysisException(502,"VALIDATION_FAILED","Validation failed");}
+    try{if(!job.path("jobType").asText().equals("CHANGE_IMPACT_ANALYSIS"))validator.validate(req,output);}catch(AnalysisException invalid){throw new AnalysisException(502,"VALIDATION_FAILED","Validation failed");}
     store.stage(id,token,"SAVING_RESULT");
     if(!store.complete(id,token,output))throw new AnalysisException(503,"JOB_WORKER_ERROR","Stale owner");
     span.setAttribute("status","SUCCEEDED").setAttribute("stage","COMPLETED");

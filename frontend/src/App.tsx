@@ -1,5 +1,6 @@
 ﻿import { useEffect, useRef, useState } from 'react'
 import Requirements from './Requirements'
+import ChangeImpact from './ChangeImpact'
 import Icon from './Icon'
 import { screens } from './navigation'
 import type { Screen } from './navigation'
@@ -74,7 +75,7 @@ export default function App() {
       </header>
       <main id="main-content" className="main-content" tabIndex={-1}>
         <div className="page-heading"><div><p className="eyebrow">WORKSPACE / {current.path.toUpperCase()}</p><h1 tabIndex={-1} ref={heading}>{current.label}</h1><p className={view === 'dashboard' ? 'service-purpose' : undefined}>{current.description}</p></div><span className="environment-pill">LOCAL WORKSPACE</span></div>
-        <Requirements view={view} onNavigate={navigate} onAnalysisBusy={setAnalysisBusy} />
+        {view === 'impact' ? <ChangeImpact onBusyChange={setAnalysisBusy} /> : <Requirements view={view} onNavigate={navigate} onAnalysisBusy={setAnalysisBusy} />}
         <footer className="page-footer"><span>SpecTrace AI <span>·</span> 변경 요청을 근거와 테스트로 검증</span><span>합성 업무 예제로 체험하는 로컬 환경</span></footer>
       </main>
     </div>

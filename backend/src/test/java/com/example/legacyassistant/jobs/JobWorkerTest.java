@@ -29,4 +29,9 @@ class JobWorkerTest {
  @Test void busyRemoteAndAnotherWorkerNeverCallModel(){when(capacity.state()).thenReturn(AnalysisCapacity.State.BUSY);worker.tick();verify(store,never()).claim(any());verify(store,never()).recover();verifyNoInteractions(client);when(gate.tryAcquire()).thenReturn(null);worker.tick();verifyNoInteractions(client);}
  @Test void busyRaceHasBoundedRetries(){when(client.analyze(any())).thenThrow(new AnalysisException(429,"ANALYSIS_BUSY","busy"));worker.tick();verify(client,times(3)).analyze(any());verify(store).fail(job,token,"FAILED","ANALYSIS_BUSY");verify(store,never()).complete(any(),any(),any());}
  @Test void staleOwnershipNeverSavesLateOutput(){when(lease.valid()).thenReturn(false);worker.tick();verify(store,never()).complete(any(),any(),any());verify(store).fail(job,token,"FAILED","JOB_WORKER_ERROR");}
+ @Test void impactJobUsesSharedWorkerAndDoesNotCallRequirementAnalyzer(){
+  var impacts=mock(com.example.legacyassistant.impact.ChangeImpactService.class);org.springframework.test.util.ReflectionTestUtils.setField(worker,"impacts",impacts);UUID impact=UUID.randomUUID();
+  var row=store.claim("setup").orElseThrow();row.put("jobType","CHANGE_IMPACT_ANALYSIS").put("impactId",impact.toString());
+  when(impacts.analyze(impact)).thenReturn(json.createObjectNode().put("impactId",impact.toString()));worker.tick();verify(impacts).analyze(impact);verifyNoInteractions(client);verify(store).complete(eq(job),eq(token),any());
+ }
 }

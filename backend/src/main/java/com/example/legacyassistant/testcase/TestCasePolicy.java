@@ -15,6 +15,7 @@ public class TestCasePolicy {
     private final ObjectMapper json;
     private final JsonNode policy;
     public final String hash;
+    public JsonNode snapshot(){return policy.deepCopy();}
     public TestCasePolicy(ObjectMapper json, @Value("${TEST_CASE_POLICY:/contracts/test-case-policy.json}") String path) throws Exception {
         this.json=json; byte[] raw=Files.readAllBytes(Path.of(path)); policy=json.readTree(raw); PolicyRegistry.validate(policy,json); hash=digest(raw);
     }

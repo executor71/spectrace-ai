@@ -1,0 +1,629 @@
+{
+  "coreUnchanged": true,
+  "preexistingFilesByteIdentical": 101,
+  "preexistingFilesExtendedWithinScope": [
+    "backend/src/main/java/com/example/legacyassistant/testcase/TestCasePolicy.java",
+    "frontend/src/App.tsx",
+    "frontend/src/Icon.tsx",
+    "frontend/src/navigation.ts"
+  ],
+  "protectedFileHashes": {
+    "evaluation-service/datasets/ground-truth-v1.json": "d551efb32fb683f9f6a7e9302c8d5e6750b9efee5e29e4bfde6989511374f8a7",
+    "docs/phase11-evidence/relation-ground-truth.json": "b37c36e71d49f6e42468d6afa095492bc48cad042a7245577a6fa87f99319772",
+    "docs/phase11-evidence/multi-hop-evaluation.json": "cad02d5e1455e6ea50d227fed5ae9440a00ac79b3aa7ed99f455de2eb946f551",
+    "docs/phase11-evidence/hybrid-vs-graph-comparison.json": "02b19bdb5b9f664a1946473c6ae9b894d79d7de50693fbc4c62b7a5f33206137",
+    "contracts/test-case-policy.json": "c5dab337817d0788228a1ed0cd5cebc74980e5eb7e88303a89ce312717bc2875"
+  },
+  "spanNames": [
+    "change_impact.baseline_load",
+    "change_impact.condition_diff",
+    "change_impact.create",
+    "change_impact.export",
+    "change_impact.graph_traverse",
+    "change_impact.rag_retrieve",
+    "change_impact.review",
+    "change_impact.tc_match"
+  ],
+  "missingSpans": [],
+  "traces": [
+    {
+      "traceId": "f54147ecf0dea8fc28dac261ecd174cf",
+      "spans": [
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 315,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 4793668,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 38426,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 395,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "918e30dc021d54d03b0f88ee4947aedd",
+      "spans": [
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 5016186,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 34544981,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 44665,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 236,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "f54147ecf0dea8fc28dac261ecd174cf",
+      "spans": [
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 4793668,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 395,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 38426,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 315,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "918e30dc021d54d03b0f88ee4947aedd",
+      "spans": [
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 44665,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 5016186,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 34544981,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 236,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "7e5cdfe527e8aea9f34257b897c34c70",
+      "spans": [
+        {
+          "name": "change_impact.review",
+          "durationUs": 21081,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 5925,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "4b12a78f6a8e7eddbe983f1a1e1ebca7",
+      "spans": [
+        {
+          "name": "change_impact.review",
+          "durationUs": 25168,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 9325,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "f54147ecf0dea8fc28dac261ecd174cf",
+      "spans": [
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 38426,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 4793668,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 395,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 315,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "918e30dc021d54d03b0f88ee4947aedd",
+      "spans": [
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 44665,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 236,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 5016186,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 34544981,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "ecd35763f37726bf295b50ee64368939",
+      "spans": [
+        {
+          "name": "change_impact.create",
+          "durationUs": 29955,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 12523,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "f54147ecf0dea8fc28dac261ecd174cf",
+      "spans": [
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 315,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 4793668,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 395,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 38426,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "918e30dc021d54d03b0f88ee4947aedd",
+      "spans": [
+        {
+          "name": "change_impact.condition_diff",
+          "durationUs": 34544981,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.graph_traverse",
+          "durationUs": 44665,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.tc_match",
+          "durationUs": 236,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.rag_retrieve",
+          "durationUs": 5016186,
+          "tagKeys": [
+            "durationMs",
+            "latencyMs",
+            "otel.scope.name",
+            "requestId",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "ba3385a471ec7d45ae12efaa4a6d5c66",
+      "spans": [
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 5952,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.export",
+          "durationUs": 51771,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "96eda03dbe5c51e79772eeff8abadb05",
+      "spans": [
+        {
+          "name": "change_impact.export",
+          "durationUs": 61685,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 5821,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "698e4fea2c705f9da98ac99e614849e6",
+      "spans": [
+        {
+          "name": "change_impact.export",
+          "durationUs": 379915,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 13037,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "f286bfc5db6e0cb7eca133a65b37cbbd",
+      "spans": [
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 8459,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "ba3385a471ec7d45ae12efaa4a6d5c66",
+      "spans": [
+        {
+          "name": "change_impact.export",
+          "durationUs": 51771,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 5952,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "f1dd94ac05a23fc01ffed6d4219af4cf",
+      "spans": [
+        {
+          "name": "change_impact.review",
+          "durationUs": 20134,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        },
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 5677,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "26ac9e98bc26e786f93e4d4f37a23300",
+      "spans": [
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 6407,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    },
+    {
+      "traceId": "7f648c685ff993a73d0a948240c1d0d2",
+      "spans": [
+        {
+          "name": "change_impact.baseline_load",
+          "durationUs": 6449,
+          "tagKeys": [
+            "otel.scope.name",
+            "span.kind"
+          ]
+        }
+      ]
+    }
+  ]
+}

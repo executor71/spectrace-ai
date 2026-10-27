@@ -21,9 +21,13 @@ public class AnalysisClient {
         client = RestClient.builder().baseUrl(url).requestFactory(factory).requestInterceptor(new com.example.legacyassistant.observability.TraceHttpInterceptor()).build();
     }
     public JsonNode analyze(Requirement requirement) {
+        return invoke("/internal/v1/requirement-analysis",Map.of("requirementId", requirement.id(), "title", requirement.title(), "description", requirement.description()));
+    }
+    public JsonNode impact(JsonNode request){return invoke("/internal/v1/change-impact-analysis",request);}
+    private JsonNode invoke(String path,Object body) {
         try {
-            return client.post().uri("/internal/v1/requirement-analysis")
-                .body(Map.of("requirementId", requirement.id(), "title", requirement.title(), "description", requirement.description()))
+            return client.post().uri(path)
+                .body(body)
                 .retrieve().body(JsonNode.class);
         } catch (RestClientResponseException e) {
             int status = e.getStatusCode().value();
