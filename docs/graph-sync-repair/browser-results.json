@@ -1,0 +1,17 @@
+{
+  "passed": [
+    "Chrome live return graph: 4 TCs, grounded rules and 2 APIs, no execution placeholder",
+    "UI state: EMPTY",
+    "UI state: READY",
+    "UI state: GRAPH_SYNC_PENDING",
+    "UI state: GRAPH_SYNC_FAILED",
+    "Actual Graph outage: separate connection error, previous graph retained",
+    "Actual recovery: graph query restored",
+    "Mobile 390px: graph visible, no horizontal document overflow"
+  ],
+  "coreUnchanged": true,
+  "groundTruthUnchanged": {
+    "evaluation-service\\datasets\\ground-truth-v1.json": "d551efb32fb683f9f6a7e9302c8d5e6750b9efee5e29e4bfde6989511374f8a7",
+    "docs\\phase11-evidence\\relation-ground-truth.json": "b37c36e71d49f6e42468d6afa095492bc48cad042a7245577a6fa87f99319772"
+  }
+}

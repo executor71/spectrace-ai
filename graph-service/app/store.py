@@ -25,8 +25,10 @@ class Store:
                         for tt in LABELS:
                             rows=[dict(e,epoch=epoch) for e in projection['edges'] if (e['relation'],e['sourceType'],e['targetType'])==(rel,st,tt)]
                             if rows:tx.run(f'UNWIND $rows AS row MATCH (a:{st} {{id:row.source}}),(b:{tt} {{id:row.target}}) MERGE (a)-[r:{rel}]->(b) SET r=row',rows=rows).consume()
-                tx.run('MATCH (:GraphEntity)-[r]->(:GraphEntity) WHERE r.epoch <> $epoch DELETE r',epoch=epoch).consume()
-                tx.run('MATCH (n:GraphEntity) WHERE n.epoch <> $epoch DETACH DELETE n',epoch=epoch).consume()
+                scope=[n['id'] for n in projection['nodes'] if n['type']=='Requirement']
+                # Only replace relationships owned by this committed source snapshot.
+                # Shared corpus and other requirements must survive incremental updates.
+                tx.run('MATCH (a:GraphEntity)-[r]->(b:GraphEntity) WHERE r.epoch <> $epoch AND ((a:Requirement AND a.id IN $scope) OR (a:TestCase AND a.requirementId IN $scope) OR (b:TestCase AND b.requirementId IN $scope)) DELETE r',epoch=epoch,scope=scope).consume()
                 tx.run("MATCH (m:Projection {id:'phase11'}) SET m.syncedAt=datetime(),m.nodeCount=$nodes,m.edgeCount=$edges",nodes=len(projection['nodes']),edges=len(projection['edges'])).consume()
             session.execute_write(write)
             counts={'nodeCount':len(projection['nodes']),'edgeCount':len(projection['edges'])}

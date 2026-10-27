@@ -20,6 +20,7 @@ def one_hop(store,identifier):
 
 QUERIES={
  'find_requirement_context':('Requirement',[
+  'MATCH p=(r:Requirement {id:$id})-[:SUPPORTED_BY]->(:BusinessRule)-[:IMPLEMENTED_BY]->(:Api)-[:VERIFIED_BY]->(t:TestCase)-[:EXECUTED_AS]->(:Execution) WHERE t.requirementId=$id',
   'MATCH p=(r:Requirement {id:$id})-[:SUPPORTED_BY|AFFECTS|GENERATES]->(n)',
   'MATCH p=(r:Requirement {id:$id})-[:SUPPORTED_BY]->(:BusinessRule)-[:IMPLEMENTED_BY]->(:Api)',
   'MATCH p=(r:Requirement {id:$id})-[:SUPPORTED_BY]->(:BusinessRule)-[:IMPLEMENTED_BY]->(:Api)-[:VERIFIED_BY]->(t:TestCase) WHERE t.requirementId=$id',

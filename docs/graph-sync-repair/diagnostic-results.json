@@ -1,0 +1,728 @@
+{
+  "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+  "before": {
+    "httpStatus": 404,
+    "errorCode": "GRAPH_ENTITY_NOT_FOUND",
+    "neo4jRequirementExists": false,
+    "globalNodes": 190,
+    "globalEdges": 220,
+    "configuredRequirementCount": 3
+  },
+  "after": {
+    "httpStatus": 200,
+    "body": {
+      "root": {
+        "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+        "title": "대여 자산 반납 및 상태 변경 검증",
+        "type": "Requirement"
+      },
+      "relatedRequirements": [
+        {
+          "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+          "title": "대여 자산 반납 및 상태 변경 검증",
+          "type": "Requirement"
+        }
+      ],
+      "relatedBusinessRules": [
+        {
+          "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+          "title": "return-rules",
+          "type": "BusinessRule"
+        }
+      ],
+      "relatedApis": [
+        {
+          "id": "API-RETURN-CREATE",
+          "pathTemplate": "/loans/{loanId}/returns",
+          "specificationChunkIds": [
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ],
+          "method": "POST",
+          "type": "Api"
+        },
+        {
+          "id": "API-RETURN-INSPECT",
+          "pathTemplate": "/returns/{returnId}/inspection",
+          "specificationChunkIds": [
+            "2b53cfe3-370a-5355-9928-3f41d69ddeb2"
+          ],
+          "method": "POST",
+          "type": "Api"
+        }
+      ],
+      "relatedTestCases": [
+        {
+          "id": "667bb678-9a5c-4fa0-9229-bd5ec0c1b786",
+          "scenario": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+          "reviewRevision": 0,
+          "approvalStatus": "DRAFT",
+          "type": "TestCase",
+          "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+        },
+        {
+          "id": "a2f59712-7cfc-4fe1-8376-6419e053e5cb",
+          "scenario": "현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+          "reviewRevision": 0,
+          "approvalStatus": "DRAFT",
+          "type": "TestCase",
+          "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+        },
+        {
+          "id": "ce139f3a-cbcc-4a2d-bc7b-942592d9b2b8",
+          "scenario": "성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다.",
+          "reviewRevision": 0,
+          "approvalStatus": "DRAFT",
+          "type": "TestCase",
+          "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+        },
+        {
+          "id": "f2fca1a7-dec0-4c11-a30d-0b374290b022",
+          "scenario": "같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다.",
+          "reviewRevision": 0,
+          "approvalStatus": "DRAFT",
+          "type": "TestCase",
+          "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+          "documentType": "API_SPEC",
+          "type": "Evidence",
+          "section": "POST /loans/{loanId}/returns 반납 접수",
+          "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149"
+        },
+        {
+          "id": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+          "documentType": "BUSINESS_RULE",
+          "type": "Evidence",
+          "section": "반납 접수와 검사 대기",
+          "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429"
+        }
+      ],
+      "executions": [],
+      "paths": [
+        {
+          "relations": [
+            "GENERATES"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "f2fca1a7-dec0-4c11-a30d-0b374290b022",
+              "scenario": "같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": []
+        },
+        {
+          "relations": [
+            "GENERATES"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "ce139f3a-cbcc-4a2d-bc7b-942592d9b2b8",
+              "scenario": "성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": []
+        },
+        {
+          "relations": [
+            "SUPPORTED_BY"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+              "title": "return-rules",
+              "type": "BusinessRule"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        {
+          "relations": [
+            "AFFECTS"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "API-RETURN-CREATE",
+              "pathTemplate": "/loans/{loanId}/returns",
+              "specificationChunkIds": [
+                "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+              ],
+              "method": "POST",
+              "type": "Api"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "667bb678-9a5c-4fa0-9229-bd5ec0c1b786",
+              "scenario": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": []
+        },
+        {
+          "relations": [
+            "GENERATES"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "a2f59712-7cfc-4fe1-8376-6419e053e5cb",
+              "scenario": "현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": []
+        },
+        {
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+              "title": "return-rules",
+              "type": "BusinessRule"
+            },
+            {
+              "id": "API-RETURN-INSPECT",
+              "pathTemplate": "/returns/{returnId}/inspection",
+              "specificationChunkIds": [
+                "2b53cfe3-370a-5355-9928-3f41d69ddeb2"
+              ],
+              "method": "POST",
+              "type": "Api"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "4175e617-06be-519d-afbd-b279688fb982"
+          ]
+        },
+        {
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+              "title": "return-rules",
+              "type": "BusinessRule"
+            },
+            {
+              "id": "API-RETURN-CREATE",
+              "pathTemplate": "/loans/{loanId}/returns",
+              "specificationChunkIds": [
+                "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+              ],
+              "method": "POST",
+              "type": "Api"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        {
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+              "title": "return-rules",
+              "type": "BusinessRule"
+            },
+            {
+              "id": "API-RETURN-CREATE",
+              "pathTemplate": "/loans/{loanId}/returns",
+              "specificationChunkIds": [
+                "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+              ],
+              "method": "POST",
+              "type": "Api"
+            },
+            {
+              "id": "667bb678-9a5c-4fa0-9229-bd5ec0c1b786",
+              "scenario": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+              "title": "return-rules",
+              "type": "BusinessRule"
+            },
+            {
+              "id": "API-RETURN-CREATE",
+              "pathTemplate": "/loans/{loanId}/returns",
+              "specificationChunkIds": [
+                "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+              ],
+              "method": "POST",
+              "type": "Api"
+            },
+            {
+              "id": "ce139f3a-cbcc-4a2d-bc7b-942592d9b2b8",
+              "scenario": "성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+              "title": "return-rules",
+              "type": "BusinessRule"
+            },
+            {
+              "id": "API-RETURN-CREATE",
+              "pathTemplate": "/loans/{loanId}/returns",
+              "specificationChunkIds": [
+                "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+              ],
+              "method": "POST",
+              "type": "Api"
+            },
+            {
+              "id": "f2fca1a7-dec0-4c11-a30d-0b374290b022",
+              "scenario": "같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "SUPPORTED_BY",
+            "IMPLEMENTED_BY",
+            "VERIFIED_BY"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+              "title": "return-rules",
+              "type": "BusinessRule"
+            },
+            {
+              "id": "API-RETURN-CREATE",
+              "pathTemplate": "/loans/{loanId}/returns",
+              "specificationChunkIds": [
+                "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+              ],
+              "method": "POST",
+              "type": "Api"
+            },
+            {
+              "id": "a2f59712-7cfc-4fe1-8376-6419e053e5cb",
+              "scenario": "현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "f2fca1a7-dec0-4c11-a30d-0b374290b022",
+              "scenario": "같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+              "documentType": "API_SPEC",
+              "type": "Evidence",
+              "section": "POST /loans/{loanId}/returns 반납 접수",
+              "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149"
+            }
+          ],
+          "evidenceChunkIds": [
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "f2fca1a7-dec0-4c11-a30d-0b374290b022",
+              "scenario": "같은 대여에 반납 접수가 이미 있으면 HTTP 409 RETURN_ALREADY_REQUESTED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+              "documentType": "BUSINESS_RULE",
+              "type": "Evidence",
+              "section": "반납 접수와 검사 대기",
+              "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "ce139f3a-cbcc-4a2d-bc7b-942592d9b2b8",
+              "scenario": "성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+              "documentType": "API_SPEC",
+              "type": "Evidence",
+              "section": "POST /loans/{loanId}/returns 반납 접수",
+              "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149"
+            }
+          ],
+          "evidenceChunkIds": [
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "ce139f3a-cbcc-4a2d-bc7b-942592d9b2b8",
+              "scenario": "성공 시 HTTP 201과 returnId, status=INSPECTION_PENDING을 반환한다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+              "documentType": "BUSINESS_RULE",
+              "type": "Evidence",
+              "section": "반납 접수와 검사 대기",
+              "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "667bb678-9a5c-4fa0-9229-bd5ec0c1b786",
+              "scenario": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+              "documentType": "API_SPEC",
+              "type": "Evidence",
+              "section": "POST /loans/{loanId}/returns 반납 접수",
+              "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149"
+            }
+          ],
+          "evidenceChunkIds": [
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "667bb678-9a5c-4fa0-9229-bd5ec0c1b786",
+              "scenario": "반납 접수만으로 재고를 AVAILABLE로 변경하지 않는다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+              "documentType": "BUSINESS_RULE",
+              "type": "Evidence",
+              "section": "반납 접수와 검사 대기",
+              "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "a2f59712-7cfc-4fe1-8376-6419e053e5cb",
+              "scenario": "현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "54f8fbf4-33ae-5d63-ae48-28eb66120108",
+              "documentType": "API_SPEC",
+              "type": "Evidence",
+              "section": "POST /loans/{loanId}/returns 반납 접수",
+              "documentId": "de315c10-8e3b-5aed-ae96-2f018bac5149"
+            }
+          ],
+          "evidenceChunkIds": [
+            "54f8fbf4-33ae-5d63-ae48-28eb66120108"
+          ]
+        },
+        {
+          "relations": [
+            "GENERATES",
+            "BASED_ON"
+          ],
+          "path": [
+            {
+              "id": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae",
+              "title": "대여 자산 반납 및 상태 변경 검증",
+              "type": "Requirement"
+            },
+            {
+              "id": "a2f59712-7cfc-4fe1-8376-6419e053e5cb",
+              "scenario": "현재 대여자가 아니고 자산 담당자도 아닌 호출자는 HTTP 403 ACCESS_DENIED다.",
+              "reviewRevision": 0,
+              "approvalStatus": "DRAFT",
+              "type": "TestCase",
+              "requirementId": "c9e5d1d8-6de2-487e-8ae6-9cf6c7b99eae"
+            },
+            {
+              "id": "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e",
+              "documentType": "BUSINESS_RULE",
+              "type": "Evidence",
+              "section": "반납 접수와 검사 대기",
+              "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429"
+            }
+          ],
+          "evidenceChunkIds": [
+            "eb6f3569-4b9a-5de2-b29b-9cd3ee2ced7e"
+          ]
+        }
+      ],
+      "nodeCount": 10,
+      "edgeCount": 20,
+      "hopCount": 3,
+      "resultCount": 20,
+      "syncStatus": "SYNCED",
+      "dataStatus": "PARTIAL"
+    }
+  },
+  "health": {
+    "httpStatus": 200,
+    "body": {
+      "status": "UP"
+    }
+  },
+  "discoveredRequirements": 37,
+  "backendTests": {
+    "tests": 141,
+    "failures": 0,
+    "errors": 0
+  }
+}

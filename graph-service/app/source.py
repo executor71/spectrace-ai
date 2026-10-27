@@ -7,14 +7,15 @@ from .model import APIS
 SCOPE=Path('/graph/data/scope.json')
 CATALOG=Path('/graph/data/knowledge.json')
 
-def collect(client=None):
+def collect(client=None, requirement_ids=None):
     with httpx.Client(base_url='http://backend:8080',timeout=10,trust_env=False,follow_redirects=False) if client is None else client as http:
         def get(path,optional=False):
             response=http.get(path)
             if optional and response.status_code==404:return None
             response.raise_for_status();return response.json()
         result=[]
-        for rid in json.loads(SCOPE.read_text()):
+        ids=requirement_ids if requirement_ids is not None else sorted(set(json.loads(SCOPE.read_text())) | {r['id'] for r in get('/api/dashboard/summary')['requirements']})
+        for rid in ids:
             path='/api/requirements/'+rid
             batch=get(path+'/test-cases',True)
             result.append(dict(requirement=get(path),analysis=get(path+'/analysis',True),batch=batch,

@@ -1,0 +1,39 @@
+{
+  "comparison": {
+    "HYBRID_ONLY": {
+      "entityRecall": 0.4,
+      "pathAccuracy": 0.0,
+      "multiHopSuccessRate": 0.0,
+      "negativeAccuracy": 0.0,
+      "positiveQueries": 15,
+      "negativeQueries": 5,
+      "latencyP50Ms": 139.50834999999984,
+      "latencyP95Ms": 175.00042000003475,
+      "samples": 60
+    },
+    "HYBRID_GRAPH": {
+      "entityRecall": 1.0,
+      "pathAccuracy": 1.0,
+      "multiHopSuccessRate": 1.0,
+      "negativeAccuracy": 0.8,
+      "positiveQueries": 15,
+      "negativeQueries": 5,
+      "latencyP50Ms": 170.5252499999972,
+      "latencyP95Ms": 229.5356049999924,
+      "samples": 60
+    }
+  },
+  "methodology": {
+    "entityRecall": "Micro recall over positive expected typed IDs; precision per query is also reported.",
+    "pathAccuracy": "Exact ordered typed nodes AND relation labels matched / expected paths (path coverage, not returned-path precision).",
+    "multiHopSuccess": "All expected entities AND paths present on positive 2+ hop queries; negative abstention scored separately.",
+    "baseline": "Unchanged Hybrid top5 + deterministic entity/path extraction from retrieved chunk metadata; no runtime TestCase/Execution lookup. No LLM.",
+    "graph": "Same Hybrid top5 + fixed anchored Graph traversal over persisted runtime data. Retrieval ranks/scores unchanged.",
+    "limitations": [
+      "20 curated queries share a small synthetic domain; not independent broad-domain samples.",
+      "Graph has structured runtime relations unavailable in the text corpus; measures added relation access, not intrinsic search superiority.",
+      "No new LLM calls or answer-quality judging.",
+      "One cold request may affect latency; three sequential repetitions per query."
+    ]
+  }
+}

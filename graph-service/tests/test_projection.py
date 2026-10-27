@@ -5,6 +5,19 @@ from app.source import project
 from app.model import APIS
 from app.queries import QUERIES
 
+@pytest.mark.parametrize('route,aid',[('POST /loans/{loanId}/returns','API-RETURN-CREATE'),('POST /returns/{returnId}/inspection','API-RETURN-INSPECT')])
+def test_return_mapping_requires_matching_canonical_evidence(route,aid,chunks):
+    spec=next(c for c in chunks if c['documentType']=='API_SPEC' and route in c['metadata']['relatedApis'])
+    rule=next(c for c in chunks if c['documentType']=='BUSINESS_RULE' and route in c['metadata']['relatedApis'])
+    tc=dict(testCaseId='t',reviewRevision=1,scenario='return',approvalStatus='DRAFT',evidence=[{'chunkId':c['chunkId'],'documentId':c['documentId']} for c in (spec,rule)],input=dict(method='POST',endpoint=route.split(' ',1)[1],apiId=aid))
+    source=dict(requirement=dict(id='r',title='return'),analysis={'relatedBusinessRules':[dict(chunkId=rule['chunkId'],text=rule['content'])]},batch={'testCases':[tc]},executions={'t':[]})
+    output=project([source],chunks)
+    assert any(e['source']==aid and e['target']=='t' and e['relation']=='VERIFIED_BY' for e in output['edges'])
+    assert any(e['source']==rule['documentId'] and e['target']=='t' and e['relation']=='VERIFIED_BY' for e in output['edges'])
+    tc['input']['endpoint']='/unknown'
+    output=project([source],chunks)
+    assert not any(e['target']=='t' and e['relation']=='VERIFIED_BY' for e in output['edges'])
+
 @pytest.fixture
 def facts():return json.loads(Path('/evidence/source-facts.json').read_text())
 @pytest.fixture

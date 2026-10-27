@@ -5,10 +5,21 @@ from .queries import traverse,EntityMissing,TooManyPaths
 from pydantic import BaseModel,ConfigDict
 from uuid import UUID
 from neo4j.exceptions import Neo4jError,DriverError
+from contextlib import asynccontextmanager
+from threading import Thread
+from .refresh import Refresher
 setup('legacy-assistant-graph');httpx_propagation()
-app=FastAPI(title='Graph extension',docs_url=None,redoc_url=None,openapi_url=None)
+@asynccontextmanager
+async def lifespan(app):
+    worker=Thread(target=refresher.run,daemon=True)
+    worker.start()
+    yield
+    refresher.stopped.set()
+    worker.join(timeout=2)
+app=FastAPI(title='Graph extension',docs_url=None,redoc_url=None,openapi_url=None,lifespan=lifespan)
 app.add_middleware(TraceMiddleware)
 store=Store()
+refresher=Refresher(store)
 @app.get('/health')
 def health():
     try:store.read('RETURN 1 AS ok');return {'status':'UP'}
@@ -31,7 +42,26 @@ def query(tool,identifier):
     except (Neo4jError,DriverError,OSError,ValueError):raise HTTPException(503,detail={'errorCode':'GRAPH_UNAVAILABLE'}) from None
 
 @app.post('/api/graph/find_requirement_context')
-def requirement(body:RequirementInput):return query('find_requirement_context',body.requirementId)
+def requirement(body:RequirementInput):
+    rid=str(body.requirementId)
+    state=refresher.states.get(rid,'PENDING')
+    try:
+        result=query('find_requirement_context',rid)
+        result['syncStatus']=state
+        result['dataStatus']='EMPTY' if not result['edgeCount'] else ('READY' if all(result[k] for k in ('relatedBusinessRules','relatedApis','relatedTestCases','executions')) else 'PARTIAL')
+        return result
+    except HTTPException as error:
+        if error.status_code==404:
+            if rid not in refresher.states:
+                import httpx
+                try:
+                    response=httpx.get('http://backend:8080/api/requirements/'+rid,timeout=5,trust_env=False)
+                    if response.status_code==404:raise error
+                    response.raise_for_status()
+                except httpx.HTTPError:
+                    raise HTTPException(503,detail={'errorCode':'GRAPH_SYNC_FAILED'}) from None
+            error.detail={'errorCode':'GRAPH_SYNC_FAILED' if state=='FAILED' else 'GRAPH_SYNC_PENDING'}
+        raise
 @app.post('/api/graph/find_impacted_tests')
 def impacted(body:RuleInput):return query('find_impacted_tests',body.businessRuleId)
 @app.post('/api/graph/trace_test_case_origin')

@@ -6,4 +6,5 @@ RELATIONS={
     'VERIFIED_BY':None, 'BASED_ON':('TestCase','Evidence'), 'EXECUTED_AS':('TestCase','Execution')}
 # Existing Phase 7 IDs, matched only to canonical Phase 2 specification routes.
 APIS={'POST /loans/{loanId}/approve':'API-LOAN-APPROVE','GET /assets/{assetId}':'API-ASSET-001'}
+APIS.update({'POST /loans/{loanId}/returns':'API-RETURN-CREATE','POST /returns/{returnId}/inspection':'API-RETURN-INSPECT'})
 def key(node):return (node['type'],node['id'])
