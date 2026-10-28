@@ -10,9 +10,9 @@ public class ExecutionController {
     private final ExecutionService service;
     public ExecutionController(ExecutionService service){this.service=service;}
     @PostMapping("/api/test-cases/{id}/executions")
-    public ResponseEntity<JsonNode> execute(@PathVariable UUID id,@RequestBody(required=false) JsonNode body){
+    public ResponseEntity<JsonNode> execute(@PathVariable UUID id,@RequestBody(required=false) JsonNode body,@RequestHeader(value="If-Match",required=false) Long revision){
         if(body!=null)throw new TestCaseException(400,"EXECUTION_INPUT_NOT_ALLOWED","실행 요청은 저장된 승인 TC만 사용하며 요청 본문을 받지 않습니다.");
-        return ResponseEntity.status(201).body(service.execute(id));
+        return ResponseEntity.status(201).body(revision==null?service.execute(id):service.executeRevision(id,revision));
     }
     @GetMapping("/api/test-cases/{id}/executions") public List<JsonNode> history(@PathVariable UUID id){return service.history(id);}
     @GetMapping("/api/test-cases/{id}/execution-eligibility") public JsonNode eligibility(@PathVariable UUID id){return service.eligibility(id);}

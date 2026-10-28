@@ -23,8 +23,9 @@ public class ExecutionComparator {
             switch(kind) {
                 case "HTTP_STATUS" -> {if(!a.path("value").isInt() || a.path("value").asInt()<100 || a.path("value").asInt()>599)return false;http=true;}
                 case "RESPONSE_TOKEN" -> {if(!a.path("value").isTextual() || a.path("value").asText().isBlank())return false;}
-                case "OBSERVATION_EQUALS","UNCHANGED" -> {if(!Set.of("loanStatus","assetStatus").contains(field))return false; if(kind.equals("OBSERVATION_EQUALS") && !a.path("value").isTextual())return false;}
-                case "RESPONSE_FIELD" -> {if(!Set.of("status","assetId","currentLoan","errorCode").contains(field) || !a.has("value") || a.get("value").isContainerNode())return false;}
+                case "OBSERVATION_EQUALS","UNCHANGED" -> {if(!Set.of("loanStatus","assetStatus","returnStatus","returnCount","inspectionCompleted").contains(field))return false;
+                    if(kind.equals("OBSERVATION_EQUALS")){var value=a.path("value");if(field.equals("returnCount")?(!value.isInt()||value.asInt()<0):field.equals("inspectionCompleted")?!value.isBoolean():!value.isTextual())return false;}}
+                case "RESPONSE_FIELD" -> {if(!Set.of("status","assetId","currentLoan","errorCode","returnId").contains(field) || !a.has("value") || a.get("value").isContainerNode())return false;}
                 default -> {return false;}
             }
         }

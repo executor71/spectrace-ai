@@ -1,0 +1,46 @@
+{
+  "suites": [
+    {
+      "suite": "ai",
+      "exitCode": 0,
+      "tests": 118
+    },
+    {
+      "suite": "retrieval",
+      "exitCode": 0,
+      "tests": 27
+    },
+    {
+      "suite": "evaluation-metrics",
+      "exitCode": 0,
+      "tests": 22
+    },
+    {
+      "suite": "evaluation-api",
+      "exitCode": 0,
+      "tests": 12
+    },
+    {
+      "suite": "mcp",
+      "exitCode": 0,
+      "tests": 26
+    },
+    {
+      "suite": "graph-projection",
+      "exitCode": 0,
+      "tests": 28
+    },
+    {
+      "suite": "graph-analysis",
+      "exitCode": 0,
+      "tests": 4
+    },
+    {
+      "suite": "observability",
+      "exitCode": 0,
+      "tests": 11
+    }
+  ],
+  "rawLogs": "C:\\Users\\sjlee\\AppData\\Local\\Temp\\spectrace-workflow-tests-nf9s5rae",
+  "realQwenCalls": 0
+}

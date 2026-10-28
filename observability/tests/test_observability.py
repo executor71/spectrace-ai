@@ -6,7 +6,7 @@ from app.main import app
 from workflow_otel import trace,span,attrs,record_usage,propagator,inject,wrap
 from opentelemetry.sdk.trace.export import SimpleSpanProcessor
 from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
-from test_analysis import AnalysisTests,REQUEST,HIT
+from test_analysis import AnalysisTests,REQUEST,HIT,draft
 from test_test_case_generation import TestCaseGenerationTest
 from app.llm_provider import LocalLlmProvider,LlmUnavailableError
 from app.analysis_service import AnalysisService,InvalidAnalysisError
@@ -86,6 +86,26 @@ class ObservabilityTests(unittest.TestCase):
         self.assertEqual(current.attributes['generatedTestCaseCount'],len(result.testCases))
         self.assertEqual(current.attributes['evidenceCount'],sum(len(c.evidence) for c in result.testCases))
         model.generate.assert_called_once();self.save('TESTCASE_GENERATION_MOCK',root)
+
+    def test_static_validation_wrapper_preserves_class_and_instance_binding(self):
+        class Validator:
+            @staticmethod
+            def validate(value):return value
+        wrap(Validator,'validate','fixture.static_validation')
+        value={'unchanged':True}
+        self.assertIs(value,Validator.validate(value))
+        self.assertIs(value,Validator().validate(value))
+        self.assertIsInstance(__import__('inspect').getattr_static(Validator,'validate'),staticmethod)
+
+    def test_actual_validation_span_has_only_safe_metadata(self):
+        helper=AnalysisTests();service=helper.service([draft()])
+        with self.root('fixture.validation'):result=service.analyze(REQUEST)
+        current=next(s for s in self.spans() if s.name=='analysis.validation')
+        self.assertTrue(current.attributes['success'])
+        self.assertEqual(current.attributes['requirementId'],result.requirementId)
+        self.assertEqual(current.attributes['evidenceCount'],len(result.evidence))
+        self.assertNotIn(HIT.contentSnippet,str(current.attributes))
+        self.assertEqual(1,service.llm.generate.call_count)
 
 if __name__=='__main__':
     suite=unittest.defaultTestLoader.loadTestsFromTestCase(ObservabilityTests)

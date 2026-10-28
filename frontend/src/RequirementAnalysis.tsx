@@ -37,7 +37,7 @@ export default function RequirementAnalysis({ requirementId, onSaved, onBusyChan
     try {
       const response = await fetch(`/api/requirements/${encodeURIComponent(requirementId)}/analysis`, { method, signal: controller.signal })
       const body = await response.json().catch(() => null)
-      if (method === 'GET' && response.status === 404) { setNotice('AI 분석 결과가 아직 없습니다. 변경 요청을 저장한 것만으로는 분석되지 않습니다. ‘변경 요청 분석 시작’을 눌러 분석 Job을 접수하세요.'); return }
+      if (method === 'GET' && response.status === 404) { setNotice('저장된 분석 결과가 아직 없습니다. 변경 요청을 저장한 것만으로는 분석되지 않습니다. ‘변경 요청 분석 시작’을 눌러 분석 Job을 접수하세요.'); return }
       if (response.status === 429 && body?.code === 'ANALYSIS_BUSY') throw new Error('다른 분석이 진행 중이라 새 분석을 시작하지 못했습니다. 진행 중인 분석이 끝난 뒤 ‘변경 요청 분석 시작’을 다시 누르거나 ‘저장된 분석 조회’로 완료 여부를 확인하세요.')
       if (!response.ok) throw new Error(body?.message ?? `분석 요청에 실패했습니다. (HTTP ${response.status})`)
       if (!body || body.requirementId !== requirementId || !['confirmedConditions', 'ambiguousExpressions', 'missingConditions', 'relatedBusinessRules', 'relatedApis', 'clarificationQuestions', 'evidence'].every(key => Array.isArray(body[key]))) throw new Error('분석 응답 형식이 올바르지 않습니다.')
@@ -55,7 +55,7 @@ export default function RequirementAnalysis({ requirementId, onSaved, onBusyChan
     ? <ul>{values.map((item, i) => <li key={i}>{item.text} <a href={`#evidence-${item.chunkId}`}>근거</a></li>)}</ul>
     : <p>확정 가능한 근거 없음</p>}</section>
   return <section className="analysis-panel" aria-busy={busy} aria-label="변경 요청 분석">
-    <div className="panel-title"><span className="eyebrow">EVIDENCE-BASED ANALYSIS</span><h2>변경 요청 분석</h2></div>
+    <div className="panel-title"><span className="eyebrow">REQUIREMENTS / EVIDENCE</span><h2>변경 요청 분석</h2></div>
     <p>검색 근거에서 확인된 문장과 추가 확인이 필요한 조건을 구분합니다.</p>
     <div className="analysis-actions">
 
@@ -65,7 +65,7 @@ export default function RequirementAnalysis({ requirementId, onSaved, onBusyChan
     {busy && <p className="loading-panel" role="status"><span className="spinner" />저장된 분석 결과 조회 중… ({elapsed}초)</p>}
     {error && <p role="alert" className="form-error">{error}</p>}
     {notice && <p role="status">{notice}</p>}
-    {!result && !busy && !notice && !error && <div className="card empty-state"><h3>AI 분석 결과를 먼저 확인하세요</h3><p>아직 이 화면에 분석을 불러오지 않았습니다. 처음이면 ‘변경 요청 분석 시작’, 이전에 분석했다면 ‘저장된 분석 조회’를 누르세요.</p></div>}
+    {!result && !busy && !notice && !error && <div className="card empty-state"><h3>저장된 분석 결과 확인</h3><p>아직 이 화면에 분석을 불러오지 않았습니다. 처음이면 ‘변경 요청 분석 시작’, 이전에 분석했다면 ‘저장된 분석 조회’를 누르세요.</p></div>}
     {result && <div className="guide-next"><p>확인된 조건과 확인 질문을 검토한 뒤 테스트를 생성하세요.</p><button onClick={() => onNavigate('testcases')}>다음: 테스트 자동 생성</button></div>}
     {result && <div className="analysis-result">
       {facts('확인된 업무조건', result.confirmedConditions)}

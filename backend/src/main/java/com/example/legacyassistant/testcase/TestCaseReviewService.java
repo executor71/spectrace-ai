@@ -66,6 +66,17 @@ public class TestCaseReviewService {
         return response(lock(id));
     }
     @Transactional
+    public JsonNode prepareReturn(UUID id,JsonNode body) {
+        Row row=lock(id);request(body,Set.of("reviewRevision","fixtureProfile"),row);
+        if(row.stale)throw new TestCaseException(409,"STALE_TEST_CASE","최신 분석·정책의 TC를 먼저 확인하세요.");
+        text(body.get("fixtureProfile"),100,"fixtureProfile");
+        String plan=policy.verifiedPlan(row.content,row.source);
+        var registry=new DummyApiRegistry(json);
+        if(plan==null || registry.returnModes(plan).isEmpty())throw new TestCaseException(409,"EXECUTION_CONTRACT_UNSUPPORTED","현재 근거와 템플릿에는 확정된 반납 실행 계약이 없습니다.");
+        var edit=registry.returnSetup(row.content,plan,body.path("fixtureProfile").asText());edit.put("reviewRevision",row.content.path("reviewRevision").asLong());
+        return edit(id,edit); // Existing revision reset, audit and explicit reapproval behavior.
+    }
+    @Transactional
     public JsonNode decide(UUID id,JsonNode body,boolean approve) {
         Row row=lock(id);request(body,Set.of("reviewRevision","reviewer","reviewComment"),row);
         String reviewer=body.has("reviewer")?body.get("reviewer").asText():"demo/local";

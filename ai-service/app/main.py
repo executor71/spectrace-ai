@@ -14,6 +14,8 @@ async def lifespan(app):
     yield
 
 app = FastAPI(title="Legacy Change Assistant AI Service", version="0.1.0", lifespan=lifespan)
+from app.workflow_summary import SummaryContextMiddleware
+app.add_middleware(SummaryContextMiddleware)
 app.include_router(search_router)
 app.include_router(analysis_router)
 app.include_router(test_case_router)

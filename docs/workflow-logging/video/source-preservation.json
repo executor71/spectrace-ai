@@ -1,0 +1,10 @@
+{
+  "ai-service/app/analysis_service.py:messagesUnchanged": true,
+  "ai-service/app/test_case_service.py:messagesUnchanged": true,
+  "ai-service/app/change_impact.py:messagesUnchanged": true,
+  "analysisSystemUnchanged": true,
+  "langgraphTopologyUnchanged": true,
+  "frozenContractsUnchanged": true,
+  "backend/src/main/java/com/example/legacyassistant/testcase/ExecutionService.java:businessSourceUnchanged": true,
+  "backend/src/main/java/com/example/legacyassistant/testcase/TestCaseReviewService.java:businessSourceUnchanged": true
+}

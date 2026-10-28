@@ -5,6 +5,7 @@ from pydantic import ValidationError
 from app.analysis_models import AnalysisDraft, AnalysisRequest, AnalysisResult, Evidence, GroundedApi, GroundedCondition
 from app.llm_provider import LlmProvider
 from app.vector_search import SearchRequest
+from app import workflow_summary as summary
 
 
 class InvalidAnalysisError(RuntimeError):
@@ -53,14 +54,18 @@ class AnalysisService:
     def __init__(self, search, llm: LlmProvider):
         self.search, self.llm = search, llm
 
+    @summary.workflow('ANALYSIS', 'Fixed analysis workflow initialized')
     def analyze(self, request: AnalysisRequest) -> AnalysisResult:
+        summary.step('INPUT_VALIDATION')
         try:
             UUID(request.requirementId)
             # No truncation or rewrite: preserve the entire original input.
             query = SearchRequest(query=request.title + '\n' + request.description, topK=5)
         except (ValueError, ValidationError) as error:
             raise AnalysisInputError('Requirement exceeds the unchanged search input contract or has an invalid ID') from error
-        hits = self.search.search(query)
+        with summary.phase('RETRIEVAL', 'RETRIEVAL') as detail:
+            hits = self.search.search(query)
+            detail['count'] = len(hits)
         sentences, apis = catalog(hits)
         schema = AnalysisDraft.model_json_schema()
         for field, values in [('confirmedConditionIds', [k for k,v in sentences.items() if v['documentType'] != 'TEST_GUIDE']),
@@ -76,10 +81,17 @@ class AnalysisService:
             'apiCatalog': {key: value['api'] for key,value in apis.items()},
             'outputJsonSchema': schema}, ensure_ascii=False)}]
         for attempt in range(2):
-            raw = self.llm.generate(messages, schema)
+            raw = summary.generate(self.llm, messages, schema)
+            summary.step('OUTPUT_VALIDATION')
             try:
-                draft = AnalysisDraft.model_validate_json(raw)
-                return self.materialize(request, draft, hits, sentences, apis)
+                with summary.phase('STRUCTURED_OUTPUT', 'STRUCTURED_OUTPUT', object='AnalysisDraft'):
+                    draft = AnalysisDraft.model_validate_json(raw)
+                with summary.phase('EVIDENCE_VALIDATION', 'EVIDENCE', completed='EVIDENCE_VALIDATED', evidence='PASS'):
+                    result = self.materialize(request, draft, hits, sentences, apis)
+                summary.emit('OUTPUT_VALIDATED', 'VALIDATION', 'Schema PASS / Evidence PASS', schema='PASS', evidence='PASS')
+                summary.step('ANALYSIS')
+                summary.emit('ANALYSIS_COMPLETED', 'ANALYSIS', f'{len(result.confirmedConditions)} confirmed conditions extracted', conditions=len(result.confirmedConditions))
+                return result
             except (ValidationError, InvalidAnalysisError) as error:
                 if attempt == 1:
                     raise InvalidAnalysisError('Model output failed schema or evidence validation after 2 attempts') from error

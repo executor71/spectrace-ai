@@ -1,0 +1,42 @@
+{
+  "return-pass": {
+    "traceId": "73f82cbe0cda8c47da5c8c8f71a65f05",
+    "executionId": "6e8fb563-fbd9-4b03-975f-dd6699077c0f",
+    "result": "PASS",
+    "spans": [
+      "backend.request",
+      "dummy.execution",
+      "execution.allowlist",
+      "execution.assertions",
+      "execution.dummy.invoke",
+      "execution.fixture.initialize"
+    ],
+    "noRequestBodyTags": true
+  },
+  "return-fail": {
+    "traceId": "8c26a934e3f354861e86b33f6bce7365",
+    "executionId": "40179f20-9335-4705-910c-cfaa16f6083f",
+    "result": "FAIL",
+    "spans": [
+      "backend.request",
+      "dummy.execution",
+      "execution.allowlist",
+      "execution.assertions",
+      "execution.dummy.invoke",
+      "execution.fixture.initialize"
+    ],
+    "noRequestBodyTags": true
+  },
+  "return-error": {
+    "traceId": "784bf2106cacc954055d80f4778c06c2",
+    "executionId": "08d3c4f8-a981-4465-aab0-90f96ec1118c",
+    "result": "ERROR",
+    "spans": [
+      "backend.request",
+      "dummy.execution",
+      "execution.allowlist",
+      "execution.fixture.initialize"
+    ],
+    "noRequestBodyTags": true
+  }
+}

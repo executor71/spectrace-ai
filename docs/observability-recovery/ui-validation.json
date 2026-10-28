@@ -1,0 +1,70 @@
+{
+  "minimum": {
+    "result": "PASS",
+    "traceId": "127dbab8090a305b2d992389b402b9e0",
+    "url": "http://127.0.0.1:16686/trace/127dbab8090a305b2d992389b402b9e0",
+    "actualUiSpansVerified": [
+      "recovery.minimum"
+    ]
+  },
+  "analysis": {
+    "result": "PASS",
+    "traceId": "669dae9a85fc56beda25818ed582da92",
+    "url": "http://127.0.0.1:16686/trace/669dae9a85fc56beda25818ed582da92",
+    "actualUiSpansVerified": [
+      "analysis.job.execute",
+      "backend.requirement",
+      "http.server",
+      "requirement.analysis",
+      "rag.search",
+      "query.embedding",
+      "vector.search",
+      "llm.generate",
+      "analysis.validation",
+      "analysis.job.complete"
+    ]
+  },
+  "tc-generation": {
+    "result": "PASS",
+    "traceId": "a9e694e521a4f2c03250f963198cb88d",
+    "url": "http://127.0.0.1:16686/trace/a9e694e521a4f2c03250f963198cb88d",
+    "actualUiSpansVerified": [
+      "backend.request",
+      "testcase.generate",
+      "backend.requirement",
+      "requirement.analysis.read",
+      "http.server",
+      "llm.generate"
+    ]
+  },
+  "mcp-pass": {
+    "result": "PASS",
+    "traceId": "f8c2ed73f0452934e049a59877a03a18",
+    "url": "http://127.0.0.1:16686/trace/f8c2ed73f0452934e049a59877a03a18",
+    "actualUiSpansVerified": [
+      "http.server",
+      "mcp.tool",
+      "backend.request",
+      "dummy.execution",
+      "execution.allowlist",
+      "execution.fixture.initialize",
+      "execution.dummy.invoke",
+      "execution.assertions"
+    ]
+  },
+  "mcp-defect-fail": {
+    "result": "PASS",
+    "traceId": "554e370d399cd2e2bc3ec5f3e41dad78",
+    "url": "http://127.0.0.1:16686/trace/554e370d399cd2e2bc3ec5f3e41dad78",
+    "actualUiSpansVerified": [
+      "http.server",
+      "mcp.tool",
+      "backend.request",
+      "dummy.execution",
+      "execution.allowlist",
+      "execution.fixture.initialize",
+      "execution.dummy.invoke",
+      "execution.assertions"
+    ]
+  }
+}

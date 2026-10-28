@@ -1,0 +1,46 @@
+[13:16:30] BE #1 HITL: START result=RUNNING traceId=c7f27d6ce9da435c3f3b4a2b6930db89 provider=NO_LLM_CALL operation=EDIT
+[13:16:30] BE #2 Save: COMPLETE result=COMMITTED traceId=c7f27d6ce9da435c3f3b4a2b6930db89 provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #3 HITL: COMPLETE result=DRAFT traceId=c7f27d6ce9da435c3f3b4a2b6930db89 provider=NO_LLM_CALL operation=EDIT persistence=COMMITTED
+[13:16:30] BE #1 HITL: START result=RUNNING traceId=eaebd2cc78448c484ff9811ea5704b6a provider=NO_LLM_CALL operation=EDIT
+[13:16:30] BE #2 Save: COMPLETE result=COMMITTED traceId=eaebd2cc78448c484ff9811ea5704b6a provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #3 HITL: COMPLETE result=DRAFT traceId=eaebd2cc78448c484ff9811ea5704b6a provider=NO_LLM_CALL operation=EDIT persistence=COMMITTED
+[13:16:30] MCP #1 Tool: START result=RUNNING traceId=aa68508b296d428aeed17508c3b72726 toolName=search_knowledge provider=NO_LLM_CALL
+[13:16:30] MCP #2 Tool: COMPLETE result=SUCCESS traceId=aa68508b296d428aeed17508c3b72726 toolName=search_knowledge provider=NO_LLM_CALL count=5
+[13:16:30] MCP #1 Tool: START result=RUNNING traceId=48d4f09e1bcb8c19fccf7787a04ad68a toolName=analyze_requirement provider=NO_LLM_CALL
+[13:16:30] MCP #2 Tool: COMPLETE result=SUCCESS traceId=48d4f09e1bcb8c19fccf7787a04ad68a toolName=analyze_requirement provider=NO_LLM_CALL source=SAVED
+[13:16:30] MCP #1 Tool: START result=RUNNING traceId=3e4cbd2addb5b5d8055b9ba61456faf3 toolName=get_test_cases provider=NO_LLM_CALL
+[13:16:30] MCP #2 Tool: COMPLETE result=SUCCESS traceId=3e4cbd2addb5b5d8055b9ba61456faf3 toolName=get_test_cases provider=NO_LLM_CALL count=5
+[13:16:30] MCP #1 Tool: START result=RUNNING traceId=c5d6c544bf17f8184c7e5e739ef54ec1 toolName=execute_approved_test provider=NO_LLM_CALL
+[13:16:30] BE #1 Execute: START result=RUNNING traceId=c5d6c544bf17f8184c7e5e739ef54ec1 provider=NO_LLM_CALL operation=EXECUTE
+[13:16:30] BE #2 Execute: FAILED result=ERROR traceId=c5d6c544bf17f8184c7e5e739ef54ec1 provider=NO_LLM_CALL errorCode=NOT_APPROVED
+[13:16:30] MCP #2 Tool: FAILED result=ERROR traceId=c5d6c544bf17f8184c7e5e739ef54ec1 toolName=execute_approved_test provider=NO_LLM_CALL errorCode=NOT_APPROVED
+[13:16:30] BE #1 HITL: START result=RUNNING traceId=40097808e61ec4d562eb8d067fddb57b provider=NO_LLM_CALL operation=EDIT
+[13:16:30] BE #2 Save: COMPLETE result=COMMITTED traceId=40097808e61ec4d562eb8d067fddb57b provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #3 HITL: COMPLETE result=DRAFT traceId=40097808e61ec4d562eb8d067fddb57b provider=NO_LLM_CALL operation=EDIT persistence=COMMITTED
+[13:16:30] BE #1 HITL: START result=RUNNING traceId=c75432defb16630a0ec5c33aacea09b3 provider=NO_LLM_CALL operation=APPROVE
+[13:16:30] BE #2 Save: COMPLETE result=COMMITTED traceId=c75432defb16630a0ec5c33aacea09b3 provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #3 HITL: COMPLETE result=APPROVED traceId=c75432defb16630a0ec5c33aacea09b3 provider=NO_LLM_CALL operation=APPROVE persistence=COMMITTED
+[13:16:30] MCP #1 Tool: START result=RUNNING traceId=38d04ac3f7c313a69b5455d58d8b43ce toolName=execute_approved_test provider=NO_LLM_CALL
+[13:16:30] BE #1 Execute: START result=RUNNING traceId=38d04ac3f7c313a69b5455d58d8b43ce provider=NO_LLM_CALL operation=EXECUTE
+[13:16:30] BE #2 Dummy: START result=RUNNING traceId=38d04ac3f7c313a69b5455d58d8b43ce provider=NO_LLM_CALL
+[13:16:30] BE #3 Dummy: COMPLETE result=RETURNED traceId=38d04ac3f7c313a69b5455d58d8b43ce provider=NO_LLM_CALL httpStatus=200
+[13:16:30] BE #4 Assert: START result=RUNNING traceId=38d04ac3f7c313a69b5455d58d8b43ce provider=NO_LLM_CALL
+[13:16:30] BE #5 Assert: COMPLETE result=PASS traceId=38d04ac3f7c313a69b5455d58d8b43ce provider=NO_LLM_CALL mismatches=0
+[13:16:30] BE #6 Save: COMPLETE result=COMMITTED traceId=38d04ac3f7c313a69b5455d58d8b43ce provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #7 Execute: COMPLETE result=PASS traceId=38d04ac3f7c313a69b5455d58d8b43ce provider=NO_LLM_CALL mismatches=0 synthetic=false persistence=COMMITTED
+[13:16:30] MCP #2 Tool: COMPLETE result=PASS traceId=38d04ac3f7c313a69b5455d58d8b43ce toolName=execute_approved_test provider=NO_LLM_CALL
+[13:16:30] BE #1 HITL: START result=RUNNING traceId=8b141665d0cdea0990c684fc536ea324 provider=NO_LLM_CALL operation=EDIT
+[13:16:30] BE #2 Save: COMPLETE result=COMMITTED traceId=8b141665d0cdea0990c684fc536ea324 provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #3 HITL: COMPLETE result=DRAFT traceId=8b141665d0cdea0990c684fc536ea324 provider=NO_LLM_CALL operation=EDIT persistence=COMMITTED
+[13:16:30] BE #1 HITL: START result=RUNNING traceId=3adda13787b1643639656aee6055890b provider=NO_LLM_CALL operation=APPROVE
+[13:16:30] BE #2 Save: COMPLETE result=COMMITTED traceId=3adda13787b1643639656aee6055890b provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #3 HITL: COMPLETE result=APPROVED traceId=3adda13787b1643639656aee6055890b provider=NO_LLM_CALL operation=APPROVE persistence=COMMITTED
+[13:16:30] MCP #1 Tool: START result=RUNNING traceId=4bcfa4838324525c1d5d9e2a979cd75d toolName=execute_approved_test provider=NO_LLM_CALL
+[13:16:30] BE #1 Execute: START result=RUNNING traceId=4bcfa4838324525c1d5d9e2a979cd75d provider=NO_LLM_CALL operation=EXECUTE
+[13:16:30] BE #2 Dummy: START result=RUNNING traceId=4bcfa4838324525c1d5d9e2a979cd75d provider=NO_LLM_CALL
+[13:16:30] BE #3 Dummy: COMPLETE result=RETURNED traceId=4bcfa4838324525c1d5d9e2a979cd75d provider=NO_LLM_CALL httpStatus=200
+[13:16:30] BE #4 Assert: START result=RUNNING traceId=4bcfa4838324525c1d5d9e2a979cd75d provider=NO_LLM_CALL
+[13:16:30] BE #5 Assert: FAILED result=FAIL traceId=4bcfa4838324525c1d5d9e2a979cd75d provider=NO_LLM_CALL mismatches=2
+[13:16:30] BE #6 Save: COMPLETE result=COMMITTED traceId=4bcfa4838324525c1d5d9e2a979cd75d provider=NO_LLM_CALL persistence=COMMITTED
+[13:16:30] BE #7 Execute: COMPLETE result=FAIL traceId=4bcfa4838324525c1d5d9e2a979cd75d provider=NO_LLM_CALL mismatches=2 synthetic=true persistence=COMMITTED
+[13:16:30] MCP #2 Tool: COMPLETE result=FAIL traceId=4bcfa4838324525c1d5d9e2a979cd75d toolName=execute_approved_test provider=NO_LLM_CALL

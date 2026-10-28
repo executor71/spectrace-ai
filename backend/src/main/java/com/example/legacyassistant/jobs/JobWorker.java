@@ -2,6 +2,7 @@ package com.example.legacyassistant.jobs;
 import com.example.legacyassistant.analysis.*;
 import com.example.legacyassistant.requirement.RequirementService;
 import com.example.legacyassistant.observability.Tracing;
+import com.example.legacyassistant.observability.WorkflowSummary;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.opentelemetry.api.trace.*;
 import io.opentelemetry.context.Context;
@@ -41,7 +42,7 @@ public class JobWorker {
   span.setAttribute("jobId",id.toString()).setAttribute("requirementId",req.toString()).setAttribute("attemptCount",job.path("attemptCount").asLong());
   span.setAttribute("jobType",job.path("jobType").asText("REQUIREMENT_ANALYSIS"));if(job.hasNonNull("impactId"))span.setAttribute("impactId",job.path("impactId").asText());
   var renewal=heartbeat.scheduleAtFixedRate(()->{try{if(lease.valid())store.heartbeat(id,token);}catch(Exception ignored){}},1,1,TimeUnit.SECONDS);
-  try(var scope=span.makeCurrent()){
+  try(var scope=span.makeCurrent();var summary=WorkflowSummary.open(job.path("jobType").asText().equals("CHANGE_IMPACT_ANALYSIS")?"CHANGE_IMPACT_ANALYSIS":"ANALYSIS",id,req)){
    span.setAttribute("queueWaitMs",Math.max(0,Duration.between(OffsetDateTime.parse(job.path("createdAt").asText()).toInstant(),OffsetDateTime.parse(job.path("startedAt").asText()).toInstant()).toMillis()));
    try{
     if(initial==AnalysisCapacity.State.UNAVAILABLE)throw new AnalysisException(503,"LLM_UNAVAILABLE","Unavailable");
@@ -58,15 +59,20 @@ public class JobWorker {
     if(!lease.valid())throw new AnalysisException(503,"JOB_WORKER_ERROR","Ownership lost");
     if(expired(start))throw new AnalysisException(504,"LLM_TIMEOUT","Timeout");
     store.stage(id,token,"VALIDATING_OUTPUT");
+    WorkflowSummary.stage("VALIDATING_OUTPUT");
     try{if(!job.path("jobType").asText().equals("CHANGE_IMPACT_ANALYSIS"))validator.validate(req,output);}catch(AnalysisException invalid){throw new AnalysisException(502,"VALIDATION_FAILED","Validation failed");}
     store.stage(id,token,"SAVING_RESULT");
+    WorkflowSummary.stage("SAVING_RESULT");
     if(!store.complete(id,token,output))throw new AnalysisException(503,"JOB_WORKER_ERROR","Stale owner");
+    WorkflowSummary.saved();
+    WorkflowSummary.completed();
     span.setAttribute("status","SUCCEEDED").setAttribute("stage","COMPLETED");
    }catch(Exception error){
     String code=error instanceof AnalysisException e?switch(e.code()){case "INVALID_ANALYSIS_OUTPUT"->"LLM_INVALID_OUTPUT";case "ANALYSIS_UNAVAILABLE"->"LLM_UNAVAILABLE";default->e.code();}:"JOB_WORKER_ERROR";
     // No cancellation-by-interrupt: wait until the original HTTP execution relinquishes the Python slot.
     if(code.equals("LLM_TIMEOUT"))while(capacity.state()!=AnalysisCapacity.State.IDLE && lease.valid())sleep();
     String status=code.equals("LLM_TIMEOUT")?"TIMED_OUT":"FAILED";store.fail(id,token,status,code);
+    WorkflowSummary.failed(code);
     span.setStatus(StatusCode.ERROR).setAttribute("status",status).setAttribute("errorCode",code).setAttribute("stage",job.path("stage").asText());
    }
   }finally{renewal.cancel(false);span.setAttribute("executionDurationMs",(System.nanoTime()-start)/1_000_000);span.setAttribute("totalDurationMs",Math.max(0,Duration.between(OffsetDateTime.parse(job.path("createdAt").asText()).toInstant(),Instant.now()).toMillis()));span.end();}

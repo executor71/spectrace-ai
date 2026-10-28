@@ -16,6 +16,7 @@ from mcp import types
 from .clients import Services, GatewayError
 from .schemas import INPUTS
 from .tools import Gateway
+from . import workflow_summary as summary
 from mcp.server.lowlevel.helper_types import ReadResourceContents
 from mcp.shared.exceptions import McpError
 from .contracts.analysis_models import AnalysisResult
@@ -57,6 +58,7 @@ async def call_tool(name, arguments):
         "analyze_requirement": "backend", "get_test_cases": "backend", "get_evaluation_result": "evaluation",
         "execute_approved_test": "backend", "find_requirement_context": "graph",
         "find_impacted_tests": "graph", "trace_test_case_origin": "graph"}.get(name)
+    summary_token = summary.begin(request_id, name if name in INPUTS else 'UNKNOWN_TOOL', arguments)
     try:
         if name not in INPUTS:
             raise GatewayError("UNKNOWN_TOOL")
@@ -66,17 +68,22 @@ async def call_tool(name, arguments):
         result = await getattr(gateway, name)(arguments)
         if name == "analyze_requirement":
             Draft202012Validator(ANALYSIS_OUTPUT).validate(result)
-        return types.CallToolResult(content=[types.TextContent(type="text", text=json.dumps(result, ensure_ascii=False))], structuredContent=result)
+        response = types.CallToolResult(content=[types.TextContent(type="text", text=json.dumps(result, ensure_ascii=False))], structuredContent=result)
+        summary.finish(result)
+        return response
     except GatewayError as exc:
         status, code = "ERROR", exc.code
         downstream = exc.service or downstream
+        summary.emit('TOOL_FAILED', 'FAILED', 'ERROR', errorCode=code)
         error = {"errorCode": code, "requestId": request_id}
         return types.CallToolResult(isError=True, content=[types.TextContent(type="text", text=json.dumps(error))], structuredContent=error)
     except Exception:
         status, code = "ERROR", "INTERNAL_ERROR"
+        summary.emit('TOOL_FAILED', 'FAILED', 'ERROR', errorCode=code)
         error = {"errorCode": code, "requestId": request_id}
         return types.CallToolResult(isError=True, content=[types.TextContent(type="text", text=json.dumps(error))], structuredContent=error)
     finally:
+        summary.current.reset(summary_token)
         logging.getLogger("gateway").warning(json.dumps({**correlation(), "timestamp": stamp,
             "service": "legacy-assistant-mcp", "level": "INFO", "event": "mcp.tool",
             "toolName": name if name in INPUTS else "UNKNOWN_TOOL",

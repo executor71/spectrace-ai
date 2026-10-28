@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "realAnalysisProviderCalls": 1,
+  "realGenerationProviderCalls": 1,
+  "realTestCases": 5,
+  "realPolicyHeldProviderCalls": 0,
+  "countEquality": "PASS",
+  "eventOrderPerWorkflowAndService": "PASS",
+  "jobRunTraceCorrelation": "PASS",
+  "safeSummaryMetadata": "PASS"
+}

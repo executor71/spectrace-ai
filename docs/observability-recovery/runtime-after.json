@@ -1,0 +1,247 @@
+{
+  "capturedAt": "2026-10-28T04:58:02.139423+00:00",
+  "containers": [
+    {
+      "service": "ai-service",
+      "name": "master-ai-service-1",
+      "image": "master-ai-service",
+      "imageId": "sha256:a4b202122b0da0ebbe1f7edcf6e354faea2127fccf6af173e58f362229a59de1",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-28T04:47:37.674254186Z",
+      "health": null,
+      "ports": {
+        "8000/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8000"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8000"
+          }
+        ]
+      }
+    },
+    {
+      "service": "jaeger",
+      "name": "master-jaeger-1",
+      "image": "jaegertracing/jaeger:2.12.0",
+      "imageId": "sha256:4c8423cd8fa8b727bd632f0acda2cc39118f21a4bdcef322a6c9ddbeb6dcd424",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-28T04:51:03.357333324Z",
+      "health": null,
+      "ports": {
+        "16686/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "16686"
+          }
+        ]
+      }
+    },
+    {
+      "service": "mcp-server",
+      "name": "master-mcp-server-1",
+      "image": "master-mcp-server",
+      "imageId": "sha256:222f999e4a2f64eb292f48bdc9a2d74ceb81789a58e71e607c3175ab3808109e",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-28T04:23:54.730281345Z",
+      "health": "healthy",
+      "ports": {
+        "8020/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8020"
+          }
+        ]
+      }
+    },
+    {
+      "service": "backend",
+      "name": "master-backend-1",
+      "image": "master-backend",
+      "imageId": "sha256:81aad85c52ff312b6faf6fcaf1101ff2065f1389d70f9fc52076ee7d9065d955",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-28T04:16:14.783568691Z",
+      "health": null,
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8080"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8080"
+          }
+        ]
+      }
+    },
+    {
+      "service": "frontend",
+      "name": "master-frontend-1",
+      "image": "master-frontend",
+      "imageId": "sha256:90c2c1305f3108ff2f51f463e8273bfb400fc0f1b415922f0517ad510d2a570a",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:19.507664223Z",
+      "health": null,
+      "ports": {
+        "5173/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "5173"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "5173"
+          }
+        ]
+      }
+    },
+    {
+      "service": "graph-service",
+      "name": "master-graph-service-1",
+      "image": "master-graph-service",
+      "imageId": "sha256:7abe46b126554085559ce62789d08f5119044c9adddf34aecef9bd72d65b3dc8",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:20.707398409Z",
+      "health": null,
+      "ports": {
+        "8030/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8030"
+          }
+        ]
+      }
+    },
+    {
+      "service": "evaluation-service",
+      "name": "master-evaluation-service-1",
+      "image": "master-evaluation-service",
+      "imageId": "sha256:41b92b9106b974d046e8ee34ec1b8b23e51f9c0760c83cb20d372b882a03a945",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:20.238024467Z",
+      "health": null,
+      "ports": {
+        "8090/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8090"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8090"
+          }
+        ]
+      }
+    },
+    {
+      "service": "neo4j",
+      "name": "master-neo4j-1",
+      "image": "neo4j:5.26.0-community",
+      "imageId": "sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:19.677571422Z",
+      "health": "healthy",
+      "ports": {
+        "7473/tcp": null,
+        "7474/tcp": null,
+        "7687/tcp": null
+      }
+    },
+    {
+      "service": "otel-collector",
+      "name": "master-otel-collector-1",
+      "image": "otel/opentelemetry-collector-contrib:0.128.0",
+      "imageId": "sha256:1ab0baba0ee3695d823c46653d8a6e8894896e668ce8bd7ebe002e948d827bc7",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-28T04:51:07.181412358Z",
+      "health": null,
+      "ports": {
+        "13133/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "13133"
+          }
+        ],
+        "4317/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "14317"
+          }
+        ],
+        "4318/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "14318"
+          }
+        ]
+      }
+    },
+    {
+      "service": "retrieval-service",
+      "name": "master-retrieval-service-1",
+      "image": "master-retrieval-service",
+      "imageId": "sha256:2127405dd9d53e544d165d86fa36600ea4faeb578a23668f6f118a4c04907d10",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:18.908304865Z",
+      "health": null,
+      "ports": {
+        "8010/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8010"
+          }
+        ]
+      }
+    },
+    {
+      "service": "postgres",
+      "name": "master-postgres-1",
+      "image": "pgvector/pgvector:pg16",
+      "imageId": "sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:21.311886171Z",
+      "health": "healthy",
+      "ports": {
+        "5432/tcp": null
+      }
+    },
+    {
+      "service": "analysis-model-init",
+      "name": "master-analysis-model-init-1",
+      "image": "ollama/ollama:0.11.10",
+      "imageId": "sha256:a5409cb903d30f9cd67e9f430dd336ddc9274e16fd78f75b675c42065991b4fd",
+      "status": "exited",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:30.011463117Z",
+      "health": null,
+      "ports": {}
+    },
+    {
+      "service": "ollama",
+      "name": "master-ollama-1",
+      "image": "ollama/ollama:0.11.10",
+      "imageId": "sha256:a5409cb903d30f9cd67e9f430dd336ddc9274e16fd78f75b675c42065991b4fd",
+      "status": "running",
+      "exitCode": 0,
+      "startedAt": "2026-10-27T22:20:19.342035109Z",
+      "health": "healthy",
+      "ports": {
+        "11434/tcp": null
+      }
+    }
+  ]
+}

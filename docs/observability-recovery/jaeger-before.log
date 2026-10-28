@@ -1,0 +1,120 @@
+2026-10-21T15:27:24.609Z	info	app/server.go:323	Closing HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T15:27:24.610Z	info	app/server.go:291	HTTP server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-21T15:27:24.611Z	info	app/server.go:328	Stopping gRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T15:27:24.611Z	info	app/server.go:306	GRPC server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-21T15:27:24.611Z	info	app/server.go:333	Server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+badger 2026/10/21 15:27:24 INFO: Lifetime L0 stalled for: 0s
+badger 2026/10/21 15:27:24 INFO: 
+Level 0 [ ]: NumTables: 03. Size: 11 MiB of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB
+Level 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 6 [B]: NumTables: 01. Size: 354 KiB of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level Done
+2026-10-21T15:27:24.937Z	info	healthcheckv2extension@v0.125.0/extension.go:138	discarding event received after shutdown	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension", "source": {}, "event": {}}
+2026-10-21T15:27:24.959Z	info	service@v0.125.0/service.go:345	Shutdown complete.
+2026/10/26 11:48:15 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-26T11:48:15.569Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-26T11:48:15.570Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-26T11:48:15.572Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.574Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-26T11:48:15.574Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-26T11:48:15.574Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.574Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.575Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.575Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/26 11:48:15 INFO: All 4 tables opened in 6ms
+badger 2026/10/26 11:48:15 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/26 11:48:15 INFO: Set nextTxnTs to 27899
+badger 2026/10/26 11:48:15 INFO: Deleting empty file: /tmp/jaeger/values/000007.vlog
+2026-10-26T11:48:15.605Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-26T11:48:15.605Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.605Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.714Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.714Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.716Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-26T11:48:15.716Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-26T11:48:15.717Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.717Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-26T11:48:15.717Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-26T11:48:15.724Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-26T11:48:15.724Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-26T11:48:15.724Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026/10/26 22:16:36 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-26T22:16:36.947Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-26T22:16:36.948Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-26T22:16:36.949Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/26 22:16:37 INFO: All 4 tables opened in 4ms
+badger 2026/10/26 22:16:37 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/26 22:16:37 INFO: Set nextTxnTs to 55983
+badger 2026/10/26 22:16:37 INFO: Deleting empty file: /tmp/jaeger/values/000008.vlog
+2026-10-26T22:16:37.417Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-26T22:16:37.417Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:37.417Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.081Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.081Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.082Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-26T22:23:49.082Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-26T22:23:49.082Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.082Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-26T22:23:49.082Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-26T22:23:49.083Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-26T22:23:49.083Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-26T22:23:49.084Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026/10/27 22:19:12 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-27T22:19:12.949Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-27T22:19:12.950Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-27T22:19:12.952Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.955Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-27T22:19:12.955Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-27T22:19:12.955Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.956Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.956Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.956Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/27 22:19:13 INFO: All 158 tables opened in 245ms
+badger 2026/10/27 22:19:13 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/27 22:19:13 INFO: Set nextTxnTs to 1816059
+badger 2026/10/27 22:19:13 INFO: Deleting empty file: /tmp/jaeger/values/000009.vlog
+2026-10-27T22:19:13.991Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-27T22:19:13.992Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:13.992Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026/10/27 22:20:19 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-27T22:20:19.330Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-27T22:20:19.330Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-27T22:20:19.331Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:20:19.333Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-27T22:20:19.333Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-27T22:20:19.333Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:20:19.333Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/27 22:20:19 INFO: All 159 tables opened in 42ms
+badger 2026/10/27 22:20:19 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/27 22:20:19 INFO: Set nextTxnTs to 1816059
+badger 2026/10/27 22:20:19 INFO: Deleting empty file: /tmp/jaeger/values/000010.vlog
+2026-10-27T22:20:19.391Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-27T22:20:19.391Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:20:19.391Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026/10/28 03:56:53 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-28T03:56:53.077Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-28T03:56:53.079Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-28T03:56:53.082Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.085Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-28T03:56:53.085Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-28T03:56:53.086Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.086Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.086Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.086Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/28 03:56:53 INFO: All 159 tables opened in 133ms
+badger 2026/10/28 03:56:53 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/28 03:56:53 INFO: Set nextTxnTs to 1816059
+badger 2026/10/28 03:56:53 INFO: Deleting empty file: /tmp/jaeger/values/000011.vlog
+2026-10-28T03:56:53.314Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-28T03:56:53.314Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.314Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}

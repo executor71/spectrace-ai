@@ -1,0 +1,15 @@
+ILLUSTRATIVE ONLY - NOT EXECUTED - DO NOT USE AS REAL EXECUTION EVIDENCE
+
+[HH:MM:SS] AI #<seq> Workflow: COMPLETE result=READY jobId=<job-id> mode=FIXED
+[HH:MM:SS] AI #<seq> RAG: START result=RUNNING jobId=<job-id> provider=NO_LLM_CALL
+[HH:MM:SS] AI #<seq> RAG: COMPLETE result=PASS jobId=<job-id> count=<actual-count>
+[HH:MM:SS] AI #<seq> Qwen: START result=RUNNING jobId=<job-id> provider=REAL_LLM
+[HH:MM:SS] AI #<seq> Qwen: COMPLETE result=RETURNED jobId=<job-id> provider=REAL_LLM
+[HH:MM:SS] AI #<seq> Schema: COMPLETE result=PASS jobId=<job-id> object=AnalysisDraft
+[HH:MM:SS] AI #<seq> Evidence: COMPLETE result=PASS jobId=<job-id>
+[HH:MM:SS] AI #<seq> TC: COMPLETE result=PASS traceId=<trace-id> testCases=<actual-count>
+[HH:MM:SS] BE #<seq> HITL: COMPLETE result=APPROVED traceId=<trace-id> operation=APPROVE
+[HH:MM:SS] MCP #<seq> Tool: START result=RUNNING traceId=<trace-id> toolName=execute_approved_test
+[HH:MM:SS] BE #<seq> Dummy: COMPLETE result=RETURNED traceId=<trace-id> httpStatus=<actual-status>
+[HH:MM:SS] BE #<seq> Assert: FAILED result=FAIL traceId=<trace-id> mismatches=<actual-count>
+[HH:MM:SS] MCP #<seq> Tool: COMPLETE result=FAIL traceId=<trace-id> toolName=execute_approved_test

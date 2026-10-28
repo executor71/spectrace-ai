@@ -1,0 +1,2 @@
+[13:24:16] MCP #1 Tool: START result=RUNNING traceId=45abd578f65222ef8d29585182cfec24 toolName=get_test_cases provider=NO_LLM_CALL callScope=GATEWAY
+[13:24:16] MCP #2 Tool: COMPLETE result=SUCCESS traceId=45abd578f65222ef8d29585182cfec24 toolName=get_test_cases provider=NO_LLM_CALL callScope=GATEWAY count=5

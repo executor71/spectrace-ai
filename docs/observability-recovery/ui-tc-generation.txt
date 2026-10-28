@@ -1,0 +1,37 @@
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+About Jaeger
+legacy-assistant-backend: backend.request a9e694e
+⌘
+Trace Timeline
+Trace StartOctober 28 2026, 13:48:13.708Duration1m 34sServices2Depth5Total Spans8
+0μs
+23.5s
+47s
+1m 10s
+1m 34s
+Service & Operation
+0μs
+23.5s
+47s
+1m 10s
+1m 34s
+legacy-assistant-backend backend.request
+1m 34s
+legacy-assistant-backend testcase.generate
+1m 34s
+legacy-assistant-backend backend.requirement
+352μs
+legacy-assistant-backend requirement.analysis.read
+889μs
+legacy-assistant-backend backend.requirement
+339μs
+legacy-assistant-ai http.server
+1m 34s
+legacy-assistant-ai testcase.generate
+1m 34s
+legacy-assistant-ai llm.generate
+1m 34s

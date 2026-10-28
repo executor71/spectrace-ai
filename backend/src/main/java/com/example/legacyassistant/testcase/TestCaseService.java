@@ -21,11 +21,14 @@ public class TestCaseService {
         try { source=analyses.get(id); }
         catch(AnalysisException e) { if(e.status()==404) throw new TestCaseException(409,"ANALYSIS_REQUIRED","먼저 요구사항 분석을 저장해 주세요.");throw e; }
         analysisValidator.validate(id,source);
-        long start=System.nanoTime();var response=client.generate(requirement,source);policy.validate(id,source,response);
+        long start=System.nanoTime();var response=client.generate(requirement,source);
+        com.example.legacyassistant.observability.WorkflowSummary.stage("VALIDATING_OUTPUT");
+        policy.validate(id,source,response);
         ObjectNode result=response.deepCopy();result.put("requirementId",id.toString());result.put("generationId",UUID.randomUUID().toString());
         result.put("createdAt",Instant.now().toString());result.put("generationLatencyMs",(System.nanoTime()-start)/1_000_000);
         result.set("sourceAnalysis",source);result.put("stale",false);
-        repository.save(id,source,result);decorate(result);return result;
+        com.example.legacyassistant.observability.WorkflowSummary.stage("SAVING_RESULT");
+        repository.save(id,source,result);com.example.legacyassistant.observability.WorkflowSummary.saved();decorate(result);return result;
     }
     public JsonNode get(UUID id) {
         requirements.get(id);

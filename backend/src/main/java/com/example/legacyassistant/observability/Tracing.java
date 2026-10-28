@@ -42,7 +42,7 @@ public class Tracing {
         String safe=switch(code){
             case "NOT_APPROVED" -> "TEST_NOT_APPROVED";
             case "NOT_EXECUTABLE" -> "TEST_NOT_EXECUTABLE";
-            case "FIXTURE_NOT_READY","API_NOT_ALLOWED","DUMMY_TEST_FAIL","LLM_TIMEOUT","LLM_INVALID_OUTPUT" -> code;
+            case "FIXTURE_NOT_READY","API_NOT_ALLOWED","DUMMY_TEST_FAIL","DUMMY_EXECUTION_ERROR","FIXTURE_INITIALIZATION_ERROR","REVIEW_CONFLICT","EXECUTION_CONTRACT_UNSUPPORTED","LLM_TIMEOUT","LLM_INVALID_OUTPUT" -> code;
             default -> "VALIDATION_FAILED";
         };
         span.setStatus(StatusCode.ERROR);

@@ -44,6 +44,6 @@ export default function TestCaseReview({ current, stale, onSaved, reviewVisible,
     </fieldset>
     {error && <p role="alert" className="form-error">{error}</p>}
 
-    <details><summary>AI 생성 원본 보기 (읽기 전용)</summary><pre>{JSON.stringify(current.generatedContent, null, 2)}</pre></details></div><div hidden={!executionVisible}><TestCaseExecutions current={current} dirty={dirty} /></div>
+    <details><summary>AI 생성 원본 보기 (읽기 전용)</summary><pre>{JSON.stringify(current.generatedContent, null, 2)}</pre></details></div><div hidden={!executionVisible}><TestCaseExecutions current={current} dirty={dirty} onPrepared={onSaved} /></div>
   </section>
 }

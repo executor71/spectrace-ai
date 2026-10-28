@@ -1,5 +1,6 @@
 """Fixed HTTP destinations only. No database drivers or caller supplied URLs."""
 import httpx
+from . import workflow_summary as summary
 
 DESTINATIONS = {"backend": "http://backend:8080", "ai": "http://ai-service:8000",
                 "retrieval": "http://retrieval-service:8010", "evaluation": "http://evaluation-service:8090",
@@ -17,6 +18,7 @@ class Services:
     async def request(self, service, method, path, body=None, missing=False):
         try:
             kwargs = {"json": body} if body is not None else {}
+            if summary.headers(): kwargs['headers'] = summary.headers()
             if service == 'graph': kwargs['timeout'] = 8
             response = await self.client.request(method, DESTINATIONS[service] + path, **kwargs)
         except httpx.TimeoutException:

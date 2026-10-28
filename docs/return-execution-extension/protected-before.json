@@ -1,0 +1,106 @@
+﻿[
+    {
+        "path":  "evaluation-service\\app\\main.py",
+        "hash":  "8A50D3D62D2EC2F1FE28D9A689345F1DA7931882FF40146E7FA287B1E59271E7"
+    },
+    {
+        "path":  "evaluation-service\\app\\metrics.py",
+        "hash":  "505B10D5E6F02569F0A0CE43783A3D42E29A87B314A386FB09CC944CF6C3C353"
+    },
+    {
+        "path":  "evaluation-service\\app\\__init__.py",
+        "hash":  "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B"
+    },
+    {
+        "path":  "evaluation-service\\datasets\\ground-truth-v1.json",
+        "hash":  "D551EFB32FB683F9F6A7E9302C8D5E6750B9EFEE5E29E4BFDE6989511374F8A7"
+    },
+    {
+        "path":  "evaluation-service\\datasets\\manifest.json",
+        "hash":  "0EAAA4E0900992A6DA91BC21161AC5C40253B2DDDC2B3085033AABBF7FD5C4F5"
+    },
+    {
+        "path":  "evaluation-service\\datasets\\public-requirements.json",
+        "hash":  "3A01C125910470C706B379E3E87DB252413C46D29CC21F99F75E2EC2071C2F90"
+    },
+    {
+        "path":  "evaluation-service\\datasets\\retrieval-v1.json",
+        "hash":  "16CEF486474FC0FE35195866E93BF475B0D2C230A71F9EA2E9D2A1C9D6656FF4"
+    },
+    {
+        "path":  "evaluation-service\\retrieval_eval\\metrics.py",
+        "hash":  "D391A5DF8A583B58075DA10FDDEF9D1EA7933013C8433C4C2EC9B12613DD331B"
+    },
+    {
+        "path":  "evaluation-service\\retrieval_eval\\__init__.py",
+        "hash":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+        "path":  "evaluation-service\\retrieval_tests\\test_metrics.py",
+        "hash":  "69E8E938963A2138FC716C791EE108EC9DD252A08CB114509DA7C8A99D2BF19E"
+    },
+    {
+        "path":  "evaluation-service\\tests\\test_api.py",
+        "hash":  "BBE2E66A7CAB2D3FE6C506F6BB81838BFB2BB556BF673A0285AC00E0823F5960"
+    },
+    {
+        "path":  "evaluation-service\\tests\\test_database.py",
+        "hash":  "23EC3C9C52ADB8A95B5460A986F5068D7BB0DA1B38B4B41ECEB363E6339D2563"
+    },
+    {
+        "path":  "evaluation-service\\tests\\test_metrics.py",
+        "hash":  "681274C5AEB0A57CD6C72F056A162944EFC5B0C48EFDA44283536A0339CCA19E"
+    },
+    {
+        "path":  "evaluation-service\\tests\\fixtures\\development.json",
+        "hash":  "BBF1222DB721ECBD3F6F114490820C809E24F5669E387B1A17E65377B3F57A00"
+    },
+    {
+        "path":  "knowledge\\manifest.json",
+        "hash":  "2332EC6C538C21A58591F006617124570166ACA6F5F664786F0B81B3AECB08A9"
+    },
+    {
+        "path":  "knowledge\\README.md",
+        "hash":  "7B23EE32255CC409E5AB27ECB65A175E4534B0345B3C37045A8293319FF8BD30"
+    },
+    {
+        "path":  "knowledge\\documents\\access-policy.md",
+        "hash":  "3374EAB1086E3466AFF1B58403BB2CC8883514A8F169B7DAABF3F0792524FB4D"
+    },
+    {
+        "path":  "knowledge\\documents\\asset-api.md",
+        "hash":  "1EBC42E0639816D6D2AB5E7615F2011A40FD0913B605014B89C744B76E5FE061"
+    },
+    {
+        "path":  "knowledge\\documents\\asset-lifecycle.md",
+        "hash":  "E41146997FBE6A72EDB33B74464A91219B823EEA0A0B0FA363F1A346ED626A1E"
+    },
+    {
+        "path":  "knowledge\\documents\\error-codes.md",
+        "hash":  "FB9ABC7F54CDE87407C5BD93B6877646C4FD5A69B00FACC0AA84E26D287000D3"
+    },
+    {
+        "path":  "knowledge\\documents\\loan-api.md",
+        "hash":  "933C1B96B9C2AC1EB797CEAB6CF52E9256F8B394A15F752D919BC5C465F86525"
+    },
+    {
+        "path":  "knowledge\\documents\\loan-rules.md",
+        "hash":  "B535C55C9FA1F3465BB0AE48272662D383E8C3D2EE939FA3309C39671DD594EB"
+    },
+    {
+        "path":  "knowledge\\documents\\loan-test-guide.md",
+        "hash":  "C0450E9325CD661A634F022586C27337D9F9FF7A7802B3F91305A9BEF03ECB17"
+    },
+    {
+        "path":  "knowledge\\documents\\return-api.md",
+        "hash":  "AD5437F42967348AD811BCC5E950A5AD082C8FFB601F46C851C6F6FB5DA8F8E8"
+    },
+    {
+        "path":  "knowledge\\documents\\return-rules.md",
+        "hash":  "80BC57E4544DC45BCB40A9CE479060773CD6149D7FA556658E4A6515856E6F68"
+    },
+    {
+        "path":  "contracts\\test-case-policy.json",
+        "hash":  "C5DAB337817D0788228A1ED0CD5CEBC74980E5EB7E88303A89CE312717BC2875"
+    }
+]

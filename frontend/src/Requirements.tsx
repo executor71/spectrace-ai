@@ -1,4 +1,6 @@
-import GettingStarted, { exampleRequest } from './GettingStarted'
+import GettingStarted from './GettingStarted'
+import { needsExampleReplacementConfirmation, selectRandomExample } from './requirementExamples'
+import type { RequirementExample } from './requirementExamples'
 import './onboarding.css'
 import Dashboard, { ExportButton } from './Dashboard'
 import './dashboard.css'
@@ -43,6 +45,7 @@ export default function Requirements({ view, onNavigate, onAnalysisBusy }: { vie
   }
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [selectedExample, setSelectedExample] = useState<RequirementExample | null>(null)
   const [lookupId, setLookupId] = useState('')
   const [result, setResult] = useState<Requirement | null>(null)
   const [error, setError] = useState('')
@@ -61,7 +64,11 @@ export default function Requirements({ view, onNavigate, onAnalysisBusy }: { vie
 
   function loadExample() {
     if (busy) return
+    if (needsExampleReplacementConfirmation(title, description, selectedExample) &&
+      !window.confirm('작성 중인 제목과 상세 내용을 다른 예제로 교체할까요? 현재 입력 내용은 사라집니다.')) return
+    const exampleRequest = selectRandomExample(selectedExample?.id)
     setTitle(exampleRequest.title); setDescription(exampleRequest.description)
+    setSelectedExample(exampleRequest)
     setError(''); setNotice('예제를 입력폼에 불러왔습니다. 아직 저장되지 않았습니다. 내용을 확인한 뒤 변경 요청 저장을 눌러 주세요.')
     onNavigate('requirements')
   }
@@ -78,7 +85,7 @@ export default function Requirements({ view, onNavigate, onAnalysisBusy }: { vie
         body: JSON.stringify({ title, description }),
       })
       remember(saved.id); setResult(saved); setLookupId(saved.id); setNotice('요구사항을 등록했습니다.')
-      setTitle(''); setDescription(''); setToast('요구사항이 등록되었습니다.')
+      setTitle(''); setDescription(''); setSelectedExample(null); setToast('요구사항이 등록되었습니다.')
     } catch (err) { setError(errorMessage(err)) }
     finally { setBusy(false) }
   }
@@ -113,7 +120,7 @@ export default function Requirements({ view, onNavigate, onAnalysisBusy }: { vie
     {view === 'requirements' && <p className="field-hint">예제의 테스트 생성 범위는 분석에서 확인된 조건과 정책 지원 여부에 따라 달라집니다. 일부 조건만 생성될 수 있으며 자동 실행 지원은 별도입니다.</p>}
     <div hidden={view !== 'dashboard'}><Dashboard active={view === 'dashboard'} onSelect={selectFromDashboard} onNavigate={onNavigate} /></div>
     <div hidden={view !== 'requirements'} className="requirement-layout">
-      <section className="card requirement-form-card"><div className="card-heading"><div><p className="eyebrow">NEW REQUIREMENT</p><h2>새 변경 요청 입력</h2></div><Icon name="requirements" /></div><div className="example-form-guide"><p>입력이 처음이라면 합성 IT 자산관리 예제를 사용해 보세요.</p><button type="button" className="secondary" disabled={busy} onClick={loadExample}>예제 불러오기</button><small>입력폼만 채우며 저장·AI 분석·테스트 실행은 자동으로 수행하지 않습니다.</small></div><form onSubmit={create} aria-label="변경 요청 등록"><label htmlFor="requirement-title-input">제목 <span>최대 200자</span></label><input id="requirement-title-input" value={title} onChange={e => setTitle(e.target.value)} required maxLength={200} disabled={busy} placeholder="예: 대여 승인 권한 검증" /><div className="label-row"><label htmlFor="requirement-description">상세 내용</label><span>{description.length.toLocaleString()} / 10,000</span></div><textarea id="requirement-description" value={description} onChange={e => setDescription(e.target.value)} required maxLength={10000} rows={9} disabled={busy} placeholder="업무의 목적과 조건, 예외 상황을 구체적으로 작성해 주세요." /><p className="field-hint">명확한 업무조건은 분석과 테스트의 출발점이 됩니다.</p><div className="form-footer"><span>저장 → 변경 요청 분석 → 테스트 생성 순서로 진행합니다.</span><button type="submit" disabled={busy}>{busy ? <><span className="spinner" /> 저장 중…</> : '변경 요청 저장'}</button></div></form></section>
+      <section className="card requirement-form-card"><div className="card-heading"><div><p className="eyebrow">NEW REQUIREMENT</p><h2>새 변경 요청 입력</h2></div><Icon name="requirements" /></div><div className="example-form-guide"><p>입력이 처음이라면 합성 IT 자산관리 예제를 사용해 보세요.</p><button type="button" className="secondary" disabled={busy} onClick={loadExample}>랜덤 예제 불러오기</button><small>입력폼만 채우며 저장·AI 분석·테스트 실행은 자동으로 수행하지 않습니다.</small></div>{selectedExample && <p className="form-notice" role="status">예제 {selectedExample.id}/5 · {selectedExample.title}</p>}<form onSubmit={create} aria-label="변경 요청 등록"><label htmlFor="requirement-title-input">제목 <span>최대 200자</span></label><input id="requirement-title-input" value={title} onChange={e => setTitle(e.target.value)} required maxLength={200} disabled={busy} placeholder="예: 대여 승인 권한 검증" /><div className="label-row"><label htmlFor="requirement-description">상세 내용</label><span>{description.length.toLocaleString()} / 10,000</span></div><textarea id="requirement-description" value={description} onChange={e => setDescription(e.target.value)} required maxLength={10000} rows={9} disabled={busy} placeholder="업무의 목적과 조건, 예외 상황을 구체적으로 작성해 주세요." /><p className="field-hint">명확한 업무조건은 분석과 테스트의 출발점이 됩니다.</p><div className="form-footer"><span>저장 → 변경 요청 분석 → 테스트 생성 순서로 진행합니다.</span><button type="submit" disabled={busy}>{busy ? <><span className="spinner" /> 저장 중…</> : '변경 요청 저장'}</button></div></form></section>
       <section className="card requirement-summary"><p className="eyebrow">REQUIREMENT DETAILS</p>{result ? <article className="requirement-result" aria-label="요구사항 상세"><span className={`status-badge status-${result.status}`}>{result.status}</span><h3>{result.title}</h3><p className="requirement-description">{result.description}</p><dl><dt>등록 일시</dt><dd>{new Date(result.createdAt).toLocaleString('ko-KR')}</dd><dt>요청 ID</dt><dd><code>{result.id}</code></dd></dl><button onClick={() => onNavigate('analysis')}>다음: 변경 요청 분석 <Icon name="arrow" size={17} /></button></article> : <div className="empty-state"><Icon name="requirements" size={34} /><h3>아직 저장한 변경 요청이 없습니다</h3><p>왼쪽에 변경 요청을 입력하거나 예제를 불러온 뒤 저장하세요. 저장 후 분석을 직접 시작할 수 있습니다.</p></div>}</section>
     </div>
     {needsRequirement && <section className="card empty-state"><span className="empty-icon"><Icon name="requirements" size={28} /></span><h2>먼저 요구사항을 선택해 주세요</h2><p>대시보드 목록에서 저장된 요청을 선택하거나, 변경 요청 입력에서 예제를 불러와 저장하세요.</p><button onClick={() => onNavigate('requirements')}>변경 요청 입력로 이동 <Icon name="arrow" size={16} /></button><button className="text-button" onClick={() => onNavigate('evaluation')}>기술 검증 예제 찾아보기</button></section>}

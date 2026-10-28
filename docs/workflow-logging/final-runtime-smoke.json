@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "aiHealth": "UP",
+  "backendHealth": "UP",
+  "summaryLines": 8,
+  "realModelCalls": 0,
+  "runId": "c1c19ae7-8feb-4fc0-8f6e-47f2597b35fc",
+  "traceId": "cec7d92f900dd0d656fe73f927fa8b1e",
+  "committedEventOrder": "RESULT_SAVED -> WORKFLOW_COMPLETED",
+  "crossServiceCorrelation": "PASS"
+}

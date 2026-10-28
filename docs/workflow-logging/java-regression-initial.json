@@ -1,0 +1,9 @@
+{
+  "exitCode": 1,
+  "tests": 162,
+  "failures": 1,
+  "errors": 0,
+  "skipped": 0,
+  "rawLogs": "C:\\Users\\sjlee\\AppData\\Local\\Temp\\spectrace-workflow-java-vcxetwe1",
+  "database": "isolated tmpfs PostgreSQL"
+}

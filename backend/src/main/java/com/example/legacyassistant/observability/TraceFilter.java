@@ -26,7 +26,9 @@ public class TraceFilter extends OncePerRequestFilter {
         Span span=tracing.tracer.spanBuilder("backend.request").setParent(parent).setSpanKind(SpanKind.SERVER).startSpan();
         long start=System.nanoTime();
         response.setHeader("X-Trace-Id",span.getSpanContext().getTraceId());
-        try(Scope scope=parent.with(Tracing.REQUEST_ID,rid).with(span).makeCurrent()) {
+        String runId=request.getHeader("x-workflow-run-id");
+        try{runId=UUID.fromString(runId).toString();}catch(IllegalArgumentException|NullPointerException ignored){runId=UUID.randomUUID().toString();}
+        try(Scope scope=parent.with(Tracing.REQUEST_ID,rid).with(WorkflowSummary.RUN_ID,runId).with(span).makeCurrent()) {
             try {chain.doFilter(request,response);if(response.getStatus()>=400)Tracing.error(span,"VALIDATION_FAILED");}
             catch(IOException|ServletException|RuntimeException e){Tracing.error(span,"VALIDATION_FAILED");throw e;}
             finally {span.setAttribute("http.response.status_code",response.getStatus());Tracing.log(span,"backend.request",start);}

@@ -1,0 +1,20 @@
+{
+  "suites": [
+    {
+      "suite": "ai",
+      "exitCode": 0,
+      "tests": 118
+    },
+    {
+      "suite": "observability",
+      "exitCode": 0,
+      "tests": 11
+    }
+  ],
+  "network": "none",
+  "telemetryEnabled": true,
+  "endpoint": "http://127.0.0.1:1/v1/traces",
+  "realQwenCalls": 0,
+  "rawLogs": "C:\\Users\\sjlee\\AppData\\Local\\Temp\\spectrace-workflow-tests-ui5vr8q9",
+  "duplicateOfMainSuites": true
+}

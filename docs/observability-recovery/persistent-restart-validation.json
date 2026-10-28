@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "traceId": "127dbab8090a305b2d992389b402b9e0",
+  "sameTraceAfterRestart": true,
+  "image": "jaegertracing/jaeger:2.12.0",
+  "activeStorage": "master_jaeger-data:/tmp",
+  "noStoreReset": true,
+  "configuredKeys": "/tmp/jaeger/keys",
+  "configuredValues": "/tmp/jaeger/values"
+}

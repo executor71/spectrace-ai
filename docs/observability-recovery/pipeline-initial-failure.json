@@ -1,0 +1,9 @@
+{
+  "traceId": "e05250c1549018ec980f0bc135ef688d",
+  "sdkEndpoint": "http://otel-collector:4318/v1/traces",
+  "sampled": true,
+  "querySucceeded": false,
+  "collectorError": "lookup jaeger on 127.0.0.11:53: no such host",
+  "classification": "C; stale resolver state after stopped Jaeger container changed IP",
+  "nextAction": "restart Collector after Jaeger Query/OTLP ports are ready"
+}

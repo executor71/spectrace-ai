@@ -1,0 +1,37 @@
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+About Jaeger
+legacy-assistant-mcp: http.server f8c2ed7
+⌘
+Trace Timeline
+Trace StartOctober 28 2026, 13:52:16.118Duration7.65msServices2Depth5Total Spans8
+0μs
+1.91ms
+3.82ms
+5.74ms
+7.65ms
+Service & Operation
+0μs
+1.91ms
+3.82ms
+5.74ms
+7.65ms
+legacy-assistant-mcp http.server
+7.65ms
+legacy-assistant-mcp mcp.tool
+6.68ms
+legacy-assistant-backend backend.request
+4.3ms
+legacy-assistant-backend dummy.execution
+2.01ms
+legacy-assistant-backend execution.allowlist
+80μs
+legacy-assistant-backend execution.fixture.initialize
+44μs
+legacy-assistant-backend execution.dummy.invoke
+202μs
+legacy-assistant-backend execution.assertions
+195μs

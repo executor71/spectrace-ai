@@ -62,10 +62,10 @@ export default function App() {
       }
     }}>
       <div className="brand"><span className="brand-mark"><Icon name="graph" size={25} /></span><span>SpecTrace <small>AI</small></span><button className="icon-button drawer-close" onClick={closeDrawer} aria-label="메뉴 닫기"><Icon name="close" /></button></div>
-      <div className="workspace-label"><span className="workspace-avatar">S</span><div>Engineering workspace<small>변경 요청부터 테스트 검증까지</small></div></div>
+      <div className="workspace-label"><span className="workspace-avatar"><Icon name="review" size={16} /></span><div>Engineering workspace<small>요구사항 · 테스트 · 품질 검증</small></div></div>
       <p className="nav-label">WORKSPACE</p>
       <nav aria-label="주 메뉴">{screens.filter(item => item.id !== 'evaluation').map((item, i) => <button key={item.id} onClick={() => navigate(item.id)} aria-current={view === item.id ? 'page' : undefined}><Icon name={item.id} /><span>{item.label}</span><small>{String(i + 1).padStart(2, '0')}</small></button>)}</nav>
-      <p className="nav-label technical-nav-label">기술 검증·관리</p><nav aria-label="기술 메뉴"><button onClick={() => navigate('evaluation')} aria-current={view === 'evaluation' ? 'page' : undefined}><Icon name="evaluation" /><span>기술 검증·관리</span></button></nav>
+      <p className="nav-label technical-nav-label">QUALITY MANAGEMENT</p><nav aria-label="기술 메뉴"><button onClick={() => navigate('evaluation')} aria-current={view === 'evaluation' ? 'page' : undefined}><Icon name="evaluation" /><span>품질 평가·관리</span></button></nav>
       <div className="sidebar-footer"><span className="live-dot" /><div>근거에서 검증까지<small>개발자의 검토와 승인으로 완성합니다</small></div></div>
     </aside>
     <div className="app-body">
@@ -74,7 +74,13 @@ export default function App() {
         <div className="header-status">{['업무 서비스', '분석 서비스'].map((name, i) => <span key={name} className={`connection connection-${services[i]}`}><span />{name}<span className="sr-only">{services[i] === 'online' ? ' 정상' : services[i] === 'offline' ? ' 연결 안 됨' : ' 확인 중'}</span></span>)}<span className={`analysis-indicator ${analysisBusy ? 'is-running' : ''}`} role="status">{analysisBusy ? <><span className="spinner" /> 분석 처리 중</> : <><span className="live-dot" /> 분석 대기</>}</span></div>
       </header>
       <main id="main-content" className="main-content" tabIndex={-1}>
-        <div className="page-heading"><div><p className="eyebrow">WORKSPACE / {current.path.toUpperCase()}</p><h1 tabIndex={-1} ref={heading}>{current.label}</h1><p className={view === 'dashboard' ? 'service-purpose' : undefined}>{current.description}</p></div><span className="environment-pill">LOCAL WORKSPACE</span></div>
+        <div className="page-heading"><div><p className="eyebrow">ENGINEERING OPERATIONS / {current.path.toUpperCase()}</p><h1 tabIndex={-1} ref={heading}>{current.label}</h1><p className={view === 'dashboard' ? 'service-purpose' : undefined}>{current.description}</p></div><span className="environment-pill"><span className="live-dot" /> LOCAL WORKSPACE</span></div>
+        <nav className="process-navigation" aria-label="검증 업무 단계">{[
+          { id: 'requirements' as Screen, label: '요구사항 등록', detail: '변경 범위 정의', views: ['requirements'] },
+          { id: 'analysis' as Screen, label: '근거 기반 분석', detail: '업무규칙 추적', views: ['analysis', 'graph', 'impact'] },
+          { id: 'testcases' as Screen, label: '테스트 설계·검토', detail: '시나리오 검토 및 승인', views: ['testcases', 'review'] },
+          { id: 'execution' as Screen, label: '실행·품질 평가', detail: '결과 확인 및 검증', views: ['execution', 'evaluation'] },
+        ].map((step, index) => <button key={step.id} className={step.views.includes(view) ? 'is-current' : ''} aria-current={step.views.includes(view) ? 'step' : undefined} onClick={() => navigate(step.id)}><span className="process-number">{String(index + 1).padStart(2, '0')}</span><span><strong>{step.label}</strong><small>{step.detail}</small></span><Icon name="arrow" size={14} /></button>)}</nav>
         {view === 'impact' ? <ChangeImpact onBusyChange={setAnalysisBusy} /> : <Requirements view={view} onNavigate={navigate} onAnalysisBusy={setAnalysisBusy} />}
         <footer className="page-footer"><span>SpecTrace AI <span>·</span> 변경 요청을 근거와 테스트로 검증</span><span>합성 업무 예제로 체험하는 로컬 환경</span></footer>
       </main>

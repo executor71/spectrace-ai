@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "realQwenAnalysisCalls": 1,
+  "realQwenGenerationCalls": 1,
+  "generatedAndPersistedTestCases": 5,
+  "realMcpCalls": 6,
+  "mcpProtocol": "Streamable HTTP / ClientSession",
+  "normalResult": "PASS",
+  "defectResult": "FAIL",
+  "defectMismatches": 2,
+  "approvalBlocked": "NOT_APPROVED",
+  "approvalOrigin": "VALIDATION_SCRIPT_REVIEW_API (not human click evidence)",
+  "perServiceRunSequence": "PASS",
+  "mcpBackendTraceAndRunCorrelation": "PASS",
+  "safeMetadata": "PASS"
+}

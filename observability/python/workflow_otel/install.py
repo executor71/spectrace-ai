@@ -34,6 +34,11 @@ def ai(app):
         return original_open(request,*args,**kwargs)
     provider.urlopen=urlopen
     wrap(AnalysisService,'analyze','requirement.analysis',lambda self,request:{'requirementId':request.requirementId})
+    # Observe the existing evidence/schema materialization without changing its
+    # static binding, arguments, return value, retries or validation decisions.
+    wrap(AnalysisService,'materialize','analysis.validation',
+         lambda request,draft,hits,sentences,apis:{'requirementId':request.requirementId,'evidenceCount':len(hits)},
+         lambda current,result,*a,**k:attrs(current,{'success':True}))
     def generated(current,result,*args,**kwargs):
         attrs(current,{'generatedTestCaseCount':len(result.testCases),'executableCandidateCount':sum(c.executable for c in result.testCases),
             'evidenceCount':sum(len(c.evidence) for c in result.testCases)})

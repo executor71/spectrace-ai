@@ -17,3 +17,5 @@ button.secondary:disabled,button.danger:disabled{background:#E2E8F0;color:#64748
 .generation-summary { margin: 16px 0; border-left: 3px solid var(--primary); }
 .condition-coverage td:first-child { min-width: 220px; max-width: 500px; }
 .condition-coverage td small { display: block; color: var(--muted); }
+.return-execution-setup { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; margin: 16px 0; min-width: 0; }
+.return-execution-setup legend { font-size: 12px; padding: 0 8px; font-weight: 600; }

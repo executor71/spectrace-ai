@@ -1,0 +1,16 @@
+[13:13:20] AI #1 Workflow: START result=RUNNING traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=NO_LLM_CALL
+[13:13:20] AI #2 Workflow: COMPLETE result=READY traceId=9a12cdc0fd861ad6a5e0d323b769112c mode=FIXED provider=NO_LLM_CALL
+[13:13:20] AI #3 Policy: START result=RUNNING traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=NO_LLM_CALL
+[13:13:20] AI #4 Evidence: START result=RUNNING traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=NO_LLM_CALL
+[13:13:20] AI #5 Evidence: COMPLETE result=PASS traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=NO_LLM_CALL
+[13:13:20] AI #6 Policy: COMPLETE result=PASS traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=NO_LLM_CALL count=5 templates=15
+[13:13:20] AI #7 Qwen: START result=RUNNING traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM attempt=1 model=qwen2.5:7b-instruct
+[13:14:36] AI #8 Qwen: COMPLETE result=RETURNED traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM attempt=1 model=qwen2.5:7b-instruct durationMs=75905
+[13:14:36] AI #9 Schema: START result=RUNNING traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM object=Selection
+[13:14:36] AI #10 Schema: COMPLETE result=PASS traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM object=Selection
+[13:14:36] AI #11 TC: START result=RUNNING traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM
+[13:14:36] AI #12 TC: COMPLETE result=PASS traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM testCases=5
+[13:14:36] AI #13 Schema: COMPLETE result=PASS traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM count=5 total=5
+[13:14:36] AI #14 Workflow: COMPLETE result=PASS traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=REAL_LLM persistence=NOT_SAVED
+[13:14:36] BE #1 Save: COMPLETE result=COMMITTED traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=NO_LLM_CALL persistence=COMMITTED
+[13:14:36] BE #2 Workflow: COMPLETE result=COMMITTED traceId=9a12cdc0fd861ad6a5e0d323b769112c provider=NO_LLM_CALL persistence=COMMITTED

@@ -21,6 +21,7 @@ class ContextSearch:
 
 class ContextLlm:
     def __init__(self,llm,relations):self.llm,self.relations=llm,relations
+    def summary_provider(self):return self.llm
     def generate(self,messages,schema):
         messages=[dict(m) for m in messages]
         data=json.loads(messages[1]['content'])

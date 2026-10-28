@@ -1,0 +1,15 @@
+[13:50:16] AI #1 Workflow: START result=RUNNING jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=NO_LLM_CALL
+[13:50:16] AI #2 Workflow: COMPLETE result=READY jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc mode=FIXED provider=NO_LLM_CALL
+[13:50:16] AI #3 RAG: START result=RUNNING jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=NO_LLM_CALL
+[13:50:16] AI #4 RAG: COMPLETE result=PASS jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=NO_LLM_CALL count=5
+[13:50:16] AI #5 Qwen: START result=RUNNING jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM attempt=1 model=qwen2.5:7b-instruct
+[13:51:40] AI #6 Qwen: COMPLETE result=RETURNED jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM attempt=1 model=qwen2.5:7b-instruct durationMs=83810
+[13:51:40] AI #7 Schema: START result=RUNNING jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM object=AnalysisDraft
+[13:51:40] AI #8 Schema: COMPLETE result=PASS jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM object=AnalysisDraft
+[13:51:40] AI #9 Evidence: START result=RUNNING jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM
+[13:51:40] AI #10 Evidence: COMPLETE result=PASS jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM
+[13:51:40] AI #11 Schema: COMPLETE result=PASS jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM
+[13:51:40] AI #12 Analysis: COMPLETE result=PASS jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM conditions=1
+[13:51:40] AI #13 Workflow: COMPLETE result=PASS jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=REAL_LLM persistence=NOT_SAVED
+[13:51:40] BE #1 Save: COMPLETE result=COMMITTED jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=NO_LLM_CALL persistence=COMMITTED
+[13:51:40] BE #2 Workflow: COMPLETE result=COMMITTED jobId=63dc4444-ab3a-45b5-b4f5-652a2a7a77bc provider=NO_LLM_CALL persistence=COMMITTED

@@ -1,0 +1,18 @@
+{
+  "before": {
+    "receiver_accepted_spans": 998866.0,
+    "receiver_refused_spans": 0.0,
+    "exporter_sent_spans": 0.0,
+    "exporter_send_failed_spans": 995892.0,
+    "exporter_queue_size": 75.0
+  },
+  "finalAfterRestore": {
+    "receiver_accepted_spans": 21336.0,
+    "receiver_refused_spans": 0.0,
+    "exporter_sent_spans": 21336.0,
+    "exporter_send_failed_spans": 0.0,
+    "exporter_queue_size": 0.0
+  },
+  "differentCollectorInstances": true,
+  "countsIncludeBackgroundSpans": true
+}

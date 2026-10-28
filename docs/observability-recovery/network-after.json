@@ -1,0 +1,32 @@
+{
+  "dns": {
+    "otel-collector": "172.18.0.3",
+    "jaeger": "172.18.0.15",
+    "ai-service": "172.18.0.7",
+    "backend": "172.18.0.8"
+  },
+  "tcp": {
+    "otel-collector:4317": "OPEN",
+    "otel-collector:4318": "OPEN",
+    "otel-collector:8888": "[Errno 111] Connection refused",
+    "otel-collector:13133": "OPEN",
+    "jaeger:4317": "OPEN",
+    "jaeger:4318": "OPEN",
+    "jaeger:16686": "OPEN",
+    "jaeger:13133": "OPEN"
+  },
+  "http": {
+    "http://otel-collector:13133/": {
+      "status": 200
+    },
+    "http://otel-collector:8888/metrics": {
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "http://jaeger:16686/api/services": {
+      "status": 200
+    },
+    "http://jaeger:13133/health/status": {
+      "error": "HTTP Error 404: Not Found"
+    }
+  }
+}

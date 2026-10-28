@@ -1,0 +1,10 @@
+{
+  "minimum": {
+    "result": "PASS",
+    "traceId": "127dbab8090a305b2d992389b402b9e0",
+    "url": "http://127.0.0.1:16686/trace/127dbab8090a305b2d992389b402b9e0",
+    "actualUiSpansVerified": [
+      "recovery.minimum"
+    ]
+  }
+}

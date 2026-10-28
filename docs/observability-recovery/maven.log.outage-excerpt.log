@@ -1,0 +1,8 @@
+backend-test-1  | 2026-10-28T04:46:08.138Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout
+backend-test-1  | 2026-10-28T04:46:08.251Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout
+backend-test-1  | 2026-10-28T04:46:09.208Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout
+backend-test-1  | 2026-10-28T04:46:09.285Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout
+backend-test-1  | 2026-10-28T04:46:10.275Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout
+backend-test-1  | 2026-10-28T04:46:11.213Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout
+backend-test-1  | 2026-10-28T04:46:11.306Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout
+backend-test-1  | 2026-10-28T04:46:11.673Z ERROR 114 --- [127.0.0.1:1/...] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: timeout

@@ -21,7 +21,7 @@ public class WorkflowAspect {
             case "AnalysisService" -> method.equals("create")?"requirement.analysis":"requirement.analysis.read";
             case "TestCaseService" -> method.equals("generate")?"testcase.generate":"testcase.read";
             case "TestCaseReviewService" -> "review";
-            default -> method.equals("execute")?"dummy.execution":"dummy.execution.read";
+            default -> method.startsWith("execute")?"dummy.execution":"dummy.execution.read";
         };
         Span span=tracing.tracer.spanBuilder(name).startSpan();long start=System.nanoTime();
         span.setAttribute("operation",method);
@@ -31,9 +31,12 @@ public class WorkflowAspect {
                 Object result=point.proceed();
                 if(name.equals("dummy.execution") && result instanceof JsonNode node) {
                     String api=node.path("apiId").asText();
-                    if(api.equals("API-ASSET-001")||api.equals("API-LOAN-APPROVE"))span.setAttribute("apiId",api);
+                    if(java.util.Set.of("API-ASSET-001","API-LOAN-APPROVE","API-RETURN-CREATE","API-RETURN-INSPECT").contains(api))span.setAttribute("apiId",api);
+                    span.setAttribute("executionId",node.path("executionId").asText()).setAttribute("allowListValidated",node.path("eligibility").path("apiAllowed").asBoolean());
+                    span.setAttribute("fixtureReady",node.path("eligibility").path("fixtureReady").asBoolean());
                     span.setAttribute("result",node.path("result").asText());span.setAttribute("mismatchCount",node.path("mismatches").size());
                     if(node.path("result").asText().equals("FAIL"))Tracing.error(span,"DUMMY_TEST_FAIL");
+                    if(node.path("result").asText().equals("ERROR"))Tracing.error(span,"DUMMY_EXECUTION_ERROR");
                 }
                 return result;
             } catch(Throwable error) {

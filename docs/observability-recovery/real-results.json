@@ -1,0 +1,21 @@
+{
+  "generation": {
+    "requirementId": "eeaccd3d-75a6-4ade-8865-971ef058534f",
+    "analysisSource": "EXISTING_GROUNDED_FIXTURE",
+    "fixtureHash": "467a80c6c67ec50cb4bde7de92a24b1e70dae49e4c817d8058ac5925d9452e0b",
+    "since": "2026-10-28T04:48:13.445298+00:00",
+    "testCases": 5,
+    "llmCalls": 1,
+    "normalId": "2072f545-82c1-4549-8ee7-2fbaff2d6d57",
+    "defectId": "b997b364-f63c-4894-b093-4cafa5a4627b",
+    "persistedCountMatches": true
+  },
+  "analysis": {
+    "requirementId": "b8267284-936f-43a5-a516-6d7d689a6d51",
+    "jobId": "63dc4444-ab3a-45b5-b4f5-652a2a7a77bc",
+    "since": "2026-10-28T04:50:15.895127+00:00",
+    "status": "SUCCEEDED",
+    "conditions": 1,
+    "evidence": 5
+  }
+}

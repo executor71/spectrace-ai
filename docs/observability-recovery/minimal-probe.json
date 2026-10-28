@@ -1,0 +1,7 @@
+{
+  "traceId": "127dbab8090a305b2d992389b402b9e0",
+  "serviceName": "spectrace-recovery-probe",
+  "spanName": "recovery.minimum",
+  "endpoint": "http://otel-collector:4318/v1/traces",
+  "sampled": true
+}

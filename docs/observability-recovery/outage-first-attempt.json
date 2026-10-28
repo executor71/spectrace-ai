@@ -1,0 +1,22 @@
+{
+  "approvalOrigin": "VALIDATION_SCRIPT_REVIEW_API",
+  "realQwenCallsAdded": 0,
+  "jobId": "63dc4444-ab3a-45b5-b4f5-652a2a7a77bc",
+  "requirementId": "b8267284-936f-43a5-a516-6d7d689a6d51",
+  "traceId": "669dae9a85fc56beda25818ed582da92",
+  "startedAt": "2026-10-28T04:50:28.479835+00:00",
+  "servicesStopped": {
+    "otel-collector": true,
+    "jaeger": true
+  },
+  "jobDuringOutage": "RUNNING",
+  "restoredAt": "2026-10-28T04:50:40.210749+00:00",
+  "totalExerciseMs": 11730.48,
+  "servicesRunning": {
+    "otel-collector": true,
+    "jaeger": true
+  },
+  "result": "HARNESS_REQUEST_REJECTED",
+  "errorCode": "EXECUTION_INPUT_NOT_ALLOWED",
+  "reason": "Execution API forbids any request body; first harness sent an empty object"
+}

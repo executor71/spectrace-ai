@@ -1,0 +1,58 @@
+{
+  "requirementId": "d8c31bd3-177e-428c-af69-fc03cee8bb4a",
+  "confirmedConditions": [
+    {
+      "text": "자산 담당자는 반납 장비의 외관과 작동 상태를 검사한다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    },
+    {
+      "text": "파손 또는 기능 이상이 있으면 검사 결과를 DAMAGED로 기록하고 자산 상태를 MAINTENANCE로 바꾼다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    },
+    {
+      "text": "사진과 파손 설명은 필수이며 정상 재고로 바로 돌릴 수 없다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    },
+    {
+      "text": "이상 없는 장비는 검사 결과 PASSED와 함께 AVAILABLE로 전환한다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    }
+  ],
+  "relatedBusinessRules": [
+    {
+      "text": "자산 담당자는 반납 장비의 외관과 작동 상태를 검사한다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    },
+    {
+      "text": "파손 또는 기능 이상이 있으면 검사 결과를 DAMAGED로 기록하고 자산 상태를 MAINTENANCE로 바꾼다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    },
+    {
+      "text": "사진과 파손 설명은 필수이며 정상 재고로 바로 돌릴 수 없다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    },
+    {
+      "text": "이상 없는 장비는 검사 결과 PASSED와 함께 AVAILABLE로 전환한다.",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    }
+  ],
+  "relatedApis": [
+    {
+      "api": "POST /returns/{returnId}/inspection",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982"
+    }
+  ],
+  "ambiguousExpressions": [],
+  "missingConditions": [],
+  "clarificationQuestions": [],
+  "evidence": [
+    {
+      "documentId": "94dcaeab-5ab5-5aff-9af6-8e78cbe0f429",
+      "chunkId": "4175e617-06be-519d-afbd-b279688fb982",
+      "documentType": "BUSINESS_RULE",
+      "section": "파손 장비의 수리 전환",
+      "contentSnippet": "자산 담당자는 반납 장비의 외관과 작동 상태를 검사한다. 파손 또는 기능 이상이 있으면 검사 결과를 DAMAGED로 기록하고 자산 상태를 MAINTENANCE로 바꾼다. 사진과 파손 설명은 필수이며 정상 재고로 바로 돌릴 수 없다. 이상 없는 장비는 검사 결과 PASSED와 함께 AVAILABLE로 전환한다.",
+      "score": 1.0
+    }
+  ]
+}

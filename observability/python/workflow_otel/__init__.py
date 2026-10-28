@@ -84,8 +84,10 @@ def span(name,values=None,context=None,kind=trace.SpanKind.INTERNAL):
         finally:
             duration=(time.perf_counter()-start)*1000
             attrs(current,{'latencyMs':duration,'durationMs':duration})
-            logging.getLogger('workflow').warning(json.dumps({'timestamp':datetime.now(timezone.utc).isoformat(),'service':service,
-                'level':'INFO',**correlation(),'event':name,'durationMs':duration}))
+            # Keep span export; use one human-readable workflow stream in demo mode.
+            if not (service=='legacy-assistant-ai' and os.getenv('WORKFLOW_SUMMARY_LOG','false').lower()=='true'):
+                logging.getLogger('workflow').warning(json.dumps({'timestamp':datetime.now(timezone.utc).isoformat(),'service':service,
+                    'level':'INFO',**correlation(),'event':name,'durationMs':duration}))
 
 def inject(headers):
     propagator.inject(headers)
@@ -113,6 +115,7 @@ class TraceMiddleware:
         finally:request_id.reset(token)
 
 def wrap(owner,method,name,before=None,after=None):
+    descriptor=inspect.getattr_static(owner,method)
     original=getattr(owner,method)
     if getattr(original,'_observed',False):return
     @functools.wraps(original)
@@ -131,7 +134,7 @@ def wrap(owner,method,name,before=None,after=None):
                 operation.reset(op)
                 if retry is not None:attempt.reset(retry)
     observed._observed=True
-    setattr(owner,method,observed)
+    setattr(owner,method,staticmethod(observed) if isinstance(descriptor,staticmethod) else observed)
 
 def httpx_propagation():
     import httpx

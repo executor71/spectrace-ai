@@ -21,9 +21,12 @@ public class AnalysisService {
         try(var lease=gate.tryAcquire()){
         if(lease==null)throw new AnalysisException(429,"ANALYSIS_BUSY","다른 분석이 진행 중입니다. Job 대기열을 이용하거나 나중에 다시 요청해 주세요.");
         JsonNode result = client.analyze(requirement);
+        com.example.legacyassistant.observability.WorkflowSummary.stage("VALIDATING_OUTPUT");
         validator.validate(id, result);
         if(!lease.valid())throw new AnalysisException(503,"JOB_WORKER_ERROR","분석 소유권이 종료되어 결과를 저장하지 않았습니다.");
+        com.example.legacyassistant.observability.WorkflowSummary.stage("SAVING_RESULT");
         repository.save(id, result);
+        com.example.legacyassistant.observability.WorkflowSummary.saved();
         return result;
         }
     }

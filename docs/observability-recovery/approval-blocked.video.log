@@ -1,0 +1,4 @@
+[13:52:16] MCP #1 Tool: START result=RUNNING traceId=0537e4ea2ab9614117fae2fa5a4f2131 toolName=execute_approved_test provider=NO_LLM_CALL callScope=GATEWAY
+[13:52:16] BE #1 Execute: START result=RUNNING traceId=0537e4ea2ab9614117fae2fa5a4f2131 provider=NO_LLM_CALL operation=EXECUTE
+[13:52:16] BE #2 Execute: FAILED result=ERROR traceId=0537e4ea2ab9614117fae2fa5a4f2131 provider=NO_LLM_CALL errorCode=NOT_APPROVED
+[13:52:16] MCP #2 Tool: FAILED result=ERROR traceId=0537e4ea2ab9614117fae2fa5a4f2131 toolName=execute_approved_test provider=NO_LLM_CALL callScope=GATEWAY errorCode=NOT_APPROVED

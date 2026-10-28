@@ -1,0 +1,8 @@
+ConnectionRefusedError: [Errno 111] Connection refused
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=1): Failed to establish a new connection: [Errno 111] Connection refused
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=1): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=1): Failed to establish a new connection: [Errno 111] Connection refused"))
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=1): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=1): Failed to establish a new connection: [Errno 111] Connection refused"))
+ConnectionRefusedError: [Errno 111] Connection refused
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=1): Failed to establish a new connection: [Errno 111] Connection refused
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=1): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=1): Failed to establish a new connection: [Errno 111] Connection refused"))
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=1): Max retries exceeded with url: /v1/traces (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=1): Failed to establish a new connection: [Errno 111] Connection refused"))

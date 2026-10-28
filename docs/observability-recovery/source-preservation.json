@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "changedPreexistingWorktreeFiles": [
+    "observability/python/workflow_otel/__init__.py"
+  ],
+  "permittedProductionAndTestChanges": [
+    "compose.phase10.yaml",
+    "observability/python/workflow_otel/__init__.py",
+    "observability/python/workflow_otel/install.py",
+    "observability/tests/test_observability.py"
+  ],
+  "otherPreexistingChangesPreserved": true,
+  "collectorConfigBytesUnchanged": true,
+  "jaegerConfigBytesUnchanged": true,
+  "businessSourcesPromptsGraphPolicyGroundTruthSchemaUnchanged": true,
+  "postgresNeo4jOllamaBackendNeverRestarted": true,
+  "gitCommit": false,
+  "gitPush": false
+}

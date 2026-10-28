@@ -1,0 +1,27 @@
+{
+  "realAnalysisRequests": 1,
+  "realGenerationRequests": 1,
+  "requirementId": "aa562e00-3148-400a-98ca-8123b08a2851",
+  "jobId": "34cb0df4-a322-435a-bd30-6c142c6d92fc",
+  "jobStatus": "SUCCEEDED",
+  "analysis": {
+    "conditions": 1,
+    "evidence": 5
+  },
+  "generation": {
+    "testCases": 0,
+    "llmCalls": 0,
+    "persistedCountMatches": true
+  },
+  "traceIds": [
+    "760b6a674f09c3c53df0c837e666ad60",
+    "871b9c7e7abe4d42d5fac2e2b336cd67"
+  ],
+  "summaryLines": 19,
+  "checks": {
+    "analysisModelStarts": 1,
+    "generationModelStarts": 0,
+    "committedResults": 2,
+    "jobCorrelation": true
+  }
+}

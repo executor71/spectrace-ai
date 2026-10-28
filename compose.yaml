@@ -26,6 +26,7 @@ services:
       - ./contracts:/contracts:ro
       - ./knowledge:/knowledge:ro
     environment:
+      WORKFLOW_SUMMARY_LOG: ${WORKFLOW_SUMMARY_LOG:-false}
       AI_SERVICE_URL: http://ai-service:8000
       ANALYSIS_TIMEOUT_SECONDS: "630"
       DB_HOST: postgres
@@ -43,6 +44,8 @@ services:
   ai-service:
     build: ./ai-service
     environment:
+      WORKFLOW_SUMMARY_LOG: ${WORKFLOW_SUMMARY_LOG:-false}
+      PYTHONUNBUFFERED: "1"
       ANALYSIS_LLM_URL: http://ollama:11434
       ANALYSIS_LLM_THINK: ${ANALYSIS_LLM_THINK:-false}
       ANALYSIS_LLM_MODEL: ${ANALYSIS_LLM_MODEL:-qwen2.5:7b-instruct}

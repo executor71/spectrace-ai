@@ -1,0 +1,14 @@
+{
+  "data": [
+    "jaeger",
+    "legacy-assistant-ai",
+    "legacy-assistant-backend",
+    "legacy-assistant-evaluation",
+    "legacy-assistant-graph",
+    "legacy-assistant-mcp"
+  ],
+  "total": 6,
+  "limit": 0,
+  "offset": 0,
+  "errors": null
+}

@@ -1,0 +1,13 @@
+{
+  "runId": "de2227d8-0950-4e74-99b2-7c52f0e913c4",
+  "requirementId": "aa562e00-3148-400a-98ca-8123b08a2851",
+  "testCases": 5,
+  "llmCalls": 1,
+  "source": "existing grounded analysis fixture (unchanged)",
+  "persisted": false,
+  "modelStarts": 1,
+  "modelCompletions": 1,
+  "traceIds": [
+    "ba434fc3601b9495752d76d1b692873c"
+  ]
+}

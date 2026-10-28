@@ -1,0 +1,87 @@
+{
+  "since": "2026-10-28T04:52:15.909048+00:00",
+  "client": "standard MCP ClientSession over Streamable HTTP",
+  "approvalOrigin": "VALIDATION_SCRIPT_REVIEW_API",
+  "realModelCalls": 0,
+  "tools": [
+    {
+      "tool": "search_knowledge",
+      "isError": false,
+      "count": 5
+    },
+    {
+      "tool": "analyze_requirement",
+      "isError": false,
+      "analysisSource": "SAVED"
+    },
+    {
+      "tool": "get_test_cases",
+      "isError": false,
+      "count": 5
+    },
+    {
+      "tool": "execute_approved_test",
+      "isError": true,
+      "errorCode": "NOT_APPROVED"
+    },
+    {
+      "tool": "execute_approved_test",
+      "isError": false,
+      "result": "PASS",
+      "executionId": "20eb8068-ba5a-4bb4-b79b-0993f2cd964e"
+    },
+    {
+      "tool": "execute_approved_test",
+      "isError": false,
+      "result": "FAIL",
+      "executionId": "d301e457-9ffa-4f16-9831-8a3994e87390"
+    }
+  ],
+  "reviews": [
+    {
+      "testCaseId": "2072f545-82c1-4549-8ee7-2fbaff2d6d57",
+      "approvalStatus": "APPROVED",
+      "revision": 8,
+      "origin": "VALIDATION_SCRIPT_REVIEW_API",
+      "fixtureProfile": "standard"
+    },
+    {
+      "testCaseId": "b997b364-f63c-4894-b093-4cafa5a4627b",
+      "approvalStatus": "APPROVED",
+      "revision": 3,
+      "origin": "VALIDATION_SCRIPT_REVIEW_API",
+      "fixtureProfile": "synthetic-self-approval-bug"
+    }
+  ],
+  "advertisedTools": [
+    "search_knowledge",
+    "analyze_requirement",
+    "get_test_cases",
+    "get_evaluation_result",
+    "execute_approved_test",
+    "find_requirement_context",
+    "find_impacted_tests",
+    "trace_test_case_origin"
+  ],
+  "normalId": {
+    "testCaseId": "2072f545-82c1-4549-8ee7-2fbaff2d6d57",
+    "executionId": "20eb8068-ba5a-4bb4-b79b-0993f2cd964e",
+    "result": "PASS",
+    "mismatches": 0,
+    "syntheticDefect": false,
+    "persistedExactMatch": true,
+    "expectedHttpStatus": 200,
+    "actualHttpStatus": 200
+  },
+  "defectId": {
+    "testCaseId": "b997b364-f63c-4894-b093-4cafa5a4627b",
+    "executionId": "d301e457-9ffa-4f16-9831-8a3994e87390",
+    "result": "FAIL",
+    "mismatches": 2,
+    "syntheticDefect": true,
+    "persistedExactMatch": true,
+    "expectedHttpStatus": 403,
+    "actualHttpStatus": 200
+  },
+  "result": "PASS"
+}

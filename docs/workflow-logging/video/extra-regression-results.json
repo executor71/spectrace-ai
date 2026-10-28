@@ -1,0 +1,39 @@
+{
+  "suites": [
+    {
+      "suite": "retrieval-metrics",
+      "exitCode": 0,
+      "tests": 13
+    },
+    {
+      "suite": "frontend-unit",
+      "exitCode": 0,
+      "tests": 5
+    },
+    {
+      "suite": "frontend-build",
+      "exitCode": 0,
+      "tests": null
+    },
+    {
+      "suite": "frozen-rag-top5-and-scores",
+      "queries": 8,
+      "exitCode": 0
+    },
+    {
+      "suite": "database-role-boundaries",
+      "exitCode": 0,
+      "appCanReadGroundTruth": false,
+      "ragCanReadGroundTruth": false,
+      "appCanRecordEvaluation": false,
+      "ragCanRecordEvaluation": false
+    },
+    {
+      "suite": "frozen-source-contracts",
+      "exitCode": 0,
+      "tests": null
+    }
+  ],
+  "rawLogs": "C:\\Users\\sjlee\\AppData\\Local\\Temp\\spectrace-workflow-extra-6_vi8fzk",
+  "realModelCalls": 0
+}

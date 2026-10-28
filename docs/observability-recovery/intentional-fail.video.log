@@ -1,0 +1,9 @@
+[13:52:16] MCP #1 Tool: START result=RUNNING traceId=554e370d399cd2e2bc3ec5f3e41dad78 toolName=execute_approved_test provider=NO_LLM_CALL callScope=GATEWAY
+[13:52:16] BE #1 Execute: START result=RUNNING traceId=554e370d399cd2e2bc3ec5f3e41dad78 provider=NO_LLM_CALL operation=EXECUTE
+[13:52:16] BE #2 Dummy: START result=RUNNING traceId=554e370d399cd2e2bc3ec5f3e41dad78 provider=NO_LLM_CALL
+[13:52:16] BE #3 Dummy: COMPLETE result=RETURNED traceId=554e370d399cd2e2bc3ec5f3e41dad78 provider=NO_LLM_CALL httpStatus=200
+[13:52:16] BE #4 Assert: START result=RUNNING traceId=554e370d399cd2e2bc3ec5f3e41dad78 provider=NO_LLM_CALL
+[13:52:16] BE #5 Assert: FAILED result=FAIL traceId=554e370d399cd2e2bc3ec5f3e41dad78 provider=NO_LLM_CALL mismatches=2
+[13:52:16] BE #6 Save: COMPLETE result=COMMITTED traceId=554e370d399cd2e2bc3ec5f3e41dad78 provider=NO_LLM_CALL persistence=COMMITTED
+[13:52:16] BE #7 Execute: COMPLETE result=FAIL traceId=554e370d399cd2e2bc3ec5f3e41dad78 provider=NO_LLM_CALL mismatches=2 synthetic=true persistence=COMMITTED
+[13:52:16] MCP #2 Tool: COMPLETE result=FAIL traceId=554e370d399cd2e2bc3ec5f3e41dad78 toolName=execute_approved_test provider=NO_LLM_CALL callScope=GATEWAY

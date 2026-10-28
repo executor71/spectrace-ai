@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "rootFailureStage": "C",
+  "rootCause": "Jaeger 2.6 Badger quadratic startup preload; issue7608",
+  "jaegerBefore": "2.6.0",
+  "jaegerAfter": "2.12.0",
+  "originalStorePreserved": true,
+  "probeTraceId": "127dbab8090a305b2d992389b402b9e0",
+  "analysisTraceId": "669dae9a85fc56beda25818ed582da92",
+  "analysisJobId": "63dc4444-ab3a-45b5-b4f5-652a2a7a77bc",
+  "generationTraceId": "a9e694e521a4f2c03250f963198cb88d",
+  "automatedTests": {
+    "python": 248,
+    "java": 166,
+    "retrievalMetricsAndFrontendUnit": 18,
+    "evaluationDatabase": 9,
+    "existingVideoProjection": 4
+  },
+  "totalMainTests": 445,
+  "additionalRepeatedPythonOutageTests": 129,
+  "actualQwenCalls": 2,
+  "actualMcpCalls": 6,
+  "normalResult": "PASS",
+  "intentionalDefectResult": "FAIL",
+  "originalStoreRestartQuery": "PASS",
+  "actualUiVerification": "PASS",
+  "liveOutageExercise": "PASS",
+  "sourcePreservation": "PASS",
+  "gitCommit": false,
+  "gitPush": false
+}

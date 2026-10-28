@@ -1,0 +1,900 @@
+{
+  "capturedAt": "2026-10-28T04:28:14.128286+00:00",
+  "containers": [
+    {
+      "name": "master-mcp-server-1",
+      "service": "mcp-server",
+      "image": "master-mcp-server",
+      "imageId": "sha256:222f999e4a2f64eb292f48bdc9a2d74ceb81789a58e71e607c3175ab3808109e",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 47323,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-28T04:23:54.730281345Z",
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-28T04:27:26.047269121Z",
+              "End": "2026-10-28T04:27:26.105634321Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:27:36.106614982Z",
+              "End": "2026-10-28T04:27:36.182950805Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:27:46.182507274Z",
+              "End": "2026-10-28T04:27:46.256029739Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:27:56.256461984Z",
+              "End": "2026-10-28T04:27:56.328007514Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:28:06.329060895Z",
+              "End": "2026-10-28T04:28:06.391903607Z",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase8.yaml,D:\\MASTER과정\\compose.phase9.yaml,D:\\MASTER과정\\compose.phase10.yaml,D:\\MASTER과정\\compose.phase11.yaml",
+      "command": [
+        "uvicorn",
+        "app.server:application",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8020",
+        "--no-access-log"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "APP_OTEL_ENABLED": "true",
+        "WORKFLOW_SUMMARY_LOG": "true"
+      },
+      "ports": {
+        "8020/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8020"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.10",
+          "Aliases": [
+            "master-mcp-server-1",
+            "mcp-server"
+          ]
+        }
+      },
+      "mounts": []
+    },
+    {
+      "name": "master-backend-1",
+      "service": "backend",
+      "image": "master-backend",
+      "imageId": "sha256:81aad85c52ff312b6faf6fcaf1101ff2065f1389d70f9fc52076ee7d9065d955",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 39763,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-28T04:16:14.783568691Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase8.yaml,D:\\MASTER과정\\compose.phase9.yaml,D:\\MASTER과정\\compose.phase10.yaml,D:\\MASTER과정\\compose.phase11.yaml",
+      "command": null,
+      "entrypoint": [
+        "java",
+        "-jar",
+        "/app/app.jar"
+      ],
+      "environment": {
+        "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT": "http://otel-collector:4318/v1/traces",
+        "WORKFLOW_SUMMARY_LOG": "true",
+        "APP_OTEL_ENABLED": "true"
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8080"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.8",
+          "Aliases": [
+            "master-backend-1",
+            "backend"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\MASTER과정\\contracts",
+          "destination": "/contracts",
+          "name": null,
+          "readWrite": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\MASTER과정\\knowledge",
+          "destination": "/knowledge",
+          "name": null,
+          "readWrite": false
+        }
+      ]
+    },
+    {
+      "name": "master-ai-service-1",
+      "service": "ai-service",
+      "image": "master-ai-service",
+      "imageId": "sha256:441129c91110a1839d1dbdcf560db3d129762e147b3fa61900a05ef7cbd137e7",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 33881,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-28T04:09:48.626690081Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase8.yaml,D:\\MASTER과정\\compose.phase9.yaml,D:\\MASTER과정\\compose.phase10.yaml,D:\\MASTER과정\\compose.phase11.yaml",
+      "command": [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "APP_OTEL_ENABLED": "true",
+        "ANALYSIS_LLM_URL": "http://ollama:11434",
+        "ANALYSIS_LLM_TIMEOUT_SECONDS": "300",
+        "ANALYSIS_LLM_MODEL": "qwen2.5:7b-instruct",
+        "WORKFLOW_SUMMARY_LOG": "true"
+      },
+      "ports": {
+        "8000/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8000"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8000"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.7",
+          "Aliases": [
+            "master-ai-service-1",
+            "ai-service"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/MASTER과정/contracts",
+          "destination": "/contracts",
+          "name": null,
+          "readWrite": false
+        },
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/MASTER과정/knowledge",
+          "destination": "/knowledge",
+          "name": null,
+          "readWrite": false
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/master_embedding-model-cache/_data",
+          "destination": "/models",
+          "name": "master_embedding-model-cache",
+          "readWrite": true
+        }
+      ]
+    },
+    {
+      "name": "master-frontend-1",
+      "service": "frontend",
+      "image": "master-frontend",
+      "imageId": "sha256:90c2c1305f3108ff2f51f463e8273bfb400fc0f1b415922f0517ad510d2a570a",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1012,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:19.507664223Z",
+        "FinishedAt": "2026-10-27T22:20:12.527069851Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase8.yaml,D:\\MASTER과정\\compose.phase9.yaml,D:\\MASTER과정\\compose.phase10.yaml,D:\\MASTER과정\\compose.phase11.yaml",
+      "command": [
+        "npm",
+        "run",
+        "dev",
+        "--",
+        "--host",
+        "0.0.0.0"
+      ],
+      "entrypoint": [
+        "docker-entrypoint.sh"
+      ],
+      "environment": {},
+      "ports": {
+        "5173/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "5173"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "5173"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.5",
+          "Aliases": [
+            "master-frontend-1",
+            "frontend"
+          ]
+        }
+      },
+      "mounts": []
+    },
+    {
+      "name": "master-graph-service-1",
+      "service": "graph-service",
+      "image": "master-graph-service",
+      "imageId": "sha256:7abe46b126554085559ce62789d08f5119044c9adddf34aecef9bd72d65b3dc8",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1610,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:20.707398409Z",
+        "FinishedAt": "2026-10-27T22:20:12.529535432Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase8.yaml,D:\\MASTER과정\\compose.phase9.yaml,D:\\MASTER과정\\compose.phase10.yaml,D:\\MASTER과정\\compose.phase11.yaml",
+      "command": [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8030",
+        "--no-access-log"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "APP_OTEL_ENABLED": "true"
+      },
+      "ports": {
+        "8030/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8030"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.11",
+          "Aliases": [
+            "master-graph-service-1",
+            "graph-service"
+          ]
+        }
+      },
+      "mounts": []
+    },
+    {
+      "name": "master-evaluation-service-1",
+      "service": "evaluation-service",
+      "image": "master-evaluation-service",
+      "imageId": "sha256:41b92b9106b974d046e8ee34ec1b8b23e51f9c0760c83cb20d372b882a03a945",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1472,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:20.238024467Z",
+        "FinishedAt": "2026-10-27T22:20:12.529550902Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase10.yaml",
+      "command": [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8090"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "APP_OTEL_ENABLED": "true"
+      },
+      "ports": {
+        "8090/tcp": [
+          {
+            "HostIp": "0.0.0.0",
+            "HostPort": "8090"
+          },
+          {
+            "HostIp": "::",
+            "HostPort": "8090"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.9",
+          "Aliases": [
+            "master-evaluation-service-1",
+            "evaluation-service"
+          ]
+        }
+      },
+      "mounts": []
+    },
+    {
+      "name": "master-neo4j-1",
+      "service": "neo4j",
+      "image": "neo4j:5.26.0-community",
+      "imageId": "sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1094,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:19.677571422Z",
+        "FinishedAt": "2026-10-27T22:20:12.5296067Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-28T04:27:26.543745814Z",
+              "End": "2026-10-28T04:27:26.57235156Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:27:36.573754755Z",
+              "End": "2026-10-28T04:27:36.61117732Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:27:46.611071221Z",
+              "End": "2026-10-28T04:27:46.639193948Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:27:56.639787405Z",
+              "End": "2026-10-28T04:27:56.667530693Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-28T04:28:06.668465819Z",
+              "End": "2026-10-28T04:28:06.696597399Z",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase11.yaml",
+      "command": [
+        "neo4j"
+      ],
+      "entrypoint": [
+        "tini",
+        "-g",
+        "--",
+        "/startup/docker-entrypoint.sh"
+      ],
+      "environment": {},
+      "ports": {
+        "7473/tcp": null,
+        "7474/tcp": null,
+        "7687/tcp": null
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.6",
+          "Aliases": [
+            "master-neo4j-1",
+            "neo4j"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/master_phase11-neo4j/_data",
+          "destination": "/data",
+          "name": "master_phase11-neo4j",
+          "readWrite": true
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/433ce917eeb2c86e3af3041ae971c1e22058d0cdc83a28c14e3d571d60224d0f/_data",
+          "destination": "/logs",
+          "name": "433ce917eeb2c86e3af3041ae971c1e22058d0cdc83a28c14e3d571d60224d0f",
+          "readWrite": true
+        }
+      ]
+    },
+    {
+      "name": "master-jaeger-1",
+      "service": "jaeger",
+      "image": "jaegertracing/jaeger:2.6.0",
+      "imageId": "sha256:9b29aad1b65cd61016428ec15f3e04d75d4969f3551977d4fbed5acc4c85ec8c",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 20803,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-28T03:56:52.858338129Z",
+        "FinishedAt": "2026-10-28T03:56:52.58051324Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase7-local.yaml,D:\\MASTER과정\\compose.phase8.yaml,D:\\MASTER과정\\compose.phase9.yaml,D:\\MASTER과정\\compose.phase10.yaml",
+      "command": [
+        "--config=/etc/jaeger/config.yaml"
+      ],
+      "entrypoint": [
+        "/cmd/jaeger/jaeger-linux"
+      ],
+      "environment": {},
+      "ports": {
+        "16686/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "16686"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.3",
+          "Aliases": [
+            "master-jaeger-1",
+            "jaeger"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/master_jaeger-data/_data",
+          "destination": "/tmp",
+          "name": "master_jaeger-data",
+          "readWrite": true
+        },
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/MASTER과정/observability/jaeger-config.yaml",
+          "destination": "/etc/jaeger/config.yaml",
+          "name": null,
+          "readWrite": false
+        }
+      ]
+    },
+    {
+      "name": "master-otel-collector-1",
+      "service": "otel-collector",
+      "image": "otel/opentelemetry-collector-contrib:0.128.0",
+      "imageId": "sha256:1ab0baba0ee3695d823c46653d8a6e8894896e668ce8bd7ebe002e948d827bc7",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1704,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:21.003873579Z",
+        "FinishedAt": "2026-10-27T22:20:12.529442983Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,D:\\MASTER과정\\compose.phase7-local.yaml,D:\\MASTER과정\\compose.phase8.yaml,D:\\MASTER과정\\compose.phase9.yaml,D:\\MASTER과정\\compose.phase10.yaml",
+      "command": [
+        "--config=/etc/otelcol/config.yaml"
+      ],
+      "entrypoint": [
+        "/otelcol-contrib"
+      ],
+      "environment": {},
+      "ports": {
+        "13133/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "13133"
+          }
+        ],
+        "4317/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "14317"
+          }
+        ],
+        "4318/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "14318"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.12",
+          "Aliases": [
+            "master-otel-collector-1",
+            "otel-collector"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\MASTER과정\\observability\\otel-collector-config.yaml",
+          "destination": "/etc/otelcol/config.yaml",
+          "name": null,
+          "readWrite": false
+        }
+      ]
+    },
+    {
+      "name": "master-retrieval-service-1",
+      "service": "retrieval-service",
+      "image": "master-retrieval-service",
+      "imageId": "sha256:2127405dd9d53e544d165d86fa36600ea4faeb578a23668f6f118a4c04907d10",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 804,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:18.908304865Z",
+        "FinishedAt": "2026-10-27T22:20:12.527069656Z"
+      },
+      "composeFiles": "C:\\Users\\sjlee\\Downloads\\08464_270_fa0d0d8d-7494-4f47-b71e-4f815e5c9308\\phase10-work\\compose.yaml,C:\\Users\\sjlee\\Downloads\\08464_270_fa0d0d8d-7494-4f47-b71e-4f815e5c9308\\phase10-work\\compose.phase7-local.yaml,C:\\Users\\sjlee\\Downloads\\08464_270_fa0d0d8d-7494-4f47-b71e-4f815e5c9308\\phase10-work\\compose.phase8.yaml,C:\\Users\\sjlee\\Downloads\\08464_270_fa0d0d8d-7494-4f47-b71e-4f815e5c9308\\phase10-work\\compose.phase9.yaml,C:\\Users\\sjlee\\Downloads\\08464_270_fa0d0d8d-7494-4f47-b71e-4f815e5c9308\\phase10-work\\compose.phase10.yaml",
+      "command": [
+        "uvicorn",
+        "retrieval.api:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8010"
+      ],
+      "entrypoint": null,
+      "environment": {
+        "APP_OTEL_ENABLED": "true"
+      },
+      "ports": {
+        "8010/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8010"
+          }
+        ]
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.2",
+          "Aliases": [
+            "master-retrieval-service-1",
+            "retrieval-service"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/master_embedding-model-cache/_data",
+          "destination": "/models",
+          "name": "master_embedding-model-cache",
+          "readWrite": true
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/master_reranker-model-cache/_data",
+          "destination": "/reranker-models",
+          "name": "master_reranker-model-cache",
+          "readWrite": true
+        }
+      ]
+    },
+    {
+      "name": "master-postgres-1",
+      "service": "postgres",
+      "image": "pgvector/pgvector:pg16",
+      "imageId": "sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1818,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:21.311886171Z",
+        "FinishedAt": "2026-10-27T22:20:12.529541765Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-28T04:27:53.717920384Z",
+              "End": "2026-10-28T04:27:53.761612495Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-28T04:27:58.762906197Z",
+              "End": "2026-10-28T04:27:58.807848486Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-28T04:28:03.808950879Z",
+              "End": "2026-10-28T04:28:03.851941594Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-28T04:28:08.853067484Z",
+              "End": "2026-10-28T04:28:08.896526678Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-10-28T04:28:13.895843637Z",
+              "End": "2026-10-28T04:28:13.939708687Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            }
+          ]
+        }
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml,C:\\Users\\sjlee\\Downloads\\08464_270_fa0d0d8d-7494-4f47-b71e-4f815e5c9308\\phase7-work\\compose.phase7-local.yaml",
+      "command": [
+        "postgres"
+      ],
+      "entrypoint": [
+        "docker-entrypoint.sh"
+      ],
+      "environment": {},
+      "ports": {
+        "5432/tcp": null
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.13",
+          "Aliases": [
+            "master-postgres-1",
+            "postgres"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/MASTER과정/docker/postgres/init",
+          "destination": "/docker-entrypoint-initdb.d",
+          "name": null,
+          "readWrite": false
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/master_postgres-data/_data",
+          "destination": "/var/lib/postgresql/data",
+          "name": "master_postgres-data",
+          "readWrite": true
+        }
+      ]
+    },
+    {
+      "name": "master-analysis-model-init-1",
+      "service": "analysis-model-init",
+      "image": "ollama/ollama:0.11.10",
+      "imageId": "sha256:a5409cb903d30f9cd67e9f430dd336ddc9274e16fd78f75b675c42065991b4fd",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:30.011463117Z",
+        "FinishedAt": "2026-10-27T22:20:31.509574074Z"
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml",
+      "command": [
+        "qwen2.5:7b-instruct"
+      ],
+      "entrypoint": [
+        "ollama",
+        "pull"
+      ],
+      "environment": {},
+      "ports": {},
+      "networks": {
+        "master_default": {
+          "IPAddress": "",
+          "Aliases": [
+            "master-analysis-model-init-1",
+            "analysis-model-init"
+          ]
+        }
+      },
+      "mounts": []
+    },
+    {
+      "name": "master-ollama-1",
+      "service": "ollama",
+      "image": "ollama/ollama:0.11.10",
+      "imageId": "sha256:a5409cb903d30f9cd67e9f430dd336ddc9274e16fd78f75b675c42065991b4fd",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 948,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-27T22:20:19.342035109Z",
+        "FinishedAt": "2026-10-27T22:20:12.529406628Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-28T04:27:32.499315355Z",
+              "End": "2026-10-28T04:27:32.534760223Z",
+              "ExitCode": 0,
+              "Output": "NAME                   ID              SIZE      MODIFIED    \nqwen2.5:7b-instruct    845dbda0ea48    4.7 GB    6 hours ago    \nqwen3:4b               359d7dd4bcda    2.5 GB    4 weeks ago    \n"
+            },
+            {
+              "Start": "2026-10-28T04:27:42.5356793Z",
+              "End": "2026-10-28T04:27:42.572675695Z",
+              "ExitCode": 0,
+              "Output": "NAME                   ID              SIZE      MODIFIED    \nqwen2.5:7b-instruct    845dbda0ea48    4.7 GB    6 hours ago    \nqwen3:4b               359d7dd4bcda    2.5 GB    4 weeks ago    \n"
+            },
+            {
+              "Start": "2026-10-28T04:27:52.571788248Z",
+              "End": "2026-10-28T04:27:52.60809098Z",
+              "ExitCode": 0,
+              "Output": "NAME                   ID              SIZE      MODIFIED    \nqwen2.5:7b-instruct    845dbda0ea48    4.7 GB    6 hours ago    \nqwen3:4b               359d7dd4bcda    2.5 GB    4 weeks ago    \n"
+            },
+            {
+              "Start": "2026-10-28T04:28:02.60916018Z",
+              "End": "2026-10-28T04:28:02.644971364Z",
+              "ExitCode": 0,
+              "Output": "NAME                   ID              SIZE      MODIFIED    \nqwen2.5:7b-instruct    845dbda0ea48    4.7 GB    6 hours ago    \nqwen3:4b               359d7dd4bcda    2.5 GB    4 weeks ago    \n"
+            },
+            {
+              "Start": "2026-10-28T04:28:12.645943442Z",
+              "End": "2026-10-28T04:28:12.681896549Z",
+              "ExitCode": 0,
+              "Output": "NAME                   ID              SIZE      MODIFIED    \nqwen2.5:7b-instruct    845dbda0ea48    4.7 GB    6 hours ago    \nqwen3:4b               359d7dd4bcda    2.5 GB    4 weeks ago    \n"
+            }
+          ]
+        }
+      },
+      "composeFiles": "D:\\MASTER과정\\compose.yaml",
+      "command": [
+        "serve"
+      ],
+      "entrypoint": [
+        "/bin/ollama"
+      ],
+      "environment": {},
+      "ports": {
+        "11434/tcp": null
+      },
+      "networks": {
+        "master_default": {
+          "IPAddress": "172.18.0.4",
+          "Aliases": [
+            "master-ollama-1",
+            "ollama"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/master_analysis-model-cache/_data",
+          "destination": "/root/.ollama",
+          "name": "master_analysis-model-cache",
+          "readWrite": true
+        }
+      ]
+    }
+  ]
+}

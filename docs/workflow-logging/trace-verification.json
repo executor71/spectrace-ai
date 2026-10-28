@@ -1,0 +1,15 @@
+{
+  "status": "DESTINATION_UNAVAILABLE",
+  "realTraceIds": [
+    "760b6a674f09c3c53df0c837e666ad60",
+    "871b9c7e7abe4d42d5fac2e2b336cd67",
+    "ba434fc3601b9495752d76d1b692873c"
+  ],
+  "crossServiceCorrelation": "PASS: same jobId/runId/traceId in AI and backend summary lines",
+  "existingObservabilityUnitTests": 9,
+  "observabilityUnitResult": "PASS (in-memory exported spans, retry/timeout/security/propagation)",
+  "jaegerQuery": "HTTP RemoteDisconnected on localhost and 127.0.0.1:16686",
+  "collectorError": "OTLP grpc jaeger:4317 connection refused; data dropped after retry limit",
+  "recoveryAttempt": "Restarted existing Jaeger once, preserved storage volume; query extension still did not open ports",
+  "limitation": "Real trace destination lookup could not be verified; trace IDs are present, not claimed as persisted in Jaeger"
+}

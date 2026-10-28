@@ -1,0 +1,38 @@
+[
+  {
+    "case": "fake-generation",
+    "expectedError": null,
+    "summaryLines": 14,
+    "realModelCalls": 0
+  },
+  {
+    "case": "policy-blocked",
+    "expectedError": null,
+    "summaryLines": 8,
+    "realModelCalls": 0
+  },
+  {
+    "case": "fake-timeout",
+    "expectedError": "LlmTimeoutError",
+    "summaryLines": 9,
+    "realModelCalls": 0
+  },
+  {
+    "case": "invalid-output",
+    "expectedError": "InvalidTestCasesError",
+    "summaryLines": 15,
+    "realModelCalls": 0
+  },
+  {
+    "case": "fake-analysis",
+    "expectedError": null,
+    "summaryLines": 13,
+    "realModelCalls": 0
+  },
+  {
+    "case": "cached-impact",
+    "expectedError": null,
+    "summaryLines": 6,
+    "realModelCalls": 0
+  }
+]

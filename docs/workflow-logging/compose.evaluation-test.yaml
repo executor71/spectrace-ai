@@ -1,0 +1,14 @@
+services:
+  backend-init:
+    image: master-backend
+    environment:
+      DB_HOST: postgres-test
+      DB_NAME: legacy_assistant_test
+      DB_APP_USER: app_user
+      DB_APP_PASSWORD: test_app_only
+      DB_MIGRATION_USER: migration_owner
+      DB_MIGRATION_PASSWORD: test_migration_only
+      ANALYSIS_JOBS_ENABLED: "false"
+    depends_on:
+      postgres-test:
+        condition: service_healthy

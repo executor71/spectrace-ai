@@ -28,7 +28,8 @@ services:
       APP_OTEL_ENABLED: "true"
       OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
   jaeger:
-    image: jaegertracing/jaeger:2.6.0
+    # v2.12.0 contains the Badger startup preload deduplication fix (issue #7608).
+    image: jaegertracing/jaeger:2.12.0
     command: ["--config=/etc/jaeger/config.yaml"]
     volumes:
       - ./observability/jaeger-config.yaml:/etc/jaeger/config.yaml:ro

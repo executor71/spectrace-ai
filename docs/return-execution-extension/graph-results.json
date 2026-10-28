@@ -1,0 +1,8 @@
+{
+  "liveReturnExecutions": 6,
+  "executionNodes": 6,
+  "EXECUTED_AS": 6,
+  "existingProjection": "PASS",
+  "neo4jScopeModified": false,
+  "limitation": "Live Neo4j scope remains the existing three requirements. New return Api canonical nodes are not added in this task."
+}

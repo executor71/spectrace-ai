@@ -1,5 +1,8 @@
 services:
   mcp-server:
+    environment:
+      WORKFLOW_SUMMARY_LOG: ${WORKFLOW_SUMMARY_LOG:-false}
+      PYTHONUNBUFFERED: "1"
     build:
       context: .
       dockerfile: mcp-server/Dockerfile

@@ -1,0 +1,21 @@
+{
+  "analysis": {
+    "requirementId": "677d8665-eec6-45e3-abda-44a7b6a16efc",
+    "jobId": "3e0a30a0-ed8c-4667-b915-4b0f978a7f3a",
+    "since": "2026-10-28T04:11:11.707737+00:00",
+    "status": "SUCCEEDED",
+    "conditions": 1,
+    "evidence": 5
+  },
+  "generation": {
+    "requirementId": "069a6263-54fa-4757-af05-ee37da81035e",
+    "analysisSource": "EXISTING_GROUNDED_FIXTURE",
+    "fixtureHash": "467a80c6c67ec50cb4bde7de92a24b1e70dae49e4c817d8058ac5925d9452e0b",
+    "since": "2026-10-28T04:13:20.565194+00:00",
+    "testCases": 5,
+    "llmCalls": 1,
+    "normalId": "d595899e-4e74-4f3f-b049-b0713a2eab66",
+    "defectId": "3f33ecf8-0cb9-4278-9621-7b865d12ca87",
+    "persistedCountMatches": true
+  }
+}

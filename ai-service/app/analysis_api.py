@@ -31,7 +31,7 @@ def analyze(request: AnalysisRequest, service=Depends(get_analysis_service)):
     except LlmUnavailableError as error:
         raise HTTPException(503, detail={'code':'ANALYSIS_MODEL_UNAVAILABLE','message':'Local analysis model is unavailable or timed out'}) from error
     except Exception as error:
-        LOG.exception('Requirement analysis failed')
+        LOG.error('Requirement analysis failed code=RAG_RETRIEVAL_ERROR')
         raise HTTPException(503, detail={'code':'RAG_RETRIEVAL_ERROR','message':'Analysis or evidence search is unavailable'}) from error
     finally:
         slot.release()

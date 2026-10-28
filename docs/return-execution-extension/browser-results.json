@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "realExecutions": 6,
+  "outcomes": {
+    "return-pass": "PASS",
+    "duplicate-pass": "PASS",
+    "authorization-pass": "PASS",
+    "return-fail": "FAIL",
+    "return-error": "ERROR",
+    "return-restored-pass": "PASS"
+  },
+  "newLlmCalls": 0,
+  "phase14Job": "55bc8437-ea22-483c-bfc1-4065fd12b806",
+  "analysisUnchanged": true,
+  "generationIdUnchanged": true,
+  "currentRevisionCounts": {
+    "total": 4,
+    "DRAFT": 0,
+    "APPROVED": 4,
+    "REJECTED": 0,
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "NOT_RUN": 1,
+    "SYNTHETIC": 1,
+    "requirements": 1,
+    "passRatio": 1.0
+  },
+  "excelOutcomes": [
+    "ERROR",
+    "FAIL",
+    "PASS"
+  ],
+  "widths": [
+    1440,
+    390
+  ]
+}

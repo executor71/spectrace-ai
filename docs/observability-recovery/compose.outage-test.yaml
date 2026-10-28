@@ -1,0 +1,6 @@
+services:
+  backend-test:
+    environment:
+      APP_OTEL_ENABLED: "true"
+      # Intentionally unreachable exporter; core unit/integration tests must pass.
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://127.0.0.1:1/v1/traces

@@ -1,0 +1,117 @@
+[
+  {
+    "testCaseId": "82f12fb5-961b-44c2-b3fb-ca4d40b26f08",
+    "templateId": "return-normal",
+    "reviewRevision": 6,
+    "approvalStatus": "APPROVED",
+    "generationExecutable": false,
+    "runtimeEligibility": {
+      "testCaseId": "82f12fb5-961b-44c2-b3fb-ca4d40b26f08",
+      "approvalStatus": "APPROVED",
+      "executable": true,
+      "fixtureReady": true,
+      "apiAllowed": true,
+      "executionEligible": true,
+      "reviewRevision": 6,
+      "assessmentVersion": "return-execution-v1",
+      "apiId": "API-RETURN-CREATE",
+      "blockedReason": null,
+      "syntheticDefect": false,
+      "executionContractVersion": "return-execution-v1",
+      "templateId": "return-normal",
+      "returnFixtureOptions": [
+        "standard",
+        "asset-admin",
+        "intentional-defect",
+        "fixture-error"
+      ]
+    },
+    "evidenceUnchanged": true,
+    "generatedContentUnchanged": true
+  },
+  {
+    "testCaseId": "e502f2c9-cfc1-48cc-83da-7d0c3ff0f5da",
+    "templateId": "return-duplicate",
+    "reviewRevision": 2,
+    "approvalStatus": "APPROVED",
+    "generationExecutable": false,
+    "runtimeEligibility": {
+      "testCaseId": "e502f2c9-cfc1-48cc-83da-7d0c3ff0f5da",
+      "approvalStatus": "APPROVED",
+      "executable": true,
+      "fixtureReady": true,
+      "apiAllowed": true,
+      "executionEligible": true,
+      "reviewRevision": 2,
+      "assessmentVersion": "return-execution-v1",
+      "apiId": "API-RETURN-CREATE",
+      "blockedReason": null,
+      "syntheticDefect": false,
+      "executionContractVersion": "return-execution-v1",
+      "templateId": "return-duplicate",
+      "returnFixtureOptions": [
+        "standard",
+        "completed-return"
+      ]
+    },
+    "evidenceUnchanged": true,
+    "generatedContentUnchanged": true
+  },
+  {
+    "testCaseId": "075b3943-f42e-47b8-8b67-a7dedb1b030c",
+    "templateId": "return-authorization",
+    "reviewRevision": 2,
+    "approvalStatus": "APPROVED",
+    "generationExecutable": false,
+    "runtimeEligibility": {
+      "testCaseId": "075b3943-f42e-47b8-8b67-a7dedb1b030c",
+      "approvalStatus": "APPROVED",
+      "executable": true,
+      "fixtureReady": true,
+      "apiAllowed": true,
+      "executionEligible": true,
+      "reviewRevision": 2,
+      "assessmentVersion": "return-execution-v1",
+      "apiId": "API-RETURN-CREATE",
+      "blockedReason": null,
+      "syntheticDefect": false,
+      "executionContractVersion": "return-execution-v1",
+      "templateId": "return-authorization",
+      "returnFixtureOptions": [
+        "standard"
+      ]
+    },
+    "evidenceUnchanged": true,
+    "generatedContentUnchanged": true
+  },
+  {
+    "testCaseId": "83a38d0b-705a-4cd3-9af8-5c7ac7d47054",
+    "templateId": "return-inspection-pending",
+    "reviewRevision": 2,
+    "approvalStatus": "APPROVED",
+    "generationExecutable": false,
+    "runtimeEligibility": {
+      "testCaseId": "83a38d0b-705a-4cd3-9af8-5c7ac7d47054",
+      "approvalStatus": "APPROVED",
+      "executable": true,
+      "fixtureReady": true,
+      "apiAllowed": true,
+      "executionEligible": true,
+      "reviewRevision": 2,
+      "assessmentVersion": "return-execution-v1",
+      "apiId": "API-RETURN-CREATE",
+      "blockedReason": null,
+      "syntheticDefect": true,
+      "executionContractVersion": "return-execution-v1",
+      "templateId": "return-inspection-pending",
+      "returnFixtureOptions": [
+        "standard",
+        "asset-admin",
+        "intentional-defect",
+        "fixture-error"
+      ]
+    },
+    "evidenceUnchanged": true,
+    "generatedContentUnchanged": true
+  }
+]

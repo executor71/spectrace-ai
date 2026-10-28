@@ -1,0 +1,84 @@
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+About Jaeger
+legacy-assistant-backend: backend.request a9e694e
+⌘
+Trace Timeline
+Trace StartOctober 28 2026, 13:48:13.708Duration1m 34sServices2Depth5Total Spans8
+0μs
+23.5s
+47s
+1m 10s
+1m 34s
+Service & Operation
+0μs
+23.5s
+47s
+1m 10s
+1m 34s
+legacy-assistant-backend backend.request
+1m 34s
+legacy-assistant-backend testcase.generate
+1m 34s
+legacy-assistant-backend backend.requirement
+352μs
+legacy-assistant-backend requirement.analysis.read
+889μs
+legacy-assistant-backend backend.requirement
+339μs
+legacy-assistant-ai http.server
+1m 34s
+legacy-assistant-ai testcase.generate
+1m 34s
+legacy-assistant-ai llm.generate
+1m 34s
+llm.generate
+Service:legacy-assistant-aiDuration:1m 34sStart Time:83.6ms
+Tags
+durationMs	
+93901.94854499714
+
+inputTokens	
+2196
+
+latencyMs	
+93901.94854499714
+
+model	
+qwen2.5:7b-instruct
+
+operation	
+testcase.generate
+
+otel.scope.name	
+legacy-workflow
+
+outputTokens	
+31
+
+provider	
+ollama
+
+requestId	
+7114348c-4a73-435b-903d-e125e89622c2
+
+retryCount	
+0
+
+span.kind	
+internal
+
+success	
+true
+
+timeout	
+300
+
+totalTokens	
+2227
+Process:deployment.environment=localservice.version=phase10telemetry.sdk.language=pythontelemetry.sdk.name=opentelemetrytelemetry.sdk.version=1.34.1
+ 506911d8e3602c29
+Copy

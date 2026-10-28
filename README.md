@@ -1,4 +1,33 @@
-# Legacy Change Assistant PoC
+# SpecTrace AI
+
+합성 IT 자산관리 도메인의 변경 요구사항을 근거 문서·업무규칙·API·테스트·실행 결과에 연결하는 로컬 AI 검증 워크스페이스입니다.
+
+## 현재 구현
+
+- Qwen2.5 7B Instruct/Ollama 기반 요구사항 분석과 Evidence 검증
+- 15개 정책에 한정한 구조화 TC 생성, 검토·승인 및 revision 기반 실행 게이트
+- 닫힌 Dummy API 실행과 Expected/Actual 비교, PASS/FAIL/ERROR 이력
+- 반납 접수·중복·권한·검사 전 상태 불변 검증 확장
+- MCP Gateway 8개 Tool, Neo4j 관계 추적·백그라운드 동기화
+- 비동기 분석 Job Queue, 고정 3노드 LangGraph 변경 영향 분석
+- 업무 대시보드·Excel·반응형 UI, Java 25 런타임
+- 고수준 Workflow 요약 로그, OpenTelemetry 및 Jaeger 2.12.0 수신 복구
+
+LangGraph는 `retrieve → diff → impact`의 고정 흐름입니다. 동적 Planning은 구현하지 않았습니다. Dummy는 합성 내부 실행이며 운영 API를 변경하지 않습니다. 생성·자동 실행의 지원 범위와 실제 모델/Fake 검증을 구분합니다.
+
+## 구현·검증 자료
+
+- [최종 제출 근거 자료집](docs/final-submission/09-evidence-index.md): Phase 0~15와 후속 개선, 소스·테스트·화면 연결
+- [정량평가와 측정 조건](docs/final-submission/06-evaluation-metrics.md)
+- [반납 실행 확장](docs/return-execution-extension/regression-results.md)
+- [Workflow 영상 로그](docs/workflow-logging/video/README.md)
+- [Jaeger 장애 복구 및 실제 Trace](docs/observability-recovery/real-workflow-trace.md)
+- [시연 로그 필터·Trace 조회](docs/observability-recovery/demo-instructions.md)
+- [한계와 추가 증빙](docs/final-submission/08-limitations-and-future-work.md)
+
+2026-10-28 보관 회귀 결과는 자동 445개 PASS이며, 장애 조건 Python 129개는 중복 재실행입니다. 근거 자료집은 당시 커밋/작업 트리 상태와 과거 측정 시점을 함께 기록합니다. 아래 초기 기록의 미구현 설명은 현재 완료 범위가 아닙니다. 실제 운영 생산성 향상률과 일반화된 정확도는 측정하지 않았습니다.
+
+## 초기 구현 기록 (Phase 0~3 당시)
 
 현재 완료 범위는 Phase 0 기동/권한 경계, Phase 1 Requirement 등록·조회, Phase 2 합성 Knowledge와 기본 Vector 검색, Phase 3 근거 기반 Requirement 분석입니다.
 

@@ -1,0 +1,41 @@
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+About Jaeger
+legacy-assistant-backend: analysis.job.execute 669dae9
+⌘
+Trace Timeline
+Trace StartOctober 28 2026, 13:50:16.471Duration1m 24sServices2Depth5Total Spans10
+0μs
+21s
+41.99s
+1m 3s
+1m 24s
+Service & Operation
+0μs
+21s
+41.99s
+1m 3s
+1m 24s
+legacy-assistant-backend analysis.job.execute
+1m 24s
+legacy-assistant-backend backend.requirement
+338μs
+legacy-assistant-ai http.server
+1m 24s
+legacy-assistant-ai requirement.analysis
+1m 24s
+legacy-assistant-ai rag.search
+155.6ms
+legacy-assistant-ai query.embedding
+146.16ms
+legacy-assistant-ai vector.search
+2.29ms
+legacy-assistant-ai llm.generate
+1m 24s
+legacy-assistant-ai analysis.validation
+125μs
+legacy-assistant-backend analysis.job.complete
+2.82ms

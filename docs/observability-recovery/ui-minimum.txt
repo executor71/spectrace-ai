@@ -1,0 +1,23 @@
+JAEGER UI
+Search
+Compare
+System Architecture
+Monitor
+About Jaeger
+spectrace-recovery-probe: recovery.minimum 127dbab
+⌘
+Trace Timeline
+Trace StartOctober 28 2026, 13:43:03.394Duration18μsServices1Depth1Total Spans1
+0μs
+4.5μs
+9μs
+13.5μs
+18μs
+Service & Operation
+0μs
+4.5μs
+9μs
+13.5μs
+18μs
+spectrace-recovery-probe recovery.minimum
+18μs

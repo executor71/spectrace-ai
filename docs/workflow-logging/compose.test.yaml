@@ -1,0 +1,13 @@
+services:
+  backend-test:
+    image: spectrace-workflow-backend-test
+    environment:
+      WORKFLOW_SUMMARY_LOG: "true"
+      ANALYSIS_JOBS_ENABLED: "false"
+    volumes:
+      - ./backend/src:/workspace/src:ro
+      - ./backend/pom.xml:/workspace/pom.xml:ro
+      - workflow-java-target:/workspace/target
+      - ${WORKFLOW_TEST_REPORTS:?Set a temporary reports directory}:/workspace/target/surefire-reports
+volumes:
+  workflow-java-target:

@@ -1,0 +1,1675 @@
+2026/10/02 17:31:59 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-02T17:31:59.149Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-02T17:31:59.149Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-02T17:31:59.150Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-02T17:31:59.152Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-02T17:31:59.152Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-02T17:31:59.152Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-02T17:31:59.152Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/02 17:31:59 INFO: All 2 tables opened in 0s
+badger 2026/10/02 17:31:59 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/02 17:31:59 INFO: Set nextTxnTs to 2322
+badger 2026/10/02 17:31:59 INFO: Deleting empty file: /tmp/jaeger/values/000001.vlog
+2026-10-02T17:31:59.170Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-02T17:31:59.170Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-02T17:31:59.170Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-02T17:32:00.760Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-02T17:32:00.761Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-02T17:32:00.761Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-02T17:32:00.761Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-02T17:32:00.761Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-02T17:32:00.761Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-02T17:32:00.761Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-02T17:32:00.761Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-02T17:32:00.761Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-02T17:32:00.764Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-02T17:32:00.764Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-02T17:32:00.764Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026/10/11 11:19:25 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-11T11:19:25.432Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-11T11:19:25.432Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-11T11:19:25.435Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.438Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-11T11:19:25.438Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-11T11:19:25.438Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.438Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.439Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.439Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/11 11:19:25 INFO: All 2 tables opened in 2ms
+badger 2026/10/11 11:19:25 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/11 11:19:25 INFO: Set nextTxnTs to 2427
+badger 2026/10/11 11:19:25 INFO: Deleting empty file: /tmp/jaeger/values/000002.vlog
+2026-10-11T11:19:25.534Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-11T11:19:25.535Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.535Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.556Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.556Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.558Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-11T11:19:25.558Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-11T11:19:25.558Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-11T11:19:25.560Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-11T11:19:25.560Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-11T11:19:25.564Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-11T11:19:25.565Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-11T11:19:25.565Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026-10-11T12:47:36.123Z	info	otelcol@v0.125.0/collector.go:358	Received signal from OS	{"signal": "terminated"}
+2026-10-11T12:47:36.126Z	info	service@v0.125.0/service.go:331	Starting shutdown...
+2026-10-11T12:47:36.134Z	info	extensions/extensions.go:69	Stopping extensions...
+2026-10-11T12:47:36.134Z	info	app/server.go:323	Closing HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-11T12:47:36.135Z	info	app/server.go:291	HTTP server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-11T12:47:36.135Z	info	app/server.go:328	Stopping gRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-11T12:47:36.136Z	info	app/server.go:306	GRPC server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-11T12:47:36.136Z	info	app/server.go:333	Server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+badger 2026/10/11 12:47:36 INFO: Lifetime L0 stalled for: 0s
+badger 2026/10/11 12:47:36 INFO: 
+Level 0 [ ]: NumTables: 04. Size: 3.7 MiB of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB
+Level 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level Done
+2026-10-11T12:47:36.329Z	info	healthcheckv2extension@v0.125.0/extension.go:138	discarding event received after shutdown	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension", "source": {}, "event": {}}
+2026-10-11T12:47:36.331Z	info	service@v0.125.0/service.go:345	Shutdown complete.
+2026/10/19 09:59:40 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-19T09:59:40.033Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-19T09:59:40.033Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-19T09:59:40.034Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.036Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-19T09:59:40.036Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-19T09:59:40.036Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.037Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.037Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.037Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/19 09:59:40 INFO: All 4 tables opened in 4ms
+badger 2026/10/19 09:59:40 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/19 09:59:40 INFO: Set nextTxnTs to 6109
+badger 2026/10/19 09:59:40 INFO: Deleting empty file: /tmp/jaeger/values/000003.vlog
+2026-10-19T09:59:40.092Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-19T09:59:40.092Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.093Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.152Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.152Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.153Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-19T09:59:40.153Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-19T09:59:40.153Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T09:59:40.154Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-19T09:59:40.154Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-19T09:59:40.158Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-19T09:59:40.158Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-19T09:59:40.158Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026-10-19T11:36:59.791Z	info	otelcol@v0.125.0/collector.go:358	Received signal from OS	{"signal": "terminated"}
+2026-10-19T11:36:59.794Z	info	service@v0.125.0/service.go:331	Starting shutdown...
+2026-10-19T11:36:59.800Z	info	extensions/extensions.go:69	Stopping extensions...
+2026-10-19T11:36:59.800Z	info	app/server.go:323	Closing HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T11:36:59.801Z	info	app/server.go:291	HTTP server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-19T11:36:59.802Z	info	app/server.go:328	Stopping gRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T11:36:59.802Z	info	app/server.go:306	GRPC server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-19T11:36:59.802Z	info	app/server.go:333	Server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+badger 2026/10/19 11:36:59 INFO: Lifetime L0 stalled for: 0s
+badger 2026/10/19 11:36:59 INFO: 
+Level 0 [ ]: NumTables: 05. Size: 4.1 MiB of 0 B. Score: 1.00->100.00 StaleData: 0 B Target FileSize: 64 MiB
+Level 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 6 [B]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level Done
+2026-10-19T11:36:59.880Z	info	healthcheckv2extension@v0.125.0/extension.go:138	discarding event received after shutdown	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension", "source": {}, "event": {}}
+2026-10-19T11:36:59.881Z	info	service@v0.125.0/service.go:345	Shutdown complete.
+2026/10/19 11:38:39 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-19T11:38:39.213Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-19T11:38:39.213Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-19T11:38:39.216Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.218Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-19T11:38:39.218Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-19T11:38:39.218Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.218Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.218Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.219Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/19 11:38:39 INFO: All 5 tables opened in 1ms
+badger 2026/10/19 11:38:39 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/19 11:38:39 INFO: Set nextTxnTs to 6664
+badger 2026/10/19 11:38:39 INFO: Deleting empty file: /tmp/jaeger/values/000004.vlog
+2026-10-19T11:38:39.257Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-19T11:38:39.257Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.257Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.970Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.970Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.971Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-19T11:38:39.972Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-19T11:38:39.972Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-19T11:38:39.972Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-19T11:38:39.972Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-19T11:38:39.978Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-19T11:38:39.978Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-19T11:38:39.978Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026/10/20 10:37:28 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-20T10:37:28.747Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-20T10:37:28.747Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-20T10:37:28.748Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:28.750Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-20T10:37:28.750Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-20T10:37:28.750Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:28.750Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/20 10:37:28 INFO: All 1 tables opened in 1ms
+badger 2026/10/20 10:37:28 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/20 10:37:28 INFO: Set nextTxnTs to 7199
+badger 2026/10/20 10:37:28 INFO: Deleting empty file: /tmp/jaeger/values/000005.vlog
+2026-10-20T10:37:28.786Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-20T10:37:28.786Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:28.786Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:28.786Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:28.787Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:29.517Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:29.517Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:29.518Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-20T10:37:29.518Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-20T10:37:29.518Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-20T10:37:29.519Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-20T10:37:29.519Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-20T10:37:29.522Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-20T10:37:29.522Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-20T10:37:29.522Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026/10/21 14:21:45 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-21T14:21:45.528Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-21T14:21:45.528Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-21T14:21:45.530Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-21T14:21:45.534Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-21T14:21:45.534Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-21T14:21:45.534Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-21T14:21:45.534Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-21T14:21:45.534Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-21T14:21:45.534Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/21 14:21:45 INFO: All 2 tables opened in 1ms
+badger 2026/10/21 14:21:45 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/21 14:21:45 INFO: Set nextTxnTs to 20267
+badger 2026/10/21 14:21:45 INFO: Deleting empty file: /tmp/jaeger/values/000006.vlog
+2026-10-21T14:21:45.909Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-21T14:21:45.909Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-21T14:21:45.909Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T14:24:31.827Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T14:24:31.827Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T14:24:31.827Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-21T14:24:31.828Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-21T14:24:31.828Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T14:24:31.828Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-21T14:24:31.828Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-21T14:24:31.830Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-21T14:24:31.830Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-21T14:24:31.830Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026-10-21T15:27:24.599Z	info	otelcol@v0.125.0/collector.go:358	Received signal from OS	{"signal": "terminated"}
+2026-10-21T15:27:24.600Z	info	service@v0.125.0/service.go:331	Starting shutdown...
+2026-10-21T15:27:24.609Z	info	extensions/extensions.go:69	Stopping extensions...
+2026-10-21T15:27:24.609Z	info	app/server.go:323	Closing HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T15:27:24.610Z	info	app/server.go:291	HTTP server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-21T15:27:24.611Z	info	app/server.go:328	Stopping gRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-21T15:27:24.611Z	info	app/server.go:306	GRPC server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-21T15:27:24.611Z	info	app/server.go:333	Server stopped	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+badger 2026/10/21 15:27:24 INFO: Lifetime L0 stalled for: 0s
+badger 2026/10/21 15:27:24 INFO: 
+Level 0 [ ]: NumTables: 03. Size: 11 MiB of 0 B. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 64 MiB
+Level 1 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 2 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 3 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 4 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 5 [ ]: NumTables: 00. Size: 0 B of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level 6 [B]: NumTables: 01. Size: 354 KiB of 10 MiB. Score: 0.00->0.00 StaleData: 0 B Target FileSize: 2.0 MiB
+Level Done
+2026-10-21T15:27:24.937Z	info	healthcheckv2extension@v0.125.0/extension.go:138	discarding event received after shutdown	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension", "source": {}, "event": {}}
+2026-10-21T15:27:24.959Z	info	service@v0.125.0/service.go:345	Shutdown complete.
+2026/10/26 11:48:15 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-26T11:48:15.569Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-26T11:48:15.570Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-26T11:48:15.572Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.574Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-26T11:48:15.574Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-26T11:48:15.574Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.574Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.575Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.575Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/26 11:48:15 INFO: All 4 tables opened in 6ms
+badger 2026/10/26 11:48:15 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/26 11:48:15 INFO: Set nextTxnTs to 27899
+badger 2026/10/26 11:48:15 INFO: Deleting empty file: /tmp/jaeger/values/000007.vlog
+2026-10-26T11:48:15.605Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-26T11:48:15.605Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.605Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.714Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.714Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.716Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-26T11:48:15.716Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-26T11:48:15.717Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T11:48:15.717Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-26T11:48:15.717Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-26T11:48:15.724Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-26T11:48:15.724Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-26T11:48:15.724Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026/10/26 22:16:36 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-26T22:16:36.947Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-26T22:16:36.948Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-26T22:16:36.949Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:36.951Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/26 22:16:37 INFO: All 4 tables opened in 4ms
+badger 2026/10/26 22:16:37 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/26 22:16:37 INFO: Set nextTxnTs to 55983
+badger 2026/10/26 22:16:37 INFO: Deleting empty file: /tmp/jaeger/values/000008.vlog
+2026-10-26T22:16:37.417Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-26T22:16:37.417Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-26T22:16:37.417Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.081Z	info	jaegerquery/server.go:144	Archive storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.081Z	info	jaegerquery/server.go:186	Metric storage not configured	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.082Z	info	app/static_handler.go:92	Using UI configuration	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "path": ""}
+2026-10-26T22:23:49.082Z	info	app/server.go:256	Query server started	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "http_addr": "[::]:16686", "grpc_addr": "[::]:16685"}
+2026-10-26T22:23:49.082Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026-10-26T22:23:49.082Z	info	app/server.go:284	Starting HTTP server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16686, "addr": ":16686"}
+2026-10-26T22:23:49.082Z	info	app/server.go:298	Starting GRPC server	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension", "port": 16685, "addr": ":16685"}
+2026-10-26T22:23:49.083Z	info	otlpreceiver@v0.125.0/otlp.go:116	Starting GRPC server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4317"}
+2026-10-26T22:23:49.083Z	info	otlpreceiver@v0.125.0/otlp.go:173	Starting HTTP server	{"otelcol.component.id": "otlp", "otelcol.component.kind": "receiver", "endpoint": "0.0.0.0:4318"}
+2026-10-26T22:23:49.084Z	info	service@v0.125.0/service.go:289	Everything is ready. Begin running and processing data.
+2026/10/27 22:19:12 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-27T22:19:12.949Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-27T22:19:12.950Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-27T22:19:12.952Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.955Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-27T22:19:12.955Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-27T22:19:12.955Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.956Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.956Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:12.956Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/27 22:19:13 INFO: All 158 tables opened in 245ms
+badger 2026/10/27 22:19:13 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/27 22:19:13 INFO: Set nextTxnTs to 1816059
+badger 2026/10/27 22:19:13 INFO: Deleting empty file: /tmp/jaeger/values/000009.vlog
+2026-10-27T22:19:13.991Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-27T22:19:13.992Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:19:13.992Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026/10/27 22:20:19 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-27T22:20:19.330Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-27T22:20:19.330Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-27T22:20:19.331Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-27T22:20:19.333Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-27T22:20:19.333Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-27T22:20:19.333Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:20:19.333Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/27 22:20:19 INFO: All 159 tables opened in 42ms
+badger 2026/10/27 22:20:19 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/27 22:20:19 INFO: Set nextTxnTs to 1816059
+badger 2026/10/27 22:20:19 INFO: Deleting empty file: /tmp/jaeger/values/000010.vlog
+2026-10-27T22:20:19.391Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-27T22:20:19.391Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-27T22:20:19.391Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+2026/10/28 03:56:53 application version: git-commit=02128431cc2566b5cc3f38b8aea88a30f182ce3d, git-version=v2.6.0, build-date=2025-05-09T19:30:14Z
+2026-10-28T03:56:53.077Z	info	service@v0.125.0/service.go:199	Setting up own telemetry...
+2026-10-28T03:56:53.079Z	info	builders/builders.go:26	Development component. May change in the future.	{"otelcol.component.id": "jaeger_storage_exporter", "otelcol.component.kind": "exporter", "otelcol.signal": "traces"}
+2026-10-28T03:56:53.082Z	info	builders/extension.go:50	Development component. May change in the future.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.085Z	info	service@v0.125.0/service.go:266	Starting jaeger...	{"Version": "v2.6.0", "NumCPU": 16}
+2026-10-28T03:56:53.085Z	info	extensions/extensions.go:41	Starting extensions...
+2026-10-28T03:56:53.086Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.086Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "healthcheckv2", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.086Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.086Z	info	jaegerstorage/extension.go:159	Initializing storage 'local_store'	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+badger 2026/10/28 03:56:53 INFO: All 159 tables opened in 133ms
+badger 2026/10/28 03:56:53 INFO: Discard stats nextEmptySlot: 0
+badger 2026/10/28 03:56:53 INFO: Set nextTxnTs to 1816059
+badger 2026/10/28 03:56:53 INFO: Deleting empty file: /tmp/jaeger/values/000011.vlog
+2026-10-28T03:56:53.314Z	info	badger/factory.go:160	Badger storage configuration	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension", "configuration": {"Dir":"/tmp/jaeger/keys","ValueDir":"/tmp/jaeger/values","SyncWrites":false,"NumVersionsToKeep":1,"ReadOnly":false,"Logger":{},"Compression":1,"InMemory":false,"MetricsEnabled":true,"NumGoroutines":8,"MemTableSize":67108864,"BaseTableSize":2097152,"BaseLevelSize":10485760,"LevelSizeMultiplier":10,"TableSizeMultiplier":2,"MaxLevels":7,"VLogPercentile":0,"ValueThreshold":1048576,"NumMemtables":5,"BlockSize":4096,"BloomFalsePositive":0.01,"BlockCacheSize":268435456,"IndexCacheSize":0,"NumLevelZeroTables":5,"NumLevelZeroTablesStall":15,"ValueLogFileSize":1073741823,"ValueLogMaxEntries":1000000,"NumCompactors":4,"CompactL0OnClose":false,"LmaxCompaction":false,"ZSTDCompressionLevel":1,"VerifyValueChecksum":false,"EncryptionKey":"","EncryptionKeyRotationDuration":864000000000000,"BypassLockGuard":false,"ChecksumVerificationMode":0,"DetectConflicts":true,"NamespaceOffset":-1,"ExternalMagicVersion":0}}
+2026-10-28T03:56:53.314Z	info	extensions/extensions.go:62	Extension started.	{"otelcol.component.id": "jaeger_storage", "otelcol.component.kind": "extension"}
+2026-10-28T03:56:53.314Z	info	extensions/extensions.go:45	Extension is starting...	{"otelcol.component.id": "jaeger_query", "otelcol.component.kind": "extension"}
+SIGQUIT: quit
+PC=0x483f81 m=0 sigcode=0
+
+goroutine 0 gp=0x484c600 m=0 mp=0x484dac0 [idle]:
+runtime.futex(0x484dc00, 0x80, 0x0, 0x0, 0x0, 0x0)
+	runtime/sys_linux_amd64.s:557 +0x21 fp=0x7ffd2e60e9f8 sp=0x7ffd2e60e9f0 pc=0x483f81
+runtime.futexsleep(0x7ffd2e60ea70?, 0x417d51?, 0x14340885f44c?)
+	runtime/os_linux.go:75 +0x30 fp=0x7ffd2e60ea48 sp=0x7ffd2e60e9f8 pc=0x43e490
+runtime.notesleep(0x484dc00)
+	runtime/lock_futex.go:47 +0x87 fp=0x7ffd2e60ea80 sp=0x7ffd2e60ea48 pc=0x417467
+runtime.mPark(...)
+	runtime/proc.go:1887
+runtime.stopm()
+	runtime/proc.go:2910 +0x8c fp=0x7ffd2e60eab0 sp=0x7ffd2e60ea80 pc=0x449b0c
+runtime.findRunnable()
+	runtime/proc.go:3647 +0xd9c fp=0x7ffd2e60ec28 sp=0x7ffd2e60eab0 pc=0x44b5dc
+runtime.schedule()
+	runtime/proc.go:4020 +0xb1 fp=0x7ffd2e60ec60 sp=0x7ffd2e60ec28 pc=0x44c6d1
+runtime.park_m(0xc000102e00)
+	runtime/proc.go:4144 +0x285 fp=0x7ffd2e60ecc0 sp=0x7ffd2e60ec60 pc=0x44cb85
+runtime.mcall()
+	runtime/asm_amd64.s:459 +0x4e fp=0x7ffd2e60ecd8 sp=0x7ffd2e60ecc0 pc=0x48028e
+
+goroutine 1 gp=0xc000002380 m=nil [runnable]:
+github.com/dgraph-io/badger/v4/table.(*MergeIterator).Value(0xc027074840?)
+	github.com/dgraph-io/badger/v4@v4.7.0/table/merge_iterator.go:183 +0xab fp=0xc00070a7a0 sp=0xc00070a798 pc=0x1ff806b
+github.com/dgraph-io/badger/v4/table.(*MergeIterator).Value(0x40?)
+	github.com/dgraph-io/badger/v4@v4.7.0/table/merge_iterator.go:184 +0x39 fp=0xc00070a818 sp=0xc00070a7a0 pc=0x1ff7ff9
+github.com/dgraph-io/badger/v4.(*Iterator).fill(0xc0270749a0, 0xc000332460)
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:697 +0x37 fp=0xc00070a900 sp=0xc00070a818 pc=0x201e0d7
+github.com/dgraph-io/badger/v4.(*Iterator).parseItem(0xc0270749a0)
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:674 +0x674 fp=0xc00070aa08 sp=0xc00070a900 pc=0x201dd94
+github.com/dgraph-io/badger/v4.(*Iterator).Next(0xc0270749a0)
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:582 +0x1b3 fp=0xc00070aa20 sp=0xc00070aa08 pc=0x201d673
+github.com/jaegertracing/jaeger/internal/storage/v1/badger/spanstore.NewTraceReader.(*TraceReader).preloadOperations.func1(0xc000460908?)
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/spanstore/reader.go:658 +0x1dd fp=0xc00070ab10 sp=0xc00070aa20 pc=0x20612fd
+github.com/dgraph-io/badger/v4.(*DB).View(0xc000460908?, 0xc00070ab88)
+	github.com/dgraph-io/badger/v4@v4.7.0/txn.go:800 +0x8f fp=0xc00070ab60 sp=0xc00070ab10 pc=0x204af6f
+github.com/jaegertracing/jaeger/internal/storage/v1/badger/spanstore.(*TraceReader).preloadOperations(...)
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/spanstore/reader.go:648
+github.com/jaegertracing/jaeger/internal/storage/v1/badger/spanstore.NewTraceReader(0xc000460908, 0xc0005f2300, 0x1)
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/spanstore/reader.go:85 +0xc5 fp=0xc00070abb8 sp=0xc00070ab60 pc=0x20610c5
+github.com/jaegertracing/jaeger/internal/storage/v1/badger.(*Factory).CreateSpanReader(0xc0006265a0)
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/factory.go:174 +0x28 fp=0xc00070abe8 sp=0xc00070abb8 pc=0x2067868
+github.com/jaegertracing/jaeger/internal/storage/v2/v1adapter.(*Factory).CreateTraceReader(0xc0002ebde0?)
+	github.com/jaegertracing/jaeger/internal/storage/v2/v1adapter/factory.go:60 +0x1b fp=0xc00070ac18 sp=0xc00070abe8 pc=0x20bd9fb
+github.com/jaegertracing/jaeger/cmd/jaeger/internal/extension/jaegerquery.(*server).Start(0xc0004e49c0, {0x2fd7068, 0x487d8e0}, {0x2fb4cc0, 0xc0003086e0})
+	github.com/jaegertracing/jaeger/cmd/jaeger/internal/extension/jaegerquery/server.go:83 +0x3e2 fp=0xc00070aeb8 sp=0xc00070ac18 pc=0x212f6a2
+go.opentelemetry.io/collector/service/extensions.(*Extensions).Start(0xc0003d2980, {0x2fd7068, 0x487d8e0}, {0x2fb4cc0, 0xc0003086e0})
+	go.opentelemetry.io/collector/service@v0.125.0/extensions/extensions.go:52 +0x2db fp=0xc00070b030 sp=0xc00070aeb8 pc=0xfac09b
+go.opentelemetry.io/collector/service.(*Service).Start(0xc0003b5900, {0x2fd7068, 0x487d8e0})
+	go.opentelemetry.io/collector/service@v0.125.0/service.go:271 +0x22c fp=0xc00070b130 sp=0xc00070b030 pc=0xfdac2c
+go.opentelemetry.io/collector/otelcol.(*Collector).setupConfigurationComponents(0xc0004071e0, {0x2fd7068, 0x487d8e0})
+	go.opentelemetry.io/collector/otelcol@v0.125.0/collector.go:242 +0xb5d fp=0xc00070b728 sp=0xc00070b130 pc=0xfdf63d
+go.opentelemetry.io/collector/otelcol.(*Collector).Run(0xc0004071e0, {0x2fd7068, 0x487d8e0})
+	go.opentelemetry.io/collector/otelcol@v0.125.0/collector.go:312 +0x55 fp=0xc00070ba70 sp=0xc00070b728 pc=0xfdffb5
+go.opentelemetry.io/collector/otelcol.NewCommand.func1(0xc00048a608, {0x2934bef?, 0x6?, 0x0?})
+	go.opentelemetry.io/collector/otelcol@v0.125.0/command.go:39 +0x94 fp=0xc00070bb88 sp=0xc00070ba70 pc=0xfe3934
+github.com/jaegertracing/jaeger/cmd/jaeger/internal.checkConfigAndRun(0xc00048a608, {0xc0003c3120, 0x0, 0x1}, 0xc00057bc48, 0xc00000e480)
+	github.com/jaegertracing/jaeger/cmd/jaeger/internal/command.go:84 +0x1e8 fp=0xc00070bc18 sp=0xc00070bb88 pc=0x2148d28
+github.com/jaegertracing/jaeger/cmd/jaeger/internal.Command.func1(0xc000026500?, {0xc0003c3120?, 0x7?, 0x2930865?})
+	github.com/jaegertracing/jaeger/cmd/jaeger/internal/command.go:59 +0x45 fp=0xc00070bc68 sp=0xc00070bc18 pc=0x2148b05
+github.com/spf13/cobra.(*Command).execute(0xc00048a608, {0xc00011a1b0, 0x1, 0x1})
+	github.com/spf13/cobra@v1.9.1/command.go:1015 +0xaaa fp=0xc00070bde8 sp=0xc00070bc68 pc=0x88382a
+github.com/spf13/cobra.(*Command).ExecuteC(0xc00048a608)
+	github.com/spf13/cobra@v1.9.1/command.go:1148 +0x46f fp=0xc00070bed8 sp=0xc00070bde8 pc=0x88416f
+github.com/spf13/cobra.(*Command).Execute(0xc0002bb200?)
+	github.com/spf13/cobra@v1.9.1/command.go:1071 +0x13 fp=0xc00070bef0 sp=0xc00070bed8 pc=0x883c53
+main.main()
+	github.com/jaegertracing/jaeger/cmd/jaeger/main.go:29 +0xb2 fp=0xc00070bf50 sp=0xc00070bef0 pc=0x214ae72
+runtime.main()
+	runtime/proc.go:283 +0x28b fp=0xc00070bfe0 sp=0xc00070bf50 pc=0x444d0b
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00070bfe8 sp=0xc00070bfe0 pc=0x482141
+
+goroutine 2 gp=0xc0000028c0 m=nil [force gc (idle), 31 minutes]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000094fa8 sp=0xc000094f88 pc=0x47a12e
+runtime.goparkunlock(...)
+	runtime/proc.go:441
+runtime.forcegchelper()
+	runtime/proc.go:348 +0xb3 fp=0xc000094fe0 sp=0xc000094fa8 pc=0x445053
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000094fe8 sp=0xc000094fe0 pc=0x482141
+created by runtime.init.7 in goroutine 1
+	runtime/proc.go:336 +0x1a
+
+goroutine 17 gp=0xc000102380 m=nil [GC sweep wait]:
+runtime.gopark(0x1?, 0x0?, 0x0?, 0x0?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000090780 sp=0xc000090760 pc=0x47a12e
+runtime.goparkunlock(...)
+	runtime/proc.go:441
+runtime.bgsweep(0xc000116000)
+	runtime/mgcsweep.go:316 +0xdf fp=0xc0000907c8 sp=0xc000090780 pc=0x42cd7f
+runtime.gcenable.gowrap1()
+	runtime/mgc.go:204 +0x25 fp=0xc0000907e0 sp=0xc0000907c8 pc=0x4211e5
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000907e8 sp=0xc0000907e0 pc=0x482141
+created by runtime.gcenable in goroutine 1
+	runtime/mgc.go:204 +0x66
+
+goroutine 18 gp=0xc000102540 m=nil [GC scavenge wait]:
+runtime.gopark(0x484bde0?, 0x2f97a28?, 0x0?, 0x0?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000090f78 sp=0xc000090f58 pc=0x47a12e
+runtime.goparkunlock(...)
+	runtime/proc.go:441
+runtime.(*scavengerState).park(0x484bde0)
+	runtime/mgcscavenge.go:425 +0x49 fp=0xc000090fa8 sp=0xc000090f78 pc=0x42a7c9
+runtime.bgscavenge(0xc000116000)
+	runtime/mgcscavenge.go:658 +0x59 fp=0xc000090fc8 sp=0xc000090fa8 pc=0x42ad59
+runtime.gcenable.gowrap2()
+	runtime/mgc.go:205 +0x25 fp=0xc000090fe0 sp=0xc000090fc8 pc=0x421185
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000090fe8 sp=0xc000090fe0 pc=0x482141
+created by runtime.gcenable in goroutine 1
+	runtime/mgc.go:205 +0xa5
+
+goroutine 19 gp=0xc000102700 m=nil [finalizer wait, 31 minutes]:
+runtime.gopark(0x4880060?, 0x490013?, 0x78?, 0x46?, 0x418d9e?)
+	runtime/proc.go:435 +0xce fp=0xc000094630 sp=0xc000094610 pc=0x47a12e
+runtime.runfinq()
+	runtime/mfinal.go:196 +0x107 fp=0xc0000947e0 sp=0xc000094630 pc=0x4201a7
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000947e8 sp=0xc0000947e0 pc=0x482141
+created by runtime.createfing in goroutine 1
+	runtime/mfinal.go:166 +0x3d
+
+goroutine 33 gp=0xc000412000 m=nil [chan receive]:
+runtime.gopark(0xc00040c0a0?, 0xc01ef06ca8?, 0x60?, 0x87?, 0x69c0e8?)
+	runtime/proc.go:435 +0xce fp=0xc000418718 sp=0xc0004186f8 pc=0x47a12e
+runtime.chanrecv(0xc00040e000, 0x0, 0x1)
+	runtime/chan.go:664 +0x445 fp=0xc000418790 sp=0xc000418718 pc=0x411d25
+runtime.chanrecv1(0x0?, 0x0?)
+	runtime/chan.go:506 +0x12 fp=0xc0004187b8 sp=0xc000418790 pc=0x4118b2
+runtime.unique_runtime_registerUniqueMapCleanup.func2(...)
+	runtime/mgc.go:1796
+runtime.unique_runtime_registerUniqueMapCleanup.gowrap1()
+	runtime/mgc.go:1799 +0x2f fp=0xc0004187e0 sp=0xc0004187b8 pc=0x42432f
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004187e8 sp=0xc0004187e0 pc=0x482141
+created by unique.runtime_registerUniqueMapCleanup in goroutine 1
+	runtime/mgc.go:1794 +0x79
+
+goroutine 34 gp=0xc000412380 m=nil [GC worker (idle), 31 minutes]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000418f38 sp=0xc000418f18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc000418fc8 sp=0xc000418f38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc000418fe0 sp=0xc000418fc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000418fe8 sp=0xc000418fe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 3 gp=0xc000003dc0 m=nil [GC worker (idle)]:
+runtime.gopark(0x1434088849fe?, 0x3?, 0x82?, 0xf5?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000095738 sp=0xc000095718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc0000957c8 sp=0xc000095738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc0000957e0 sp=0xc0000957c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000957e8 sp=0xc0000957e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 20 gp=0xc0001028c0 m=nil [GC worker (idle)]:
+runtime.gopark(0x4880060?, 0x1?, 0xba?, 0x5f?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000091738 sp=0xc000091718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc0000917c8 sp=0xc000091738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc0000917e0 sp=0xc0000917c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000917e8 sp=0xc0000917e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 35 gp=0xc000412540 m=nil [GC worker (idle)]:
+runtime.gopark(0x14340891c4b1?, 0x1?, 0x1f?, 0xfa?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000419738 sp=0xc000419718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc0004197c8 sp=0xc000419738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc0004197e0 sp=0xc0004197c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004197e8 sp=0xc0004197e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 4 gp=0xc0003b2000 m=nil [GC worker (idle)]:
+runtime.gopark(0x142fb6d64b04?, 0x3?, 0xdb?, 0xe8?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000095f38 sp=0xc000095f18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc000095fc8 sp=0xc000095f38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc000095fe0 sp=0xc000095fc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000095fe8 sp=0xc000095fe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 21 gp=0xc000102a80 m=nil [GC worker (idle)]:
+runtime.gopark(0x4880060?, 0x1?, 0x9?, 0xdd?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000091f38 sp=0xc000091f18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc000091fc8 sp=0xc000091f38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc000091fe0 sp=0xc000091fc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000091fe8 sp=0xc000091fe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 36 gp=0xc000412700 m=nil [GC worker (idle)]:
+runtime.gopark(0x143408536294?, 0x1?, 0x29?, 0x37?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000419f38 sp=0xc000419f18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc000419fc8 sp=0xc000419f38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc000419fe0 sp=0xc000419fc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000419fe8 sp=0xc000419fe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 5 gp=0xc0003b21c0 m=nil [GC worker (idle), 1 minutes]:
+runtime.gopark(0x141a134d3168?, 0x1?, 0x4f?, 0x53?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000096738 sp=0xc000096718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc0000967c8 sp=0xc000096738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc0000967e0 sp=0xc0000967c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000967e8 sp=0xc0000967e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 22 gp=0xc000102c40 m=nil [GC worker (idle)]:
+runtime.gopark(0x1434088927f3?, 0x1?, 0x91?, 0xc9?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000092738 sp=0xc000092718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc0000927c8 sp=0xc000092738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc0000927e0 sp=0xc0000927c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000927e8 sp=0xc0000927e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 23 gp=0xc000102e00 m=nil [GC worker (idle)]:
+runtime.gopark(0x1434088a7253?, 0x1?, 0xce?, 0x2e?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000092f38 sp=0xc000092f18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc000092fc8 sp=0xc000092f38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc000092fe0 sp=0xc000092fc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000092fe8 sp=0xc000092fe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 6 gp=0xc0003b2380 m=nil [GC worker (idle)]:
+runtime.gopark(0x14340852e4fb?, 0x3?, 0x8d?, 0x5?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000096f38 sp=0xc000096f18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc000096fc8 sp=0xc000096f38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc000096fe0 sp=0xc000096fc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000096fe8 sp=0xc000096fe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 37 gp=0xc0004128c0 m=nil [GC worker (idle)]:
+runtime.gopark(0x1434088ad74d?, 0x1?, 0x21?, 0x79?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc00041a738 sp=0xc00041a718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc00041a7c8 sp=0xc00041a738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc00041a7e0 sp=0xc00041a7c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00041a7e8 sp=0xc00041a7e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 24 gp=0xc000102fc0 m=nil [GC worker (idle)]:
+runtime.gopark(0x14340852e4f8?, 0x3?, 0x8f?, 0x8a?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000093738 sp=0xc000093718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc0000937c8 sp=0xc000093738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc0000937e0 sp=0xc0000937c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000937e8 sp=0xc0000937e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 7 gp=0xc0003b2540 m=nil [GC worker (idle)]:
+runtime.gopark(0x4880060?, 0x1?, 0x92?, 0xf8?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000097738 sp=0xc000097718 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc0000977c8 sp=0xc000097738 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc0000977e0 sp=0xc0000977c8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0000977e8 sp=0xc0000977e0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 38 gp=0xc000412a80 m=nil [GC worker (idle)]:
+runtime.gopark(0x143408884981?, 0x1?, 0xb3?, 0x9b?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc00041af38 sp=0xc00041af18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc00041afc8 sp=0xc00041af38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc00041afe0 sp=0xc00041afc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00041afe8 sp=0xc00041afe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 25 gp=0xc000103180 m=nil [GC worker (idle)]:
+runtime.gopark(0x14340852e2ed?, 0x3?, 0x3a?, 0x48?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc000093f38 sp=0xc000093f18 pc=0x47a12e
+runtime.gcBgMarkWorker(0xc00040e540)
+	runtime/mgc.go:1423 +0xe9 fp=0xc000093fc8 sp=0xc000093f38 pc=0x423649
+runtime.gcBgMarkStartWorkers.gowrap1()
+	runtime/mgc.go:1339 +0x25 fp=0xc000093fe0 sp=0xc000093fc8 pc=0x423525
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000093fe8 sp=0xc000093fe0 pc=0x482141
+created by runtime.gcBgMarkStartWorkers in goroutine 1
+	runtime/mgc.go:1339 +0x105
+
+goroutine 12 gp=0xc000103a40 m=nil [IO wait, 31 minutes]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc0004c2be0 sp=0xc0004c2bc0 pc=0x47a12e
+runtime.netpollblock(0x477ad3?, 0x40ffe6?, 0x0?)
+	runtime/netpoll.go:575 +0xf7 fp=0xc0004c2c18 sp=0xc0004c2be0 pc=0x43d777
+internal/poll.runtime_pollWait(0x736119468ed8, 0x72)
+	runtime/netpoll.go:351 +0x85 fp=0xc0004c2c38 sp=0xc0004c2c18 pc=0x479345
+internal/poll.(*pollDesc).wait(0xc0003d2800?, 0x380016?, 0x0)
+	internal/poll/fd_poll_runtime.go:84 +0x27 fp=0xc0004c2c60 sp=0xc0004c2c38 pc=0x4fb567
+internal/poll.(*pollDesc).waitRead(...)
+	internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0xc0003d2800)
+	internal/poll/fd_unix.go:620 +0x295 fp=0xc0004c2d08 sp=0xc0004c2c60 pc=0x500935
+net.(*netFD).accept(0xc0003d2800)
+	net/fd_unix.go:172 +0x29 fp=0xc0004c2dc0 sp=0xc0004c2d08 pc=0x6b6c29
+net.(*TCPListener).accept(0xc0004b4f00)
+	net/tcpsock_posix.go:159 +0x1b fp=0xc0004c2e10 sp=0xc0004c2dc0 pc=0x6cee1b
+net.(*TCPListener).Accept(0xc0004b4f00)
+	net/tcpsock.go:380 +0x30 fp=0xc0004c2e40 sp=0xc0004c2e10 pc=0x6ce010
+net/http.(*onceCloseListener).Accept(0x2fd7068?)
+	<autogenerated>:1 +0x24 fp=0xc0004c2e58 sp=0xc0004c2e40 pc=0x81b2e4
+net/http.(*Server).Serve(0xc0003b7400, {0x2fcf600, 0xc0004b4f00})
+	net/http/server.go:3424 +0x30c fp=0xc0004c2f88 sp=0xc0004c2e58 pc=0x7f132c
+go.opentelemetry.io/contrib/otelconf/v0%2e3%2e0.prometheusReader.func1()
+	go.opentelemetry.io/contrib/otelconf@v0.15.0/v0.3.0/metric.go:373 +0x25 fp=0xc0004c2fe0 sp=0xc0004c2f88 pc=0xd2b185
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004c2fe8 sp=0xc0004c2fe0 pc=0x482141
+created by go.opentelemetry.io/contrib/otelconf/v0%2e3%2e0.prometheusReader in goroutine 1
+	go.opentelemetry.io/contrib/otelconf@v0.15.0/v0.3.0/metric.go:372 +0x73f
+
+goroutine 13 gp=0xc0003b3340 m=nil [select, 31 minutes]:
+runtime.gopark(0xc0004c6f70?, 0x3?, 0x0?, 0xe0?, 0xc0004c6f12?)
+	runtime/proc.go:435 +0xce fp=0xc0004c6d88 sp=0xc0004c6d68 pc=0x47a12e
+runtime.selectgo(0xc0004c6f70, 0xc0004c6f0c, 0xc0002e3ec0?, 0x0, 0x22bc020?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004c6ec0 sp=0xc0004c6d88 pc=0x4574f7
+github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension.(*healthCheckExtension).eventLoop(0xc000446160, {0x2fd7068, 0x487d8e0})
+	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension@v0.125.0/extension.go:178 +0x125 fp=0xc0004c6fb8 sp=0xc0004c6ec0 pc=0x13b6c25
+github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension.newExtension.gowrap1()
+	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension@v0.125.0/extension.go:91 +0x28 fp=0xc0004c6fe0 sp=0xc0004c6fb8 pc=0x13b5a68
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004c6fe8 sp=0xc0004c6fe0 pc=0x482141
+created by github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension.newExtension in goroutine 1
+	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension@v0.125.0/extension.go:91 +0x795
+
+goroutine 14 gp=0xc0003b36c0 m=nil [IO wait]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	runtime/proc.go:435 +0xce fp=0xc0004dfba0 sp=0xc0004dfb80 pc=0x47a12e
+runtime.netpollblock(0xc0004dfbf0?, 0x40ffe6?, 0x0?)
+	runtime/netpoll.go:575 +0xf7 fp=0xc0004dfbd8 sp=0xc0004dfba0 pc=0x43d777
+internal/poll.runtime_pollWait(0x736119468dc0, 0x72)
+	runtime/netpoll.go:351 +0x85 fp=0xc0004dfbf8 sp=0xc0004dfbd8 pc=0x479345
+internal/poll.(*pollDesc).wait(0xc000612180?, 0x900418d9e?, 0x0)
+	internal/poll/fd_poll_runtime.go:84 +0x27 fp=0xc0004dfc20 sp=0xc0004dfbf8 pc=0x4fb567
+internal/poll.(*pollDesc).waitRead(...)
+	internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0xc000612180)
+	internal/poll/fd_unix.go:620 +0x295 fp=0xc0004dfcc8 sp=0xc0004dfc20 pc=0x500935
+net.(*netFD).accept(0xc000612180)
+	net/fd_unix.go:172 +0x29 fp=0xc0004dfd80 sp=0xc0004dfcc8 pc=0x6b6c29
+net.(*TCPListener).accept(0xc0004b5e40)
+	net/tcpsock_posix.go:159 +0x1b fp=0xc0004dfdd0 sp=0xc0004dfd80 pc=0x6cee1b
+net.(*TCPListener).Accept(0xc0004b5e40)
+	net/tcpsock.go:380 +0x30 fp=0xc0004dfe00 sp=0xc0004dfdd0 pc=0x6ce010
+net/http.(*onceCloseListener).Accept(0xc000626fc0?)
+	<autogenerated>:1 +0x24 fp=0xc0004dfe18 sp=0xc0004dfe00 pc=0x81b2e4
+net/http.(*Server).Serve(0xc0003b6500, {0x2fcf600, 0xc0004b5e40})
+	net/http/server.go:3424 +0x30c fp=0xc0004dff48 sp=0xc0004dfe18 pc=0x7f132c
+github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension/internal/http.(*Server).Start.func1()
+	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension@v0.125.0/internal/http/server.go:103 +0x88 fp=0xc0004dffe0 sp=0xc0004dff48 pc=0x13b4568
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004dffe8 sp=0xc0004dffe0 pc=0x482141
+created by github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension/internal/http.(*Server).Start in goroutine 1
+	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension@v0.125.0/internal/http/server.go:100 +0x371
+
+goroutine 15 gp=0xc0003b3880 m=nil [select]:
+runtime.gopark(0xc0004c3db0?, 0x2?, 0xfb?, 0xb5?, 0xc0004c3cc4?)
+	runtime/proc.go:435 +0xce fp=0xc0004c3b40 sp=0xc0004c3b20 pc=0x47a12e
+runtime.selectgo(0xc0004c3db0, 0xc0004c3cc0, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004c3c78 sp=0xc0004c3b40 pc=0x4574f7
+github.com/dgraph-io/badger/v4/y.(*WaterMark).process(0xc0005f2cf0, 0xc0005f2cc0)
+	github.com/dgraph-io/badger/v4@v4.7.0/y/watermark.go:203 +0x267 fp=0xc0004c3fc0 sp=0xc0004c3c78 pc=0x1fe5a87
+github.com/dgraph-io/badger/v4/y.(*WaterMark).Init.gowrap1()
+	github.com/dgraph-io/badger/v4@v4.7.0/y/watermark.go:61 +0x25 fp=0xc0004c3fe0 sp=0xc0004c3fc0 pc=0x1fe5425
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004c3fe8 sp=0xc0004c3fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4/y.(*WaterMark).Init in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/y/watermark.go:61 +0xa7
+
+goroutine 16 gp=0xc0003b3a40 m=nil [select, 31 minutes]:
+runtime.gopark(0xc0004c7db0?, 0x2?, 0x0?, 0x0?, 0xc0004c7cc4?)
+	runtime/proc.go:435 +0xce fp=0xc0004c7b40 sp=0xc0004c7b20 pc=0x47a12e
+runtime.selectgo(0xc0004c7db0, 0xc0004c7cc0, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004c7c78 sp=0xc0004c7b40 pc=0x4574f7
+github.com/dgraph-io/badger/v4/y.(*WaterMark).process(0xc0005f2d20, 0xc0005f2cc0)
+	github.com/dgraph-io/badger/v4@v4.7.0/y/watermark.go:203 +0x267 fp=0xc0004c7fc0 sp=0xc0004c7c78 pc=0x1fe5a87
+github.com/dgraph-io/badger/v4/y.(*WaterMark).Init.gowrap1()
+	github.com/dgraph-io/badger/v4@v4.7.0/y/watermark.go:61 +0x25 fp=0xc0004c7fe0 sp=0xc0004c7fc0 pc=0x1fe5425
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004c7fe8 sp=0xc0004c7fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4/y.(*WaterMark).Init in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/y/watermark.go:61 +0xa7
+
+goroutine 65 gp=0xc0003b3c00 m=nil [select]:
+runtime.gopark(0xc000417f60?, 0x2?, 0xc0?, 0x95?, 0xc000417f3c?)
+	runtime/proc.go:435 +0xce fp=0xc000417dc8 sp=0xc000417da8 pc=0x47a12e
+runtime.selectgo(0xc000417f60, 0xc000417f38, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc000417f00 sp=0xc000417dc8 pc=0x4574f7
+github.com/dgraph-io/ristretto/v2/z.(*AllocatorPool).freeupAllocators(0xc000530bb8)
+	github.com/dgraph-io/ristretto/v2@v2.2.0/z/allocator.go:372 +0x113 fp=0xc000417fc8 sp=0xc000417f00 pc=0x1fd93d3
+github.com/dgraph-io/ristretto/v2/z.NewAllocatorPool.gowrap1()
+	github.com/dgraph-io/ristretto/v2@v2.2.0/z/allocator.go:311 +0x25 fp=0xc000417fe0 sp=0xc000417fc8 pc=0x1fd9005
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000417fe8 sp=0xc000417fe0 pc=0x482141
+created by github.com/dgraph-io/ristretto/v2/z.NewAllocatorPool in goroutine 1
+	github.com/dgraph-io/ristretto/v2@v2.2.0/z/allocator.go:311 +0xb9
+
+goroutine 66 gp=0xc0003b3dc0 m=nil [select]:
+runtime.gopark(0xc00041b778?, 0x2?, 0x90?, 0xb6?, 0xc00041b754?)
+	runtime/proc.go:435 +0xce fp=0xc00041b5e8 sp=0xc00041b5c8 pc=0x47a12e
+runtime.selectgo(0xc00041b778, 0xc00041b750, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc00041b720 sp=0xc00041b5e8 pc=0x4574f7
+github.com/dgraph-io/ristretto/v2.(*defaultPolicy[...]).processItems(0x0)
+	github.com/dgraph-io/ristretto/v2@v2.2.0/policy.go:61 +0x7f fp=0xc00041b7c0 sp=0xc00041b720 pc=0x1fff07f
+github.com/dgraph-io/ristretto/v2.newDefaultPolicy[...].gowrap1()
+	github.com/dgraph-io/ristretto/v2@v2.2.0/policy.go:45 +0x25 fp=0xc00041b7e0 sp=0xc00041b7c0 pc=0x2055ee5
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00041b7e8 sp=0xc00041b7e0 pc=0x482141
+created by github.com/dgraph-io/ristretto/v2.newDefaultPolicy[...] in goroutine 1
+	github.com/dgraph-io/ristretto/v2@v2.2.0/policy.go:45 +0x187
+
+goroutine 67 gp=0xc000103880 m=nil [select]:
+runtime.gopark(0xc0004c4f18?, 0x3?, 0xd0?, 0x31?, 0xc0004c4eba?)
+	runtime/proc.go:435 +0xce fp=0xc0004c4d48 sp=0xc0004c4d28 pc=0x47a12e
+runtime.selectgo(0xc0004c4f18, 0xc0004c4eb4, 0x4044f71a90f67206?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004c4e80 sp=0xc0004c4d48 pc=0x4574f7
+github.com/dgraph-io/ristretto/v2.(*Cache[...]).processItems(0x3012000)
+	github.com/dgraph-io/ristretto/v2@v2.2.0/cache.go:522 +0x131 fp=0xc0004c4fc0 sp=0xc0004c4e80 pc=0x1ffbe11
+github.com/dgraph-io/ristretto/v2.NewCache[...].gowrap1()
+	github.com/dgraph-io/ristretto/v2@v2.2.0/cache.go:263 +0x25 fp=0xc0004c4fe0 sp=0xc0004c4fc0 pc=0x2056da5
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004c4fe8 sp=0xc0004c4fe0 pc=0x482141
+created by github.com/dgraph-io/ristretto/v2.NewCache[...] in goroutine 1
+	github.com/dgraph-io/ristretto/v2@v2.2.0/cache.go:263 +0x5d3
+
+goroutine 68 gp=0xc000103c00 m=nil [select]:
+runtime.gopark(0xc0004c5f48?, 0x2?, 0x50?, 0x0?, 0xc0004c5f34?)
+	runtime/proc.go:435 +0xce fp=0xc0004c5dc0 sp=0xc0004c5da0 pc=0x47a12e
+runtime.selectgo(0xc0004c5f48, 0xc0004c5f30, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004c5ef8 sp=0xc0004c5dc0 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*DB).monitorCache(0xc000460908, 0xc0004c0570)
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:461 +0x15d fp=0xc0004c5fc0 sp=0xc0004c5ef8 pc=0x200d9bd
+github.com/dgraph-io/badger/v4.Open.gowrap1()
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:303 +0x25 fp=0xc0004c5fe0 sp=0xc0004c5fc0 pc=0x200d245
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004c5fe8 sp=0xc0004c5fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.Open in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:303 +0xc2d
+
+goroutine 69 gp=0xc000103dc0 m=nil [select]:
+runtime.gopark(0xc0004d8f60?, 0x2?, 0x3c?, 0x0?, 0xc0004d8f4c?)
+	runtime/proc.go:435 +0xce fp=0xc0004d8dd8 sp=0xc0004d8db8 pc=0x47a12e
+runtime.selectgo(0xc0004d8f60, 0xc0004d8f48, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004d8f10 sp=0xc0004d8dd8 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*DB).updateSize(0xc000460908, 0xc0004c06f0)
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:1193 +0x13e fp=0xc0004d8fc0 sp=0xc0004d8f10 pc=0x201223e
+github.com/dgraph-io/badger/v4.Open.gowrap2()
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:323 +0x25 fp=0xc0004d8fe0 sp=0xc0004d8fc0 pc=0x200d1e5
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004d8fe8 sp=0xc0004d8fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.Open in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:323 +0xe36
+
+goroutine 210 gp=0xc0004121c0 m=nil [select]:
+runtime.gopark(0xc0005a6eb8?, 0x2?, 0xa0?, 0xa8?, 0xc0005a6dec?)
+	runtime/proc.go:435 +0xce fp=0xc0005a6c30 sp=0xc0005a6c10 pc=0x47a12e
+runtime.selectgo(0xc0005a6eb8, 0xc0005a6de8, 0xc0004665b0?, 0x0, 0xc00003aea0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0005a6d68 sp=0xc0005a6c30 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*levelsController).runCompactor(0xc0003c47e0, 0x0, 0xc0005f2060)
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:507 +0x2ba fp=0xc0005a6fb8 sp=0xc0005a6d68 pc=0x2026b3a
+github.com/dgraph-io/badger/v4.(*levelsController).startCompact.gowrap1()
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x28 fp=0xc0005a6fe0 sp=0xc0005a6fb8 pc=0x2026428
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005a6fe8 sp=0xc0005a6fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*levelsController).startCompact in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x58
+
+goroutine 211 gp=0xc000582380 m=nil [select]:
+runtime.gopark(0xc0005a5eb8?, 0x2?, 0xc0?, 0x95?, 0xc0005a5dec?)
+	runtime/proc.go:435 +0xce fp=0xc0005a5c30 sp=0xc0005a5c10 pc=0x47a12e
+runtime.selectgo(0xc0005a5eb8, 0xc0005a5de8, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0005a5d68 sp=0xc0005a5c30 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*levelsController).runCompactor(0xc0003c47e0, 0x1, 0xc0005f2060)
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:507 +0x2ba fp=0xc0005a5fb8 sp=0xc0005a5d68 pc=0x2026b3a
+github.com/dgraph-io/badger/v4.(*levelsController).startCompact.gowrap1()
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x28 fp=0xc0005a5fe0 sp=0xc0005a5fb8 pc=0x2026428
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005a5fe8 sp=0xc0005a5fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*levelsController).startCompact in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x58
+
+goroutine 212 gp=0xc000582540 m=nil [select]:
+runtime.gopark(0xc0005a1eb8?, 0x2?, 0x78?, 0x9a?, 0xc0005a1dec?)
+	runtime/proc.go:435 +0xce fp=0xc0005a1c30 sp=0xc0005a1c10 pc=0x47a12e
+runtime.selectgo(0xc0005a1eb8, 0xc0005a1de8, 0xc0003c4620?, 0x0, 0xc0003c4850?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0005a1d68 sp=0xc0005a1c30 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*levelsController).runCompactor(0xc0003c47e0, 0x2, 0xc0005f2060)
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:507 +0x2ba fp=0xc0005a1fb8 sp=0xc0005a1d68 pc=0x2026b3a
+github.com/dgraph-io/badger/v4.(*levelsController).startCompact.gowrap1()
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x28 fp=0xc0005a1fe0 sp=0xc0005a1fb8 pc=0x2026428
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005a1fe8 sp=0xc0005a1fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*levelsController).startCompact in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x58
+
+goroutine 213 gp=0xc000582700 m=nil [select]:
+runtime.gopark(0xc0004daeb8?, 0x2?, 0x58?, 0xad?, 0xc0004dadec?)
+	runtime/proc.go:435 +0xce fp=0xc0004dac30 sp=0xc0004dac10 pc=0x47a12e
+runtime.selectgo(0xc0004daeb8, 0xc0004dade8, 0x2?, 0x0, 0x302c298?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004dad68 sp=0xc0004dac30 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*levelsController).runCompactor(0xc0003c47e0, 0x3, 0xc0005f2060)
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:507 +0x2ba fp=0xc0004dafb8 sp=0xc0004dad68 pc=0x2026b3a
+github.com/dgraph-io/badger/v4.(*levelsController).startCompact.gowrap1()
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x28 fp=0xc0004dafe0 sp=0xc0004dafb8 pc=0x2026428
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004dafe8 sp=0xc0004dafe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*levelsController).startCompact in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/levels.go:348 +0x58
+
+goroutine 214 gp=0xc0005828c0 m=nil [chan receive, 31 minutes]:
+runtime.gopark(0xffffffffffffffff?, 0x0?, 0x0?, 0x0?, 0x21f3227?)
+	runtime/proc.go:435 +0xce fp=0xc000597680 sp=0xc000597660 pc=0x47a12e
+runtime.chanrecv(0xc0001d8690, 0xc000597780, 0x1)
+	runtime/chan.go:664 +0x445 fp=0xc0005976f8 sp=0xc000597680 pc=0x411d25
+runtime.chanrecv2(0x5?, 0x0?)
+	runtime/chan.go:511 +0x12 fp=0xc000597720 sp=0xc0005976f8 pc=0x4118d2
+github.com/dgraph-io/badger/v4.(*DB).flushMemtable(0xc000460908, 0x0?)
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:1100 +0x7d fp=0xc0005977c0 sp=0xc000597720 pc=0x201199d
+github.com/dgraph-io/badger/v4.Open.func5()
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:349 +0x1e fp=0xc0005977e0 sp=0xc0005977c0 pc=0x200d19e
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005977e8 sp=0xc0005977e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.Open in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:348 +0x107d
+
+goroutine 215 gp=0xc000582a80 m=nil [select, 31 minutes]:
+runtime.gopark(0xc000597f58?, 0x3?, 0x0?, 0x0?, 0xc000597f32?)
+	runtime/proc.go:435 +0xce fp=0xc000597dc0 sp=0xc000597da0 pc=0x47a12e
+runtime.selectgo(0xc000597f58, 0xc000597f2c, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc000597ef8 sp=0xc000597dc0 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*vlogThreshold).listenForValueThresholdUpdate(0xc000441b00)
+	github.com/dgraph-io/badger/v4@v4.7.0/value.go:1166 +0x105 fp=0xc000597fc8 sp=0xc000597ef8 pc=0x2052085
+github.com/dgraph-io/badger/v4.Open.gowrap3()
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:372 +0x25 fp=0xc000597fe0 sp=0xc000597fc8 pc=0x200d145
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000597fe8 sp=0xc000597fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.Open in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:372 +0x1672
+
+goroutine 216 gp=0xc000582c40 m=nil [select, 31 minutes]:
+runtime.gopark(0xc000598770?, 0x2?, 0xea?, 0x63?, 0xc0005986ec?)
+	runtime/proc.go:435 +0xce fp=0xc000598560 sp=0xc000598540 pc=0x47a12e
+runtime.selectgo(0xc000598770, 0xc0005986e8, 0x10?, 0x0, 0xc00041dda0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc000598698 sp=0xc000598560 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*DB).doWrites(0xc000460908, 0xc0005f21e0)
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:928 +0x226 fp=0xc0005987c0 sp=0xc000598698 pc=0x2010426
+github.com/dgraph-io/badger/v4.Open.gowrap4()
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:379 +0x25 fp=0xc0005987e0 sp=0xc0005987c0 pc=0x200d0e5
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005987e8 sp=0xc0005987e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.Open in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:379 +0x17c9
+
+goroutine 217 gp=0xc000582e00 m=nil [chan receive, 31 minutes]:
+runtime.gopark(0x5?, 0x2457940?, 0x0?, 0x0?, 0xc000598f70?)
+	runtime/proc.go:435 +0xce fp=0xc000598ee0 sp=0xc000598ec0 pc=0x47a12e
+runtime.chanrecv(0xc00011ee70, 0x0, 0x1)
+	runtime/chan.go:664 +0x445 fp=0xc000598f58 sp=0xc000598ee0 pc=0x411d25
+runtime.chanrecv1(0xc00041f770?, 0x0?)
+	runtime/chan.go:506 +0x12 fp=0xc000598f80 sp=0xc000598f58 pc=0x4118b2
+github.com/dgraph-io/badger/v4.(*valueLog).waitOnGC(0xc000460b18, 0x0?)
+	github.com/dgraph-io/badger/v4@v4.7.0/value.go:1069 +0x6c fp=0xc000598fc0 sp=0xc000598f80 pc=0x205188c
+github.com/dgraph-io/badger/v4.Open.gowrap5()
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:383 +0x25 fp=0xc000598fe0 sp=0xc000598fc0 pc=0x200d085
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000598fe8 sp=0xc000598fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.Open in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:383 +0x1893
+
+goroutine 218 gp=0xc000582fc0 m=nil [select, 31 minutes]:
+runtime.gopark(0xc000599740?, 0x2?, 0xc0?, 0x94?, 0xc000599714?)
+	runtime/proc.go:435 +0xce fp=0xc0005995a0 sp=0xc000599580 pc=0x47a12e
+runtime.selectgo(0xc000599740, 0xc000599710, 0x2dc48c8?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0005996d8 sp=0xc0005995a0 pc=0x4574f7
+github.com/dgraph-io/badger/v4.(*publisher).listenForUpdates(0xc0005f2de0, 0xc0005f2240)
+	github.com/dgraph-io/badger/v4@v4.7.0/publisher.go:62 +0x125 fp=0xc0005997c0 sp=0xc0005996d8 pc=0x203d985
+github.com/dgraph-io/badger/v4.Open.gowrap6()
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:387 +0x25 fp=0xc0005997e0 sp=0xc0005997c0 pc=0x200d025
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005997e8 sp=0xc0005997e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.Open in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/db.go:387 +0x193f
+
+goroutine 219 gp=0xc000583340 m=nil [select, 1 minutes]:
+runtime.gopark(0xc0004def68?, 0x2?, 0x68?, 0xee?, 0xc0004deeb4?)
+	runtime/proc.go:435 +0xce fp=0xc0004ded40 sp=0xc0004ded20 pc=0x47a12e
+runtime.selectgo(0xc0004def68, 0xc0004deeb0, 0x2fb1420?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004dee78 sp=0xc0004ded40 pc=0x4574f7
+github.com/jaegertracing/jaeger/internal/storage/v1/badger.(*Factory).maintenance(0xc0006265a0)
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/factory.go:223 +0x13e fp=0xc0004defc8 sp=0xc0004dee78 pc=0x2067c7e
+github.com/jaegertracing/jaeger/internal/storage/v1/badger.(*Factory).Initialize.gowrap1()
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/factory.go:157 +0x25 fp=0xc0004defe0 sp=0xc0004defc8 pc=0x2067785
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004defe8 sp=0xc0004defe0 pc=0x482141
+created by github.com/jaegertracing/jaeger/internal/storage/v1/badger.(*Factory).Initialize in goroutine 1
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/factory.go:157 +0x527
+
+goroutine 220 gp=0xc000583500 m=nil [select]:
+runtime.gopark(0xc0004ddf70?, 0x2?, 0x90?, 0xde?, 0xc0004ddf64?)
+	runtime/proc.go:435 +0xce fp=0xc0004dddf0 sp=0xc0004dddd0 pc=0x47a12e
+runtime.selectgo(0xc0004ddf70, 0xc0004ddf60, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004ddf28 sp=0xc0004dddf0 pc=0x4574f7
+github.com/jaegertracing/jaeger/internal/storage/v1/badger.(*Factory).metricsCopier(0xc0006265a0)
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/factory.go:249 +0xdc fp=0xc0004ddfc8 sp=0xc0004ddf28 pc=0x206809c
+github.com/jaegertracing/jaeger/internal/storage/v1/badger.(*Factory).Initialize.gowrap2()
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/factory.go:158 +0x25 fp=0xc0004ddfe0 sp=0xc0004ddfc8 pc=0x2067725
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004ddfe8 sp=0xc0004ddfe0 pc=0x482141
+created by github.com/jaegertracing/jaeger/internal/storage/v1/badger.(*Factory).Initialize in goroutine 1
+	github.com/jaegertracing/jaeger/internal/storage/v1/badger/factory.go:158 +0x569
+
+goroutine 221 gp=0xc0005836c0 m=nil [select, 31 minutes]:
+runtime.gopark(0xc00081cf60?, 0x2?, 0x0?, 0x0?, 0xc00081cf24?)
+	runtime/proc.go:435 +0xce fp=0xc00081cdb0 sp=0xc00081cd90 pc=0x47a12e
+runtime.selectgo(0xc00081cf60, 0xc00081cf20, 0x0?, 0x0, 0x2fb1280?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc00081cee8 sp=0xc00081cdb0 pc=0x4574f7
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc0003c2dc0, {0x2fd7180, 0xc00041f900})
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:88 +0x10c fp=0xc00081cfb8 sp=0xc00081cee8 pc=0xa0750c
+google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer.gowrap1()
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:52 +0x28 fp=0xc00081cfe0 sp=0xc00081cfb8 pc=0xa072e8
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00081cfe8 sp=0xc00081cfe0 pc=0x482141
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 1
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 222 gp=0xc000583880 m=nil [select, 31 minutes]:
+runtime.gopark(0xc00081d760?, 0x2?, 0x0?, 0x0?, 0xc00081d724?)
+	runtime/proc.go:435 +0xce fp=0xc00081d5b0 sp=0xc00081d590 pc=0x47a12e
+runtime.selectgo(0xc00081d760, 0xc00081d720, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc00081d6e8 sp=0xc00081d5b0 pc=0x4574f7
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc0003c2e10, {0x2fd7180, 0xc00041f9a0})
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:88 +0x10c fp=0xc00081d7b8 sp=0xc00081d6e8 pc=0xa0750c
+google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer.gowrap1()
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:52 +0x28 fp=0xc00081d7e0 sp=0xc00081d7b8 pc=0xa072e8
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00081d7e8 sp=0xc00081d7e0 pc=0x482141
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 1
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 223 gp=0xc000583a40 m=nil [select, 31 minutes]:
+runtime.gopark(0xc00081df60?, 0x2?, 0x0?, 0x0?, 0xc00081df24?)
+	runtime/proc.go:435 +0xce fp=0xc00081ddb0 sp=0xc00081dd90 pc=0x47a12e
+runtime.selectgo(0xc00081df60, 0xc00081df20, 0x0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc00081dee8 sp=0xc00081ddb0 pc=0x4574f7
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc0003c2e40, {0x2fd7180, 0xc00041f9f0})
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:88 +0x10c fp=0xc00081dfb8 sp=0xc00081dee8 pc=0xa0750c
+google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer.gowrap1()
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:52 +0x28 fp=0xc00081dfe0 sp=0xc00081dfb8 pc=0xa072e8
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00081dfe8 sp=0xc00081dfe0 pc=0x482141
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 1
+	google.golang.org/grpc@v1.72.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 224 gp=0xc000583c00 m=nil [select]:
+runtime.gopark(0xc0004dbf30?, 0x3?, 0xe0?, 0xe1?, 0xc0004dbef2?)
+	runtime/proc.go:435 +0xce fp=0xc0004dbd70 sp=0xc0004dbd50 pc=0x47a12e
+runtime.selectgo(0xc0004dbf30, 0xc0004dbeec, 0xc0003ee1e0?, 0x0, 0x0?, 0x1)
+	runtime/select.go:351 +0x837 fp=0xc0004dbea8 sp=0xc0004dbd70 pc=0x4574f7
+go.opentelemetry.io/otel/sdk/trace.(*batchSpanProcessor).processQueue(0xc0003b4780)
+	go.opentelemetry.io/otel/sdk@v1.35.0/trace/batch_span_processor.go:301 +0x114 fp=0xc0004dbfa0 sp=0xc0004dbea8 pc=0x94bef4
+go.opentelemetry.io/otel/sdk/trace.NewBatchSpanProcessor.func1()
+	go.opentelemetry.io/otel/sdk@v1.35.0/trace/batch_span_processor.go:117 +0x4e fp=0xc0004dbfe0 sp=0xc0004dbfa0 pc=0x94b14e
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004dbfe8 sp=0xc0004dbfe0 pc=0x482141
+created by go.opentelemetry.io/otel/sdk/trace.NewBatchSpanProcessor in goroutine 1
+	go.opentelemetry.io/otel/sdk@v1.35.0/trace/batch_span_processor.go:115 +0x2d9
+
+goroutine 4595676964 gp=0xc000583dc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdb97e0 sp=0xc01cdb97d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdb97e8 sp=0xc01cdb97e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676958 gp=0xc000003c00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc017c857e0 sp=0xc017c857d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc017c857e8 sp=0xc017c857e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676978 gp=0xc00086a000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b5277e0 sp=0xc00b5277d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b5277e8 sp=0xc00b5277e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677007 gp=0xc00086a8c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b52c7e0 sp=0xc00b52c7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b52c7e8 sp=0xc00b52c7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676994 gp=0xc00086b880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc029095fe0 sp=0xc029095fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc029095fe8 sp=0xc029095fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676975 gp=0xc000870540 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc003fc7fe0 sp=0xc003fc7fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc003fc7fe8 sp=0xc003fc7fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676966 gp=0xc000872000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc0005797e0 sp=0xc0005797d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005797e8 sp=0xc0005797e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676976 gp=0xc000873c00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc000576fe0 sp=0xc000576fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000576fe8 sp=0xc000576fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677005 gp=0xc000878700 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00059bfe0 sp=0xc00059bfd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00059bfe8 sp=0xc00059bfe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677015 gp=0xc00b450540 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4357e0 sp=0xc00b4357d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4357e8 sp=0xc00b4357e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676963 gp=0xc00b450a80 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01ce0f7e0 sp=0xc01ce0f7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01ce0f7e8 sp=0xc01ce0f7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676979 gp=0xc00b4641c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4677e0 sp=0xc00b4677d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4677e8 sp=0xc00b4677e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677025 gp=0xc00b46e1c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b462fe0 sp=0xc00b462fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b462fe8 sp=0xc00b462fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676991 gp=0xc00b478000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01f0cefe0 sp=0xc01f0cefd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01f0cefe8 sp=0xc01f0cefe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676968 gp=0xc00b478e00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b46bfe0 sp=0xc00b46bfd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b46bfe8 sp=0xc00b46bfe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676986 gp=0xc00b4796c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b8fb7e0 sp=0xc00b8fb7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b8fb7e8 sp=0xc00b8fb7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677014 gp=0xc00b479880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc001949fe0 sp=0xc001949fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc001949fe8 sp=0xc001949fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676995 gp=0xc00b47efc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdcc7e0 sp=0xc01cdcc7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdcc7e8 sp=0xc01cdcc7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676961 gp=0xc00b492000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc000856fe0 sp=0xc000856fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000856fe8 sp=0xc000856fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676965 gp=0xc00b492540 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc003f187e0 sp=0xc003f187d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc003f187e8 sp=0xc003f187e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677016 gp=0xc00b493880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc0169dafe0 sp=0xc0169dafd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0169dafe8 sp=0xc0169dafe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677004 gp=0xc00b4a6e00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b52bfe0 sp=0xc00b52bfd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b52bfe8 sp=0xc00b52bfe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676960 gp=0xc00b4bcfc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4347e0 sp=0xc00b4347d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4347e8 sp=0xc00b4347e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676985 gp=0xc00b501340 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdaf7e0 sp=0xc01cdaf7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdaf7e8 sp=0xc01cdaf7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677000 gp=0xc00b501880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc0169de7e0 sp=0xc0169de7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0169de7e8 sp=0xc0169de7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676993 gp=0xc00b50c000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01f19c7e0 sp=0xc01f19c7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01f19c7e8 sp=0xc01f19c7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677021 gp=0xc00b50cfc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00cc47fe0 sp=0xc00cc47fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00cc47fe8 sp=0xc00cc47fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676974 gp=0xc00b50d180 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01f28bfe0 sp=0xc01f28bfd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01f28bfe8 sp=0xc01f28bfe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676951 gp=0xc00b52ea80 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc0004177e0 sp=0xc0004177d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0004177e8 sp=0xc0004177e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676988 gp=0xc00b981880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cd157e0 sp=0xc01cd157d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cd157e8 sp=0xc01cd157e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677010 gp=0xc00b98a1c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01ce16fe0 sp=0xc01ce16fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01ce16fe8 sp=0xc01ce16fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676967 gp=0xc00b5a6700 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00cc48fe0 sp=0xc00cc48fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00cc48fe8 sp=0xc00cc48fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676962 gp=0xc00b5a7c00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cd8b7e0 sp=0xc01cd8b7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cd8b7e8 sp=0xc01cd8b7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676953 gp=0xc000503dc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc003fc67e0 sp=0xc003fc67d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc003fc67e8 sp=0xc003fc67e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676977 gp=0xc00b4bdc00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b5787e0 sp=0xc00b5787d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b5787e8 sp=0xc00b5787e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676956 gp=0xc00ba10fc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4337e0 sp=0xc00b4337d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4337e8 sp=0xc00b4337e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676971 gp=0xc00ba116c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cd897e0 sp=0xc01cd897d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cd897e8 sp=0xc01cd897e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676984 gp=0xc00ba11880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc001086fe0 sp=0xc001086fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc001086fe8 sp=0xc001086fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677020 gp=0xc00ba11dc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc000416fe0 sp=0xc000416fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc000416fe8 sp=0xc000416fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676970 gp=0xc00b98b180 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01f312fe0 sp=0xc01f312fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01f312fe8 sp=0xc01f312fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677009 gp=0xc00c582c40 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01f3177e0 sp=0xc01f3177d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01f3177e8 sp=0xc01f3177e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677001 gp=0xc00c583c00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdb5fe0 sp=0xc01cdb5fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdb5fe8 sp=0xc01cdb5fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676983 gp=0xc000ee4700 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4c27e0 sp=0xc00b4c27d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4c27e8 sp=0xc00b4c27e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676959 gp=0xc000ee4e00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdd1fe0 sp=0xc01cdd1fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdd1fe8 sp=0xc01cdd1fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676957 gp=0xc000ee5180 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b8fa7e0 sp=0xc00b8fa7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b8fa7e8 sp=0xc00b8fa7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677024 gp=0xc01cd8ee00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b576fe0 sp=0xc00b576fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b576fe8 sp=0xc00b576fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676969 gp=0xc01cd8efc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc001c0dfe0 sp=0xc001c0dfd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc001c0dfe8 sp=0xc001c0dfe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676980 gp=0xc01cd98a80 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc001c0a7e0 sp=0xc001c0a7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc001c0a7e8 sp=0xc001c0a7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677012 gp=0xc01cd99340 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b528fe0 sp=0xc00b528fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b528fe8 sp=0xc00b528fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676972 gp=0xc01ce06000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc02051efe0 sp=0xc02051efd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc02051efe8 sp=0xc02051efe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676955 gp=0xc01ce06e00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cf92fe0 sp=0xc01cf92fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cf92fe8 sp=0xc01cf92fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676950 gp=0xc01ce07500 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4537e0 sp=0xc00b4537d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4537e8 sp=0xc00b4537e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677026 gp=0xc01ce07c00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cd197e0 sp=0xc01cd197d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cd197e8 sp=0xc01cd197e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676952 gp=0xc01cdac1c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b8e57e0 sp=0xc00b8e57d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b8e57e8 sp=0xc00b8e57e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676981 gp=0xc01cdc0fc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01f3117e0 sp=0xc01f3117d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01f3117e8 sp=0xc01f3117e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676997 gp=0xc01cdc1c00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b57a7e0 sp=0xc00b57a7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b57a7e8 sp=0xc00b57a7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676954 gp=0xc01cdcb500 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01f19ffe0 sp=0xc01f19ffd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01f19ffe8 sp=0xc01f19ffe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676989 gp=0xc01cdcb880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b8f97e0 sp=0xc00b8f97d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b8f97e8 sp=0xc00b8f97e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676949 gp=0xc01cdd8fc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b578fe0 sp=0xc00b578fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b578fe8 sp=0xc00b578fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677018 gp=0xc01cf80000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4c5fe0 sp=0xc00b4c5fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4c5fe8 sp=0xc00b4c5fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677017 gp=0xc01cf808c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cd96fe0 sp=0xc01cd96fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cd96fe8 sp=0xc01cd96fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677013 gp=0xc01cf80c40 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b4307e0 sp=0xc00b4307d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b4307e8 sp=0xc00b4307e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676990 gp=0xc01cf90380 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b485fe0 sp=0xc00b485fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b485fe8 sp=0xc00b485fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676999 gp=0xc01cf91a40 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b42ffe0 sp=0xc00b42ffd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b42ffe8 sp=0xc00b42ffe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677011 gp=0xc01cfaa1c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b474fe0 sp=0xc00b474fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b474fe8 sp=0xc00b474fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676992 gp=0xc01cd0fc00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00cc467e0 sp=0xc00cc467d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00cc467e8 sp=0xc00cc467e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677023 gp=0xc01cd0fdc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b461fe0 sp=0xc00b461fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b461fe8 sp=0xc00b461fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676996 gp=0xc01ce19340 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdaa7e0 sp=0xc01cdaa7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdaa7e8 sp=0xc01cdaa7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677022 gp=0xc013000c40 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b8fe7e0 sp=0xc00b8fe7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b8fe7e8 sp=0xc00b8fe7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677002 gp=0xc000ee56c0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc0005777e0 sp=0xc0005777d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0005777e8 sp=0xc0005777e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676982 gp=0xc00133c000 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cd90fe0 sp=0xc01cd90fd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cd90fe8 sp=0xc01cd90fe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677019 gp=0xc001d4bdc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc00b45c7e0 sp=0xc00b45c7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc00b45c7e8 sp=0xc00b45c7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677003 gp=0xc00cef2fc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc003fc97e0 sp=0xc003fc97d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc003fc97e8 sp=0xc003fc97e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676998 gp=0xc01f4c4e00 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdc47e0 sp=0xc01cdc47d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdc47e8 sp=0xc01cdc47e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595677008 gp=0xc010d0cfc0 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc0169dffe0 sp=0xc0169dffd8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc0169dffe8 sp=0xc0169dffe0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+goroutine 4595676973 gp=0xc010a9d880 m=nil [runnable]:
+github.com/dgraph-io/badger/v4.(*Iterator).fill.func1()
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 fp=0xc01cdbe7e0 sp=0xc01cdbe7d8 pc=0x201e3e0
+runtime.goexit({})
+	runtime/asm_amd64.s:1700 +0x1 fp=0xc01cdbe7e8 sp=0xc01cdbe7e0 pc=0x482141
+created by github.com/dgraph-io/badger/v4.(*Iterator).fill in goroutine 1
+	github.com/dgraph-io/badger/v4@v4.7.0/iterator.go:709 +0x307
+
+rax    0xca
+rbx    0x0
+rcx    0x483f83
+rdx    0x0
+rdi    0x484dc00
+rsi    0x80
+rbp    0x7ffd2e60ea38
+rsp    0x7ffd2e60e9f0
+r8     0x0
+r9     0x0
+r10    0x0
+r11    0x286
+r12    0x7ffd2e60ea38
+r13    0x0
+r14    0x484c600
+r15    0xb
+rip    0x483f81
+rflags 0x286
+cs     0x33
+fs     0x0
+gs     0x0

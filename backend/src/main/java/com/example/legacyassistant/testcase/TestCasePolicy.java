@@ -122,6 +122,12 @@ public class TestCasePolicy {
         gates.put("expectedResultCheckable",checkable);
         return gates;
     }
+    public String verifiedPlan(JsonNode tc,JsonNode source) {
+        JsonNode original=tc.has("generatedContent")?tc.path("generatedContent"):tc;
+        ObjectNode body=original.deepCopy();body.remove("testCaseId");
+        for(var entry:candidates(UUID.fromString(original.path("requirementId").asText()),source).entrySet())if(entry.getValue().equals(body))return entry.getKey();
+        return null;
+    }
     public List<String> clarification(JsonNode analysis, Map<String,ObjectNode> candidates) {
         var pending=pending(analysis);
         if(pending.isEmpty() && candidates.isEmpty()) {
